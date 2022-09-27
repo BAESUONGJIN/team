@@ -390,10 +390,10 @@ footer{
     <a style="color: red;"> BEST ITEM </a> &nbsp;
     <a style="font-weight: bolder;"> NEW5% </a> &nbsp;
     <a href="../product/pro_list?dcode=p01"> OUTER </a> &nbsp;
-    <a> TOP </a> &nbsp;
+    <a href="../product/pro_list?dcode=p02"> TOP </a> &nbsp;
     <a href="../product/pro_list?dcode=p03"> BOTTOM </a> &nbsp;
-    <a> SKIRT </a> &nbsp;
-    <a> DRESS </a> &nbsp;
+    <a href="../product/pro_list?dcode=p04"> SKIRT </a> &nbsp;
+    <a href="../product/pro_list?dcode=p05"> DRESS </a> &nbsp;
    <span id="my2" style="display:inline-block; "> 
      <a href="../" style="text-decoration: none; color: black; font-weight: bolder"> COMMUNITY ∨ </a>&nbsp;
         <ul id="myinfo2">
