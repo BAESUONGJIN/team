@@ -8,7 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-
 div{
 margin-left: 20px;
 }
@@ -70,7 +69,6 @@ border: 1px solid red;
 		 <c:if test="${startpage ==1 }"> <!-- 첫번째 그룹일때 (1~10)는 이전 10페이지 이동 불가  -->
 		   ◁◁
 		 </c:if>
-		 
 		 <!-- 1페이지 단위로 이전으로 가기 -->
 		 <c:if test="${page != 1 }"> <!-- 현재페이지가 1이 아닌경우 -->
 		   <a href="pro_list?dcode=${dcode}&page=${page-1}&pcnt=${pcnt}">◁</a>

@@ -18,10 +18,6 @@
        height:50px;
        margin:auto;
        background-color: rgba(164, 48, 35, 0.1);
-       /* position:fixed; 
-       top: 0;
-       left: 0;
-       right: 0; */ /* 상단 고정 */
                    
     }
     
@@ -38,8 +34,6 @@
      bottom:94%; /* 위치 지정 */
      overflow:hidden; 
      font-size: 12px;
-     position: fix
-    
    }
    header #inner {
      padding-left:0px;
@@ -65,12 +59,11 @@
        bottom: 95%; /* 위치 지정 */
        right: 4%;
        z-index: 3;
-             
     }
     
     header a {
        text-decoration: none;
-       color: rgb(60, 60, 60);
+       color: rgb(60, 60, 60);/* 주석 */
        
     }
     
@@ -115,10 +108,6 @@
      transition-duration:0.4s;
      transition-timing-function:ease;
      z-index: 2; /* 상위로 올리기 */
-/*        top: 0;
-  left: 0;
-  right: 0; */ /* 상단 고정 */
-     
      
      /*position: fixed; 스크롤 고정 */
     }
@@ -129,12 +118,17 @@
     }
     
     #navi { /* 네비바  */
-       margin-left: 120px;
+       margin-left: 140px;
        position:absolute;
        top:50px;
        color: black;
        font-size: 13px;
        /*position: fixed;  고정 */
+    }
+    
+    #navi a { /* 네비 바 a 태그 제거 */
+      text-decoration: none;
+      color: black;
     }
     
         #myinfo2 {
@@ -190,11 +184,6 @@
        transform : translateY(-100%);
     }*/
     
-footer{
-  width:100%;
-  height: 200px;
-  background-color:aqua;
-}
    
     /* 말풍선 */
     .wrap {
@@ -223,7 +212,7 @@ footer{
        width:100%;
        height:200px;
        border: 1px solid rgb(240, 240, 240);
-       background:rgba(164, 48, 35, 0.1);
+       background:white;
        margin-top: 10px;
     }
 
@@ -294,25 +283,6 @@ footer{
         }
       })
     })
-    
-    /* 상단 고정  */
-/*      $(function() {
-	  var second = $("#second").offset().top;
-	             /* id이름 */
-	 
-	  $(window).scroll(function() {
-	   
-	    var window = $(this).scrollTop();
-	    
-	    if(second  <= window) {
-	      $("#second").addClass("fixed");
-	        /* id */
-	    }else{
-	      $("#second").removeClass("fixed");
-	      /* id */
-	    }
-	  })
-	}); */
    
   </script>
      
@@ -333,7 +303,7 @@ footer{
                 
      <div id="right"> <!-- 우측 로그인 폼  -->
        <c:if test="${userid==null }">
-        <a href="../member/memberinput"> JOIN US </a> &nbsp;<!-- 회원가입 --> </c:if>
+        <a href="../member/memberinput"> JOIN US </a> &nbsp;<!-- 회원가입 --> </c:if> <!-- 흠 -->
        <c:if test="${userid !=null }">
        &nbsp;
        </c:if>
@@ -345,26 +315,19 @@ footer{
         </c:if>
         
         <a href="../"> CART &nbsp;</a>
-        <a href="../"> NOTICE &nbsp;</a>
+        <a href="../gongji/list"> NOTICE &nbsp;</a>
         <span id="my" style="display:inline-block"> <a href="../"> MY PAGE ∨</a>
         <ul id="myinfo">
-          <c:if test="${userid == null }"> 
-          <li> <a href="../login/login"> 회원정보 수정</a> </li>
+          <c:if test="${userid == null }"> <li> <a href="../login/login"> 회원정보 수정</a> </li>
           </c:if>
           <c:if test="${userid !=null }">
-       <span id=mine"> </span>
           <li> <a href="../mypage/myinfo_change"> 회원정보 수정 </a></li>
           </c:if>
           <li> 주문 조회</li>
           <li> 적립금 조회</li>
           <li> 나의 글 확인</li>
           <li> <a href="../"> 관심 상품 </a></li>
-          <c:if test="${userid ==null}">
-          <li> <a href="../login/login"> 마이 페이지 </a></li>
-          </c:if>
-          <c:if test="${userid !=null }">
-          <li> <a href="../mypage/myinfo"> 마이페이지 </a></li>
-          </c:if>
+          <li> <a href="../"> 마이 페이지 </a></li>
         </ul>
        </span>
     </div>

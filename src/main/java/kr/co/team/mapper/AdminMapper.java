@@ -1,0 +1,43 @@
+package kr.co.team.mapper;
+
+import java.util.ArrayList;
+
+import kr.co.team.vo.AdminVO;
+import kr.co.team.vo.DaeVO;
+import kr.co.team.vo.FaqVO;
+import kr.co.team.vo.MemberVO;
+import kr.co.team.vo.ProductVO;
+
+public interface AdminMapper {
+	
+	//gongji흠
+	public void write_ok(AdminVO avo);
+	public ArrayList<AdminVO> list(int start);
+	public int gongji_getChong();
+	public void readnum(String id);
+	public AdminVO content(String id);
+	public void update_ok(AdminVO avo);
+	public void delete(String id);
+	
+	//faq
+	public void faq_write_ok(FaqVO fvo);
+	public ArrayList<FaqVO> faq_list(int start);
+	public int faq_getChong();
+	public ArrayList<FaqVO> faq_list_etc(int gubun, int start);
+	public int faq_etc_getChong(int gubun);
+	public void faq_delete(String id);
+	public FaqVO faq_update(String id);
+	public void faq_update_ok(FaqVO fvo);
+	
+	//회원정보
+	public ArrayList<MemberVO> mem_list(int start);
+	public int mem_getChong(); //총페이지 구하기
+	public MemberVO mem_content(String userid);
+	
+	//상품리스트
+	public ArrayList<ProductVO> pro_list();
+	public ProductVO pro_content(String id);
+	public void pro_delete(String id);
+	public ArrayList<DaeVO> pro_cat();
+	public void pro_update(ProductVO pvo);
+}

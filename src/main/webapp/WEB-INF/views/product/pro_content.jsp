@@ -120,6 +120,7 @@ function check()
 		</select>
 					<div id="gumae">
 						<span>사이즈</<span>
+						<span>사이즈</<span>
 						<span>색 상</<span>
 						<span>금 액</<span>
 						<c:if test="${pvo.halin != 0}">   <!-- 할인 있는 경우 추가 -->
@@ -146,7 +147,6 @@ function check()
 						<span>상품평</span>					
 						<span>배송/교환/반품 안내</span>					
 					</div>
-					
 				<div><img src="../resources/img/${pvo.cimg}" width="1000" height="1200"></div>  <!-- 상세페이지 이미지 -->
 				<c:forEach items="${rlist}" var="rvo">
 				<div id="pro_review_list"> <!-- 상품평 -->
