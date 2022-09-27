@@ -39,6 +39,6 @@
 	<beans:bean name="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 	    <beans:constructor-arg ref="sqlSessionFactory"></beans:constructor-arg>
 	</beans:bean>
-		<mybatis-spring:scan base-package="kr.co.team"/> <!-- 추가 -->
+		<mybatis-spring:scan base-package="kr.co.team"/> <!-- 추가흠 -->
 		
 </beans:beans>

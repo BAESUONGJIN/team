@@ -333,7 +333,7 @@ footer{
                 
      <div id="right"> <!-- 우측 로그인 폼  -->
        <c:if test="${userid==null }">
-        <a href="../member/memberinput"> JOIN US </a> &nbsp;<!-- 회원가입 --> </c:if>
+        <a href="../member/memberinput"> JOIN US </a> &nbsp;<!-- 회원가입 --> </c:if> <!-- 흠 -->
        <c:if test="${userid !=null }">
        &nbsp;
        </c:if>

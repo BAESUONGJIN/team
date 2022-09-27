@@ -26,7 +26,7 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired
 	private AdminMapper mapper;
 	
-	//gongji
+	//gongji흠
 	@Override
 	public String write_ok(AdminVO avo) {
 		mapper.write_ok(avo);

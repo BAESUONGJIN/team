@@ -12,7 +12,7 @@ import kr.co.team.vo.ProductVO;
 
 public interface AdminService {
 	
-	//gongji
+	//gongji흠
 	public String write_ok(AdminVO avo);
 	public String list(HttpServletRequest request, Model model);
 	public String readnum(HttpServletRequest request);

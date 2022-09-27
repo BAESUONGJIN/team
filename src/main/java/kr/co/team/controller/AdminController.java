@@ -152,5 +152,6 @@ public class AdminController {
 	public String pro_update(HttpServletRequest request)
 	{
 		return service.pro_update(request);
+		//왜
 	}
 }

@@ -10,7 +10,7 @@ import kr.co.team.vo.ProductVO;
 
 public interface AdminMapper {
 	
-	//gongji
+	//gongji흠
 	public void write_ok(AdminVO avo);
 	public ArrayList<AdminVO> list(int start);
 	public int gongji_getChong();

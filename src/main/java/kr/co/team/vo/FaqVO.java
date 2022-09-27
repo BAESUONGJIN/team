@@ -1,6 +1,6 @@
 package kr.co.team.vo;
 
-public class FaqVO {
+public class FaqVO { //흠
 	private int id, gubun;
 	private String question,ask,userid;
 	public String getUserid() {
