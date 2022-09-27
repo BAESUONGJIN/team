@@ -64,7 +64,8 @@
     
     header a {
        text-decoration: none;
-       color: rgb(60, 60, 60);
+       color: rgb(60, 60, 60);/* 주석 */
+       
     }
     
      header a:hover {
