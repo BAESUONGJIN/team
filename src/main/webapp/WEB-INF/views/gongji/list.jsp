@@ -89,11 +89,13 @@
 		</c:if>
 		
 		</td>
+		
 	<c:if test="${userid == 'admin123'}">
 	<tr>
 		<td colspan="4"> <input type="button" value="글작성" onclick="location='write'"> </td>
 	</tr>
 	</c:if>
+	
 	</table>
 </section>
 </body>

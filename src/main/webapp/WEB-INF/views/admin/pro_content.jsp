@@ -113,7 +113,6 @@ function chong_pay()
 			</tr>
 
 		</table>
-
 	</form>
 </section>
 </body>

@@ -177,7 +177,7 @@
                <!-- 퀵 메뉴  -->
              <div class="quickmenu">
   <ul>
-    <li><a href="../faq/faq_list">FAQ</a></li>
+    <li><a href="../faq/faq_list">FAQ</a> </li>
     <li><a href="#">1:1문의</a></li>
     <li><a href="#">후기</a></li>
   </ul>

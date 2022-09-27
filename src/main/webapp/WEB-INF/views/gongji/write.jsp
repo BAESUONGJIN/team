@@ -21,21 +21,21 @@
 <section>
 	<form method="post" action="write_ok">
 	<h2 align="center" style="margin-bottom:50px;"> 글 작 성 </h2>
-	<table width="500" align="center">
-	<tr>
-		<td> 제 목 </td>
-		<td> <input type="text" name="title" size="62"> </td>
-	</tr>
-	
-	<tr>
-		<td> 내 용 </td>
-		<td> <textarea rows="6" cols="60" name="content"></textarea> </td>
-	</tr>
-	
-	<tr>
-		<td colspan="2" align="center"> <input type="submit" value="작성하기"> </td>
-	</tr>
-	</table>
+		<table width="500" align="center">
+		<tr>
+			<td> 제 목 </td>
+			<td> <input type="text" name="title" size="62"> </td>
+		</tr>
+		
+		<tr>
+			<td> 내 용 </td>
+			<td> <textarea rows="6" cols="60" name="content"></textarea> </td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" align="center"> <input type="submit" value="작성하기"> </td>
+		</tr>
+		</table>
 	</form>
 </section>
 </body>

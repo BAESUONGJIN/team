@@ -59,12 +59,12 @@
 <section>
 	<h2 align="center" style="padding-botton:70px;"> FAQ </h2>
 	<span style="padding-left: 50px;">
-		<a href="faq_list"> 전 체 </a> |
-		<a href="faq_list_etc?gubun=0"> 회원정보 </a> |
-		<a href="faq_list_etc?gubun=1"> 상품확인 </a> |
-		<a href="faq_list_etc?gubun=2"> 주문/결제 </a> |
-		<a href="faq_list_etc?gubun=3"> 배송 </a> |
-		<a href="faq_list_etc?gubun=4"> 교환/취소(반품) </a> |
+		<a href="faq_list"> 전 체 </a>  |
+		<a href="faq_list_etc?gubun=0"> 회원정보 </a>  |
+		<a href="faq_list_etc?gubun=1"> 상품확인 </a>  |
+		<a href="faq_list_etc?gubun=2"> 주문/결제 </a>  |
+		<a href="faq_list_etc?gubun=3"> 배송 </a>  |
+		<a href="faq_list_etc?gubun=4"> 교환/취소(반품) </a>  |
 		<a href="faq_list_etc?gubun=5"> 서비스 </a>
 	</span>
 	<table width="900" align="center">
