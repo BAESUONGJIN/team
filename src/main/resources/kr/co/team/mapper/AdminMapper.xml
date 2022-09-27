@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  
 <mapper namespace="kr.co.team.mapper.AdminMapper">
 	
-	<!-- gongjiaa -->
+	<!-- gongji -->
 	<insert id="write_ok" parameterType="kr.co.team.vo.AdminVO">
 		insert into gongji(title,content, writeday) 
 		values(#{title},#{content},now())
