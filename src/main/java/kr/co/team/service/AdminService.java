@@ -3,6 +3,7 @@ package kr.co.team.service;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
@@ -12,7 +13,7 @@ import kr.co.team.vo.ProductVO;
 
 public interface AdminService {
 	//gongji
-	public String write_ok(AdminVO avo);
+	public String write_ok(AdminVO avo, HttpSession session);
 	public String list(HttpServletRequest request, Model model);
 	public String readnum(HttpServletRequest request);
 	public String content(HttpServletRequest request, Model model);

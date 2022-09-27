@@ -41,7 +41,7 @@
 	<c:forEach items="${list}" var="avo">
 	<tr>
 		<td> <a href="readnum?id=${avo.id}"> ${avo.title} </a> </td>
-		<td> ${avo.userid} </td>
+		<td> ${avo.name} </td>
 		<td> ${avo.writeday} </td>
 		<td> ${avo.readnum} </td>
 	</tr>

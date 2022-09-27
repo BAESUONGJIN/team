@@ -3,6 +3,7 @@ package kr.co.team.controller;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,9 +32,9 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/gongji/write_ok")
-	public String write_ok(AdminVO avo)
+	public String write_ok(AdminVO avo, HttpSession session)
 	{
-		return service.write_ok(avo);
+		return service.write_ok(avo, session);
 	}
 	
 	@RequestMapping("/gongji/list")
@@ -159,6 +160,5 @@ public class AdminController {
 	public String pro_update(HttpServletRequest request)
 	{
 		return service.pro_update(request);
-		//왜
 	}
 }

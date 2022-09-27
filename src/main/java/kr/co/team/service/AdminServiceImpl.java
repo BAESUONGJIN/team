@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -28,7 +29,11 @@ public class AdminServiceImpl implements AdminService {
 	
 	//gongji
 	@Override
-	public String write_ok(AdminVO avo) {
+	public String write_ok(AdminVO avo, HttpSession session) {
+		String userid = session.getAttribute("userid").toString();
+		String name = session.getAttribute("name").toString();
+		avo.setUserid(userid);
+		avo.setName(name);
 		mapper.write_ok(avo);
 		return "redirect:/gongji/list";
 	}
@@ -355,6 +360,7 @@ public class AdminServiceImpl implements AdminService {
 		try
 		{
 			MultipartRequest multi=new MultipartRequest(request,path,size,"utf-8",new DefaultFileRenamePolicy());
+			pvo.setId(Integer.parseInt(multi.getParameter("id")));
 			pvo.setPimg(multi.getFilesystemName("pimg"));
 			pvo.setPcode(multi.getParameter("pcode"));
 			pvo.setTitle(multi.getParameter("title"));

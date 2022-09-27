@@ -152,7 +152,6 @@ function chong_pay()
 			<tr>
 			 <td colspan="2"><input type="submit" value="등록하기"></td>
 			</tr>
-<<<<<<< HEAD
 			<tr>
 				<td>할 인</td>
 				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
@@ -184,9 +183,7 @@ function chong_pay()
 				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
 			</tr>
 			<td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td>
-=======
-			
->>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
+
 		</table>
 
 	</form>

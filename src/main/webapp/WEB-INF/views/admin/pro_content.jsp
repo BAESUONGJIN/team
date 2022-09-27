@@ -24,6 +24,7 @@ window.onload = function()
 	var baesong = Number(document.getElementById("baesong").value);
 	var chong = Number(price*(1-halin/100)+baesong).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	document.getElementById("chong").innerText=chong+"원";
+	
 };
 
 function chong_pay()
@@ -47,7 +48,7 @@ function chong_pay()
 		<h1 align="center"><b>상 품 수 정</b></h1>
 		<table width="700" align="center">
 		
-		<tr>
+		<<tr>
 				<td>대표이미지</td>
 				<td><input type="file" name="pimg"></td>
 			</tr>
