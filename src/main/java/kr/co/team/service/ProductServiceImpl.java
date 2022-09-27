@@ -176,13 +176,10 @@ public class ProductServiceImpl implements ProductService {
 				rvo.setPcode(request.getParameter("pcode"));
 				rvo.setContent(request.getParameter("content"));
 				
-				System.out.println("userid"+rvo.getUserid());
-				System.out.println("pcode"+rvo.getPcode());
-				System.out.println("content"+rvo.getContent());
 				
 				mapper.pro_review_write_ok(rvo);
 				
-		return "redicte:/product/pro_content?pcode="+rvo.getPcode();
+				return "redirect:/product/pro_content?pcode="+rvo.getPcode();
 	}
 
 }
