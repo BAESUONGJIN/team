@@ -156,7 +156,7 @@
   
 </script>  
 </head> 
-    <div id="image"><!-- 그림슬라이드 -->
+    <div id="image"><!-- 그림슬라이드흠 -->
       <div id="outer">
         <div id="inner">
           <img src="../resources/main/pic6.png" width="100%" height="500">
@@ -177,7 +177,7 @@
                <!-- 퀵 메뉴  -->
              <div class="quickmenu">
   <ul>
-    <li><a href="#">FAQ</a></li>
+    <li><a href="../faq/faq_list">FAQ</a> </li>
     <li><a href="#">1:1문의</a></li>
     <li><a href="#">후기</a></li>
   </ul>

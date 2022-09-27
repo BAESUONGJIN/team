@@ -59,7 +59,6 @@
        bottom: 95%; /* 위치 지정 */
        right: 4%;
        z-index: 3;
-             
     }
     
     header a {
@@ -208,12 +207,11 @@
 	0% {margin-top: 0px;}
 	100% {margin-top: 10px;}
 }
-
     footer {
        width:100%;
        height:200px;
        border: 1px solid rgb(240, 240, 240);
-       background:white;
+       background: rgba(164, 48, 35, 0.1);
        margin-top: 10px;
     }
 
@@ -304,7 +302,7 @@
                 
      <div id="right"> <!-- 우측 로그인 폼  -->
        <c:if test="${userid==null }">
-        <a href="../member/memberinput"> JOIN US </a> &nbsp;<!-- 회원가입 --> </c:if>
+        <a href="../member/memberinput"> JOIN US </a> &nbsp;<!-- 회원가입 --> </c:if> <!-- 흠 -->
        <c:if test="${userid !=null }">
        &nbsp;
        </c:if>
@@ -316,7 +314,7 @@
         </c:if>
         
         <a href="../"> CART &nbsp;</a>
-        <a href="../"> NOTICE &nbsp;</a>
+        <a href="../gongji/list"> NOTICE &nbsp;</a>
         <span id="my" style="display:inline-block"> <a href="../"> MY PAGE ∨</a>
         <ul id="myinfo">
           <c:if test="${userid == null }"> <li> <a href="../login/login"> 회원정보 수정</a> </li>
