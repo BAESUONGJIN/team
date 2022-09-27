@@ -59,7 +59,6 @@
        bottom: 95%; /* 위치 지정 */
        right: 4%;
        z-index: 3;
-             
     }
     
     header a {
