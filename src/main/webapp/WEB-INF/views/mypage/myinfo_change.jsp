@@ -39,14 +39,6 @@
       border:1px solid rgb(180, 180, 180);
       color:gray;
     }
-    section #btn2 {
-      width:306px;
-      height:44px;
-      background-color:#D1A69D;
-      color:white;
-      border-radius: 10px;
-      border: none;
-    }
     section #btn3 {
       width:150px;
       height:44px;
@@ -55,6 +47,23 @@
       border-radius: 10px;
       border: none;
     }
+     section #btn2 {
+      width:306px;
+      height:44px;
+      background-color:#D1A69D;
+      color:white;
+      border-radius: 10px;
+      border: none;
+    }
+     section #btntt {
+      width:306px;
+      height:44px;
+      background-color:gray;
+      color: white;
+      border-radius: 10px;
+      border: none;
+    }
+    
   </style>
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
@@ -111,6 +120,9 @@
     <div> <input type="text" name="phone" placeholder="전화번호" value="${mvo.phone}"> </div>
     <div> <input type="text" name="email" placeholder="이메일" value="${mvo.email}"> </div><p>
     <div> <input type="submit" value="회원정보 수정" id="btn2"> </div>
+    
+    <div> <input type="submit" value="회원 탈퇴 " id="btntt"> </div> <!-- 회원탈퇴  -->
+    
   </form>
  </section>
 </body>
