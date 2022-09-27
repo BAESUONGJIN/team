@@ -65,7 +65,6 @@
     header a {
        text-decoration: none;
        color: rgb(60, 60, 60);
-       
     }
     
      header a:hover {
