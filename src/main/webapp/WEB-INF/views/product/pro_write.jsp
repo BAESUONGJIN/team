@@ -131,6 +131,7 @@ function chong_pay()
 				<td>상세페이지</td>
 				<td>
 				  <input type="file" name="cimg">
+				  <input type="file" name="cimg">
 				</td>
 			</tr>
 			<tr>
