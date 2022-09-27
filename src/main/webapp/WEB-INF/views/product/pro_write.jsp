@@ -6,9 +6,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <style>
- #product_code{
+/*  #product_code{
 display: none;
-} 
+}  */
 table tr td{
 border:1px solid black;
 }
@@ -135,43 +135,6 @@ function chong_pay()
 			 <td colspan="2"><input type="submit" value="등록하기">
 			 <a href="pro_list?pcode=p01"> 리스트 이동</a>
 			 </td>
-			</tr>
-<<<<<<< HEAD
-=======
-			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>
-			<td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td>
->>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
-
-		</table>
 
 	</form>
 </body>
