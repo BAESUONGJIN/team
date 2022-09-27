@@ -345,7 +345,7 @@ footer{
         </c:if>
         
         <a href="../"> CART &nbsp;</a>
-        <a href="../"> NOTICE &nbsp;</a>
+        <a href="../gongji/list"> NOTICE &nbsp;</a>
         <span id="my" style="display:inline-block"> <a href="../"> MY PAGE ∨</a>
         <ul id="myinfo">
           <c:if test="${userid == null }"> 
