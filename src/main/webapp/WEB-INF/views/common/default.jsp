@@ -212,7 +212,7 @@
        width:100%;
        height:200px;
        border: 1px solid rgb(240, 240, 240);
-       background:white;
+       background: rgba(164, 48, 35, 0.1);
        margin-top: 10px;
     }
 
