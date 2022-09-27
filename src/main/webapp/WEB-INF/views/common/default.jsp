@@ -390,7 +390,7 @@ footer{
     <a style="color: red;"> BEST ITEM </a> &nbsp;
     <a style="font-weight: bolder;"> NEW5% </a> &nbsp;
     <a href="../product/pro_list?dcode=p01"> OUTER </a> &nbsp;
-    <a> TOP </a> &nbsp;
+    <a href="../product/pro_list?dcode=p02"> TOP </a> &nbsp;
     <a href="../product/pro_list?dcode=p03"> BOTTOM </a> &nbsp;
     <a href="../product/pro_list?dcode=p04"> SKIRT </a> &nbsp;
     <a href="../product/pro_list?dcode=p05"> DRESS </a> &nbsp;
