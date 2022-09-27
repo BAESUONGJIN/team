@@ -42,7 +42,7 @@
 		
 		<tr>
 			<td colspan="4"> <input type="button" value="목록" onclick="location='list'"> </td>
-			<c:if test="${userid == 'admin123' }">
+			<c:if test="${userid == 'admin123'}">
 			<td colspan="2" align="right">
 				<input type="button" value="수정" onclick="location='update?id=${avo.id}'"> 
 				<input type="button" value="삭제" onclick="location='delete?id=${avo.id}'">

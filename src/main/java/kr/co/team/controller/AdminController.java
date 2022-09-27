@@ -18,6 +18,7 @@ import kr.co.team.vo.ProductVO;
 
 @Controller
 public class AdminController {
+	
 	@Autowired
 	@Qualifier("as")
 	private AdminService service;
