@@ -207,7 +207,6 @@
 	0% {margin-top: 0px;}
 	100% {margin-top: 10px;}
 }
-
     footer {
        width:100%;
        height:200px;
