@@ -3,6 +3,7 @@ package kr.co.team.service;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
@@ -12,7 +13,7 @@ import kr.co.team.vo.ProductVO;
 
 public interface AdminService {
 	//gongji
-	public String write_ok(AdminVO avo);
+	public String write_ok(AdminVO avo, HttpSession session);
 	public String list(HttpServletRequest request, Model model);
 	public String readnum(HttpServletRequest request);
 	public String content(HttpServletRequest request, Model model);
@@ -33,7 +34,8 @@ public interface AdminService {
 	public String mem_content(HttpServletRequest request, Model model);
 	
 	//상품리스트
-	public String pro_list(Model model);
+	public String pro_list(HttpServletRequest request, Model model);
+	public String pro_list_etc(HttpServletRequest request, Model model);
 	public String pro_content(HttpServletRequest request, Model model);
 	public String pro_delete(HttpServletRequest request);
 	public String pro_update(HttpServletRequest request);

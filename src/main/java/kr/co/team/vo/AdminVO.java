@@ -3,7 +3,15 @@ package kr.co.team.vo;
 public class AdminVO {
 	
 	private int id, readnum;
-	private String title, userid, content, writeday;
+	private String title, userid, content, writeday, name;
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getId() {
 		return id;
 	}

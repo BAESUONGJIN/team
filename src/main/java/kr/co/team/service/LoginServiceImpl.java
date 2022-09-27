@@ -24,7 +24,7 @@ public class LoginServiceImpl implements LoginService {
 		if(mvo2 != null)
 		{
 			session.setAttribute("userid", mvo2.getUserid());
-			session.setAttribute("name", mvo.getName());
+			session.setAttribute("name", mvo2.getName());
 			return "redirect:/main/index";
 		}
 		else

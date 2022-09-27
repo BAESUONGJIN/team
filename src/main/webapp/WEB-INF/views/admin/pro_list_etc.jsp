@@ -54,14 +54,14 @@
 		<tr> <!-- 페이징 처리 -->
 			<td colspan="6" align="center">
 			<c:if test="${pstart != 1}">
-				<a href="pro_list?page=${pstart-1}"> ◁◁ </a>
+				<a href="pro_list_etc?pdae=${pdae}&page=${pstart-1}"> ◁◁ </a>
 			</c:if>
 			<c:if test="${pstart == 1}">
 				◁◁
 			</c:if>
 			
 			<c:if test="${page != 1}">
-				<a href="pro_list?page=${page-1}"> ◁ </a>
+				<a href="pro_list_etc?pdae=${pdae}&page=${page-1}"> ◁ </a>
 			</c:if>
 			<c:if test="${page == 1}">
 				◁
@@ -76,25 +76,24 @@
 					<c:set var="st" value=""/>
 				</c:if>
 				
-				<a href="pro_list?page=${i}" ${st}> ${ i } </a>
+				<a href="pro_list_etc?pdae=${pdae}&page=${i}" ${st}> ${ i } </a>
 			</c:forEach>
 			
 			<c:if test="${page != chong}">
-				<a href="pro_list?page=${page+1}"> ▷  </a>
+				<a href="pro_list_etc?pdae=${pdae}&page=${page+1}"> ▷  </a>
 			</c:if>
-			<c:if test="${page == chong}">
+			<c:if test="${page == chong && page == null}">
 				▷
 			</c:if>
 			
 			<c:if test="${chong != pend}">
-				<a href="pro_list?page=${pend+1}"> ▷▷  </a>
+				<a href="pro_list_etc?pdae=${pdae}&page=${pend+1}"> ▷▷  </a>
 			</c:if>
 			<c:if test="${chong == pend}">
 				▷▷
 			</c:if>
 			
 			</td>
-		</tr>
 	</table>
 </section>
 

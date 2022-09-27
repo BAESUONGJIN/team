@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="kr.co.team.mapper.AdminMapper">
 	<!-- gongji -->
 	<insert id="write_ok" parameterType="kr.co.team.vo.AdminVO">
-		insert into gongji(title,content, writeday) 
-		values(#{title},#{content},now())
+		insert into gongji(title,userid,content, writeday, name) 
+		values(#{title},#{userid},#{content},now(),#{name})
 	</insert>
 	<select id="list" resultType="kr.co.team.vo.AdminVO">
 		select * from gongji order by id desc limit #{param1}, 10
@@ -84,7 +84,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 상품리스트 -->
 	<select id="pro_list" resultType="kr.co.team.vo.ProductVO">
-		select * from product order by id desc
+		select * from product order by id desc limit #{param1}, 10
+	</select>
+	
+	<select id="pro_getChong" resultType="Integer">
+		select ceil(count(*)/10) from product
+	</select>
+	
+	<select id="pro_list_etc" resultType="kr.co.team.vo.ProductVO">
+		select * from product where pcode like concat(#{param1},'%') limit #{param2}, 10
+	</select>
+	
+	<select id="pro_etc_getChong" resultType="Integer">
+		select ceil(count(*)/10) from product where pcode like concat(#{param1},'%')
 	</select>
 	
 	<select id="pro_content" resultType="kr.co.team.vo.ProductVO">
@@ -95,13 +107,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from product where id = #{param1}
 	</delete>
 	
-	<select id="pro_cat" resultType="kr.co.team.vo.DaeVO">
+	<select id="pro_cat" resultType="kr.co.team.vo.DaeVO"> <!-- admin/pro_content에서 카테고리 option -->
 		select * from dae order by dcode asc
 	</select>
 	
 	<update id="pro_update" parameterType="kr.co.team.vo.ProductVO">
-		update product set title=#{title}, size=#{size},
-		color=#{color}, stock=#{stock}, price=#{price}, halin=#{halin},
-		baesong=#{baesong} where id=#{id}
+		update product set title=#{title} where id=#{id}
 	</update>
 </mapper>

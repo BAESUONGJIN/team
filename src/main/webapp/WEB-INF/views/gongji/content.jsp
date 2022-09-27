@@ -28,7 +28,7 @@
 		
 		<tr>
 			<td> 작성자 </td>
-			<td> ${avo.userid} </td>
+			<td> ${avo.name} </td>
 			<td> 작성일 </td>
 			<td> ${avo.writeday} </td>
 			<td> 조회수 </td>
