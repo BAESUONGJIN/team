@@ -13,6 +13,7 @@ section {
 	height: 1500px;
 	margin-top: 150px;
 	text-align: center;
+	text-align: center;
 }
 
 /* #img,#content{
