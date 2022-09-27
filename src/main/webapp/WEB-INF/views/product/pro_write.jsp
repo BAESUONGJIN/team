@@ -133,6 +133,7 @@ function chong_pay()
 				  <input type="file" name="cimg">
 				</td>
 			</tr>
+			
 			<tr>
 				<td>가 격</td>
 				<td><input id="price" type="text" name="price" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">원</td>
