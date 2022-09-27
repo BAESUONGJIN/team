@@ -120,7 +120,6 @@ function check()
 		</select>
 					<div id="gumae">
 						<span>사이즈</<span>
-						<span>사이즈</<span>
 						<span>색 상</<span>
 						<span>금 액</<span>
 						<c:if test="${pvo.halin != 0}">   <!-- 할인 있는 경우 추가 -->
