@@ -138,6 +138,10 @@ function chong_pay()
 				<td><input id="price" type="text" name="price" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">원</td>
 			</tr>
 			<tr>
+				<td>가 격</td>
+				<td><input id="price" type="text" name="price" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">원</td>
+			</tr>
+			<tr>
 				<td>할 인</td>
 				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
 			</tr>
