@@ -10,7 +10,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into gongji(title,content, writeday) 
 		values(#{title},#{content},now())
 	</insert>
-	
 	<select id="list" resultType="kr.co.team.vo.AdminVO">
 		select * from gongji order by id desc limit #{param1}, 10
 	</select>
