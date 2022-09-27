@@ -146,10 +146,6 @@ function chong_pay()
 				<td><input id="baesong" type="text" name="baesong" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">원</td>
 			</tr>
 			<tr>
-				<td>배송비</td>
-				<td><input id="baesong" type="text" name="baesong" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">원</td>
-			</tr>
-			<tr>
 				<td>총 결제금액</td>
 				<td><span id='chong' value="0">0원</span></td>
 			</tr>
