@@ -132,9 +132,15 @@ public class AdminController {
 	
 	//상품리스트
 	@RequestMapping("/admin/pro_list")
-	public String pro_list(Model model)
+	public String pro_list(HttpServletRequest request, Model model)
 	{
-		return service.pro_list(model);
+		return service.pro_list(request, model);
+	}
+	
+	@RequestMapping("/admin/pro_list_etc")
+	public String pro_list_etc(HttpServletRequest request, Model model)
+	{
+		return service.pro_list_etc(request,model);
 	}
 	
 	@RequestMapping("/admin/pro_content")

@@ -14,12 +14,24 @@
 		margin-bottom: 40px;
 		padding-top: 120px;
 	}
+	
+	#list_menu {
+		padding-left: 50px;
+	}
 </style>
 </head>
 <body>
 <section>
-	<table width="900" align="center">
-		<tr>
+	<span id="list_menu">
+		<a href="pro_list"> ALL </a> |
+		<a href="pro_list_etc?pdae=p01"> OUTER </a> |
+		<a href="pro_list_etc?pdae=p02"> TOP </a> |
+		<a href="pro_list_etc?pdae=p03"> PANTS </a> |
+		<a href="pro_list_etc?pdae=p04"> SKIRT </a> |
+		<a href="pro_list_etc?pdae=p05"> DRESS </a>
+	</span>
+	<table width="900" align="center" style="margin-top:10px;">
+		<tr height="60">
 			<td> 코드번호 </td>
 			<td> 상품이미지 </td>
 			<td> 상품명 </td>
@@ -38,6 +50,51 @@
 			<td> <input type="button" value="삭제" onclick="location='pro_delete?id=${pvo.id}'"> </td>
 		</tr>
 		</c:forEach>
+		
+		<tr> <!-- 페이징 처리 -->
+			<td colspan="6" align="center">
+			<c:if test="${pstart != 1}">
+				<a href="pro_list?page=${pstart-1}"> ◁◁ </a>
+			</c:if>
+			<c:if test="${pstart == 1}">
+				◁◁
+			</c:if>
+			
+			<c:if test="${page != 1}">
+				<a href="pro_list?page=${page-1}"> ◁ </a>
+			</c:if>
+			<c:if test="${page == 1}">
+				◁
+			</c:if>
+			
+			
+			<c:forEach begin="${pstart}" end="${pend}" var="i">
+				<c:if test="${page == i}">
+					<c:set var="st" value="style='color:red;'"/>
+				</c:if>
+				<c:if test="${page != i}">
+					<c:set var="st" value=""/>
+				</c:if>
+				
+				<a href="pro_list?page=${i}" ${st}> ${ i } </a>
+			</c:forEach>
+			
+			<c:if test="${page != chong}">
+				<a href="pro_list?page=${page+1}"> ▷  </a>
+			</c:if>
+			<c:if test="${page == chong}">
+				▷
+			</c:if>
+			
+			<c:if test="${chong != pend}">
+				<a href="pro_list?page=${pend+1}"> ▷▷  </a>
+			</c:if>
+			<c:if test="${chong == pend}">
+				▷▷
+			</c:if>
+			
+			</td>
+		</tr>
 	</table>
 </section>
 

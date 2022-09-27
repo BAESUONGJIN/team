@@ -209,6 +209,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	
+	//회원정보
 	@Override
 	public String mem_list(HttpServletRequest request, Model model) {
 		int page, start;
@@ -252,13 +253,81 @@ public class AdminServiceImpl implements AdminService {
 		return "/admin/mem_content";
 	}
 
+	//상품리스트
 	@Override
-	public String pro_list(Model model) {
-		ArrayList<ProductVO> plist = mapper.pro_list();
+	public String pro_list(HttpServletRequest request, Model model) {
+		int page, start;
+		
+		//원하는 페이지의 시작 인덱스값을 구하기
+		if(request.getParameter("page") == null)
+			page = 1;
+		else
+			page = Integer.parseInt(request.getParameter("page"));
+		start = (page - 1) * 10;
+		
+		//사용자가 페이지를 이동하기 위해 출력하는 범위
+		//pstart, pend
+		int pstart, pend;
+		pstart = page/10;
+		if(page%10 == 0)
+			pstart--;
+		pstart = pstart*10+1;
+		pend = pstart + 9;
+		
+		//총페이지 구하기
+		int chong = mapper.pro_getChong();
+		
+		if(chong < pend)
+			pend = chong;
+		
+		
+		ArrayList<ProductVO> plist = mapper.pro_list(start);
 		model.addAttribute("plist", plist);
+		model.addAttribute("page", page);
+		model.addAttribute("pstart", pstart);
+		model.addAttribute("pend", pend);
+		model.addAttribute("chong", chong);
 		return "/admin/pro_list";
 	}
+	
 
+	@Override
+	public String pro_list_etc(HttpServletRequest request, Model model) {
+		String pdae = request.getParameter("pdae");
+		
+		int page, start;
+		
+		//원하는 페이지의 시작 인덱스값을 구하기
+		if(request.getParameter("page") == null)
+			page = 1;
+		else
+			page = Integer.parseInt(request.getParameter("page"));
+		start = (page - 1) * 10;
+		
+		//사용자가 페이지를 이동하기 위해 출력하는 범위
+		//pstart, pend
+		int pstart, pend;
+		pstart = page/10;
+		if(page%10 == 0)
+			pstart--;
+		pstart = pstart*10+1;
+		pend = pstart + 9;
+		
+		//총페이지 구하기
+		int chong = mapper.pro_etc_getChong(pdae);
+		
+		if(chong < pend)
+			pend = chong;
+		
+		ArrayList<ProductVO> plist = mapper.pro_list_etc(pdae,start);
+		model.addAttribute("plist", plist);
+		model.addAttribute("pdae", pdae);
+		model.addAttribute("page", page);
+		model.addAttribute("pstart", pstart);
+		model.addAttribute("pend", pend);
+		model.addAttribute("chong", chong);
+		return "/admin/pro_list_etc";
+	}
 	@Override
 	public String pro_content(HttpServletRequest request, Model model) {
 		String id = request.getParameter("id");

@@ -33,7 +33,8 @@ public interface AdminService {
 	public String mem_content(HttpServletRequest request, Model model);
 	
 	//상품리스트
-	public String pro_list(Model model);
+	public String pro_list(HttpServletRequest request, Model model);
+	public String pro_list_etc(HttpServletRequest request, Model model);
 	public String pro_content(HttpServletRequest request, Model model);
 	public String pro_delete(HttpServletRequest request);
 	public String pro_update(HttpServletRequest request);
