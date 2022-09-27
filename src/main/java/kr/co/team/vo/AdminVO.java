@@ -1,6 +1,6 @@
 package kr.co.team.vo;
 
-public class AdminVO { //흠
+public class AdminVO {
 	private int id, readnum;
 	private String title, userid, content, writeday;
 	public int getId() {
