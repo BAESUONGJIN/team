@@ -304,7 +304,7 @@
                 
      <div id="right"> <!-- 우측 로그인 폼  -->
        <c:if test="${userid==null }">
-        <a href="../member/memberinput"> JOIN US </a> &nbsp;<!-- 회원가입 --> </c:if>
+        <a href="../member/memberinput"> JOIN US </a> &nbsp;<!-- 회원가입 --> </c:if> <!-- 흠 -->
        <c:if test="${userid !=null }">
        &nbsp;
        </c:if>
@@ -316,7 +316,7 @@
         </c:if>
         
         <a href="../"> CART &nbsp;</a>
-        <a href="../"> NOTICE &nbsp;</a>
+        <a href="../gongji/list"> NOTICE &nbsp;</a>
         <span id="my" style="display:inline-block"> <a href="../"> MY PAGE ∨</a>
         <ul id="myinfo">
           <c:if test="${userid == null }"> <li> <a href="../login/login"> 회원정보 수정</a> </li>

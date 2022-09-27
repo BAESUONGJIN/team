@@ -131,6 +131,7 @@ function chong_pay()
 				<td>상세페이지</td>
 				<td>
 				  <input type="file" name="cimg">
+				  <input type="file" name="cimg">
 				</td>
 			</tr>
 			<tr>
@@ -151,36 +152,6 @@ function chong_pay()
 			</tr>
 			<tr>
 			 <td colspan="2"><input type="submit" value="등록하기"></td>
-			</tr>
-			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
 			</tr>
 			
 		</table>
