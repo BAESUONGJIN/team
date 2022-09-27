@@ -146,7 +146,6 @@ function check()
 						<span>상품평</span>					
 						<span>배송/교환/반품 안내</span>					
 					</div>
-					
 				<div><img src="../resources/img/${pvo.cimg}" width="1000" height="1200"></div>  <!-- 상세페이지 이미지 -->
 				<c:forEach items="${rlist}" var="rvo">
 				<div id="pro_review_list"> <!-- 상품평 -->
