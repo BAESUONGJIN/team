@@ -17,5 +17,7 @@ public interface ProductMapper {
 	public ArrayList<ProductVO> pro_list(String dcode, int start, int pcnt);
 	public ProductVO pro_content(String pcode);
 	public ArrayList<ReviewVO> pro_review_list (String userid,String pcode);
+	
+	//review 작성
 	public void pro_review_write_ok(ReviewVO rvo);
 }

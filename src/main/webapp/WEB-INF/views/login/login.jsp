@@ -62,8 +62,8 @@
   <section>
     <form method="post" action="login_ok">
      <h2 style="font-family: 'Song Myung', serif;"> Login </h2> 
-     <div> <input type="text" name="userid" placeholder="아이디"> </div>
-     <div> <input type="password" name="pwd" placeholder="비밀번호">
+     <div> <input type="text" name="userid" value="admin123" placeholder="아이디"> </div>
+     <div> <input type="password" name="pwd" value="1234" placeholder="비밀번호">
        <c:if test="${err == 1}"> 
            <br> <span style="color:red;font-size:12px;">아이디 혹은 비밀번호가 맞지 않습니다. </span>
        </c:if>

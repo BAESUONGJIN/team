@@ -6,35 +6,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <style>
+ #product_code{
+display: none;
+} 
 table tr td{
 border:1px solid black;
 }
+table{
+border-collapse: collapse;
+}
 </style>
 <script>
-/* function option_add() //+버튼 클릭시 추가
-{
-	
-	var op = document.getElementsByClassName("op");
-	var len= op.length;
-	len++;
-	
-	var inner="<p class='option'> 사이즈  <input type='text' name='size"+len+"'size='5'> 색 상<input type='text' name='color"+len+"'size='5'> 재고<input type='text' name='stock"+len+"'size='5'> <span id='bnt'><input type='button' value='+' onclick='option_add()'> <span id='bnt'> <input type='button' value='-' onclick='option_del()'></span> </td> </p>";
-	
-	document.getElementById("option_td").innerHTML=document.getElementById("option_td").innerHTML+inner;
-	
-}
-
-function option_del() // -버튼클릭시 삭제
-{
-	var len=document.getElementsByClassName("option").length;
-	
-	if(len > 1)
-	{
-	  len--;
-	  document.getElementsByClassName("option")[len-1].remove();
-	}
-	
-} */
 function bunho()   //상품코드 1씩 증가 
 {
 	var dae=document.write_form.dae.value;
@@ -61,19 +43,19 @@ function bunho()   //상품코드 1씩 증가
 				bunho="0"+bunho;
 				}
 			document.write_form.pcode.value=code+bunho;
+			document.write_form.dcode.value=code;
 			}
 	}
-	
 }
 
 function chong_pay()
 {
-   
-	   var price = Number(document.getElementById("price").value);
-	   var halin = Number(document.getElementById("halin").value);
-	   var baesong = Number(document.getElementById("baesong").value);
-	   var chong = Number(price*(1-halin/100)+baesong).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-	   document.getElementById("chong").innerText=chong+"원";
+	
+	var price = Number(document.getElementById("price").value);
+	var halin = Number(document.getElementById("halin").value);
+	var baesong = Number(document.getElementById("baesong").value);
+	var chong = Number(price*(1-halin/100)+baesong).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	document.getElementById("chong").innerText=chong+"원";
 }
 
 </script>
@@ -84,7 +66,7 @@ function chong_pay()
 
 <body>
 	<form name="write_form" method="post" action="pro_write_ok" enctype="multipart/form-data">
-		<table width="700" align="center" style="margin-top: 200px;">
+		<table width="700" align="center">
 		<caption><h1><b>상 품 등 록</b></h1></caption>
 			<tr>
 				<td>대표이미지</td>
@@ -93,7 +75,7 @@ function chong_pay()
 			<tr>
 				<td>카테고리</td>
 				<td>
-				<select name="dae">
+				<select name="dae" onchange="bunho()">
 				<option>선택</option>
 				  <c:forEach items="${list}" var="dvo">
 				     <option value="${dvo.dcode}"> ${dvo.title }</option>
@@ -101,11 +83,12 @@ function chong_pay()
 				</select> 
 				</td>
 			</tr>
-			<tr>
+			<tr id="product_code">
 			<td>상품 코드</td>
 			   <td>
 			    <input type="text" name="pcode" readonly>
-			    <input type="button" onclick="bunho()" value="상품코드생성">
+			    <input type="text" name="dcode" readonly>
+			 <!--    <input type="button" onclick="bunho()" value="상품코드생성"> -->
 			  </td>
 			</tr>
 			
@@ -117,19 +100,18 @@ function chong_pay()
 			<td>옵션</td>
 				<td id="option_td">		
 				<p class="option">
-				사이즈  <input type="text" name="size" size="5">
-				색 상<input type="text" name="color" size="5">
-				재고<input type="text" name="stock" size="5">
-			<!-- 	<input type="button" value="+" onclick="option_add()">
-				<input type="button" value="-" onclick="option_del()"> -->
-				 <!-- <input type="button" value="등록" onclick="scs()"> -->
+				사이즈 : <input type="text" name="size" size="20"><p>
+				색&nbsp;&nbsp;상 : <input class="option_d" type="text" name="color" size="20"><p>
+				재&nbsp;&nbsp;고 : <input class="option_d" type="text" name="stock" size="20">
+			<!--<input type="button" value="+" onclick="option_add()">
+				<input type="button" value="-" onclick="option_del()">
+				<input type="button" value="등록" onclick="scs()"> -->
 				</td>
 				</p>
 			</tr>
 			<tr>
 				<td>상세페이지</td>
 				<td>
-				  <input type="file" name="cimg">
 				  <input type="file" name="cimg">
 				</td>
 			</tr>
@@ -150,43 +132,11 @@ function chong_pay()
 				<td><span id='chong' value="0">0원</span></td>
 			</tr>
 			<tr>
-			 <td colspan="2"><input type="submit" value="등록하기"></td>
+			 <td colspan="2"><input type="submit" value="등록하기">
+			 <a href="pro_list?pcode=p01"> 리스트 이동</a>
+			 </td>
 			</tr>
-<<<<<<< HEAD
-			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>
-			<td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td><td>할 인</td>
-=======
-			
->>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
+
 		</table>
 
 	</form>

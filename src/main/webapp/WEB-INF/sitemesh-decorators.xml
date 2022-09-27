@@ -3,6 +3,7 @@
  <!-- 제외할 패턴 -->
  <excludes>
   <pattern> /member/memberinput</pattern>
+  <pattern> /product/pro_write</pattern>
   <pattern> /main/test </pattern>
   <pattern> </pattern>
  </excludes>

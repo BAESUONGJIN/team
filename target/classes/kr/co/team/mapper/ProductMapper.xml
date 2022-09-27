@@ -37,15 +37,18 @@
 	</select>
 
 	<select id="pro_content" resultType="kr.co.team.vo.ProductVO">
-		select * from product where pcode=#{param1}
+		select * from product where
+		pcode=#{param1}
 	</select>
 
 
 	<select id="pro_review_list" resultType="kr.co.team.vo.ReviewVO">
 		select * from review
+		where userid=#{param1} and pcode=#{param2}
 	</select>
 
 	<insert id="pro_review_write_ok" parameterType="kr.co.team.vo.ReviewVO">
-		insert into review(content,writeday) values(#{content},now())
+		insert into review(userid,pcode,content,writeday)
+		values(#{userid},#{pcode},#{content},now())
 	</insert>
 </mapper>
