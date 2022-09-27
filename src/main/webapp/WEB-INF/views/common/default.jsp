@@ -52,6 +52,7 @@
    }
     
     header #right { /* 우측  */
+    
        position:relative;
        font-size: 12px;
        display: inline;
