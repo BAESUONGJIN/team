@@ -70,11 +70,11 @@ function bunho()   //상품코드 1씩 증가
 function chong_pay()
 {
    
-   var price = Number(document.getElementById("price").value);
-   var halin = Number(document.getElementById("halin").value);
-   var baesong = Number(document.getElementById("baesong").value);
-   var chong = Number(price*(1-halin/100)+baesong).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-   document.getElementById("chong").innerText=chong+"원";
+	   var price = Number(document.getElementById("price").value);
+	   var halin = Number(document.getElementById("halin").value);
+	   var baesong = Number(document.getElementById("baesong").value);
+	   var chong = Number(price*(1-halin/100)+baesong).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	   document.getElementById("chong").innerText=chong+"원";
 }
 
 </script>

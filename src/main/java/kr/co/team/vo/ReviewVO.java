@@ -4,8 +4,6 @@ public class ReviewVO {
 	private int id;
 	private String userid,content,writeday, pcode;
 	
-	
-	
 	public String getPcode() {
 		return pcode;
 	}
