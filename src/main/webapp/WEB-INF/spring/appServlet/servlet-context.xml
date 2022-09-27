@@ -29,7 +29,7 @@
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<beans:property name="url" value="jdbc:mysql://localhost:3306/team" /> <!-- 수정 -->
 		<beans:property name="username" value="root" />
-		<beans:property name="password" value="1234" />
+		<beans:property name="password" value="root" />
 	</beans:bean>
 	
 	<beans:bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
