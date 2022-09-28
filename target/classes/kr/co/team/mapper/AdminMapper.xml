@@ -112,6 +112,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="pro_update" parameterType="kr.co.team.vo.ProductVO">
-		update product set title=#{title} where id=#{id}
+		update product set pimg=#{pimg}, title=#{title}, size=#{size}, color=#{color},
+		stock=#{stock}, cimg=#{cimg}, price=#{price}, halin=#{halin} where id=#{id}
 	</update>
 </mapper>
