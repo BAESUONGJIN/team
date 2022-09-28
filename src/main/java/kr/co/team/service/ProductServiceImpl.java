@@ -17,6 +17,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.team.mapper.ProductMapper;
 import kr.co.team.vo.DaeVO;
+import kr.co.team.vo.MemberVO;
 import kr.co.team.vo.ProductVO;
 import kr.co.team.vo.ReviewVO;
 
@@ -76,6 +77,7 @@ public class ProductServiceImpl implements ProductService {
 			MultipartRequest multi=new MultipartRequest(request,path,size,"utf-8",new DefaultFileRenamePolicy());
 			pvo.setPimg(multi.getFilesystemName("pimg"));
 			pvo.setPcode(multi.getParameter("pcode"));
+			pvo.setDcode(multi.getParameter("dcode"));
 			pvo.setTitle(multi.getParameter("title"));
 			pvo.setSize(multi.getParameter("size"));
 			pvo.setColor(multi.getParameter("color"));
@@ -168,15 +170,16 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public String pro_review_write_ok(ReviewVO rvo, HttpServletRequest request,HttpSession session) {
-			String userid = session.getAttribute("userid").toString();
-			String pcode = request.getParameter("pcode");
-			mapper.pro_review_write_ok(rvo);
-			System.out.println("코드값"+pcode);
+	public String pro_review_write_ok(ReviewVO rvo,HttpSession session, HttpServletRequest request) {
 				
-		return "redirect:/product/pro_content?pcode="+pcode;
+				rvo.setUserid(session.getAttribute("userid").toString());
+				rvo.setPcode(request.getParameter("pcode"));
+				rvo.setContent(request.getParameter("content"));
+				
+				
+				mapper.pro_review_write_ok(rvo);
+				
+				return "redirect:/product/pro_content?pcode="+rvo.getPcode();
 	}
-	
-
 
 }

@@ -53,9 +53,9 @@ public class ProductController {
 	{
 		return service.pro_content(request,model,rvo,session);
 	}
-	@RequestMapping("pro_review_write_ok")
-	public String pro_review_write_ok(ReviewVO rvo, HttpServletRequest request,HttpSession session) {
-		return service.pro_review_write_ok(rvo,request,session);
+	@RequestMapping("/product/pro_review_write_ok")
+	public String pro_review_write_ok(ReviewVO rvo,HttpSession session, HttpServletRequest request) {
+		return service.pro_review_write_ok(rvo,session,request);
 	}
 	
 }

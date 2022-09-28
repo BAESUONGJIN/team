@@ -18,7 +18,9 @@ public interface ProductService {
 	public String pro_write_ok(HttpServletRequest request);
 	public String pro_list(HttpServletRequest request,Model model,ProductVO pvo);
 	public String pro_content(HttpServletRequest request, Model model,ReviewVO rvo,HttpSession session);
-	public String pro_review_write_ok(ReviewVO rvo, HttpServletRequest request,HttpSession session);
+	
+	//review 작성
+	public String pro_review_write_ok(ReviewVO rvo,HttpSession session, HttpServletRequest request);
 	
 	
 	
