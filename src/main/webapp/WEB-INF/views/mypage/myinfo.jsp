@@ -35,12 +35,11 @@
     section #pwdform {
       position:absolute;
       right:150px;
-      visibility:hidden; /* form 숨기기 */
       width:200px;
       height:250px;
       background:white;
-      border:1px solid #D941C5;
       text-align:center;
+      display:none;
     }
     
 
@@ -48,7 +47,8 @@
   <script>
    function change_pwd()
    {
-	   document.getElementById("pwdform").style.visibility="visible";
+	   document.getElementById("pwdform").style.display="block";
+	   document.getElementById("info_change1").style.display="none";
    }
    
    var pchk=0;
@@ -88,10 +88,12 @@
 	             else
 	            	return true;
    }
+   
   </script>
 </head>
 <body> 
   <section>
+<form method="post" name="info_change1" id="info_change1">
    <h2 align="center"> 회 원 정 보 </h2>
    <div> <span id="aa">아이디</span>  ${mvo.userid}</div>
    <div> <span id="aa">이 름</span>   ${mvo.name}</div>
@@ -100,16 +102,18 @@
    <div> <span id="aa">전 화</span>  ${mvo.phone}</div>
    <div> <span id="aa">이메일</span>    ${mvo.email}</div>
    <div align="center"> 
-     <input type="button" value="정보수정" onclick="location='myinfo_edit'"> 
+     <input type="button" value="정보수정" onclick="location='myinfo_change'"> 
      <input type="button" value="비밀번호변경" onclick="change_pwd()">
    </div>
+</form>
+
    <div id="pwdform"> <!-- 비밀번호 변경  폼 -->
     <form name="pchg" method="post" action="change_pwd" onsubmit="return check(this)">
      <h3> 비밀 번호 변경</h3>
      <div> <input type="password" name="prepwd" placeholder="현재 비밀번호"> </div>
      <div> <input type="password" name="pwd" placeholder="새 비밀번호"> </div>
      <div> <input type="password" name="pwd2" placeholder="비밀번호 확인" onkeyup="check_pwd(this.value)"> </div>
-     <div id="pmsg" style="font-size:12px;"></div>
+     <div id="pmsg" style="font-size:15px;"></div>
      <div> <input type="submit" value="비밀번호 변경"> </div>
     </form>
    </div>

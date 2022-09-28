@@ -24,7 +24,7 @@
     header #left{
       margin-left: 30px;
     }
-        
+          
    header #main {
      width:200px;
      height:40px;
@@ -73,7 +73,7 @@
     
        header #myinfo {
        position:absolute;
-       top:110%; /* 위치 지정 */
+       top:105%; /* 위치 지정 */
        right:-15px;
        padding-left:0px;
        border:1px hsla(0, 0%, 84%, 0.3);
@@ -208,11 +208,12 @@
 	100% {margin-top: 10px;}
 }
     footer {
-       width:100%;
-       height:200px;
+       width:100% ;
+       height: 200px;
        border: 1px solid rgb(240, 240, 240);
        background: rgba(164, 48, 35, 0.1);
-       margin-top: 10px;
+       margin-top: 20px;
+       
     }
 
   </style>
@@ -270,15 +271,17 @@
 		 	   
 		   });
    
-       /* 스크롤  */
+       /* 스크롤  */  /* fixed 추가 */
        $(document).ready(function(){
       $(window).scroll(function(){
         var scroll = $(window).scrollTop();
         if (scroll > 1) {
           $(".second").css("background" , "#fbebea");
+          $(".second").addClass("fixed");
         }
         else{
-          $(".second").css("background" , "white");   
+          $(".second").css("background" , "white");  
+          $(".second").removeClass("fixed");
         }
       })
     })
@@ -302,7 +305,7 @@
                 
      <div id="right"> <!-- 우측 로그인 폼  -->
        <c:if test="${userid==null }">
-        <a href="../member/memberinput"> JOIN US </a> &nbsp;<!-- 회원가입 -->  </c:if>
+        <a href="../member/memberinput"> JOIN US </a> &nbsp;<!-- 회원가입 --> </c:if> <!-- 흠 -->
        <c:if test="${userid !=null }">
        &nbsp;
        </c:if>
@@ -323,10 +326,20 @@
           <li> <a href="../mypage/myinfo_change"> 회원정보 수정 </a></li>
           </c:if>
           <li> 주문 조회</li>
-          <li> 적립금 조회</li>
           <li> 나의 글 확인</li>
+          <li> 장바구니 </li>
           <li> <a href="../"> 관심 상품 </a></li>
           <li> <a href="../"> 마이 페이지 </a></li>
+          <!-- 관리자 전용  -->
+        <c:if test="${userid == 'admin123'}">
+          <li style="font-weight: bold;"> 관리자 페이지 </li>
+          <li> <a href="../"> 주문관련 </a> </li>
+          <li> <a href="../"> 1:1 상담 </a> </li>
+          <li> <a href="../"> 상품등록 </a> </li>
+          <li> <a href="../"> 상품관리 </a> </li>
+          <li> <a href="../"> 상품평 </a> </li>
+          <li> <a href="../"> 회원관리</a> </li>
+        </c:if> 
         </ul>
        </span>
     </div>
@@ -365,8 +378,7 @@
         </ul>
      </span>
     </span>
-                    
-          
+                 
           <div id="outer">  <!-- 검색창 -->
             <input type="text" id="search" name="search" placeholder="">
             <img src="../resources/simg/ss.png" width="15px" valign="middle" style="float: right;">          
@@ -383,12 +395,12 @@
   </span>
   <p>
   <span style="font-size: 30px; font-weight: bold;">
-  070-8691-0600
+  070-8691-7777
   </span> <p>
   <div style="font-size: 12px; ">
 MON - FRIAM 10:00 - PM 5:00 <p>
 LUNCH TIMEPM 1:00 - PM 2:00 <p>
-SAT, SUN, HOLIDAY CLOSED <p>
+SAT, SUN, <span style="color: red;"> HOLIDAY CLOSED </span> <p>
   </div>
 </div>
 
@@ -403,20 +415,14 @@ SAT, SUN, HOLIDAY CLOSED <p>
  </span>
 </div>
 
-<div style=" float: right; width: 33%; padding:10px; margin-top: 15px;"> <!-- 3 -->
-<div style="font-size: 14px;">
-<pre>
-<span style="font-weight: bold;font-size: 13px; color: black;">HOME</span> 상호명 EZEN 대표자 김효정 대표전화 010-4406-1619 
-
-<span style="font-weight: bold;font-size: 13px; color: black;">COMPANY</span> 개인정보관리책임자 김효정(clwm16@naver.com) 
-
-<span style="font-weight: bold;font-size: 13px; color: black;">AGREEMENT</span> 통신판매업신고 2018-경기도청-7770
-
-<u><span style="font-weight: bold;font-size: 13px; color: black;">PRIVACY</span></u> 사업자등록번호722-00-7777 [사업자정보확인]
-</pre>
+<div id="foot3" style="float: right; width: 33%; padding:10px; margin-top: 15px; text-align: right: ;"> <!-- 2 -->
+<div style="font-size: 12px;">
+<span style="font-weight: bold;font-size: 12px; color: black;">HOME</span> 상호명 EZEN 대표자 김효정 대표전화 010-4406-1619 <p>
+<span style="font-weight: bold;font-size: 12px; color: black;">COMPANY</span> 개인정보관리책임자 김효정(clwm16@naver.com) <p>
+<span style="font-weight: bold;font-size: 12px; color: black;">AGREEMENT</span> 통신판매업신고 2018-경기도청-7770 <p>
+<u><span style="font-weight: bold;font-size: 12px; color: black;">PRIVACY</span></u> 사업자등록번호722-00-7777 [사업자정보확인] <p>
 </div>  
 </div>
-
  </footer>
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
