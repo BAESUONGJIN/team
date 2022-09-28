@@ -14,4 +14,5 @@ public interface MypageService {
 	public String myinfo_change_ok(MemberVO mvo, HttpSession session);
 	public String mem_del(HttpSession session); 
 	public String change_pwd(HttpSession session, HttpServletRequest request);
+	public String myreview(HttpSession session, Model model);
 }

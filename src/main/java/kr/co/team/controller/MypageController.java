@@ -49,4 +49,10 @@ public class MypageController {
 		return service.change_pwd(session,request);
 	}
 	
+	@RequestMapping("/mypage/myreview")
+	public String myreview(HttpSession session, Model model)
+	{
+		return service.myreview(session,model);
+	}
+	
 }
