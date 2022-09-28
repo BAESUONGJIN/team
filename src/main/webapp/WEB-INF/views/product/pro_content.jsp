@@ -178,7 +178,6 @@ function pro_inquiry_write()
 					</tr>
 				</form>
 				
-				
 				<!--상품문의 리스트  -->
 				<span><h1><b>상 품 문 의</b></h1></span>  
 				<span onclick="pro_inquiry_write()">문의 작성</span>
