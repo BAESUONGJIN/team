@@ -322,13 +322,12 @@
         <span id="my" style="display:inline-block"> <a href="../"> MY PAGE ∨</a>
         <ul id="myinfo">
       <c:if test="${userid != 'admin123'}">
+      
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 회원정보 수정</a> </li>
       </c:if>
       <c:if test="${userid !=null }">
           <li> <a href="../mypage/myinfo_change"> 회원정보 수정 </a></li>
       </c:if>
-      
-      
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 주문 조회 </a> </li>
       </c:if>
       <c:if test="${userid !=null }">
@@ -341,17 +340,19 @@
       </c:if>
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 장바구니  </a> </li>
       </c:if>
-      <c:if test="${userid !=null }"> <li> <a href="../login/login"> 장바구니 </a></li>
+      <c:if test="${userid !=null }"> <li> <a href="../"> 장바구니 </a></li>
       </c:if>
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 관심 상품  </a> </li>
       </c:if>
+      <c:if test="${userid !=null }"> <li> <a href="../"> 관심 상품 </a></li>
+      </c:if>
       <c:if test="${userid !=null }">
-          <li> <a href="../mypage/myreview"> 주문 조회 </a></li>
+          <li> <a href="../"> 주문 조회 </a></li>
       </c:if>
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 마이 페이지  </a> </li>
       </c:if>
       <c:if test="${userid !=null }">
-          <li> <a href="../mypage/myreview"> 마이 페이지 </a></li>
+          <li> <a href="../mypage/"> 마이 페이지 </a></li>
       </c:if>
       </c:if>
        
@@ -397,14 +398,14 @@
      <a href="../" style="text-decoration: none; color: black; font-weight: bolder"> COMMUNITY ∨ </a>&nbsp;
         <ul id="myinfo2">
           <li> <a href="../" style="text-decoration: none; color: black;"> REVIEW</a></li>
-          <li> <a href="../" style="text-decoration: none; color: black;"> Q＆A </a></li>
+          <li> <a href="../faq/faq_list" style="text-decoration: none; color: black;"> FAQ </a></li>
           <li> <a href="../" style="text-decoration: none; color: black;"> EVENT </a></li>
         </ul>
      </span>
     </span>
                  
           <div id="outer">  <!-- 검색창 -->
-            <input type="text" id="search" name="search" placeholder="">
+            <input type="text" id="search" name="search">
             <img src="../resources/simg/ss.png" width="15px" valign="middle" style="float: right;">          
           </div>
           
