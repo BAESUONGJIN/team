@@ -17,6 +17,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.team.mapper.ProductMapper;
 import kr.co.team.vo.DaeVO;
+import kr.co.team.vo.InquiryVO;
 import kr.co.team.vo.MemberVO;
 import kr.co.team.vo.ProductVO;
 import kr.co.team.vo.ReviewVO;
@@ -150,7 +151,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public String pro_content(HttpServletRequest request, Model model,ReviewVO rvo,HttpSession session) {
+	public String pro_content(HttpServletRequest request, Model model,HttpSession session) {
 		String userid = session.getAttribute("userid").toString();
 		String pcode = request.getParameter("pcode");
 		
@@ -161,10 +162,13 @@ public class ProductServiceImpl implements ProductService {
 		
 		model.addAttribute("pvo", pvo);
 		
-		// review list
-		ArrayList<ReviewVO> rlist = mapper.pro_review_list(userid,pcode);
+		// review list   상품평
+		ArrayList<ReviewVO> rlist = mapper.pro_review_list();
 		model.addAttribute("rlist",rlist);
 		
+		//inquiry list  상품문의
+		ArrayList<InquiryVO> ilist = mapper.pro_inquiry_list();
+		model.addAttribute("ilist",ilist);
 		
 		return "/product/pro_content";
 	}

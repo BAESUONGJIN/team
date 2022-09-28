@@ -49,13 +49,14 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/product/pro_content")
-	public String pro_content(HttpServletRequest request,Model model,ReviewVO rvo,HttpSession session)
+	public String pro_content(HttpServletRequest request,Model model,HttpSession session)
 	{
-		return service.pro_content(request,model,rvo,session);
+		return service.pro_content(request,model,session);
 	}
 	@RequestMapping("/product/pro_review_write_ok")
 	public String pro_review_write_ok(ReviewVO rvo,HttpSession session, HttpServletRequest request) {
 		return service.pro_review_write_ok(rvo,session,request);
 	}
+	
 	
 }

@@ -41,14 +41,20 @@
 		pcode=#{param1}
 	</select>
 
-
+	<!-- 상품평 리스트 -->
 	<select id="pro_review_list" resultType="kr.co.team.vo.ReviewVO">
-		select * from review
-		where userid=#{param1} and pcode=#{param2}
+		select * from review order by id desc limit 10
 	</select>
 
+	<!-- 상품평 작성 -->
 	<insert id="pro_review_write_ok" parameterType="kr.co.team.vo.ReviewVO">
 		insert into review(userid,pcode,content,writeday)
 		values(#{userid},#{pcode},#{content},now())
 	</insert>
+	
+	<!-- 상품문의 리스트 -->
+	<select id="pro_inquiry_list" resultType="kr.co.team.vo.InquiryVO">
+	select * from inquiry
+	</select>
+	
 </mapper>

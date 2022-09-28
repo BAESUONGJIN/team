@@ -4,6 +4,7 @@ import java.net.PortUnreachableException;
 import java.util.ArrayList;
 
 import kr.co.team.vo.DaeVO;
+import kr.co.team.vo.InquiryVO;
 import kr.co.team.vo.ProductVO;
 import kr.co.team.vo.ReviewVO;
 
@@ -16,8 +17,14 @@ public interface ProductMapper {
 	public int getchong(int pcnt,String dcode);
 	public ArrayList<ProductVO> pro_list(String dcode, int start, int pcnt);
 	public ProductVO pro_content(String pcode);
-	public ArrayList<ReviewVO> pro_review_list (String userid,String pcode);
 	
-	//review 작성
+	
+	//review 상품평 작성 및 리스트
 	public void pro_review_write_ok(ReviewVO rvo);
+	public ArrayList<ReviewVO> pro_review_list ();
+	
+	//inquiry 상품문의 작성 및 리스트
+	public ArrayList<InquiryVO> pro_inquiry_list();
+	
+	
 }

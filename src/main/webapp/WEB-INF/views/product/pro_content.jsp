@@ -16,11 +16,17 @@ section {
 	text-align: center;
 }
 
+
+
 /* #img,#content{
 display: inline-block;
 } */
 #gumae_content
 {
+display: none;
+}
+
+#section #inquiry_content{
 display: none;
 }
 </style>
@@ -70,6 +76,11 @@ function check()
 	}
 	
 }	
+
+function pro_inquiry_write()
+{
+	document.getElementById().style.display="block";
+	}
 
 	$(function()
 	{
@@ -166,9 +177,18 @@ function check()
 						<td><input type="submit" value="등록하기"></td>
 					</tr>
 				</form>
+				
 				<div>배송/교환/반품 안내</div>
 				
-		
+				<!--상품문의 리스트  -->
+				
+				<c:forEach items="${ilist }" var="ivo">
+					<div id="pro_inquiry_list">
+						<span>${ivo.userid }</span>
+						<span>${ivo.content }</span>
+						<span>${ivo.writeday }</span>
+					</div>
+				</c:forEach>
 		<section>
 </body>
 </html>
