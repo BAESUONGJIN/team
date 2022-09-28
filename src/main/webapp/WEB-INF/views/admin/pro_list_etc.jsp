@@ -30,6 +30,8 @@
 		<a href="pro_list_etc?pdae=p04"> SKIRT </a> |
 		<a href="pro_list_etc?pdae=p05"> DRESS </a>
 	</span>
+	<span> 총 ${pro_list_etc_count}개 </span>
+	
 	<table width="900" align="center" style="margin-top:10px;">
 		<tr height="60">
 			<td> 코드번호 </td>

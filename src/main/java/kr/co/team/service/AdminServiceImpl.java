@@ -287,7 +287,10 @@ public class AdminServiceImpl implements AdminService {
 		
 		
 		ArrayList<ProductVO> plist = mapper.pro_list(start);
+		
+		int pro_list_count = mapper.pro_list_count();
 		model.addAttribute("plist", plist);
+		model.addAttribute("pro_list_count", pro_list_count);
 		model.addAttribute("page", page);
 		model.addAttribute("pstart", pstart);
 		model.addAttribute("pend", pend);
@@ -325,7 +328,10 @@ public class AdminServiceImpl implements AdminService {
 			pend = chong;
 		
 		ArrayList<ProductVO> plist = mapper.pro_list_etc(pdae,start);
+		int pro_list_etc_count = mapper.pro_list_etc_count(pdae);
+		
 		model.addAttribute("plist", plist);
+		model.addAttribute("pro_list_etc_count", pro_list_etc_count);
 		model.addAttribute("pdae", pdae);
 		model.addAttribute("page", page);
 		model.addAttribute("pstart", pstart);
@@ -354,7 +360,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public String pro_update(HttpServletRequest request) {
 		//라이브러리를 이용하여 폼태그에 값을 가져오기
-		String path="c:\\project\\team\\src\\main\\webapp\\resources\\img";
+		String path="C:\\Users\\Administrator\\git\\team\\src\\main\\webapp\\resources\\img";
 		int size=1024*1024*30;
 		ProductVO pvo= new ProductVO();
 		try

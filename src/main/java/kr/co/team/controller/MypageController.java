@@ -37,6 +37,12 @@ public class MypageController {
 		return service.myinfo_change_ok(mvo,session);
 	}
 	
+	@RequestMapping("/mypage/mem_del")
+	public String mem_del(HttpSession session)
+	{
+		return service.mem_del(session);
+	}
+	
 	@RequestMapping("/mypage/change_pwd")
 	public String change_pwd(HttpSession session, HttpServletRequest request)
 	{

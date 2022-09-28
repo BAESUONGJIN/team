@@ -21,8 +21,7 @@ window.onload = function()
 {
 	var price = Number(document.getElementById("price").value);
 	var halin = Number(document.getElementById("halin").value);
-	var baesong = Number(document.getElementById("baesong").value);
-	var chong = Number(price*(1-halin/100)+baesong).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	var chong = Number(price*(1-halin/100)).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	document.getElementById("chong").innerText=chong+"원";
 	
 };
@@ -32,8 +31,7 @@ function chong_pay()
    
    var price = Number(document.getElementById("price").value);
    var halin = Number(document.getElementById("halin").value);
-   var baesong = Number(document.getElementById("baesong").value);
-   var chong = Number(price*(1-halin/100)+baesong).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+   var chong = Number(price*(1-halin/100)).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
    document.getElementById("chong").innerText=chong+"원";
 }
 
@@ -48,26 +46,33 @@ function chong_pay()
 		<h1 align="center"><b>상 품 수 정</b></h1>
 		<table width="700" align="center">
 		
-		<<tr>
+		
+		<tr>
 				<td>대표이미지</td>
-				<td><input type="file" name="pimg"></td>
+				<td><input id="file" type="file" name="pimg"></td>
 			</tr>
 			<tr>
 				<td>카테고리</td>
-				<td>
-				<select name="dae">
-				<option>선택</option>
-				  <c:forEach items="${list}" var="dvo">
-				     <option value="${dvo.dcode}"> ${dvo.title }</option>
-				   </c:forEach>
-				</select> 
-				</td>
+				<c:if test="${pvo.dcode == 'p01'}">
+					<c:set var="dcode" value="OUTER"/>
+				</c:if>
+				<c:if test="${pvo.dcode == 'p02'}">
+					<c:set var="dcode" value="TOP"/>
+				</c:if>
+				<c:if test="${pvo.dcode == 'p03'}">
+					<c:set var="dcode" value="BOTTOM"/>
+				</c:if>
+				<c:if test="${pvo.dcode == 'p04'}">
+					<c:set var="dcode" value="SKIRT"/>
+				</c:if>
+				<c:if test="${pvo.dcode == 'p05'}">
+					<c:set var="dcode" value="DRESS"/>
+				</c:if>
+				<td> ${dcode} </td>
 			</tr>
 			<tr>
 			<td>상품 코드</td>
-			   <td>
-			    <input type="text" name="pcode" value="${pvo.pcode}" readonly>
-			  </td>
+			   <td> ${pvo.pcode} </td>
 			</tr>
 			
 			<tr>
@@ -81,9 +86,6 @@ function chong_pay()
 				사이즈  <input type="text" name="size" size="5" value="${pvo.size}">
 				색 상<input type="text" name="color" size="5" value="${pvo.color}">
 				재고<input type="text" name="stock" size="5" value="${pvo.stock}">
-			<!-- 	<input type="button" value="+" onclick="option_add()">
-				<input type="button" value="-" onclick="option_del()"> -->
-				 <!-- <input type="button" value="등록" onclick="scs()"> -->
 				</td>
 				</p>
 			</tr>
@@ -100,10 +102,6 @@ function chong_pay()
 			<tr>
 				<td>할 인</td>
 				<td><input id="halin" type="text" name="halin" value="${pvo.halin}" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>
-			<tr>
-				<td>배송비</td>
-				<td><input id="baesong" type="text" name="baesong" value="${pvo.baesong}" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">원</td>
 			</tr>
 			<tr>
 				<td>총 결제금액</td>

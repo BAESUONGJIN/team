@@ -42,6 +42,14 @@ public class MypageServiceImpl implements MypageService {
 		
 		return "redirect:/mypage/myinfo";
 	}
+	
+	@Override
+	public String mem_del(HttpSession session) {
+		String userid = session.getAttribute("userid").toString();
+		mapper.mem_del(userid);
+		session.invalidate();
+		return "redirect:/main/index";
+	}
 
 	@Override
 	public String change_pwd(HttpSession session, HttpServletRequest request) {

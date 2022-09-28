@@ -87,12 +87,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from product order by id desc limit #{param1}, 10
 	</select>
 	
+	<select id="pro_list_count" resultType="Integer">
+		select count(pcode) from product
+	</select>
+	
 	<select id="pro_getChong" resultType="Integer">
 		select ceil(count(*)/10) from product
 	</select>
 	
 	<select id="pro_list_etc" resultType="kr.co.team.vo.ProductVO">
 		select * from product where pcode like concat(#{param1},'%') limit #{param2}, 10
+	</select>
+	
+	<select id="pro_list_etc_count" resultType="Integer">
+		select count(pcode) from product where dcode=#{param1}
 	</select>
 	
 	<select id="pro_etc_getChong" resultType="Integer">
@@ -112,6 +120,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="pro_update" parameterType="kr.co.team.vo.ProductVO">
-		update product set title=#{title} where id=#{id}
+		update product set pimg=#{pimg}, title=#{title}, size=#{size}, color=#{color},
+		stock=#{stock}, cimg=#{cimg}, price=#{price}, halin=#{halin} where id=#{id}
 	</update>
 </mapper>
