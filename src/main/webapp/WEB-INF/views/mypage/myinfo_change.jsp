@@ -55,7 +55,7 @@
       border-radius: 10px;
       border: none;
     }
-     section #btntt {
+     section #mem_del {
       width:306px;
       height:44px;
       background-color:gray;
@@ -106,6 +106,12 @@
 	           else
 	               return true;
   }
+  
+  function mem_del()
+  {
+	  alert("정상적으로 탈퇴되었습니다.");
+	  location="mem_del";
+  }
 </script>
 </head>
 <body> 
@@ -119,10 +125,8 @@
     <div> <input type="text" name="juso_etc" placeholder="상세주소" value="${mvo.juso_etc}"> </div>
     <div> <input type="text" name="phone" placeholder="전화번호" value="${mvo.phone}"> </div>
     <div> <input type="text" name="email" placeholder="이메일" value="${mvo.email}"> </div><p>
-    <div> <input type="submit" value="회원정보 수정" id="btn2"> </div>
-    
-    <div> <input type="submit" value="회원 탈퇴 " id="btntt"> </div> <!-- 회원탈퇴  -->
-    
+    <div> <input type="submit" value="회원정보 수정" id="btn2"> </div>   
   </form>
+  <div> <input type="button" value="회원 탈퇴 " id="mem_del" onclick="mem_del()"> </div> <!-- 회원탈퇴  -->
  </section>
 </body>

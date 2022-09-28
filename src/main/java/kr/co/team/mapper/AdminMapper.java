@@ -36,9 +36,12 @@ public interface AdminMapper {
 	
 	//상품리스트
 	public ArrayList<ProductVO> pro_list(int start);
+	public int pro_list_count();
 	public int pro_getChong();
 	public ArrayList<ProductVO> pro_list_etc(String pdae,int start);
+	public int pro_list_etc_count(String pdae);
 	public int pro_etc_getChong(String pdae);
+	
 	public ProductVO pro_content(String id);
 	public void pro_delete(String id);
 	public ArrayList<DaeVO> pro_cat();

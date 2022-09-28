@@ -287,7 +287,10 @@ public class AdminServiceImpl implements AdminService {
 		
 		
 		ArrayList<ProductVO> plist = mapper.pro_list(start);
+		
+		int pro_list_count = mapper.pro_list_count();
 		model.addAttribute("plist", plist);
+		model.addAttribute("pro_list_count", pro_list_count);
 		model.addAttribute("page", page);
 		model.addAttribute("pstart", pstart);
 		model.addAttribute("pend", pend);
@@ -325,7 +328,10 @@ public class AdminServiceImpl implements AdminService {
 			pend = chong;
 		
 		ArrayList<ProductVO> plist = mapper.pro_list_etc(pdae,start);
+		int pro_list_etc_count = mapper.pro_list_etc_count(pdae);
+		
 		model.addAttribute("plist", plist);
+		model.addAttribute("pro_list_etc_count", pro_list_etc_count);
 		model.addAttribute("pdae", pdae);
 		model.addAttribute("page", page);
 		model.addAttribute("pstart", pstart);
