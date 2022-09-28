@@ -149,16 +149,18 @@ function pro_inquiry_write()
 						<span id="gumae_chong"></span>
 					</div>
 				</div>
-		
-		
-				<div><img src="../resources/img/${pvo.cimg}" width="1000" height="1200"></div>  <!-- 상세페이지 이미지 -->
-					<div id="content_list">
+				
+				<div id="content_list">
 						<span>상세페이지</span>					
 						<span>상품문의</span>					
 						<span>상품평</span>					
-						<span>배송/교환/반품 안내</span>					
-					</div>  <!-- /상품평  --><p>
-					
+						<span>배송/교환/반품 안내</span>		
+						</div>	
+		
+			
+				<div><img src="../resources/img/${pvo.cimg}" width="1000" height="1200"></div>  <!-- 상세페이지 이미지 -->
+							
+					<div><h1><b>상 품 평</b></h1></div>
 				<c:forEach items="${rlist}" var="rvo">
 				<div id="pro_review_list"> <!-- 상품평 -->
 					<span>${rvo.userid}</span>
@@ -166,20 +168,18 @@ function pro_inquiry_write()
 					<span>${rvo.writeday}</span>
 				</div>
 				</c:forEach>
-				
+					
 				<form method="post" action="pro_review_write_ok">
 				<input type="hidden" name="pcode" value="${pvo.pcode}">
 					<tr>
-						<td>상품평</td>
 						<td><textarea rows="6" cols="100" name="content"></textarea></td>
 						<td><input type="submit" value="등록하기"></td>
 					</tr>
 				</form>
 				
-				<div>배송/교환/반품 안내</div>
+				<div><h1><b>배송/교환/반품 안내</b></h1></div>
 				
 				<!--상품문의 리스트  -->
-				
 				<c:forEach items="${ilist }" var="ivo">
 					<div id="pro_inquiry_list">
 						<span>${ivo.userid }</span>
