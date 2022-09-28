@@ -134,7 +134,6 @@ function chong_pay()
 			</tr>
 			<tr>
 			 <td colspan="2"><input type="submit" value="등록하기">
-			 <a href="pro_list?pcode=p01"> 리스트 이동</a>
 			 </td>
 
 	</form>

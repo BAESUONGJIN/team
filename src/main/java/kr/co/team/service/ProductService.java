@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
+import kr.co.team.vo.InquiryVO;
 import kr.co.team.vo.ProductVO;
 import kr.co.team.vo.ReviewVO;
 
@@ -24,6 +25,6 @@ public interface ProductService {
 	public String pro_review_write_ok(ReviewVO rvo,HttpSession session, HttpServletRequest request);
 	
 	//상품 문의 Inquiry 작성
-	
+	public String pro_inquiry_write_ok(InquiryVO ivo,HttpSession session, HttpServletRequest request);
 	
 }

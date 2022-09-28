@@ -24,7 +24,7 @@ display: inline-block;
 display: none;
 }
 
-#section #inquiry_content{
+#inquiry_content{
 display: none;
 }
 </style>
@@ -75,9 +75,10 @@ function check()
 	
 }	
 
+
 function pro_inquiry_write()
 {
-	document.getElementById().style.display="block";
+	document.getElementById("inquiry_content").style.display="block";
 	}
 
 	$(function()
@@ -177,16 +178,31 @@ function pro_inquiry_write()
 					</tr>
 				</form>
 				
-				<div><h1><b>배송/교환/반품 안내</b></h1></div>
 				
 				<!--상품문의 리스트  -->
+				<span><h1><b>상 품 문 의</b></h1></span>  
+				<span onclick="pro_inquiry_write()">문의 작성</span>
 				<c:forEach items="${ilist }" var="ivo">
 					<div id="pro_inquiry_list">
-						<span>${ivo.userid }</span>
-						<span>${ivo.content }</span>
-						<span>${ivo.writeday }</span>
+						<span>${ivo.userid}</span>
+						<span>${ivo.content}</span>
+						<span>${ivo.writeday}</span>
 					</div>
 				</c:forEach>
+				
+				<form  id="inquiry_content" method="post" action="pro_inquiry_write_ok">
+				<input type="hidden" name="pcode" value="${pvo.pcode}">
+				<tr>
+					<td><textarea rows="6" cols="100" name="content"></textarea></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="작성하기"></td>
+				</tr>
+				</form>
+				
+				<div><h1><b>배송/교환/반품 안내</b></h1></div>
+				
+				
 		<section>
 </body>
 </html>

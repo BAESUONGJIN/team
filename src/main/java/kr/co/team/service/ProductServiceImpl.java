@@ -72,8 +72,6 @@ public class ProductServiceImpl implements ProductService {
 		String path="c:\\project\\team\\src\\main\\webapp\\resources\\img";
 		int size=1024*1024*30;
 		ProductVO pvo= new ProductVO();
-		
-		
 		try
 		{
 			MultipartRequest multi=new MultipartRequest(request,path,size,"utf-8",new DefaultFileRenamePolicy());
@@ -94,7 +92,7 @@ public class ProductServiceImpl implements ProductService {
 		}
 		mapper.pro_write_ok(pvo);
 		
-		return "/product/pro_list";
+		return "redirect:/product/pro_list?dcode="+pvo.getDcode();
 	}
 
 	@Override
@@ -164,11 +162,11 @@ public class ProductServiceImpl implements ProductService {
 		model.addAttribute("pvo", pvo);
 		
 		// review list   상품평
-		ArrayList<ReviewVO> rlist = mapper.pro_review_list();
+		ArrayList<ReviewVO> rlist = mapper.pro_review_list(pcode);
 		model.addAttribute("rlist",rlist);
 		
 		//inquiry list  상품문의
-		ArrayList<InquiryVO> ilist = mapper.pro_inquiry_list();
+		ArrayList<InquiryVO> ilist = mapper.pro_inquiry_list(pcode);
 		model.addAttribute("ilist",ilist);
 		
 		return "/product/pro_content";
@@ -186,5 +184,18 @@ public class ProductServiceImpl implements ProductService {
 				
 				return "redirect:/product/pro_content?pcode="+rvo.getPcode();
 	}
+
+	@Override
+	public String pro_inquiry_write_ok(InquiryVO ivo, HttpSession session, HttpServletRequest request) {
+		ivo.setUserid(session.getAttribute("userid").toString());
+		ivo.setPcode(request.getParameter("pcode"));
+		ivo.setContent(request.getParameter("content"));
+		
+		mapper.pro_inquiry_write_ok(ivo);
+		
+		return "redirect:/product/pro_content?pcode="+ivo.getPcode();
+	}
+	
+	
 
 }

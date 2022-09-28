@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.team.service.ProductService;
+import kr.co.team.vo.InquiryVO;
 import kr.co.team.vo.ProductVO;
 import kr.co.team.vo.ReviewVO;
 
@@ -57,6 +58,12 @@ public class ProductController {
 	@RequestMapping("/product/pro_review_write_ok")
 	public String pro_review_write_ok(ReviewVO rvo,HttpSession session, HttpServletRequest request) {
 		return service.pro_review_write_ok(rvo,session,request);
+	}
+	
+	@RequestMapping("/product/pro_inquiry_write_ok")
+	public String pro_inquiry_write_ok(InquiryVO ivo,HttpSession session,HttpServletRequest request) {
+		return service.pro_inquiry_write_ok(ivo,session,request);
+		
 	}
 	
 	

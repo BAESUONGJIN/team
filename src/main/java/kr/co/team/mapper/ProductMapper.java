@@ -22,10 +22,11 @@ public interface ProductMapper {
 	
 	//review 상품평 작성 및 리스트
 	public void pro_review_write_ok(ReviewVO rvo);
-	public ArrayList<ReviewVO> pro_review_list ();
+	public ArrayList<ReviewVO> pro_review_list (String pcode);
 	
 	//inquiry 상품문의 작성 및 리스트
-	public ArrayList<InquiryVO> pro_inquiry_list();
+	public ArrayList<InquiryVO> pro_inquiry_list(String pcode);
+	public void pro_inquiry_write_ok(InquiryVO ivo);
 	
 	
 }

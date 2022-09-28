@@ -37,13 +37,12 @@
 	</select>
 
 	<select id="pro_content" resultType="kr.co.team.vo.ProductVO">
-		select * from product where
-		pcode=#{param1}
+		select * from product where pcode=#{param1}
 	</select>
 
 	<!-- 상품평 리스트 -->
 	<select id="pro_review_list" resultType="kr.co.team.vo.ReviewVO">
-		select * from review order by id desc limit 10
+		select * from review where pcode=#{param1} order by id desc limit 10
 	</select>
 
 
@@ -55,7 +54,12 @@
 	
 	<!-- 상품문의 리스트 -->
 	<select id="pro_inquiry_list" resultType="kr.co.team.vo.InquiryVO">
-	select * from inquiry
+	select * from inquiry 
 	</select>
+	
+	<insert id="pro_inquiry_write_ok" parameterType="kr.co.team.vo.InquiryVO">
+	insert into inquiry(userid,pcode,content,writeday)
+	values(#{userid},#{pcode},#{content},now())
+	</insert>
 	
 </mapper>
