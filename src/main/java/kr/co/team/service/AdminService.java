@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 
 import kr.co.team.vo.AdminVO;
+import kr.co.team.vo.AnswerVO;
 import kr.co.team.vo.FaqVO;
 import kr.co.team.vo.ProductVO;
 
@@ -39,4 +40,8 @@ public interface AdminService {
 	public String pro_content(HttpServletRequest request, Model model);
 	public String pro_delete(HttpServletRequest request);
 	public String pro_update(HttpServletRequest request);
+	
+	//상품문의
+	public String inquiry_list(Model model);
+	public String inquiry_content(HttpServletRequest request, Model model);
 }

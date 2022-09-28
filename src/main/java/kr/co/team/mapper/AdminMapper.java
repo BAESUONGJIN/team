@@ -3,8 +3,10 @@ package kr.co.team.mapper;
 import java.util.ArrayList;
 
 import kr.co.team.vo.AdminVO;
+import kr.co.team.vo.AnswerVO;
 import kr.co.team.vo.DaeVO;
 import kr.co.team.vo.FaqVO;
+import kr.co.team.vo.InquiryVO;
 import kr.co.team.vo.MemberVO;
 import kr.co.team.vo.ProductVO;
 
@@ -46,4 +48,9 @@ public interface AdminMapper {
 	public void pro_delete(String id);
 	public ArrayList<DaeVO> pro_cat();
 	public void pro_update(ProductVO pvo);
+	
+	//상품문의
+	public ArrayList<InquiryVO> inquiry_list();
+	public InquiryVO inquiry_content(String id);
+	public String getAnswer(String id);
 }

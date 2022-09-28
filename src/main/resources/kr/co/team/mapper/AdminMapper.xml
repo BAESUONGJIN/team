@@ -123,4 +123,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update product set pimg=#{pimg}, title=#{title}, size=#{size}, color=#{color},
 		stock=#{stock}, cimg=#{cimg}, price=#{price}, halin=#{halin} where id=#{id}
 	</update>
+	
+	
+	<!-- 상품문의 -->
+	<select id="inquiry_list" resultType="kr.co.team.vo.InquiryVO">
+		select *, (select title from product where pcode = inquiry.pcode) as title,
+		(select count(*) from answer where cid=inquiry.id) as cnt from inquiry order by id desc
+	</select>
+	
+	<select id="inquiry_content" resultType="kr.co.team.vo.InquiryVO">
+		select *, (select title from product where pcode = inquiry.pcode) as title,
+		(select content from answer where cid=inquiry.id) as answer_content from inquiry where id=#{param1}
+	</select>
+	
+	<select id="getAnswer" resultType="String">
+		select content from answer where cid=#{param1}
+	</select>
+	
+	<insert id="inquiry_answer" parameterType="kr.co.team.vo.AnswerVO">
+		insert into answer(content,cid,writeday) values(#{content},#{cid},now())
+	</insert>
 </mapper>
