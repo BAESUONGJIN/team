@@ -4,13 +4,10 @@ public class ReviewVO {
 	private int id;
 	private String userid,content,writeday, pcode, title;
 	
-	//productVO의 pimg
-	private String pimg;
+	//productVO에서 가져온 값
+	private String pimg, ptitle;
 	
 	
-	public String getPcode() {
-		return pcode;
-	}
 	public String getTitle() {
 		return title;
 	}
@@ -22,6 +19,15 @@ public class ReviewVO {
 	}
 	public void setPimg(String pimg) {
 		this.pimg = pimg;
+	}
+	public String getPtitle() {
+		return ptitle;
+	}
+	public void setPtitle(String ptitle) {
+		this.ptitle = ptitle;
+	}
+	public String getPcode() {
+		return pcode;
 	}
 	public void setPcode(String pcode) {
 		this.pcode = pcode;

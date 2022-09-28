@@ -17,16 +17,11 @@
      flex: 1;
    }
    
-   table{
-     border: 2px solid #cccccc;
-   }
-   
-   
    section table caption {
      text-align:left;
    }
    section table th {
-     border-top:1px solid #cccccc;
+     border-top:2px solid #cccccc;
      border-bottom:1px solid #cccccc;
    }
    section table td {
@@ -40,23 +35,25 @@
 <body>
   <section>
         <caption> <h2> 상품평 </h2> </caption>
-    <table width="1000" align="center" cellspacing="0">
+    <table width="800" align="center" cellspacing="0">
         <tr>
           <th> 상품 </th>
-          <th> 상세설명 </th>
+          <th> 나의 후기 </th>
           <th> 작성일 </th>
           <th> 수정/삭제 </th>
         </tr>
      <c:forEach items="${rlist}" var="rvo">
-        <tr align="center" height="70">
-          <td>${rvo.title} </td>
-          <td>${rvo.content} </td>
+       <tr align="center" height="70">
+          <td><a href="../product/pro_content?pcode=${rvo.pcode}">${rvo.ptitle}</a> <br>
+           <img src="../resources/img/${rvo.pimg}" width="50" height="50">
+          </td>
+          <td> ${rvo.content} </td>
           <td> ${rvo.writeday} </td>
           <td>
             <input type="button" value="수정" onclick="location='myreview_update?id=${rvo.id}'">
             <input type="button" value="삭제" onclick="location="">
           </td>
-        </tr>
+       </tr>
      </c:forEach>
     </table>
   </section>

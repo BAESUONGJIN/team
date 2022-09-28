@@ -208,7 +208,7 @@
 	100% {margin-top: 10px;}
 }
     footer {
-       width:100% ;
+       width:100%;
        height: 200px;
        border: 1px solid rgb(240, 240, 240);
        background: rgba(164, 48, 35, 0.1);
