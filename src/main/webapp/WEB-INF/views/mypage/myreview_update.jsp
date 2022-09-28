@@ -10,7 +10,6 @@
  <style>
    section {
      width:1000px;
-     height:500px;
      margin:auto;
      text-align: center;
      padding-top: 150px;/* 폼 자체 조정 */
@@ -39,26 +38,23 @@
 </head>
 <body>
   <section>
-        <caption> <h2> 상품평 </h2> </caption>
+        <caption> <h2> 상품평 수정 </h2> </caption>
+    <form method="post" name="review" action="myreview_update_ok">
+      <input type="hidden" name="id" value="${rvo.id }">
     <table width="1000" align="center" cellspacing="0">
         <tr>
-          <th> 상품 </th>
-          <th> 상세설명 </th>
-          <th> 작성일 </th>
-          <th> 수정/삭제 </th>
+          <td> 한줄 요약 </td>
+          <td> <input type="text" name="title" value="${rvo.title}"></td>
+          <td> 상세 리뷰 </td>
+          <td> <textarea name="content" cols="30" rows="4"> ${rvo.content } </textarea></td>
         </tr>
-     <c:forEach items="${rlist}" var="rvo">
-        <tr align="center" height="70">
-          <td>${rvo.title} </td>
-          <td>${rvo.content} </td>
-          <td> ${rvo.writeday} </td>
-          <td>
-            <input type="button" value="수정" onclick="location='myreview_update?id=${rvo.id}'">
-            <input type="button" value="삭제" onclick="location="">
+        <tr>
+          <td colspan="2" align="center">
+            <input type="submit" value="수정">
           </td>
         </tr>
-     </c:forEach>
     </table>
+  </form>
   </section>
 </body>
 </html>

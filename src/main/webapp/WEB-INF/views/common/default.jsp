@@ -322,17 +322,39 @@
         <span id="my" style="display:inline-block"> <a href="../"> MY PAGE ∨</a>
         <ul id="myinfo">
       <c:if test="${userid != 'admin123'}">
-          <c:if test="${userid == null }"> <li> <a href="../login/login"> 회원정보 수정</a> </li>
-          </c:if>
-          <c:if test="${userid !=null }">
+      <c:if test="${userid == null }"> <li> <a href="../login/login"> 회원정보 수정</a> </li>
+      </c:if>
+      <c:if test="${userid !=null }">
           <li> <a href="../mypage/myinfo_change"> 회원정보 수정 </a></li>
-          </c:if>
-          <li> 주문 조회</li>
-          <li> <a href="../mypage/myreview"> 나의 글 확인 </a> </li>
-          <li> 장바구니 </li>
-          <li> <a href="../"> 관심 상품 </a></li>
-          <li> <a href="../"> 마이 페이지 </a></li>
-       </c:if>
+      </c:if>
+      
+      
+      <c:if test="${userid == null }"> <li> <a href="../login/login"> 주문 조회 </a> </li>
+      </c:if>
+      <c:if test="${userid !=null }">
+          <li> <a href="../"> 주문 조회 </a></li>
+      </c:if>
+      <c:if test="${userid == null }"> <li> <a href="../login/login"> 나의 글 확인  </a> </li>
+      </c:if>
+      <c:if test="${userid !=null }">
+          <li> <a href="../mypage/myreview"> 나의 글 확인 </a></li>
+      </c:if>
+      <c:if test="${userid == null }"> <li> <a href="../login/login"> 장바구니  </a> </li>
+      </c:if>
+      <c:if test="${userid !=null }"> <li> <a href="../login/login"> 장바구니 </a></li>
+      </c:if>
+      <c:if test="${userid == null }"> <li> <a href="../login/login"> 관심 상품  </a> </li>
+      </c:if>
+      <c:if test="${userid !=null }">
+          <li> <a href="../mypage/myreview"> 주문 조회 </a></li>
+      </c:if>
+      <c:if test="${userid == null }"> <li> <a href="../login/login"> 마이 페이지  </a> </li>
+      </c:if>
+      <c:if test="${userid !=null }">
+          <li> <a href="../mypage/myreview"> 마이 페이지 </a></li>
+      </c:if>
+      </c:if>
+       
           <!-- 관리자 전용  -->
         <c:if test="${userid == 'admin123'}">
           <li style="font-weight: bold;"> 관리자 전용 </li>

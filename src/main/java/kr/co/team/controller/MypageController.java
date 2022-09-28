@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.team.service.MypageService;
 import kr.co.team.vo.MemberVO;
+import kr.co.team.vo.ReviewVO;
 
 @Controller
 public class MypageController {
@@ -53,6 +54,18 @@ public class MypageController {
 	public String myreview(HttpSession session, Model model)
 	{
 		return service.myreview(session,model);
+	}
+	
+	@RequestMapping("/mypage/myreview_update")
+	public String myreview_update(HttpServletRequest request, Model model)
+	{
+		return service.myreview_update(request,model);
+	}
+	
+	@RequestMapping("/mypage/myreview_update_ok")
+	public String myreview_update_ok(ReviewVO rvo)
+	{
+		return service.myreview_update_ok(rvo);
 	}
 	
 }

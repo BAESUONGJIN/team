@@ -13,4 +13,6 @@ public interface MypageMapper {
    public String getPwd(String userid);
    public void change_pwd(String pwd, String userid);
    public ArrayList<ReviewVO>myreview(String userid);
+   public ReviewVO myreview_update(String id);
+   public void myreview_update_ok(ReviewVO rvo);
 }

@@ -83,4 +83,18 @@ public class MypageServiceImpl implements MypageService {
 		return "/mypage/myreview";
 	}
 
+	@Override
+	public String myreview_update(HttpServletRequest request, Model model) {
+		String id=request.getParameter("id");
+		ReviewVO rvo=mapper.myreview_update(id);
+		model.addAttribute("rvo",rvo);
+		return "/mypage/myreview_update";
+	}
+
+	@Override
+	public String myreview_update_ok(ReviewVO rvo) {
+		mapper.myreview_update_ok(rvo);
+		return "redirect:/mypage/myreview";
+	}
+
 }
