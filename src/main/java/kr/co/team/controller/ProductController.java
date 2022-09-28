@@ -47,6 +47,7 @@ public class ProductController {
 	{
 		return service.pro_list(request,model,pvo);
 	}
+
 	
 	@RequestMapping("/product/pro_content")
 	public String pro_content(HttpServletRequest request,Model model,HttpSession session)

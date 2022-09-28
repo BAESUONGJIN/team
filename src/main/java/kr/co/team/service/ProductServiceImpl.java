@@ -73,6 +73,7 @@ public class ProductServiceImpl implements ProductService {
 		int size=1024*1024*30;
 		ProductVO pvo= new ProductVO();
 		
+		
 		try
 		{
 			MultipartRequest multi=new MultipartRequest(request,path,size,"utf-8",new DefaultFileRenamePolicy());

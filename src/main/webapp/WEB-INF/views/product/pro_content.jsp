@@ -16,8 +16,6 @@ section {
 	text-align: center;
 }
 
-
-
 /* #img,#content{
 display: inline-block;
 } */

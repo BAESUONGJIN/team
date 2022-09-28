@@ -46,6 +46,7 @@
 		select * from review order by id desc limit 10
 	</select>
 
+
 	<!-- 상품평 작성 -->
 	<insert id="pro_review_write_ok" parameterType="kr.co.team.vo.ReviewVO">
 		insert into review(userid,pcode,content,writeday)

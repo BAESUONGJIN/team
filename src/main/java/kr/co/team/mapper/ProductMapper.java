@@ -19,6 +19,7 @@ public interface ProductMapper {
 	public ProductVO pro_content(String pcode);
 	
 	
+	
 	//review 상품평 작성 및 리스트
 	public void pro_review_write_ok(ReviewVO rvo);
 	public ArrayList<ReviewVO> pro_review_list ();
