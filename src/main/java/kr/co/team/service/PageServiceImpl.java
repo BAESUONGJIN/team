@@ -128,6 +128,7 @@ public class PageServiceImpl implements PageService {
 		}
 	    
 		model.addAttribute("list",list);
+
 				
 		String userid=session.getAttribute("userid").toString();
 		MemberVO mvo=mapper.member(userid);
@@ -139,6 +140,17 @@ public class PageServiceImpl implements PageService {
 
 		return "/page/buy";
 	}
+	
+	@Override
+	public String buy_ok(BuyVO bvo,HttpSession session) {
+		String userid=session.getAttribute("userid").toString();
+		bvo.setUserid(userid);
+		mapper.buy_ok(bvo);
+		
+		return "redirect:/page/buy_view?jumuncode=";		
+	}
+
+	
 
 	@Override
 	public void bae_add(HttpSession session, PrintWriter out) {
@@ -185,35 +197,6 @@ public class PageServiceImpl implements PageService {
 		mapper.baesong_edit_ok(bvo);
 		return "redirect:/page/baesong_list";
    }
-
-	@Override
-	public String buy_ok(BuyVO bvo,HttpSession session) {
-		String userid=session.getAttribute("userid").toString();
-		bvo.setUserid(userid);
-		
-		Integer number=mapper.getjumun(userid);
-		number++;
-		
-		String num=number.toString();
-		
-		if(num.length()==1)
-			num="000"+num;
-		else if(num.length()==2)
-		        num="00"+num;
-			 else if(num.length()==3)
-		             num="0"+num;
-		
-		String jumuncode=userid+num;
-		
-		bvo.setJumuncode(jumuncode);
-		
-		String[] pcode=bvo.getPcode().split(",");
-		String[] su=bvo.getSu_imsi().split(",");
-		String[] chong=bvo.getChong_imsi().split(",");
-		
-		
-		return "redirect:/page/buy_view?jumuncode="+jumuncode;		
-	}
 
 	
 	
