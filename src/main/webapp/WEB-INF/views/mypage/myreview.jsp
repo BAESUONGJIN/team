@@ -53,6 +53,7 @@
           <td>
             <input type="button" value="수정" onclick="location='myreview_update?id=${rvo.id}'">
             <input type="button" value="삭제" onclick="location='myreview_del?id=${rvo.id}'">
+            
           </td>
        </tr>
      </c:forEach>
