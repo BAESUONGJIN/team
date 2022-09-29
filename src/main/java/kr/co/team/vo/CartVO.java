@@ -3,10 +3,24 @@ package kr.co.team.vo;
 public class CartVO {
 
 	private int id,su;
-	private String pcode,userid,writeday;
+	private String pcode,userid,writeday,color,size;
 	
 	private int price;
 	private String title,pimg;
+	
+	
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public String getSize() {
+		return size;
+	}
+	public void setSize(String size) {
+		this.size = size;
+	}
 	public int getId() {
 		return id;
 	}

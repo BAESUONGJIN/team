@@ -41,10 +41,11 @@ public class PageServiceImpl implements PageService {
 	public void cart_add(HttpSession session, HttpServletRequest request, PrintWriter out) {
 		String userid=session.getAttribute("userid").toString();
 		String pcode=request.getParameter("pcode");
-		//수량체크 꼭!!
-		//String su=request.getParameter("su");
+		String su=request.getParameter("su");
+		String color=request.getParameter("color");
+		String size=request.getParameter("size");
 		
-		mapper.cart_add(userid,pcode);
+		mapper.cart_add(userid,pcode,Integer.parseInt(su),color,size);
 		
 		out.print("0");
 		
@@ -95,6 +96,7 @@ public class PageServiceImpl implements PageService {
 	public String cart(HttpSession session, Model model) {
 		String userid=session.getAttribute("userid").toString();
 		ArrayList<CartVO> list=mapper.cart(userid);
+		
 		model.addAttribute("list",list);
 		return "/page/cart";
 	}
@@ -115,7 +117,7 @@ public class PageServiceImpl implements PageService {
 		String[] su=request.getParameter("su").split(",");
 		String[] color=request.getParameter("color").split(",");
 		String[] size=request.getParameter("size").split(",");
-				
+		String gchk=request.getParameter("gchk");
 		ArrayList<ProductVO> list=new ArrayList<ProductVO>();
 		for(int i=0;i<pcode.length;i++)
 		{
@@ -128,7 +130,7 @@ public class PageServiceImpl implements PageService {
 		}
 	    
 		model.addAttribute("list",list);
-
+		model.addAttribute("gchk",gchk);
 				
 		String userid=session.getAttribute("userid").toString();
 		MemberVO mvo=mapper.member(userid);

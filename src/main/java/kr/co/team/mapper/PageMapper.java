@@ -11,7 +11,7 @@ import kr.co.team.vo.WishVO;
 
 public interface PageMapper {
 	public void wish_add(String userid,String pcode);
-	public void cart_add(String userid,String pcode);
+	public void cart_add(String userid,String pcode,int su,String color,String size);
 	public ArrayList<WishVO> wish(String userid);
 	public void wish_del(String id);
 	public void move_cart(String userid,String pcode);

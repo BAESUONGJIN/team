@@ -10,8 +10,8 @@
  </insert>
  
   <insert id="cart_add">
-    insert into cart(userid,pcode,su,writeday)
-    values(#{param1},#{param2},1,now())
+    insert into cart(userid,pcode,su,color,size,writeday)
+    values(#{param1},#{param2},#{param3},#{param4},#{param5},now())
   </insert>
 
  <select id="wish" resultType="kr.co.team.vo.WishVO">
@@ -34,7 +34,7 @@
  </delete>
  
  <select id="cart" resultType="kr.co.team.vo.CartVO">
-  select p.title,p.pimg,p.price,c.su,c.writeday,c.id,c.pcode from cart as c , product as p 
+  select p.title,p.pimg,p.price,c.size,c.color,c.su,c.writeday,c.id,c.pcode from cart as c , product as p 
   where p.pcode=c.pcode and userid=#{param1}
  </select>
  

@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
- <c:set var="size" value="${list.size() }"/>
+ <c:set var="size" value="${list.size()}"/>
  <c:if test="${size <=5}">
    <c:set var="he" value="600"/>
  </c:if>
@@ -146,6 +146,8 @@
 	   
 	   var pcode="";
 	   var su="";
+	   var size="";
+	   var color="";
 	   
 	   var subchk=document.getElementsByClassName("subchk");  
 	   var len=subchk.length; 
@@ -156,16 +158,18 @@
 		   {
 			   pcode=pcode+document.getElementsByClassName("pcode")[i].value+",";
 			   su=su+document.getElementsByClassName("spinner")[i].value+",";
+			   color=color+document.getElementsByClassName("color")[i].value+",";
+			   size=size+document.getElementsByClassName("size")[i].value+",";
+			   
 		   }	   
 	   }
-	  
-	   
-	   location="../page/buy?gchk=2&pcode="+pcode+"&su="+su;
+	   location="../page/buy?gchk=2&pcode="+pcode+"&su="+su+"&size="+size+"&color"+color;
    }
   </script>
 </head>
 <body> <!-- cart.jsp -->
    <section>
+     
      <table width="1000" align="center">
        <caption style="caption-side:top"> <h3>Cart</h3> </caption>
        <tr align="center">
@@ -180,10 +184,12 @@
        
      <c:forEach items="${list}" var="cvo">
        <input type="hidden" class="pcode" value="${cvo.pcode}">
+       <input type="hidden" class="size" value="${cvo.size}">
+       <input type="hidden" class="color" value="${cvo.color}">
        <tr align="center">
          <td> <input type="checkbox" class="subchk" onclick="subcheck()" value="${cvo.id}"> </td>
          <td> <img src="../resources/img/${cvo.pimg}" width="70" height="70" style="border:1px solid #cccccc;padding:5px;"> </td>
-         <td> ${cvo.title} </td>
+         <td> ${cvo.title} <p>${cvo.color} ${cvo.size} </td>
          <td class="price"> <fmt:formatNumber value="${cvo.price*cvo.su}"/>원 </td>
          <td> <input type="text" class="spinner" value="${cvo.su}" readonly> </td>
          <td> ${cvo.writeday} </td>

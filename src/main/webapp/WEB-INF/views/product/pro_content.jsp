@@ -121,7 +121,9 @@ function pro_inquiry_write()
 	    {
 	    	if(confirm("장바구니목록에 상품을 추가할까요?"))
 	    	{
-	    		var su=document.pro.su.value;
+	    		var su=document.buy.su.value;
+	    		var color=document.buy.color.value;
+	    		var size=document.buy.size.value;
 	    		var chk=new XMLHttpRequest();
 	        	chk.onload=function()
 	        	{
@@ -131,11 +133,10 @@ function pro_inquiry_write()
 	        		else
 	        			alert("오류");
 	        	}
-	        	chk.open("get","cart_add?pcode=${pvo.pcode}&su="+su);
+	        	chk.open("get","cart_add?pcode=${pvo.pcode}&su="+su+"&color="+color+"&size="+size);
 	        	chk.send();
 	    	}	
-	    	
-	    	
+    	
 	    }
 	
 </script>
@@ -145,7 +146,7 @@ function pro_inquiry_write()
 	<section>
 	<form name="buy" method="post" action="../page/buy">
     <input type="hidden" name="pcode" value="${pvo.pcode}">
-	<input type="hidden" name="gchk" value="0">
+	<input type="hidden" name="gchk" value="0"> <!-- 콘텐츠에서 구매로가는지 카트에서 구매로가는지 -->
 	<div id="img">
 		<img src="../resources/img/${pvo.pimg}" width="430" height="450">
 	</div>
