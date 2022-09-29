@@ -117,7 +117,7 @@ public class PageServiceImpl implements PageService {
 		String[] su=request.getParameter("su").split(",");
 		String[] color=request.getParameter("color").split(",");
 		String[] size=request.getParameter("size").split(",");
-		String gchk=request.getParameter("gchk");
+		
 		ArrayList<ProductVO> list=new ArrayList<ProductVO>();
 		for(int i=0;i<pcode.length;i++)
 		{
@@ -130,7 +130,7 @@ public class PageServiceImpl implements PageService {
 		}
 	    
 		model.addAttribute("list",list);
-		model.addAttribute("gchk",gchk);
+		
 				
 		String userid=session.getAttribute("userid").toString();
 		MemberVO mvo=mapper.member(userid);
@@ -197,6 +197,9 @@ public class PageServiceImpl implements PageService {
 	@Override
 	public String baesong_edit_ok(BaesongVO bvo) {
 		mapper.baesong_edit_ok(bvo);
+		
+		
+		
 		return "redirect:/page/baesong_list";
    }
 

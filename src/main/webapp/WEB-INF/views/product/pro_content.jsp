@@ -45,7 +45,7 @@ function check()
 	{
 		if(size == 0){
 			alert("사이즈를 선택해주세요")
-			color.value=0;
+			document.getElementById("color").value=0;
 		}
 		else{
 			
@@ -125,19 +125,33 @@ function pro_inquiry_write()
 	    		var color=document.buy.color.value;
 	    		var size=document.buy.size.value;
 	    		var chk=new XMLHttpRequest();
-	        	chk.onload=function()
-	        	{
+	        	
+	    			if(document.buy.color.value !=0 && document.buy.size.value != 0)
+	    				{
+	    		
+	    				chk.onload=function()
+	        			{
 	        		
-	        		if(chk.responseText=="0")
-	        			alert("장바구니목록 추가");
-	        		else
-	        			alert("오류");
-	        	}
-	        	chk.open("get","cart_add?pcode=${pvo.pcode}&su="+su+"&color="+color+"&size="+size);
-	        	chk.send();
+	        				if(chk.responseText=="0")
+	        					alert("장바구니목록 추가");
+	        				else
+	        					alert("오류");
+	      			  	 }	
+	    				
+	    			 	chk.open("get","cart_add?pcode=${pvo.pcode}&su="+su+"&color="+color+"&size="+size);
+	    	        	chk.send();
+	        	         }
+	    			
+	    			 
+	    			else 
+	    				{
+	    				alert("사이즈 및 색상을 선택해주세요.");
+	    				return false;
+	    				}
+	    		}
+	    	
+	    	
 	    	}	
-    	
-	    }
 	
 </script>
 </head>

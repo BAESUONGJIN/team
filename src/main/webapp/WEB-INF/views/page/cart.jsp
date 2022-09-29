@@ -163,7 +163,7 @@
 			   
 		   }	   
 	   }
-	   location="../page/buy?gchk=2&pcode="+pcode+"&su="+su+"&size="+size+"&color"+color;
+	   location="../page/buy?gchk=2&pcode="+pcode+"&su="+su+"&size="+size+"&color="+color;
    }
   </script>
 </head>
@@ -180,9 +180,7 @@
          <td> 수량 </td>
          <td> 날짜 </td>
          <td> 삭제 </td>
-       </tr>
-       
-       
+       </tr>       
      <c:forEach items="${list}" var="cvo">
        <input type="hidden" class="pcode" value="${cvo.pcode}">
        <input type="hidden" class="size" value="${cvo.size}">
