@@ -157,7 +157,7 @@
   
 </script>  
 </head> 
-    <div id="image"><!-- 그림슬라이드흠 -->
+    <div id="image"><!-- 그림슬라이드홈 -->
       <div id="outer">
         <div id="inner">
           <img src="../resources/main/pic6.png" width="100%" height="500">
