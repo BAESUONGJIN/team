@@ -106,11 +106,14 @@
  <section>
  
   <form method="post" action="buy_ok">
+  <c:forEach items="${list}" var="pvo">
    <input type="hidden" name="pcode" value="${pvo.pcode}">
    <input type="hidden" name="su" value="${pvo.su}">
-   <input type="hidden" name="bae_id" value="${bvo.id}">
+   <input type="hidden" name="size" value="${pvo.size}">
+   <input type="hidden" name="color" value="${pvo.color}">
    <input type="hidden" name="chong" value="<fmt:formatNumber value='${(pvo.price*pvo.su)-(pvo.price*(pvo.halin/100)*pvo.su)+pvo.baesong}' pattern='###'/>">
- 
+   </c:forEach>
+   <input type="hidden" name="bae_id" value="${bvo.id}">
    <div align="center"> <h2>주문/결제</h2> </div>
    
    <!-- 구매자 -->
