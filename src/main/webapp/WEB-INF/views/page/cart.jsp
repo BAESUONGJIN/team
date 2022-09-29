@@ -182,6 +182,7 @@
          <td> 삭제 </td>
        </tr>
        
+       
      <c:forEach items="${list}" var="cvo">
        <input type="hidden" class="pcode" value="${cvo.pcode}">
        <input type="hidden" class="size" value="${cvo.size}">
