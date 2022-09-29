@@ -36,7 +36,7 @@
   </select>
   
   <update id="myreview_update_ok" parameterType="kr.co.team.vo.ReviewVO">
-    update review set title=#{title}, content=#{content} where id=#{id}
+    update review set content=#{content} where id=#{id}
   </update>
   
   <delete id="myreview_del" parameterType="kr.co.team.vo.ReviewVO">
