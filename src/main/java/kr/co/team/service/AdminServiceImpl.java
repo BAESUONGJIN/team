@@ -38,6 +38,7 @@ public class AdminServiceImpl implements AdminService {
 		avo.setName(name);
 		mapper.write_ok(avo);
 		return "redirect:/gongji/list";
+		
 	}
 
 	@Override
@@ -352,7 +353,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public String pro_update(HttpServletRequest request, Model model) {
 		String id = request.getParameter("id");
-		ProductVO pvo = mapper.pro_content(id);
+		ProductVO pvo = mapper.pro_update(id);
 		model.addAttribute("pvo", pvo);
 		
 		ArrayList<DaeVO> list = mapper.pro_cat();
@@ -386,7 +387,7 @@ public class AdminServiceImpl implements AdminService {
 		{
 					
 		}
-		mapper.pro_update(pvo);
+		mapper.pro_update_ok(pvo);
 		
 		return "redirect:/admin/pro_list";
 	}
@@ -397,6 +398,7 @@ public class AdminServiceImpl implements AdminService {
 		model.addAttribute("ilist", ilist);
 		return "/admin/inquiry_list";
 	}
+	
 	
 	@Override
 	public String inquiry_content(HttpServletRequest request, Model model) {

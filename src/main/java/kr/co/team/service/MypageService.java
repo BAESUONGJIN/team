@@ -18,4 +18,5 @@ public interface MypageService {
 	public String myreview(HttpSession session, Model model);
 	public String myreview_update(HttpServletRequest request, Model model); 
 	public String myreview_update_ok(ReviewVO rvo);
+	public String myreview_del(HttpServletRequest request);
 }

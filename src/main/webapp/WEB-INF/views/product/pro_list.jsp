@@ -23,15 +23,49 @@ color: red;
 border: 1px solid red;
 }
 
+    /* 퀵 메뉴 */
+    div, ul, li {
+    -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0
+    }
+    a {
+    text-decoration:none;
+    }
+
+.quickmenu {position:absolute;width:100px; height:300px;  top:50%;margin-top:-20px;right:10px; }
+.quickmenu ul {position:relative;float:left;width:100%; /* display:block; display:none; */ /* border:1px solid #ddd; */}
+.quickmenu ul li {float:left;width:100%;/* border-bottom:1px solid #ddd; */text-align:center;display:inline-block;}
+.quickmenu ul li a {position:relative;float:left;width:100%;height:20px;line-height:20px;/* text-align:center; */color:#999;font-size:7pt;}
+.quickmenu ul li a:hover {color:#BDBDBD;}
+.quickmenu ul li:last-child {border-bottom:0;}
+
+.content {position:relative;min-height:1000px;}
+    
+
 </style>
 <script>
-
+/* 퀵메뉴 */
+$(document).ready(function(){
+	  var currentPosition = parseInt($(".quickmenu").css("top"));
+	  $(window).scroll(function() {
+	    var position = $(window).scrollTop(); 
+	    $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
+	  });
+	}); 
 </script>
 </head>
 <body>
 <section>
 <form method="post" action="pro_list">
 	<table width="1200" height="1300" align="center">
+	 <!-- 퀵 메뉴  -->
+ <div class="quickmenu">
+  <ul>
+    <li> <i class="fa-solid fa-angles-up" style="cursor: pointer; color: #616161;" onclick="window.scrollTo(0,0);"> </i></li><br> <br>
+    <li> <a href="../page/cart"> <i class="fa-solid fa-cart-shopping fa-3x" style="color: #616161;"></i> </a></li> <br> <br>
+    <li> <a href="../page/wish"> <i class="fa-regular fa-heart fa-3x" style="color: #616161;"></i> </a></li> <br> <br>
+    <li> <a href="../faq/faq_list"><i class="fa-regular fa-face-smile fa-3x" style="color: #616161;"></i></a> </li> <br> <br>
+  </ul>
+ </div>
 	<!-- <div id="orbySelect" align="right"><select>
 		<option>기 본</option>
 		<option>최신순</option>

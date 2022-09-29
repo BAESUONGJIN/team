@@ -107,7 +107,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select ceil(count(*)/10) from product where pcode like concat(#{param1},'%')
 	</select>
 	
-	<select id="pro_content" resultType="kr.co.team.vo.ProductVO">
+	<select id="pro_update" resultType="kr.co.team.vo.ProductVO">
 		select * from product where id = #{param1}
 	</select>
 	
@@ -119,7 +119,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from dae order by dcode asc
 	</select>
 	
-	<update id="pro_update" parameterType="kr.co.team.vo.ProductVO">
+	<update id="pro_update_ok" parameterType="kr.co.team.vo.ProductVO">
 		update product set pimg=#{pimg}, title=#{title}, size=#{size}, color=#{color},
 		stock=#{stock}, cimg=#{cimg}, price=#{price}, halin=#{halin} where id=#{id}
 	</update>

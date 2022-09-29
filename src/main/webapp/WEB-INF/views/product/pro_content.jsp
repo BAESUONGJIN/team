@@ -150,6 +150,7 @@ function pro_inquiry_write()
 	<div id="img">
 		<img src="../resources/img/${pvo.pimg}" width="430" height="450">
 	</div>
+	
 	<div id="content" align="center">
 		<div id="title">${pvo.title}</div>
 		
