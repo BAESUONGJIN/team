@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybats-3-mapper.dtd">
+<mapper namespace="kr.co.team.mapper.PageMapper">
+
+ <insert id="wish_add">
+  insert into wish(userid,pcode,writeday)
+  values(#{param1},#{param2},now())
+ </insert>
+ 
+  <insert id="cart_add">
+    insert into cart(userid,pcode,su,writeday)
+    values(#{param1},#{param2},1,now())
+  </insert>
+
+ <select id="wish" resultType="kr.co.team.vo.WishVO">
+   select p.title,p.pimg,p.price,w.writeday,w.id,w.pcode
+   from product as p , wish as w 
+   where w.pcode=p.pcode and userid=#{param1};
+ </select>
+ 
+ <delete id="wish_del">
+  delete from wish where id=#{param1}
+ </delete>
+ 
+ <insert id="move_cart">
+  insert into cart(userid,pcode,su,writeday)
+  values(#{param1},#{param2},1,now())
+ </insert>
+ 
+ <delete id="wish_del2">
+  delete from wish where userid=#{param1} and pcode=#{param2}
+ </delete>
+ 
+ <select id="cart" resultType="kr.co.team.vo.CartVO">
+  select p.title,p.pimg,p.price,c.su,c.writeday,c.id,c.pcode from cart as c , product as p 
+  where p.pcode=c.pcode and userid=#{param1}
+ </select>
+ 
+ <delete id="cart_del">
+  delete from cart where id=#{param1}
+ </delete>
+ 
+ <select id="buy" resultType="kr.co.team.vo.ProductVO">
+  select * from product where pcode=#{param1}
+ </select>
+ 
+ <select id="member" resultType="kr.co.team.vo.MemberVO">
+  select * from member where userid=#{param1}
+ </select>
+ 
+  <select id="baesong" resultType="kr.co.team.vo.BaesongVO">
+    select * from baesong where userid=#{param1} and gibon=1
+  </select>
+  
+  <insert id="bae_add" parameterType="kr.co.team.vo.MemberVO">
+    insert into baesong(name,zip,juso,juso_etc,phone,userid,gibon)
+    values(#{name},#{zip},#{juso},#{juso_etc},#{phone},#{userid},1)
+  </insert>
+  
+  <select id="baesong_list" resultType="kr.co.team.vo.BaesongVO">
+    select * from baesong where userid=#{param1}
+  </select>
+  
+  <insert id="juso_add_ok" parameterType="kr.co.team.vo.MemberVO">
+    insert into baesong(name,zip,juso,juso_etc,phone,userid)
+    values(#{name},#{zip},#{juso},#{juso_etc},#{phone},#{userid})
+  </insert>
+  
+  <select id="baesong_edit" resultType="kr.co.team.vo.BaesongVO">
+    select * from baesong where id=#{param1}
+  </select>
+  
+  <update id="baesong_edit_ok" parameterType="kr.co.team.vo.BaesongVO">
+    update baesong set name=#{name}, zip=#{zip}, juso=#{juso},
+    juso_etc=#{juso_etc}, phone=#{phone} where id=#{id}
+  </update>
+  
+  <insert id="buy_ok" parameterType="kr.co.team.vo.BuyVO">
+     insert into buy(pcode,size,color,su,userid,bae_id,chong,sudan,bank,card,gigan,phone,writeday,state)
+     values(#{pcode},#{size},#{color},#{su},#{userid},#{bae_id},#{chong},#{sudan},
+     #{bank},#{card},#{gigan},#{phone},now(),0)
+  </insert>
+  
+  <select id="getjumun" resultType="Integer">
+    select ifnull(max(right(jumuncode,4)),0) from gumae where userid=#{param1}
+  </select>
+
+  
+</mapper>

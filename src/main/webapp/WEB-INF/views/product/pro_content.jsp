@@ -69,8 +69,8 @@ function check()
 			document.getElementById("gumae_content").style.display="block";
 			}
 		}
-		document.getElementById("size").value=0;
-		document.getElementById("color").value=0;
+		//document.getElementById("size").value=0; 복수구매시
+		//document.getElementById("color").value=0;
 	}
 	
 }	
@@ -96,11 +96,57 @@ function pro_inquiry_write()
 		});
 	});
 	
+
+	  function wish_add() //찜목록 저장
+	    {
+	    	if(confirm("찜목록에 상품을 추가할까요?"))
+	    	{
+	    		var chk=new XMLHttpRequest();
+	        	chk.onload=function()
+	        	{
+	        		
+	        		if(chk.responseText=="0")
+	        			alert("찜목록 추가");
+	        		else
+	        			alert("오류");
+	        	}
+	        	chk.open("get","wish_add?pcode=${pvo.pcode}");
+	        	chk.send();
+	    	}	
+	    	
+	    	
+	    }
+	    
+	    
+	  function cart_add() //장바구니목록 저장
+	    {
+	    	if(confirm("장바구니목록에 상품을 추가할까요?"))
+	    	{
+	    		var su=document.pro.su.value;
+	    		var chk=new XMLHttpRequest();
+	        	chk.onload=function()
+	        	{
+	        		
+	        		if(chk.responseText=="0")
+	        			alert("장바구니목록 추가");
+	        		else
+	        			alert("오류");
+	        	}
+	        	chk.open("get","cart_add?pcode=${pvo.pcode}&su="+su);
+	        	chk.send();
+	    	}	
+	    	
+	    	
+	    }
+	
 </script>
 </head>
 
 <body>
 	<section>
+	<form name="buy" method="post" action="../page/buy">
+    <input type="hidden" name="pcode" value="${pvo.pcode}">
+	<input type="hidden" name="gchk" value="0">
 	<div id="img">
 		<img src="../resources/img/${pvo.pimg}" width="430" height="450">
 	</div>
@@ -118,12 +164,12 @@ function pro_inquiry_write()
 			<div><fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)}" />원</div>
 		</c:if>
 
-		<select id="size" onchange="check()">
+		<select id="size" name="size" onchange="check()">
 			<option value="0">선택</option>
 			<c:forEach items="${pvo.size}" var="i">
 				<option value="${i}">${i}</option>
 			</c:forEach>
-		</select> <select id="color" onchange="check()">
+		</select> <select id="color" name="color" onchange="check()">
 			<option value="0">선택</option>
 			<c:forEach items="${pvo.color}" var="j">
 				<option value="${j}">${j}</option>
@@ -150,6 +196,40 @@ function pro_inquiry_write()
 						<span id="gumae_chong"></span>
 					</div>
 				</div>
+				
+														<!-- 찜 -->
+		<div>
+	    <c:if test="${userid != null}"> 
+          <span class="btn" onclick="wish_add()"> 찜 </span>
+        </c:if>
+         
+        <c:if test="${userid == null}"> 
+          <span class="btn" onclick="alert('로그인 하세요')"> 찜 </span> 
+        </c:if>  
+        
+        <a href="../page/wish"> 찜목록 이미지 클릭시 이동</a>
+		</div>
+		
+		<!-- 찜 -->
+		
+		<!-- 장바구니 -->
+	 <div>
+		<c:if test="${userid != null}">
+          <span class="btn" onclick="cart_add()"> 장바구니 </span>
+         </c:if>
+         <c:if test="${userid == null}"> 
+          <span class="btn" onclick="alert('로그인을 하세요')"> 장바구니 </span> 
+         </c:if>  
+         <a href="../page/cart"> 장바구니 이미지 클릭시 이동</a>
+     </div>
+		<!-- 장바구니 -->
+
+		<!-- 즉시구매 -->
+
+	<input type="submit" value="즉시구매">
+
+	</form>		
+				
 				
 				<div id="content_list">
 						<span>상세페이지</span>					

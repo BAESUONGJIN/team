@@ -316,7 +316,8 @@
         <a href="../login/logout"> LOGOUT </a>&nbsp;
         </c:if>
         
-        <a href="../"> CART &nbsp;</a>
+        <a href="../page/wish"> WISH &nbsp;</a>
+        <a href="../page/cart"> CART &nbsp;</a>
         <a href="../gongji/list"> NOTICE &nbsp;</a>
         
         <span id="my" style="display:inline-block"> <a href="../"> MY PAGE ∨</a>
