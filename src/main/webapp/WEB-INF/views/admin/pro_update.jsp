@@ -47,9 +47,9 @@ function chong_pay()
 		<table width="700" align="center">
 		
 		
-		<tr>
-				<td>대표이미지</td>
-				<td><input id="file" type="file" name="pimg"></td>
+			<tr>
+				<td>대표이미지</td> 
+				<td><input id="file" type="file" name="pimg" value="${pvo.pimg}"></td>
 			</tr>
 			<tr>
 				<td>카테고리</td>

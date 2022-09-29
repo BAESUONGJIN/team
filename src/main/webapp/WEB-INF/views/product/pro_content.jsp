@@ -13,7 +13,6 @@ section {
 	height: 1500px;
 	margin-top: 150px;
 	border: 1px solid black;
-	text-align: center;
 }
 
 /* #img,#content{
@@ -200,8 +199,6 @@ function pro_inquiry_write()
 				</form>
 				
 				<div><h1><b>배송/교환/반품 안내</b></h1></div>
-				
-				
 		<section>
 </body>
 </html>

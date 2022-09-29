@@ -44,14 +44,15 @@
 		
 		<c:forEach items="${plist}" var="pvo">
 		<tr>
-			<td> ${pvo.pcode} </td>
 			<td> <img src="../resources/img/${pvo.pimg}" width="40" height="40"> </td>
-			<td onclick="location='pro_content?id=${pvo.id}'"> ${pvo.title} </td>
+			<td onclick="location='pro_update?id=${pvo.id}'">${pvo.title} </td>
 			<td> ${pvo.price} </td>
 			<td> ${pvo.writeday} </td>
 			<td> <input type="button" value="삭제" onclick="location='pro_delete?id=${pvo.id}'"> </td>
 		</tr>
 		</c:forEach>
+		
+		
 		
 		<tr> <!-- 페이징 처리 -->
 			<td colspan="6" align="center">
