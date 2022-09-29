@@ -341,11 +341,11 @@
       </c:if>
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 장바구니  </a> </li>
       </c:if>
-      <c:if test="${userid !=null }"> <li> <a href="../"> 장바구니 </a></li>
+      <c:if test="${userid !=null }"> <li> <a href="../page/cart"> 장바구니 </a></li>
       </c:if>
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 관심 상품  </a> </li>
       </c:if>
-      <c:if test="${userid !=null }"> <li> <a href="../"> 관심 상품 </a></li>
+      <c:if test="${userid !=null }"> <li> <a href="../page/wish"> 관심 상품 </a></li>
       </c:if>
       <c:if test="${userid !=null }">
           <li> <a href="../"> 주문 조회 </a></li>
