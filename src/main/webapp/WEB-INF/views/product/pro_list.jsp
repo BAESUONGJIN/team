@@ -8,9 +8,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+section {
+   width: 1200px;
+   height: 100%;
+   margin:auto;
+   text-align: center;
+   padding-top:150px;/* 폼 자체 조정 */
+}
 
 div{
 margin-left: 20px;
+}
+
+a{
+text-decoration: none;
+color: black;
 }
 s
 {
@@ -57,10 +69,11 @@ $(document).ready(function(){
 <section>
 <form method="post" action="pro_list">
 	<table width="1200" height="1300" align="center">
+
 	 <!-- 퀵 메뉴  -->
  <div class="quickmenu">
   <ul>
-    <li> <i class="fa-solid fa-angles-up" style="cursor: pointer; color: #616161;" onclick="window.scrollTo(0,0);"> </i></li><br> <br>
+    <li> <i class="fa-solid fa-angles-up " style="cursor: pointer; color: #616161;" onclick="window.scrollTo(0,0);"> </i></li><br> <br>
     <li> <a href="../page/cart"> <i class="fa-solid fa-cart-shopping fa-3x" style="color: #616161;"></i> </a></li> <br> <br>
     <li> <a href="../page/wish"> <i class="fa-regular fa-heart fa-3x" style="color: #616161;"></i> </a></li> <br> <br>
     <li> <a href="../faq/faq_list"><i class="fa-regular fa-face-smile fa-3x" style="color: #616161;"></i></a> </li> <br> <br>
