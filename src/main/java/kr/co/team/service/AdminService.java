@@ -40,7 +40,6 @@ public interface AdminService {
 	public String pro_update(HttpServletRequest request, Model model);
 	public String pro_delete(HttpServletRequest request);
 	public String pro_update_ok(HttpServletRequest request);
-	public String pro_update(HttpServletRequest request);
 	
 	//상품문의
 	public String inquiry_list(Model model);

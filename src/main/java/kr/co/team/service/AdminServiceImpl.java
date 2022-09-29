@@ -408,4 +408,5 @@ public class AdminServiceImpl implements AdminService {
 		model.addAttribute("answer_content", answer_content);
 		return "admin/inquiry_content";
 	}
+
 }
