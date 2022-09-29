@@ -182,16 +182,14 @@
     <li><a href="#">후기</a></li>
   </ul>
             </div>
-        
+            
    <div class="scroll-image">
     <img src="../resources/main/best5.png" width="300" height="300" style="margin-right: 20px;">&nbsp;
     <img src="../resources/main/best2.png" width="300" height="300" style="margin-right: 20px;">&nbsp;
-    <img src="../resources/main/best7.png" width="300" height="300" style="margin-right: 20px;">&nbsp;
-    <img src="../resources/main/best4.png" width="300" height="300" style="margin-right: 20px;">&nbsp;
+    <a href="../mypage/myreview"><img src="../resources/main/best7.png" width="300" height="300" style="margin-right: 20px;"></a>&nbsp;
+    <a href="../gongji/list"><img src="../resources/main/best4.png" width="300" height="300" style="margin-right: 20px;"></a>&nbsp;
   </div>
-        
-      
-      
+
       </article> <!-- 최신 상품 -->
       
       

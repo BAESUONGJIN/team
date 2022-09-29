@@ -208,7 +208,7 @@
 	100% {margin-top: 10px;}
 }
     footer {
-       width:100% ;
+       width:100%;
        height: 200px;
        border: 1px solid rgb(240, 240, 240);
        background: rgba(164, 48, 35, 0.1);
@@ -316,25 +316,51 @@
         <a href="../login/logout"> LOGOUT </a>&nbsp;
         </c:if>
         
-        <a href="../"> CART &nbsp;</a>
+        <a href="../page/wish"> WISH &nbsp;</a>
+        <a href="../page/cart"> CART &nbsp;</a>
         <a href="../gongji/list"> NOTICE &nbsp;</a>
+        
         <span id="my" style="display:inline-block"> <a href="../"> MY PAGE ∨</a>
         <ul id="myinfo">
-          <c:if test="${userid == null }"> <li> <a href="../login/login"> 회원정보 수정</a> </li>
-          </c:if>
-          <c:if test="${userid !=null }">
+      <c:if test="${userid != 'admin123'}">
+      
+      <c:if test="${userid == null }"> <li> <a href="../login/login"> 회원정보 수정</a> </li>
+      </c:if>
+      <c:if test="${userid !=null }">
           <li> <a href="../mypage/myinfo_change"> 회원정보 수정 </a></li>
-          </c:if>
-          <li> 주문 조회</li>
-          <li> 나의 글 확인</li>
-          <li> 장바구니 </li>
-          <li> <a href="../"> 관심 상품 </a></li>
-          <li> <a href="../"> 마이 페이지 </a></li>
+      </c:if>
+      <c:if test="${userid == null }"> <li> <a href="../login/login"> 주문 조회 </a> </li>
+      </c:if>
+      <c:if test="${userid !=null }">
+          <li> <a href="../"> 주문 조회 </a></li>
+      </c:if>
+      <c:if test="${userid == null }"> <li> <a href="../login/login"> 나의 글 확인  </a> </li>
+      </c:if>
+      <c:if test="${userid !=null }">
+          <li> <a href="../mypage/myreview"> 나의 글 확인 </a></li>
+      </c:if>
+      <c:if test="${userid == null }"> <li> <a href="../login/login"> 장바구니  </a> </li>
+      </c:if>
+      <c:if test="${userid !=null }"> <li> <a href="../"> 장바구니 </a></li>
+      </c:if>
+      <c:if test="${userid == null }"> <li> <a href="../login/login"> 관심 상품  </a> </li>
+      </c:if>
+      <c:if test="${userid !=null }"> <li> <a href="../"> 관심 상품 </a></li>
+      </c:if>
+      <c:if test="${userid !=null }">
+          <li> <a href="../"> 주문 조회 </a></li>
+      </c:if>
+      <c:if test="${userid == null }"> <li> <a href="../login/login"> 마이 페이지  </a> </li>
+      </c:if>
+      <c:if test="${userid !=null }">
+          <li> <a href="../mypage/"> 마이 페이지 </a></li>
+      </c:if>
+      </c:if>
+       
           <!-- 관리자 전용  -->
         <c:if test="${userid == 'admin123'}">
-          <li style="font-weight: bold;"> 관리자 페이지 </li>
+          <li style="font-weight: bold;"> 관리자 전용 </li>
           <li> <a href="../"> 주문관련 </a> </li>
-          <li> <a href="../"> 1:1 상담 </a> </li>
           <li> <a href="../"> 상품등록 </a> </li>
           <li> <a href="../admin/pro_list"> 상품관리 </a> </li>
           <li> <a href="../"> 상품평 </a> </li>
@@ -373,14 +399,14 @@
      <a href="../" style="text-decoration: none; color: black; font-weight: bolder"> COMMUNITY ∨ </a>&nbsp;
         <ul id="myinfo2">
           <li> <a href="../" style="text-decoration: none; color: black;"> REVIEW</a></li>
-          <li> <a href="../" style="text-decoration: none; color: black;"> Q＆A </a></li>
+          <li> <a href="../faq/faq_list" style="text-decoration: none; color: black;"> FAQ </a></li>
           <li> <a href="../" style="text-decoration: none; color: black;"> EVENT </a></li>
         </ul>
      </span>
     </span>
                  
           <div id="outer">  <!-- 검색창 -->
-            <input type="text" id="search" name="search" placeholder="">
+            <input type="text" id="search" name="search">
             <img src="../resources/simg/ss.png" width="15px" valign="middle" style="float: right;">          
           </div>
           
@@ -406,9 +432,9 @@ SAT, SUN, <span style="color: red;"> HOLIDAY CLOSED </span> <p>
 
 <div id="foot2" style="float: left; width: 33%; padding:10px; margin-top: 15px; text-align: left;"> <!-- 2 -->
    <span>
-  <span style="font-size: 13px; font-weight: bold;">ACCOUNT INFO</span> <p>
+  <span style="font-size: 13px; font-weight: bold;"> ACCOUNT INFO </span> <p>
   <div style="font-size: 12px;">   
-     농협은행 302-0643-7948-71
+     농협은행 302-0643-7948-77
 
       예금주 김효정 [EZEN]
 </div>
@@ -417,7 +443,7 @@ SAT, SUN, <span style="color: red;"> HOLIDAY CLOSED </span> <p>
 
 <div id="foot3" style="float: right; width: 33%; padding:10px; margin-top: 15px; text-align: right: ;"> <!-- 2 -->
 <div style="font-size: 12px;">
-<span style="font-weight: bold;font-size: 12px; color: black;">HOME</span> 상호명 EZEN 대표자 김효정 대표전화 010-4406-1619 <p>
+<span style="font-weight: bold;font-size: 12px; color: black;">HOME</span> 상호명 EZEN 대표자 김효정 대표전화 010-4406-7777 <p>
 <span style="font-weight: bold;font-size: 12px; color: black;">COMPANY</span> 개인정보관리책임자 김효정(clwm16@naver.com) <p>
 <span style="font-weight: bold;font-size: 12px; color: black;">AGREEMENT</span> 통신판매업신고 2018-경기도청-7770 <p>
 <u><span style="font-weight: bold;font-size: 12px; color: black;">PRIVACY</span></u> 사업자등록번호722-00-7777 [사업자정보확인] <p>

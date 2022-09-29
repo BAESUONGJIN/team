@@ -16,8 +16,10 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.team.mapper.AdminMapper;
 import kr.co.team.vo.AdminVO;
+import kr.co.team.vo.AnswerVO;
 import kr.co.team.vo.DaeVO;
 import kr.co.team.vo.FaqVO;
+import kr.co.team.vo.InquiryVO;
 import kr.co.team.vo.MemberVO;
 import kr.co.team.vo.ProductVO;
 
@@ -387,5 +389,23 @@ public class AdminServiceImpl implements AdminService {
 		mapper.pro_update(pvo);
 		
 		return "redirect:/admin/pro_list";
+	}
+
+	@Override
+	public String inquiry_list(Model model) {
+		ArrayList<InquiryVO> ilist = mapper.inquiry_list();
+		model.addAttribute("ilist", ilist);
+		return "/admin/inquiry_list";
+	}
+	
+	@Override
+	public String inquiry_content(HttpServletRequest request, Model model) {
+		String id = request.getParameter("id");
+		InquiryVO ivo = mapper.inquiry_content(id);
+		model.addAttribute("ivo", ivo);
+		
+		String answer_content = mapper.getAnswer(id);
+		model.addAttribute("answer_content", answer_content);
+		return "admin/inquiry_content";
 	}
 }

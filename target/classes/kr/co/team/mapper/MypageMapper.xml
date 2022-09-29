@@ -25,6 +25,19 @@
   <update id="change_pwd">
     update member set pwd=#{param1} where userid=#{param2}
   </update>
+  
+  <select id="myreview" resultType="kr.co.team.vo.ReviewVO">
+    select r.*, p.pimg, p.title as ptitle from review as r, product as p
+    where userid=#{param1} and r.pcode=p.pcode;
+  </select>
+  
+  <select id="myreview_update" resultType="kr.co.team.vo.ReviewVO">
+    select * from review where id=#{param1}
+  </select>
+  
+  <update id="myreview_update_ok" parameterType="kr.co.team.vo.ReviewVO">
+    update review set title=#{title}, content=#{content} where id=#{id}
+  </update>
    
    
 </mapper>

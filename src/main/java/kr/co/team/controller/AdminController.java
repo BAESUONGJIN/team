@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.team.service.AdminService;
 import kr.co.team.vo.AdminVO;
+import kr.co.team.vo.AnswerVO;
 import kr.co.team.vo.FaqVO;
 import kr.co.team.vo.ProductVO;
 
@@ -160,5 +161,19 @@ public class AdminController {
 	public String pro_update_ok(HttpServletRequest request)
 	{
 		return service.pro_update_ok(request);
+	}
+	
+	
+	//상품문의
+	@RequestMapping("/admin/inquiry_list")
+	public String inquiry_list(Model model)
+	{
+		return service.inquiry_list(model);
+	}
+	
+	@RequestMapping("/admin/inquiry_content")
+	public String inquiry_content(HttpServletRequest request, Model model)
+	{
+		return service.inquiry_content(request, model);
 	}
 }
