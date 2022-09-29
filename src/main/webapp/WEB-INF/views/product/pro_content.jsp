@@ -13,7 +13,6 @@ section {
 	height: 1500px;
 	margin-top: 150px;
 	border: 1px solid black;
-	text-align: center;
 }
 
 /* #img,#content{
@@ -258,7 +257,6 @@ function pro_inquiry_write()
 					</tr>
 				</form>
 				
-				
 				<!--상품문의 리스트  -->
 				<span><h1><b>상 품 문 의</b></h1></span>  
 				<span onclick="pro_inquiry_write()">문의 작성</span>
@@ -281,8 +279,6 @@ function pro_inquiry_write()
 				</form>
 				
 				<div><h1><b>배송/교환/반품 안내</b></h1></div>
-				
-				
 		<section>
 </body>
 </html>

@@ -145,10 +145,10 @@ public class AdminController {
 		return service.pro_list_etc(request,model);
 	}
 	
-	@RequestMapping("/admin/pro_content")
-	public String pro_content(HttpServletRequest request, Model model)
+	@RequestMapping("/admin/pro_update")
+	public String pro_update(HttpServletRequest request, Model model)
 	{
-		return service.pro_content(request, model);
+		return service.pro_update(request, model);
 	}
 	
 	@RequestMapping("/admin/pro_delete")
@@ -157,10 +157,10 @@ public class AdminController {
 		return service.pro_delete(request);
 	}
 	
-	@RequestMapping("/admin/pro_update")
-	public String pro_update(HttpServletRequest request)
+	@RequestMapping("/admin/pro_update_ok")
+	public String pro_update_ok(HttpServletRequest request)
 	{
-		return service.pro_update(request);
+		return service.pro_update_ok(request);
 	}
 	
 	
