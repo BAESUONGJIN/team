@@ -38,6 +38,7 @@ public class AdminServiceImpl implements AdminService {
 		avo.setName(name);
 		mapper.write_ok(avo);
 		return "redirect:/gongji/list";
+		
 	}
 
 	@Override
