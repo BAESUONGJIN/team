@@ -44,10 +44,10 @@ public interface AdminMapper {
 	public int pro_list_etc_count(String pdae);
 	public int pro_etc_getChong(String pdae);
 	
-	public ProductVO pro_content(String id);
+	public ProductVO pro_update(String id);
 	public void pro_delete(String id);
 	public ArrayList<DaeVO> pro_cat();
-	public void pro_update(ProductVO pvo);
+	public void pro_update_ok(ProductVO pvo);
 	
 	//상품문의
 	public ArrayList<InquiryVO> inquiry_list();
