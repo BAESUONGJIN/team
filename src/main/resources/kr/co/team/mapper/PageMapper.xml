@@ -78,9 +78,9 @@
   </update>
   
   <insert id="buy_ok" parameterType="kr.co.team.vo.BuyVO">
-     insert into buy(pcode,size,color,su,userid,bae_id,chong,sudan,bank,card,gigan,phone,writeday,state)
+     insert into buy(pcode,size,color,su,userid,bae_id,chong,sudan,bank,card,gigan,phone,writeday)
      values(#{pcode},#{size},#{color},#{su},#{userid},#{bae_id},#{chong},#{sudan},
-     #{bank},#{card},#{gigan},#{phone},now(),0)
+     #{bank},#{card},#{gigan},#{phone},now())
   </insert>
   
   <select id="getjumun" resultType="Integer">
