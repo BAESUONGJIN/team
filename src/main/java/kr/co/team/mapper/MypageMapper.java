@@ -15,4 +15,5 @@ public interface MypageMapper {
    public ArrayList<ReviewVO>myreview(String userid);
    public ReviewVO myreview_update(String id);
    public void myreview_update_ok(ReviewVO rvo);
+   public void myreview_del(String id); 
 }

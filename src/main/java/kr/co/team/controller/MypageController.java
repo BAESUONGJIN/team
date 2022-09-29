@@ -68,4 +68,10 @@ public class MypageController {
 		return service.myreview_update_ok(rvo);
 	}
 	
+	@RequestMapping("/mypage/myreview_del")
+	public String myreview_del(HttpServletRequest request)
+	{
+		return service.myreview_del(request);
+	}
+	
 }

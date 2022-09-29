@@ -13,7 +13,7 @@
     #image {
        width:100%;
        height:500px;
-       background:silver;
+       background:white;
        margin-top: 105px;
     }
     
@@ -177,8 +177,8 @@
  <!-- 퀵 메뉴  -->
  <div class="quickmenu">
   <ul>
-    <li> <i class="fa-solid fa-grip-lines fa-2x" style="cursor: pointer; color: #616161;" onclick="window.scrollTo(0,0);"> </i></li><br> <br>
-    <li> <a href="../page/cart"> <i class="fa-solid fa-cart-shopping fa-3x" style="color: #616161;"></i> </a></li> <br> <br>
+    <li> <i class="fa-solid fa-angles-up" style="cursor: pointer; color: #616161;" onclick="window.scrollTo(0,0);"> </i></li><br> <br>
+    <li> <a href="../page/cart"> <i class="fa-solid fa-cart-shopping fa-3x" style="color: #616161;"></i></a></li> <br> <br>
     <li> <a href="../page/wish"> <i class="fa-regular fa-heart fa-3x" style="color: #616161;"></i> </a></li> <br> <br>
     <li> <a href="../faq/faq_list"><i class="fa-regular fa-face-smile fa-3x" style="color: #616161;"></i></a> </li> <br> <br>
 
