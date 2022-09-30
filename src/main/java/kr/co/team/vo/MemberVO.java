@@ -1,8 +1,14 @@
 package kr.co.team.vo;
 
 public class MemberVO {
-	private int id,juk,state;
+	private int id,juk,state,chong;
     private String userid,name,pwd,zip,juso,juso_etc,phone,email,writeday;
+	public int getChong() {
+		return chong;
+	}
+	public void setChong(int chong) {
+		this.chong = chong;
+	}
 	public int getId() {
 		return id;
 	}

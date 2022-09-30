@@ -45,6 +45,7 @@
 		<c:forEach items="${plist}" var="pvo">
 		<%-- <input type="hidden" name="pimg" value="${pvo.pimg }"> --%>
 		<tr>
+			<td> ${pvo.pcode} </td>
 			<td> <img src="../resources/img/${pvo.pimg}" width="40" height="40"> </td>
 			<td onclick="location='pro_update?id=${pvo.id}'" value="${pvo.pimg }"> ${pvo.title} </td>
 			<td> ${pvo.price} </td>

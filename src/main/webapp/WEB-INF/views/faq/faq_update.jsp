@@ -15,6 +15,50 @@
 		margin-bottom: 40px;
 		padding-top: 120px;
 	}
+	
+	h2 #faq{
+		margin-bottom: 30px;
+		display: inline-block;
+		width: 150px;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+	}
+	
+	table {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		border-top: 2px solid black;
+		border-collapse: collapse;
+	}
+	
+	td {
+		border-bottom: 1px solid gray;
+		padding: 10px;
+	}
+	
+	#no {
+		text-align: center;
+	}
+	
+	input[type=button] {
+      	width:50px;
+      	height:35px;
+      	border:1px solid gray;
+      	border-radius: 10px;
+      	background:gray;
+      	color:white;
+      	float: left;
+      	margin-left: 200px;
+    }
+    
+	input[type=submit] {
+      	width:100px;
+      	height:35px;
+      	border:1px solid gray;
+      	border-radius: 10px;
+      	background:gray;
+      	color:white;
+      	margin-left: 205px;
+    }
 </style>
 
 
@@ -27,15 +71,22 @@
 	{
 		$("#gubun").val("${gubun}").prop("selected", true);
 	});
+	
+	function back()
+	{
+		history.back(-1);
+	}
 </script>
 </head>
 <body>
 <section>
+	<h2 align="center"> <span id="faq"> FAQ 수정 </span> </h2>
 	<form method="post" action="faq_update_ok">
 		<input type="hidden" name="id" value="${fvo.id}">
 		<table width="600" align="center">
 			<tr>
-				<td colspan="2">
+				<td width="150" id="no"> 분류 </td>
+				<td>
 				<select name="gubun" id="gubun">
 					<option value="0"> 회원정보 </option>
 					<option value="1"> 상품확인 </option>
@@ -48,19 +99,20 @@
 			</tr>
 			
 			<tr>
-				<td> 질 문 </td>
+				<td id="no"> 질 문 </td>
 				<td> <input type="text" name="question" value="${fvo.question }"> </td>
 			</tr>
 			
 			<tr>
-				<td> 답 변 </td>
-				<td> <textarea rows="6" cols="40" name="ask">${fvo.ask }</textarea> </td>
+				<td id="no"> 답 변 </td>
+				<td> <textarea rows="8" cols="60" name="ask">${fvo.ask }</textarea> </td>
 			</tr>
 			
-			<tr>
-				<td colspan="2"> <input type="submit" value="수정"> </td>
-			</tr>
 		</table>
+		<div> 
+			<input type="button" value="←" onclick="back()">
+			<input type="submit" value="수정하기"> 
+		</div>
 	</form>
 </section>
 </body>

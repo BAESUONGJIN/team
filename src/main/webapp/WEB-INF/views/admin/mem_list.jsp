@@ -15,26 +15,50 @@
 		padding-top: 120px;
 	}
 	
+	h2 #list{
+		margin-bottom: 30px;
+		display: inline-block;
+		width: 200px;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+	}
+	
 	a {
 		text-decoration: none;
 		color: black;
 	}
 	
-	a:hover {
-		text-decoration: underline;
+	table {
+		border-top: 2px solid black;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		border-collapse: collapse;
+	}
+	
+	th {
+		border-bottom: 1px solid gray;
+		padding: 10px;
+		text-align: center;
+		background: #f6eae9;
+	}
+	
+	td {
+		border-bottom: 1px solid gray;
+		padding: 10px;
+		text-align: center;
 	}
 </style>
 </head>
 <body>
 <section>
-	<h2 align="center" style="padding-bottom:50px;"> 회 원 정 보 </h2>
-	<table width="400" align="center">
+	<h2 align="center"> <span id="list"> 회 원 정 보 </span> </h2>
+	<table width="600" align="center">
 		<tr>
-			<td width="130"> 아이디 </td>
-			<td> 이 름 </td>
-			<td> 가입일 </td>
-			<td> 상태 </td>
+			<th width="130"> 아이디 </th>
+			<th> 이 름 </th>
+			<th> 가입일 </th>
+			<th> 상태 </th>
 		</tr>
+		
 	
 		<c:forEach items="${mlist}" var="mvo">
 		<c:if test="${mvo.userid != 'admin123' }">
@@ -54,7 +78,7 @@
 		</c:forEach>
 		
 		<tr> <!-- 페이징 처리 -->
-			<td colspan="3" align="center">
+			<td colspan="4" align="center" style="border:none;">
 			<c:if test="${pstart != 1}">
 				<a href="mem_list?page=${pstart-1}"> ◁◁ </a>
 			</c:if>

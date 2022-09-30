@@ -18,12 +18,28 @@
 	
 	.ask {
 		display: none;
-		background: #eaeaea;
+		background: #f6eae9;
 	}
 	
 	.ask2 {
 		display: none;
-		background: #eaeaea;
+		background: #f6eae9;
+	}
+	
+	.ask2 input[type=button] {
+		width:70px;
+      	height:35px;
+      	border:1px solid gray;
+      	border-radius: 10px;
+      	background:gray;
+      	color:white;
+	}
+	
+	h2 #faq{
+		margin-bottom: 30px;
+		display: inline-block;
+		width: 80px;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 	}
 	
 	a {
@@ -31,12 +47,17 @@
 		color: gray;
 	}
 	
-	#menu {
-		padding-left: 50px;
+	#menu a:hover {
+		border: 2px groove gray;
+		color: gray;
 	}
 	
-	#menu a:hover {
-		color: red;
+	#sub {
+		border: 1px solid gray;
+		border-radius: 10px;
+		padding: 10px;
+		margin-left: 10px;
+		text-align: center;
 	}
 	
 	table {
@@ -50,7 +71,7 @@
 		text-align: center;
 		border-bottom: 1px solid gray;
 		padding: 10px;
-		background: #eaeaea;
+		background: #f6eae9;
 	}
 	
 	td {
@@ -60,6 +81,7 @@
 	
 	#paging {
 		border: none;
+		padding-top: 20px;
 	}
 	
 	#ans {
@@ -73,11 +95,29 @@
 	
 	#gubun {
 		text-align: center;
+		border-top: 1px solid gray;
 	}
 	
-	#sub {
+	#question {
+		border-top: 1px solid gray;
+	}
+	
+	#sub_paging {
 		color: black;
 	}
+	
+	#btn {
+		float: right;
+	}
+	
+	#btn input[type=button] {
+      	width:100px;
+      	height:35px;
+      	border:1px solid gray;
+      	border-radius: 10px;
+      	background:gray;
+      	color:white;
+    }
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
@@ -96,22 +136,22 @@
 			$(".ask").eq(index).hide();
 			$(".ask2").eq(index).hide();
 		});	
-		
+				
 	});
-	
 </script>
 </head>
 <body>
 <section>
-	<h2 align="center" style="padding-botton:70px;"> FAQ </h2>
+	<h2 align="center"> <span id="faq"> FAQ </span> </h2> 
 	<span id="menu">
-		<a href="faq_list"> 전 체 </a>  |
-		<a href="faq_list_etc?gubun=0"> 회원정보 </a>  |
-		<a href="faq_list_etc?gubun=1"> 상품확인 </a>  |
-		<a href="faq_list_etc?gubun=2"> 주문/결제 </a>  |
-		<a href="faq_list_etc?gubun=3"> 배송 </a>  |
-		<a href="faq_list_etc?gubun=4"> 교환/취소(반품) </a>  |
-		<a href="faq_list_etc?gubun=5"> 서비스 </a>
+		<c:set var="st" value="style='color:white; background: gray;'"/>
+		<a href="faq_list" id="sub" ${st}> 전 체 </a>
+		<a href="faq_list_etc?gubun=0" id="sub"> 회원정보 </a>
+		<a href="faq_list_etc?gubun=1" id="sub"> 상품확인 </a>
+		<a href="faq_list_etc?gubun=2" id="sub"> 주문/결제 </a>
+		<a href="faq_list_etc?gubun=3" id="sub"> 배송 </a>
+		<a href="faq_list_etc?gubun=4" id="sub"> 교환/취소(반품) </a>
+		<a href="faq_list_etc?gubun=5" id="sub"> 서비스 </a>
 	</span>
 	<table width="900" align="center">
 		<tr>
@@ -142,7 +182,7 @@
 			</c:if>
 			
 			<td id="gubun"> ${gubun} </td>
-			<td> ${fvo.question} </td>
+			<td id="question"> ${fvo.question} </td>
 		</tr>
 		
 		<tr id="ask" class="ask">
@@ -165,14 +205,14 @@
 		<tr> <!-- 페이징 처리 -->
 			<td colspan="3" align="center" id="paging">
 			<c:if test="${pstart != 1}">
-				<a href="faq_list?page=${pstart-1}" id="sub"> ◁◁ </a>
+				<a href="faq_list?page=${pstart-1}" id="sub_paging"> ◁◁ </a>
 			</c:if>
 			<c:if test="${pstart == 1}">
 				◁◁
 			</c:if>
 			
 			<c:if test="${page != 1}">
-				<a href="faq_list?page=${page-1}" id="sub"> ◁ </a>
+				<a href="faq_list?page=${page-1}" id="sub_paging"> ◁ </a>
 			</c:if>
 			<c:if test="${page == 1}">
 				◁
@@ -187,29 +227,30 @@
 					<c:set var="st" value=""/>
 				</c:if>
 				
-				<a href="faq_list?page=${i}" ${st} id="sub"> ${ i } </a>
+				<a href="faq_list?page=${i}" ${st} id="sub_paging"> ${ i } </a>
 			</c:forEach>
 			
 			<c:if test="${page != chong}">
-				<a href="faq_list?page=${page+1}" id="sub"> ▷  </a>
+				<a href="faq_list?page=${page+1}" id="sub_paging"> ▷  </a>
 			</c:if>
 			<c:if test="${page == chong}">
 				▷
 			</c:if>
 			
 			<c:if test="${chong != pend}">
-				<a href="faq_list?page=${pend+1}" id="sub"> ▷▷  </a>
+				<a href="faq_list?page=${pend+1}" id="sub_paging"> ▷▷  </a>
 			</c:if>
 			<c:if test="${chong == pend}">
 				▷▷
 			</c:if>
 			
+			<c:if test="${userid == 'admin123' }" >
+				<span id="btn"> <input type="button" value="글작성" onclick="location='faq_write'"> </span>
+			</c:if>
+			
 			</td>
 		</tr>
 		</table>
-		<c:if test="${userid == 'admin123' }" >
-		<div> <input type="button" value="글작성" onclick="location='faq_write'"> </div>
-		</c:if>
 </section>
 </body>
 </html>
