@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <head>
+<script src="https://kit.fontawesome.com/c96178233f.js" crossorigin="anonymous"></script> <!-- font -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
@@ -11,7 +13,7 @@
     #image {
        width:100%;
        height:500px;
-       background:silver;
+       background:white;
        margin-top: 105px;
     }
     
@@ -19,7 +21,6 @@
        width:100%;
        height:500px;
        overflow:hidden; 
-       
        z-index: 8; /* 상위 속성 */
     }
     #image #inner {
@@ -104,10 +105,10 @@
     text-decoration:none;
     }
 
-.quickmenu {position:absolute;width:80px;top:50%;margin-top:-20px;right:10px;background:#fff; }
-.quickmenu ul {position:relative;float:left;width:100%;display:inline-block;*display:inline;border:1px solid #ddd;}
-.quickmenu ul li {float:left;width:100%;border-bottom:1px solid #ddd;text-align:center;display:inline-block;*display:inline;}
-.quickmenu ul li a {position:relative;float:left;width:100%;height:20px;line-height:20px;text-align:center;color:#999;font-size:7pt;}
+.quickmenu {position:absolute;width:100px; height:300px;  top:50%;margin-top:-20px;right:10px; }
+.quickmenu ul {position:relative;float:left;width:100%; /* display:block; display:none; */ /* border:1px solid #ddd; */}
+.quickmenu ul li {float:left;width:100%;/* border-bottom:1px solid #ddd; */text-align:center;display:inline-block;}
+.quickmenu ul li a {position:relative;float:left;width:100%;height:20px;line-height:20px;/* text-align:center; */color:#999;font-size:7pt;}
 .quickmenu ul li a:hover {color:#BDBDBD;}
 .quickmenu ul li:last-child {border-bottom:0;}
 
@@ -156,7 +157,7 @@
   
 </script>  
 </head> 
-    <div id="image"><!-- 그림슬라이드흠 -->
+    <div id="image"><!-- 그림슬라이드홈 -->
       <div id="outer">
         <div id="inner">
           <img src="../resources/main/pic6.png" width="100%" height="500">
@@ -167,31 +168,30 @@
         </div>
       </div>
     </div> 
-    
-    
+ 
     <section>           <!-- 현재페이지의 필요한 내용 -->  <!-- article는 section내의 하나의 항목 -->
     
     
       <article id="ar2"> 
         
-               <!-- 퀵 메뉴  -->
-             <div class="quickmenu">
+ <!-- 퀵 메뉴  -->
+ <div class="quickmenu">
   <ul>
-    <li><a href="../faq/faq_list">FAQ</a> </li>
-    <li><a href="#">1:1문의</a></li>
-    <li><a href="#">후기</a></li>
+    <li> <i class="fa-solid fa-angles-up " style="cursor: pointer; color: #616161;" onclick="window.scrollTo(0,0);"> </i></li><br> <br>
+    <li> <a href="../page/cart"> <i class="fa-solid fa-cart-shopping fa-3x" style="color: #616161;"></i></a></li> <br> <br>
+    <li> <a href="../page/wish"> <i class="fa-regular fa-heart fa-3x" style="color: #616161;"></i> </a></li> <br> <br>
+    <li> <a href="../faq/faq_list"><i class="fa-regular fa-face-smile fa-3x" style="color: #616161;"></i></a> </li> <br> <br>
   </ul>
-            </div>
-        
+ </div>
+ 
+ <!-- 움직이는 이미지  -->           
    <div class="scroll-image">
     <img src="../resources/main/best5.png" width="300" height="300" style="margin-right: 20px;">&nbsp;
     <img src="../resources/main/best2.png" width="300" height="300" style="margin-right: 20px;">&nbsp;
-    <img src="../resources/main/best7.png" width="300" height="300" style="margin-right: 20px;">&nbsp;
-    <img src="../resources/main/best4.png" width="300" height="300" style="margin-right: 20px;">&nbsp;
+    <a href="../mypage/myreview"><img src="../resources/main/best7.png" width="300" height="300" style="margin-right: 20px;"></a>&nbsp;
+    <a href="../gongji/list"><img src="../resources/main/best4.png" width="300" height="300" style="margin-right: 20px;"></a>&nbsp;
   </div>
-        
-      
-      
+
       </article> <!-- 최신 상품 -->
       
       

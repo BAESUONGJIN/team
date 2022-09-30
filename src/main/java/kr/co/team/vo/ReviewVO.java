@@ -4,8 +4,21 @@ public class ReviewVO {
 	private int id;
 	private String userid,content,writeday, pcode;
 	
+	//productVO에서 가져온 값
+	private String pimg, ptitle;
 	
-	
+	public String getPimg() {
+		return pimg;
+	}
+	public void setPimg(String pimg) {
+		this.pimg = pimg;
+	}
+	public String getPtitle() {
+		return ptitle;
+	}
+	public void setPtitle(String ptitle) {
+		this.ptitle = ptitle;
+	}
 	public String getPcode() {
 		return pcode;
 	}

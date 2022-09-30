@@ -1,5 +1,7 @@
 package kr.co.team.service;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 
 import kr.co.team.mapper.MypageMapper;
 import kr.co.team.vo.MemberVO;
+import kr.co.team.vo.ReviewVO;
 
 @Service
 @Qualifier("ms2")
@@ -69,6 +72,36 @@ public class MypageServiceImpl implements MypageService {
 			return "redirect:/mypage/myinfo";
 		}
 		
+	}
+
+	@Override
+	public String myreview(HttpSession session, Model model) {
+		String userid=session.getAttribute("userid").toString();
+		ArrayList<ReviewVO> rlist=mapper.myreview(userid);
+		model.addAttribute("rlist",rlist);
+		
+		return "/mypage/myreview";
+	}
+
+	@Override
+	public String myreview_update(HttpServletRequest request, Model model) {
+		String id=request.getParameter("id");
+		ReviewVO rvo=mapper.myreview_update(id);
+		model.addAttribute("rvo",rvo);
+		return "/mypage/myreview_update";
+	}
+
+	@Override
+	public String myreview_update_ok(ReviewVO rvo) {
+		mapper.myreview_update_ok(rvo);
+		return "redirect:/mypage/myreview";
+	}
+
+	@Override
+	public String myreview_del(HttpServletRequest request) {
+		String id=request.getParameter("id");
+		mapper.myreview_del(id);
+		return "redirect:/mypage/myreview";
 	}
 
 }

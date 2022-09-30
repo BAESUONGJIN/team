@@ -46,9 +46,8 @@ function chong_pay()
 		<h1 align="center"><b>상 품 수 정</b></h1>
 		<table width="700" align="center">
 		
-		
-		<tr>
-				<td>대표이미지</td>
+			<tr>
+				<td>대표이미지</td> 
 				<td><input id="file" type="file" name="pimg"></td>
 			</tr>
 			<tr>

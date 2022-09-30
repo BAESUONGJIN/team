@@ -38,6 +38,7 @@ public class AdminServiceImpl implements AdminService {
 		avo.setName(name);
 		mapper.write_ok(avo);
 		return "redirect:/gongji/list";
+		
 	}
 
 	@Override
@@ -341,26 +342,28 @@ public class AdminServiceImpl implements AdminService {
 		model.addAttribute("chong", chong);
 		return "/admin/pro_list_etc";
 	}
-	@Override
-	public String pro_content(HttpServletRequest request, Model model) {
-		String id = request.getParameter("id");
-		ProductVO pvo = mapper.pro_content(id);
-		model.addAttribute("pvo", pvo);
-		
-		ArrayList<DaeVO> list = mapper.pro_cat();
-		model.addAttribute("list", list);
-		return "/admin/pro_content";
-	}
-
+	
 	@Override
 	public String pro_delete(HttpServletRequest request) {
 		String id= request.getParameter("id");
 		mapper.pro_delete(id);
 		return "redirect:/admin/pro_list";
 	}
+	
+	@Override
+	public String pro_update(HttpServletRequest request, Model model) {
+		String id = request.getParameter("id");
+		ProductVO pvo = mapper.pro_update(id);
+		model.addAttribute("pvo", pvo);
+		
+		ArrayList<DaeVO> list = mapper.pro_cat();
+		model.addAttribute("list", list);
+		return "/admin/pro_update";
+	}
+
 
 	@Override
-	public String pro_update(HttpServletRequest request) {
+	public String pro_update_ok(HttpServletRequest request) {
 		//라이브러리를 이용하여 폼태그에 값을 가져오기
 		String path="C:\\Users\\Administrator\\git\\team\\src\\main\\webapp\\resources\\img";
 		int size=1024*1024*30;
@@ -378,13 +381,14 @@ public class AdminServiceImpl implements AdminService {
 			pvo.setCimg(multi.getFilesystemName("cimg"));
 			pvo.setPrice(Integer.parseInt(multi.getParameter("price")));
 			pvo.setHalin(Integer.parseInt(multi.getParameter("halin")));
+			
 		}
 		catch(Exception e)
 		{
 					
 		}
-		mapper.pro_update(pvo);
-				
+		mapper.pro_update_ok(pvo);
+		
 		return "redirect:/admin/pro_list";
 	}
 
@@ -394,6 +398,7 @@ public class AdminServiceImpl implements AdminService {
 		model.addAttribute("ilist", ilist);
 		return "/admin/inquiry_list";
 	}
+	
 	
 	@Override
 	public String inquiry_content(HttpServletRequest request, Model model) {
@@ -405,4 +410,5 @@ public class AdminServiceImpl implements AdminService {
 		model.addAttribute("answer_content", answer_content);
 		return "admin/inquiry_content";
 	}
+
 }
