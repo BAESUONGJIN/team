@@ -147,4 +147,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="inquiry_update" parameterType="kr.co.team.vo.AnswerVO">
 		update answer set content=#{content} where cid=#{cid}
 	</update>
+	
+	<!-- 주문(구매)관련 -->
+	<select id="buy_list" resultType="kr.co.team.vo.BuyVO">
+		select buy.*, product.title from buy, product where buy.pcode = product.pcode order by id desc
+	</select>
+	
+	<update id="change_state" parameterType="kr.co.team.vo.BuyVO">
+		update buy set state=#{param1} where id=#{param2}
+	</update>
 </mapper>

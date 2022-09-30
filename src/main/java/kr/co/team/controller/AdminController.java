@@ -188,4 +188,18 @@ public class AdminController {
 	{
 		return service.inquiry_update(avo);
 	}
+	
+	
+	//주문(구매)관련
+	@RequestMapping("/admin/buy_list")
+	public String buy_list(Model model)
+	{
+		return service.buy_list(model);
+	}
+	
+	@RequestMapping("/admin/change_state")
+	public String change_state(HttpServletRequest request)
+	{
+		return service.change_state(request);
+	}
 }

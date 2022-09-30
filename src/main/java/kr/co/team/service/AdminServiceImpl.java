@@ -17,6 +17,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import kr.co.team.mapper.AdminMapper;
 import kr.co.team.vo.AdminVO;
 import kr.co.team.vo.AnswerVO;
+import kr.co.team.vo.BuyVO;
 import kr.co.team.vo.DaeVO;
 import kr.co.team.vo.FaqVO;
 import kr.co.team.vo.InquiryVO;
@@ -421,6 +422,21 @@ public class AdminServiceImpl implements AdminService {
 	public String inquiry_update(AnswerVO avo) {
 		mapper.inquiry_update(avo);
 		return "redirect:/admin/inquiry_content?id="+avo.getCid();
+	}
+
+	@Override
+	public String buy_list(Model model) {
+		ArrayList<BuyVO> blist = mapper.buy_list();
+		model.addAttribute("blist", blist);
+		return "/admin/buy_list";
+	}
+
+	@Override
+	public String change_state(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		String state = request.getParameter("state");
+		mapper.change_state(state,id);
+		return "redirect:/admin/buy_list";
 	}
 
 }

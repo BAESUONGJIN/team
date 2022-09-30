@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import kr.co.team.vo.AdminVO;
 import kr.co.team.vo.AnswerVO;
+import kr.co.team.vo.BuyVO;
 import kr.co.team.vo.DaeVO;
 import kr.co.team.vo.FaqVO;
 import kr.co.team.vo.InquiryVO;
@@ -55,4 +56,8 @@ public interface AdminMapper {
 	public String getAnswer(String id);
 	public void inquiry_answer(AnswerVO avo);
 	public void inquiry_update(AnswerVO avo);
+	
+	//주문(구매)관련
+	public ArrayList<BuyVO> buy_list();
+	public void change_state(String state, String id);
 }
