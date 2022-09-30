@@ -41,7 +41,7 @@ function chong_pay()
 
 <body>
 <section>
-	<form name="write_form" method="post" action="pro_update" enctype="multipart/form-data">
+	<form name="write_form" method="post" action="pro_update_ok" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="${pvo.id}">
 		<h1 align="center"><b>상 품 수 정</b></h1>
 		<table width="700" align="center">

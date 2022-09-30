@@ -143,4 +143,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="inquiry_answer" parameterType="kr.co.team.vo.AnswerVO">
 		insert into answer(content,cid,writeday) values(#{content},#{cid},now())
 	</insert>
+	
+	<update id="inquiry_update" parameterType="kr.co.team.vo.AnswerVO">
+		update answer set content=#{content} where cid=#{cid}
+	</update>
 </mapper>

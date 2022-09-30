@@ -44,4 +44,6 @@ public interface AdminService {
 	//상품문의
 	public String inquiry_list(Model model);
 	public String inquiry_content(HttpServletRequest request, Model model);
+	public String inquiry_answer(AnswerVO avo);
+	public String inquiry_update(AnswerVO avo);
 }

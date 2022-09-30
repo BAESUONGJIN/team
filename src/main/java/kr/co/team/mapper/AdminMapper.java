@@ -53,4 +53,6 @@ public interface AdminMapper {
 	public ArrayList<InquiryVO> inquiry_list();
 	public InquiryVO inquiry_content(String id);
 	public String getAnswer(String id);
+	public void inquiry_answer(AnswerVO avo);
+	public void inquiry_update(AnswerVO avo);
 }

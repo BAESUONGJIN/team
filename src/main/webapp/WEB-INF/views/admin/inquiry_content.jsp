@@ -45,7 +45,10 @@
 			</tr>
 			
 			<tr>
-				<td colspan="4"> <input type="submit" value="답변쓰기"> </td>
+				<td colspan="4"> 
+					<input type="button" value="목록" onclick="location.href='inquiry_list'">
+					<input type="submit" value="답변쓰기">
+				</td>
 			</tr>
 		</form>
 		</c:if>
@@ -55,11 +58,14 @@
 		<input type="hidden" name="cid" value="${ivo.id}">
 			<tr id="answer">
 				<td> 답변 </td>
-				<td colspan="3"> <textarea rows="6" cols="40" name="content"> ${ivo.answer_content} </textarea> </td> 
+				<td colspan="3"> <textarea rows="6" cols="40" name="content">${ivo.answer_content} </textarea> </td> 
 			</tr>
 			
 			<tr>
-				<td colspan="4"> <input type="submit" value="답변수정"> </td>
+				<td colspan="4"> 
+					<input type="button" value="목록" onclick="location.href='inquiry_list'">
+					<input type="submit" value="답변수정">
+				</td>
 			</tr>
 		</form>
 		</c:if>

@@ -408,7 +408,19 @@ public class AdminServiceImpl implements AdminService {
 		
 		String answer_content = mapper.getAnswer(id);
 		model.addAttribute("answer_content", answer_content);
-		return "admin/inquiry_content";
+		return "/admin/inquiry_content";
+	}
+
+	@Override
+	public String inquiry_answer(AnswerVO avo) {
+		mapper.inquiry_answer(avo);
+		return "redirect:/admin/inquiry_content?id="+avo.getCid();
+	}
+
+	@Override
+	public String inquiry_update(AnswerVO avo) {
+		mapper.inquiry_update(avo);
+		return "redirect:/admin/inquiry_content?id="+avo.getCid();
 	}
 
 }

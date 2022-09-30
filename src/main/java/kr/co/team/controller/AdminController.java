@@ -176,4 +176,16 @@ public class AdminController {
 	{
 		return service.inquiry_content(request, model);
 	}
+	
+	@RequestMapping("/admin/inquiry_answer")
+	public String inquiry_answer(AnswerVO avo)
+	{
+		return service.inquiry_answer(avo);
+	}
+	
+	@RequestMapping("/admin/inquiry_update")
+	public String inquiry_update(AnswerVO avo)
+	{
+		return service.inquiry_update(avo);
+	}
 }
