@@ -363,7 +363,7 @@
           <li> <a href="../"> 주문관련 </a> </li>
           <li> <a href="../"> 상품등록 </a> </li>
           <li> <a href="../admin/pro_list"> 상품관리 </a> </li>
-          <li> <a href="../"> 상품평 </a> </li>
+          <li> <a href="../"> 상품문의  </a> </li>
           <li> <a href="../"> 회원관리</a> </li>
         </c:if> 
         </ul>
