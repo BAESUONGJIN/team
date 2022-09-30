@@ -18,18 +18,65 @@
 	
 	.ask {
 		display: none;
-		background: #cccccc;
+		background: #eaeaea;
 	}
 	
 	.ask2 {
 		display: none;
-		background: #cccccc;
+		background: #eaeaea;
 	}
 	
-	#a, a {
+	a {
 		text-decoration: none;
-		color: #cccccc;
-		
+		color: gray;
+	}
+	
+	#menu {
+		padding-left: 50px;
+	}
+	
+	#menu a:hover {
+		color: red;
+	}
+	
+	table {
+		margin-top: 20px;
+		width: 100%;
+		border-top: 2px solid black;
+		border-collapse: collapse;
+	}
+	
+	th {
+		text-align: center;
+		border-bottom: 1px solid gray;
+		padding: 10px;
+		background: #eaeaea;
+	}
+	
+	td {
+		border-bottom: 1px solid gray;
+		padding: 10px;
+	}
+	
+	#paging {
+		border: none;
+	}
+	
+	#ans {
+		text-align: center;
+		border: none;
+	}
+	
+	#ans2 {
+		border: none;
+	}
+	
+	#gubun {
+		text-align: center;
+	}
+	
+	#sub {
+		color: black;
 	}
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -48,8 +95,7 @@
 			var index = $(".ask").index(this);
 			$(".ask").eq(index).hide();
 			$(".ask2").eq(index).hide();
-		});
-		
+		});	
 		
 	});
 	
@@ -58,7 +104,7 @@
 <body>
 <section>
 	<h2 align="center" style="padding-botton:70px;"> FAQ </h2>
-	<span style="padding-left: 50px;">
+	<span id="menu">
 		<a href="faq_list"> 전 체 </a>  |
 		<a href="faq_list_etc?gubun=0"> 회원정보 </a>  |
 		<a href="faq_list_etc?gubun=1"> 상품확인 </a>  |
@@ -69,8 +115,8 @@
 	</span>
 	<table width="900" align="center">
 		<tr>
-			<td width="150"> 구 분 </td>
-			<td> 제 목 </td>
+			<th width="170"> 구 분 </th>
+			<th> 제 목 </th>
 		</tr>
 		
 		<c:forEach items="${faq_list}" var="fvo">
@@ -95,18 +141,19 @@
 				<c:set var="gubun" value="서비스"/>
 			</c:if>
 			
-			<td> ${gubun} </td>
+			<td id="gubun"> ${gubun} </td>
 			<td> ${fvo.question} </td>
 		</tr>
 		
 		<tr id="ask" class="ask">
-			<td>  답 변 </td>
-			<td> ${fvo.ask } </td>
+			<td id="ans">  답 변 </td>
+			<td id="ans2"> ${fvo.ask } </td>
 		</tr>
 		
 		<c:if test="${userid == 'admin123' }" >
 		<tr class="ask2">
-			<td colspan="2">
+			<td> </td>
+			<td>
 				<input type="button" value="수정" onclick="location='faq_update?id=${fvo.id}'"> 
 				<input type="button" value="삭제" onclick="location='faq_delete?id=${fvo.id}'">
 			</td>
@@ -116,16 +163,16 @@
 		</c:forEach> 
 		
 		<tr> <!-- 페이징 처리 -->
-			<td colspan="3" align="center">
+			<td colspan="3" align="center" id="paging">
 			<c:if test="${pstart != 1}">
-				<a href="faq_list?page=${pstart-1}"> ◁◁ </a>
+				<a href="faq_list?page=${pstart-1}" id="sub"> ◁◁ </a>
 			</c:if>
 			<c:if test="${pstart == 1}">
 				◁◁
 			</c:if>
 			
 			<c:if test="${page != 1}">
-				<a href="faq_list?page=${page-1}"> ◁ </a>
+				<a href="faq_list?page=${page-1}" id="sub"> ◁ </a>
 			</c:if>
 			<c:if test="${page == 1}">
 				◁
@@ -140,18 +187,18 @@
 					<c:set var="st" value=""/>
 				</c:if>
 				
-				<a href="faq_list?page=${i}" ${st}> ${ i } </a>
+				<a href="faq_list?page=${i}" ${st} id="sub"> ${ i } </a>
 			</c:forEach>
 			
 			<c:if test="${page != chong}">
-				<a href="faq_list?page=${page+1}"> ▷  </a>
+				<a href="faq_list?page=${page+1}" id="sub"> ▷  </a>
 			</c:if>
 			<c:if test="${page == chong}">
 				▷
 			</c:if>
 			
 			<c:if test="${chong != pend}">
-				<a href="faq_list?page=${pend+1}"> ▷▷  </a>
+				<a href="faq_list?page=${pend+1}" id="sub"> ▷▷  </a>
 			</c:if>
 			<c:if test="${chong == pend}">
 				▷▷
@@ -159,13 +206,10 @@
 			
 			</td>
 		</tr>
-		
+		</table>
 		<c:if test="${userid == 'admin123' }" >
-		<tr>
-			<td colspan="2"> <input type="button" value="글작성" onclick="location='faq_write'"> </td>
-		</tr>
+		<div> <input type="button" value="글작성" onclick="location='faq_write'"> </div>
 		</c:if>
-	</table>
 </section>
 </body>
 </html>

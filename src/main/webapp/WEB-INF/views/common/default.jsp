@@ -360,11 +360,11 @@
           <!-- 관리자 전용  -->
         <c:if test="${userid == 'admin123'}">
           <li style="font-weight: bold;"> 관리자 전용 </li>
-          <li> <a href="../"> 주문관련 </a> </li>
-          <li> <a href="../"> 상품등록 </a> </li>
+          <li> <a href="../admin/buy_list"> 주문관련 </a> </li>
+          <li> <a href="../product/pro_write"> 상품등록 </a> </li>
           <li> <a href="../admin/pro_list"> 상품관리 </a> </li>
-          <li> <a href="../"> 상품문의  </a> </li>
-          <li> <a href="../"> 회원관리</a> </li>
+          <li> <a href="../admin/inquiry_list"> 상품문의  </a> </li>
+          <li> <a href="../admin/mem_list"> 회원관리</a> </li>
         </c:if> 
         </ul>
        </span>
