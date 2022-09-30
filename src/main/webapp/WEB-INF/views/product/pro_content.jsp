@@ -241,7 +241,6 @@ function pro_inquiry_write()
                   <c:if test="${pvo.halin != 0}">   <!-- 할인 있는 경우 추가 -->
                   <span>할 인</<span>
                   </c:if>
-                  <span>최종 금액</<span>
                </div>
                   
                <div id="gumae_content">
@@ -252,8 +251,9 @@ function pro_inquiry_write()
                   <span id="gumae_halin"></span>
                   </c:if>
                   <span id="gumae_su"> <input type="text" name="su" id="spinner" value="1" readonly></span>
-                  <span id="gumae_chong"></span>
                </div>
+               <div>최종 금액</div>
+               <div id="gumae_chong"></div>
                <hr>
             
                                                 <!-- 찜 -->
@@ -303,7 +303,8 @@ function pro_inquiry_write()
       
          
             <div><img src="../resources/img/${pvo.cimg}" width="1000" height="1200"></div>  <!-- 상세페이지 이미지 -->
-                     
+            
+<article id="ar3">                 
                <div><h1><b>상 품 평</b></h1></div>
             <c:forEach items="${rlist}" var="rvo">
             <div id="pro_review_list"> <!-- 상품평 -->
@@ -320,29 +321,58 @@ function pro_inquiry_write()
                   <td><input type="submit" value="등록하기"></td>
                </tr>
             </form>
-            
+</article>
+
+<article id="ar4">
             <!--상품문의 리스트  -->
             <span><h1><b>상 품 문 의</b></h1></span>  
             <span onclick="pro_inquiry_write()">문의 작성</span>
+            <div>
+            <span>답변상황</span>
+            <span>아이디</span>
+            <span>제 목</span>
+            <span>작성일</span>
+            </div>
             <c:forEach items="${ilist }" var="ivo">
                <div id="pro_inquiry_list">
+               
+               <c:if test="${ivo.content1 != null }">
+                  <span>답변 완료</span>
                   <span>${ivo.userid}</span>
-                  <span>${ivo.content}</span>
+                  <span>${ivo.title}</span>
                   <span>${ivo.writeday}</span>
+                  <span>${ivo.content1}</span>
+                  <p>
+                 </c:if>
+                 
+                  <span>답변 준비중</span>
+                  <span>${ivo.userid}</span>
+                  <span>${ivo.title}</span>
+                  <span>${ivo.writeday}</span>
+                  <span>${ivo.content1}</span>
+                  <p>
                </div>
             </c:forEach>
             
             <form  id="inquiry_content" method="post" action="pro_inquiry_write_ok">
             <input type="hidden" name="pcode" value="${pvo.pcode}">
-            <tr>
-               <td><textarea rows="6" cols="100" name="content"></textarea></td>
-            </tr>
-            <tr>
-               <td> <input type="submit" value="작성하기"></td>
-            </tr>
+              <div>
+           		제 목
+               <input type="text" name="title" size="98">
+           </div>
+           <br>
+            <div>
+            	내 용
+               <textarea rows="6" cols="100" name="content"></textarea>
+            </div>
+            <div>
+               <input type="submit" value="작성하기">
+            </div>
             </form>
+</article>
 
-<article id="ar3">
+
+<article id="ar5">
             <div><h1><b>배송/교환/반품 안내</b></h1></div>
 </article>
       </section>

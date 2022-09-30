@@ -4,7 +4,25 @@ public class InquiryVO {
 	private int id,cnt;
 	
 	private String userid,content,writeday,pcode,title,answer_content;
+
+	//answer cid
+	private int cid;
+	private String content1;
 	
+	
+	
+	public String getContent1() {
+		return content1;
+	}
+	public void setContent1(String content1) {
+		this.content1 = content1;
+	}
+	public int getCid() {
+		return cid;
+	}
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
 	public int getCnt() {
 		return cnt;
 	}

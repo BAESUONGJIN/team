@@ -16,6 +16,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.team.mapper.ProductMapper;
+import kr.co.team.vo.AnswerVO;
 import kr.co.team.vo.DaeVO;
 import kr.co.team.vo.InquiryVO;
 import kr.co.team.vo.MemberVO;
@@ -188,9 +189,13 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public String pro_inquiry_write_ok(InquiryVO ivo, HttpSession session, HttpServletRequest request) {
+		AnswerVO avo = new AnswerVO();
 		ivo.setUserid(session.getAttribute("userid").toString());
+		ivo.setTitle(request.getParameter("title"));
 		ivo.setPcode(request.getParameter("pcode"));
-		ivo.setContent(request.getParameter("content"));
+		ivo.setCid(avo.getCid());
+		ivo.setContent1(avo.getContent());
+		
 		
 		mapper.pro_inquiry_write_ok(ivo);
 		

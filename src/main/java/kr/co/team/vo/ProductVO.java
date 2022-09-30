@@ -8,6 +8,7 @@ public class ProductVO {
 	private String[] color2;
 	private String[] stock2;
 	private String[] size2;
+	
 	public int getId() {
 		return id;
 	}
