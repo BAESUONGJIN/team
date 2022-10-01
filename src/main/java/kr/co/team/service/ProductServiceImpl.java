@@ -179,7 +179,7 @@ public class ProductServiceImpl implements ProductService {
 				
 				rvo.setUserid(session.getAttribute("userid").toString());
 				rvo.setPcode(request.getParameter("pcode"));
-				rvo.setContent(request.getParameter("content"));
+				rvo.setContent(request.getParameter("content").replace("\r\n", "<br>"));
 				
 				
 				mapper.pro_review_write_ok(rvo);
@@ -194,14 +194,12 @@ public class ProductServiceImpl implements ProductService {
 		ivo.setTitle(request.getParameter("title"));
 		ivo.setPcode(request.getParameter("pcode"));
 		ivo.setCid(avo.getCid());
-		ivo.setContent1(avo.getContent());
+		ivo.setContent1(avo.getContent().replace("\r\n", "<br>"));
 		
 		
 		mapper.pro_inquiry_write_ok(ivo);
 		
 		return "redirect:/product/pro_content?pcode="+ivo.getPcode();
 	}
-	
-	
 
 }

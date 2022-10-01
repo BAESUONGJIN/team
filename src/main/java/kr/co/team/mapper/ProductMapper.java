@@ -17,7 +17,7 @@ public interface ProductMapper {
 	public int getchong(int pcnt,String dcode);
 	public ArrayList<ProductVO> pro_list(String dcode, int start, int pcnt);
 	public ProductVO pro_content(String pcode);
-	
+
 	
 	
 	//review 상품평 작성 및 리스트
@@ -27,6 +27,7 @@ public interface ProductMapper {
 	//inquiry 상품문의 작성 및 리스트
 	public ArrayList<InquiryVO> pro_inquiry_list(String pcode);
 	public void pro_inquiry_write_ok(InquiryVO ivo);
+	
 	
 	
 }
