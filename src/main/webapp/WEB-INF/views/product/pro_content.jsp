@@ -343,19 +343,14 @@ function pro_inquiry_write()
                   <span>${ivo.userid}</span>
                   <span onclick="inquiry_content()">${ivo.title}</span>
                   <span>${ivo.writeday}</span>
-                  <span class="incontent">${ivo.content1}</span>
-                  <span class="incontent">${ivo.content1}</span>
                   <p>
-                 </c:if>
+                 </c:if> 
                  
                   <span>답변 준비중</span>
                   <span>${ivo.userid}</span>
                   <span>${ivo.title}</span>
                   <span>${ivo.writeday}</span>
-                  <span class="incontent">${ivo.content}</span>
-                  <span class="incontent">${ivo.content1}</span>
                  <p>
-               </div>
                 
             </c:forEach>
             

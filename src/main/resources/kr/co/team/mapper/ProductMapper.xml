@@ -56,7 +56,7 @@
 	<select id="pro_inquiry_list" resultType="kr.co.team.vo.InquiryVO">
 	select i.*,a.cid,a.content as content1 from inquiry as i, answer as a 
 	where pcode=#{param1} and i.id = a.cid order by id desc limit 10
-	</select>
+	</select>	
 	
 	<insert id="pro_inquiry_write_ok" parameterType="kr.co.team.vo.InquiryVO">
 	insert into inquiry(userid,title,pcode,content,writeday)

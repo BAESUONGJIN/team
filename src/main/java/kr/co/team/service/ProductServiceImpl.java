@@ -194,8 +194,7 @@ public class ProductServiceImpl implements ProductService {
 		ivo.setTitle(request.getParameter("title"));
 		ivo.setPcode(request.getParameter("pcode"));
 		ivo.setCid(avo.getCid());
-		ivo.setContent1(avo.getContent().replace("\r\n", "<br>"));
-		
+		ivo.setContent1(avo.getContent());
 		
 		mapper.pro_inquiry_write_ok(ivo);
 		
