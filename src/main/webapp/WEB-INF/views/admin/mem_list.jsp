@@ -36,9 +36,14 @@
 	
 	th {
 		border-bottom: 1px solid gray;
+		border-right: 1px solid gray;
 		padding: 10px;
 		text-align: center;
 		background: #f6eae9;
+	}
+	
+	th:last-child {
+		border-right: none;
 	}
 	
 	td {
