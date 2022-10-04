@@ -341,17 +341,18 @@ function pro_inquiry_write()
                <c:if test="${ivo.content1 != null }">
                   <span>답변 완료</span>
                   <span>${ivo.userid}</span>
-                  <span onclick="inquiry_content()">${ivo.title}</span>
+                  <span>${ivo.title}</span>
                   <span>${ivo.writeday}</span>
                   <p>
                  </c:if> 
                  
+                 <c:if test="${ivo.content1 == null }">
                   <span>답변 준비중</span>
                   <span>${ivo.userid}</span>
                   <span>${ivo.title}</span>
                   <span>${ivo.writeday}</span>
                  <p>
-                
+                 </c:if>
             </c:forEach>
             
             <form  id="inquiry_content" method="post" action="pro_inquiry_write_ok">

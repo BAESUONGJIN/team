@@ -42,7 +42,7 @@
 
 	<!-- 상품평 리스트 -->
 	<select id="pro_review_list" resultType="kr.co.team.vo.ReviewVO">
-		select * from review where pcode=#{param1} order by id desc limit 10
+		select * from review where pcode=#{param1} order by writeday desc limit 10
 	</select>
 
 
@@ -55,12 +55,14 @@
 	<!-- 상품문의 리스트 -->
 	<select id="pro_inquiry_list" resultType="kr.co.team.vo.InquiryVO">
 	select i.*,a.cid,a.content as content1 from inquiry as i, answer as a 
-	where pcode=#{param1} and i.id = a.cid order by id desc limit 10
-	</select>	
+	where pcode=#{param1} and i.id = a.cid order by writeday desc limit 10
+	</select>
 	
 	<insert id="pro_inquiry_write_ok" parameterType="kr.co.team.vo.InquiryVO">
 	insert into inquiry(userid,title,pcode,content,writeday)
 	values(#{userid},#{title},#{pcode},#{content},now())
 	</insert>
+	
+	
 	
 </mapper>

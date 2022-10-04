@@ -163,6 +163,8 @@ public class ProductServiceImpl implements ProductService {
 		
 		model.addAttribute("pvo", pvo);
 		
+		
+		
 		// review list   상품평
 		ArrayList<ReviewVO> rlist = mapper.pro_review_list(pcode);
 		model.addAttribute("rlist",rlist);

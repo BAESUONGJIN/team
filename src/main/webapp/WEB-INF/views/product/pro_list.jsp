@@ -108,7 +108,6 @@ $(document).ready(function(){
 			</c:forEach>
 		</tr>
 		<tr>   <!--페이징 처리  -->
-		
 		 <td colspan="3" align="center">
 		  <!-- 10페이지 이전으로 이동 -->
 		 <c:if test="${startpage !=1 }"> <!--첫번째 그룹이 아닐때  -->
