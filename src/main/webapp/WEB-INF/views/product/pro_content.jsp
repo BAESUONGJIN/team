@@ -109,6 +109,11 @@ display: none;
 	display: none;
 	background: #f6eae9;
 }
+.icontent
+{
+display: none;
+background: red;
+}
 
 
 
@@ -225,6 +230,7 @@ function inquiry_chk(iq)
       $(".ititle").click(function()
     	{
     	  var index = $(".ititle").index(this);
+    	  $(".icontent").eq(index).show();
     	  $(".ask").eq(index).show();
     	  $(".ask2").eq(index).show();
       });
@@ -232,6 +238,7 @@ function inquiry_chk(iq)
       $(".ask").click(function()
     	{
     		var index = $(".ask").index(this);
+    		$(".icontent").eq(index).hide();
     		$(".ask").eq(index).hide();
     		$(".ask2").eq(index).hide();
     	});	
@@ -499,12 +506,17 @@ function inquiry_chk(iq)
                   <td id ="ititle" class="ititle">${ivo.title}</td>
                   <td>${ivo.writeday}</td>
                   </tr>
-                  <c:forEach items="${ ilist1}" var="ivo1">
+                  
+                  <tr id="icontent" class="icontent">
+                  	<td>문의 내용</td>
+                  	<td>${ivo.content}</td>
+                  </tr>
+                  
                	<tr id="ask" class="ask">
 					<td>답 변</td>               	
-					<td>${ivo1.content}</td>               	
+					<td>답변 내용</td>       
+					<td>답변 날짜</td>        	
                	</tr>
-               	</c:forEach>
             </c:forEach>
             </table>
             <br>
