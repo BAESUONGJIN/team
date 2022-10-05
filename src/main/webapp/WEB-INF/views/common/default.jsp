@@ -194,18 +194,18 @@
     z-index: 5;
     }
     .chatbox {animation: motion 0.3s linear 0s infinite alternate; margin-top: 0;
-	-webkit-animation: motion 0.3s linear 0s infinite alternate; margin-top: 0;
+   -webkit-animation: motion 0.3s linear 0s infinite alternate; margin-top: 0;
 
 }
         
     @keyframes motion {
-	0% {margin-top: 0px;}
-	100% {margin-top: 10px;}
+   0% {margin-top: 0px;}
+   100% {margin-top: 10px;}
 }
 
    -webkit-@keyframes motion {
-	0% {margin-top: 0px;}
-	100% {margin-top: 10px;}
+   0% {margin-top: 0px;}
+   100% {margin-top: 10px;}
 }
     footer {
        width:100%;
@@ -222,54 +222,54 @@
   <script>
    $(function()
    {
-	   
-	    $("header #my").mouseover(function()
-	    	    {
-	    	    	$("header #myinfo").show();
-	    	    });
-	    	    
-	    	    $("header #my").mouseout(function()
-	       	    {
-	       	    	$("header #myinfo").hide();
-	       	    });
-	    
+      
+       $("header #my").mouseover(function()
+              {
+                 $("header #myinfo").show();
+              });
+              
+              $("header #my").mouseout(function()
+                 {
+                    $("header #myinfo").hide();
+                 });
+       
    });
    
    
    $(function()
-		   {
-			   
-			    $(" #my2").mouseover(function()
-			    	    {
-			    	    	$(" #myinfo2").show();
-			    	    });
-			    	    
-			    	    $(" #my2").mouseout(function()
-			       	    {
-			       	    	$(" #myinfo2").hide();
-			       	    });
-			    
-		   });
+         {
+            
+             $(" #my2").mouseover(function()
+                    {
+                       $(" #myinfo2").show();
+                    });
+                    
+                    $(" #my2").mouseout(function()
+                       {
+                          $(" #myinfo2").hide();
+                       });
+             
+         });
    
    
    
    
    $(function()
-		   {
-		 	  setInterval(function()
-		 	  {
-		 		  $(" header #inner").animate(
-		 	      {
-		 	  	     marginTop:"-40px"
-		 		  },1500,function()
-		 	             {
-		 			          $("header #inner").css("margin-top","0px");
-		 			          $("header #inner li").eq(0).insertAfter($("header #inner li").eq(2));
-		 		         });
-		 	  },2000);
-		 	  
-		 	   
-		   });
+         {
+            setInterval(function()
+            {
+               $(" header #inner").animate(
+                {
+                    marginTop:"-40px"
+               },1500,function()
+                       {
+                          $("header #inner").css("margin-top","0px");
+                          $("header #inner li").eq(0).insertAfter($("header #inner li").eq(2));
+                      });
+            },2000);
+            
+             
+         });
    
        /* 스크롤  */  /* fixed 추가 */
        $(document).ready(function(){
@@ -372,9 +372,9 @@
         
          <!-- 말풍선 -->
    <c:if test="${userid ==null }">
-    	<div class="wrap"> 
-		<img src="../resources/simg/b2.png" width="53px" class="chatbox">
-	</div>
+       <div class="wrap"> 
+      <img src="../resources/simg/b2.png" width="53px" class="chatbox">
+   </div>
    </c:if>
    <c:if test="${userid !=null }">
           &nbsp;

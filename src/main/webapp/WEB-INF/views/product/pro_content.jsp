@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+
 section {
    width: 1200px;
    height: 100%;
@@ -27,7 +28,74 @@ section #ar1 { /* 이미지 및 상품 설명 */
 section #ar2{ /* 상세페이지 */
   width:1200px;
   height: 100px;
+
+  
 }
+section #ar2 div
+{
+border: 1px solid black;
+ background: rgba(164, 48, 35, 0.1);
+display: inline-block;
+width:250px;
+height: 70px;
+text-align: center;
+padding-top: 20px;
+font-size: 20px;
+
+}
+
+section #ar3{ /* 상품평 */
+margin-top: 20px;
+}
+section #ar3 .mt
+{
+text-align: left;
+margin-left:120px;
+width:110px;
+background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+}
+
+section #ar4{ /* 상품문의 */
+margin-top: 20px;
+}
+section #ar4 .mt
+{
+text-align: left;
+margin-left:120px;
+width:150px;
+background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+}
+
+section #ar5{ /* 상세페이지 */
+margin-top: 20px;
+}
+
+section #ar5 .mt
+{
+text-align: left;
+margin-left: 120px;
+width:300px;
+background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+}
+
+ section #review_tb td
+{
+border: 1px solid black;
+border-left: none;
+border-right: none;
+border-top-color:#CCA39B;
+border-bottom-color:#CCA39B
+}
+ 
+section #inquiry_tb td
+{
+border: 1px solid black;
+border-left: none;
+border-right: none;
+border-top-color:#CCA39B;
+border-bottom-color:#CCA39B
+}
+
 .incontent{
 display: none;
 }
@@ -37,9 +105,9 @@ display: none;
 display: none;
 }
 
-#inquiry_content{
-display: none;
-}
+
+
+
 
     /* 퀵 메뉴 */
     div, ul, li {
@@ -105,11 +173,6 @@ function check()
    
 }  
 
-
-function pro_inquiry_write()
-{
-   document.getElementById("inquiry_content").style.display="block";
-   }
 
    $(function()
    {
@@ -293,88 +356,96 @@ function pro_inquiry_write()
             
 </article>
 <article id="ar2"> <!-- 상세페이지 -->
-            
-            
-            <div id="content_list">
-                  <span>상세페이지</span>               
-                  <span>상품문의</span>               
-                  <span>상품평</span>               
-                  <span>배송/교환/반품 안내</span>      
-                  </div>   
+				
+                  <div><a href="#cimg" style="color:black;">상세이미지</a></div>              
+                  <div><a href="#ar3" style="color:black;">상품평</a></div>               
+                  <div><a href="#ar4" style="color:black;">상품문의</a></div>               
+                  <div><a href="#ar5" style="color:black;">배송/교환/반품 안내</a></div>      
 </article>
-      
-         
-            <div><img src="../resources/img/${pvo.cimg}" width="1000" height="1200"></div>  <!-- 상세페이지 이미지 -->
-            
-<article id="ar3">                 
-               <div><h1><b>상 품 평</b></h1></div>
+
+            <div id="cimg"><img src="../resources/img/${pvo.cimg}" width="1000" height="1200"></div>  <!-- 상세페이지 이미지 -->
+<article id="ar3">       
+          
+                <div class="mt"><h2><b>상품평</b></h2></div> 
+               <table id="review_tb" width="950" align="center">
+                <tr style="background:rgba(164, 48, 35, 0.1);color:black;">
+                 <td>아이디</td>
+                 <td>내 용</td>
+                 <td>작성일</td>
+                </tr>
             <c:forEach items="${rlist}" var="rvo">
-            <div id="pro_review_list"> <!-- 상품평 -->
-               <span>${rvo.userid}</span>
-               <span>${rvo.content}</span>
-               <span>${rvo.writeday}</span>
-            </div>
-            </c:forEach>
-               
-            <form method="post" action="pro_review_write_ok">
-            <input type="hidden" name="pcode" value="${pvo.pcode}">
-               <tr>
-                  <td><textarea rows="6" cols="100" name="content"></textarea></td>
-                  <td><input type="submit" value="등록하기"></td>
+               <tr>  <!-- 상품평 -->
+                 <td>${rvo.userid}</td>
+                 <td>${rvo.content}</td>
+                 <td>${rvo.writeday}</td>
                </tr>
-            </form>
+            </c:forEach>
+              </table>
+            <p>
+              <form method="post" action="pro_review_write_ok">
+                <input type="hidden" name="pcode" value="${pvo.pcode}">
+                  <table width="950" align="center">
+               <tr>
+               	  <td>상품명</td>
+                  <td><input type="text" name="title" size="98" value="${pvo.title}" readonly></td>
+               </tr>
+               <tr>
+               	  <td>상품평</td>
+                  <td><textarea class="cont" rows="6" cols="100" name="content"></textarea></td>
+               </tr>
+                <tr>
+              		 <td colspan="2"><input type="submit" value="등록하기" style="width:200px;height:46px;background: #CCA39B;color:white;border: none;margin-top: 20px;"></td>
+            	</tr>
+            	</table>
+
+              </form>
 </article>
 
 <article id="ar4">
             <!--상품문의 리스트  -->
-            <span><h1><b>상 품 문 의</b></h1></span>  
-            <span onclick="pro_inquiry_write()">문의 작성</span>
-            <div>
-            <span>답변상황</span>
-            <span>아이디</span>
-            <span>제 목</span>
-            <span>작성일</span>
-            </div>
-            <c:forEach items="${ilist }" var="ivo">
-               <div id="pro_inquiry_list">
-               
-               <c:if test="${ivo.content1 != null }">
-                  <span>답변 완료</span>
-                  <span>${ivo.userid}</span>
-                  <span>${ivo.title}</span>
-                  <span>${ivo.writeday}</span>
-                  <p>
-                 </c:if> 
-                 
-                 <c:if test="${ivo.content1 == null }">
-                  <span>답변 준비중</span>
-                  <span>${ivo.userid}</span>
-                  <span>${ivo.title}</span>
-                  <span>${ivo.writeday}</span>
-                 <p>
-                 </c:if>
+             <div class="mt"><h2><b>상품문의</b></h2></div> 
+            <table id="inquiry_tb" width="950" align="center">
+           <tr style="background:rgba(164, 48, 35, 0.1);color:black;">
+     	    <td>아이디</td>
+          	<td>제 목</td>
+          	<td>작성일</td>
+           </tr>
+            <c:forEach items="${ilist}" var="ivo">
+                  <tr>
+                  <td>${ivo.userid}</td>
+                  <td>비밀글 입니다.</td>
+                  <td>${ivo.writeday}</td>
+                  </tr>
             </c:forEach>
-            
-            <form  id="inquiry_content" method="post" action="pro_inquiry_write_ok">
+            </table>
+            <br>
+          <form  id="inquiry_content" method="post" action="pro_inquiry_write_ok">
             <input type="hidden" name="pcode" value="${pvo.pcode}">
-              <div>
-           		제 목
-               <input type="text" name="title" size="98">
-           </div>
-           <br>
-            <div>
-            	내 용
-               <textarea rows="6" cols="100" name="content"></textarea>
-            </div>
-            <div>
-               <input type="submit" value="작성하기">
-            </div>
-            </form>
+            <table width="900" align="center" id="inquiry_write">
+               <tr>
+           		<td>상품명</td>
+                <td> <input type="text" name="title" size="98" value="${pvo.title}" readonly></td>
+          	   </tr>
+			
+               <tr>
+                 <td>제 목</td>
+                 <td> <input type="text" name="title" size="98"></td>
+               </tr>
+
+               <tr>
+            	<td>내 용</td>
+                <td> <textarea class="cont" rows="6" cols="100" name="content"></textarea></td><p>
+               </tr>
+               <tr>
+                 <td colspan="2"> <input type="submit" value="작성하기" style="width:200px;height:46px;background: #CCA39B;color:white;border: none;margin-top: 20px;"></td>
+               </tr>
+            </table>
+          </form>
 </article>
 
 
-<article id="ar5">
-            <div><h1><b>배송/교환/반품 안내</b></h1></div>
+<article id="#ar5">
+            <div class="mt"><h2><b>배송/교환/반품 안내</b></h2></div>
 </article>
       </section>
 </body>

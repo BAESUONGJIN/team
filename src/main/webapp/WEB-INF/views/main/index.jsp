@@ -132,7 +132,7 @@
  		    	       $("#image #inner").css("margin-left","0px");
  		    	       $("#image #inner img").eq(0).insertAfter($("#image #inner img").eq(4));
  		           });
-	    },4000);
+	    },2000);
 	  }
 	  mainmove();
 	  
@@ -160,11 +160,7 @@
     <div id="image"><!-- 그림슬라이드홈 -->
       <div id="outer">
         <div id="inner">
-          <img src="../resources/main/pic6.png" width="100%" height="500">
-          <img src="../resources/main/pic5.png" width="100%" height="500">
-          <img src="../resources/main/pic4.png" width="100%" height="500">
-          <img src="../resources/main/pic3.png" width="100%" height="500">
-          <img src="../resources/main/pic2.png" width="100%" height="500">
+          <img src="../resources/main/pic6.png" width="100%" height="500"><img src="../resources/main/pic5.png" width="100%" height="500"><img src="../resources/main/pic4.png" width="100%" height="500"><img src="../resources/main/pic3.png" width="100%" height="500"><img src="../resources/main/pic2.png" width="100%" height="500">
         </div>
       </div>
     </div> 
