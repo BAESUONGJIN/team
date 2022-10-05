@@ -22,11 +22,13 @@ import kr.co.team.vo.DaeVO;
 import kr.co.team.vo.FaqVO;
 import kr.co.team.vo.InquiryVO;
 import kr.co.team.vo.MemberVO;
+import kr.co.team.vo.NextVO;
 import kr.co.team.vo.ProductVO;
 
 @Service
 @Qualifier("as")
 public class AdminServiceImpl implements AdminService {
+	
 	@Autowired
 	private AdminMapper mapper;
 	
@@ -68,9 +70,15 @@ public class AdminServiceImpl implements AdminService {
 		if(chong < pend)
 			pend = chong;
 		
+		int count = mapper.gongji_getCount();
 		
 		ArrayList<AdminVO> list = mapper.list(start);
-		model.addAttribute("list", list);
+		
+		ArrayList<AdminVO> import_list = mapper.import_list();
+		
+ 		model.addAttribute("list", list);
+ 		model.addAttribute("import_list", import_list);
+ 		model.addAttribute("count", count);
 		model.addAttribute("page", page);
 		model.addAttribute("pstart", pstart);
 		model.addAttribute("pend", pend);
@@ -90,6 +98,10 @@ public class AdminServiceImpl implements AdminService {
 		String id = request.getParameter("id");
 		AdminVO avo = mapper.content(id);
 		model.addAttribute("avo", avo);
+		
+		//다음행 id값, 제목
+		NextVO nvo = mapper.nextcontent(id);
+		model.addAttribute("nvo", nvo);
 		return "/gongji/content";
 	}
 

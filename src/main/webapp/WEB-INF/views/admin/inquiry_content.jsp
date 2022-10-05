@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+
 	section {
 		width: 1000px;
 		height: auto;
@@ -35,6 +36,11 @@
 		padding: 15px 10px 15px 10px;
 		text-align: center;
 		border-right: 1px solid gray;
+		border-left: 1px solid gray;
+	}
+	
+	#button {
+		border: none;
 	}
 	
 	#gap {
@@ -109,7 +115,7 @@
 			</tr>
 			
 			<tr>
-				<td colspan="4"> 
+				<td colspan="4" id="button"> 
 					<input type="button" value="목록" onclick="location.href='inquiry_list'">
 					<input type="submit" value="답변수정">
 				</td>
