@@ -8,7 +8,7 @@
 <title>Insert title here</title>
  <style>
    section {
-     width:900px;
+     width:1000px;
      margin:auto;
      text-align: center;
      padding-top: 200px;/* 폼 자체 조정 */
@@ -49,11 +49,11 @@
 		
 	}
 	
-     h5 {
+/*      h5 {
 		display: inline-block;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 		
-	}
+	} */
 	
 	
  </style>

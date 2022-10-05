@@ -11,8 +11,16 @@ public class InquiryVO {
 	
 	//product에서 가져온 값
 	private String pimg,ptitle;
+	
+	private String pro_title;
 		
 	
+	public String getPro_title() {
+		return pro_title;
+	}
+	public void setPro_title(String pro_title) {
+		this.pro_title = pro_title;
+	}
 	public String getPtitle() {
 		return ptitle;
 	}
