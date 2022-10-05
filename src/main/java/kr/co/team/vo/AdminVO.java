@@ -2,9 +2,14 @@ package kr.co.team.vo;
 
 public class AdminVO {
 	
-	private int id, readnum;
+	private int id, readnum, state;
+	public int getState() {
+		return state;
+	}
+	public void setState(int state) {
+		this.state = state;
+	}
 	private String title, userid, content, writeday, name;
-	
 	
 	public String getName() {
 		return name;

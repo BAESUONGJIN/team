@@ -98,6 +98,9 @@
 			<td> <textarea rows="8" cols="60" name="content"></textarea> </td>
 		</tr>
 		
+		<tr>
+			<td colspan="2"> <input type="checkbox" name="state" value="1"> 체크하면 중요(고정) 공지로  작성합니다  </td>
+		</tr>
 		</table>
 		<div> 
 			<input type="button" value="←" onclick="back()">

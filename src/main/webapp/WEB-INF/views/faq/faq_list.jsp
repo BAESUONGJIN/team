@@ -49,7 +49,7 @@
 	
 	#menu a:hover {
 		border: 2px groove gray;
-		color: gray;
+		color: black;
 	}
 	
 	#sub {

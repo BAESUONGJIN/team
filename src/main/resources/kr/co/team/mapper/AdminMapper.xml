@@ -6,11 +6,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="kr.co.team.mapper.AdminMapper">
 	<!-- gongji -->
 	<insert id="write_ok" parameterType="kr.co.team.vo.AdminVO">
-		insert into gongji(title,userid,content, writeday, name) 
-		values(#{title},#{userid},#{content},now(),#{name})
+		insert into gongji(title,userid,content, writeday, name, state) 
+		values(#{title},#{userid},#{content},now(),#{name},#{state})
 	</insert>
 	<select id="list" resultType="kr.co.team.vo.AdminVO">
-		select * from gongji order by id desc limit #{param1}, 10
+		select * from gongji where state = 0 order by id desc limit #{param1}, 10
+	</select>
+	
+	<select id="import_list" resultType="kr.co.team.vo.AdminVO">
+		select * from gongji where state = 1 order by id desc
+	</select>
+	
+	<select id="gongji_getCount" resultType="Integer">
+		select count(*) from gongji where state=0
 	</select>
 	
 	<select id="gongji_getChong" resultType="Integer">
@@ -24,6 +32,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="content" resultType="kr.co.team.vo.AdminVO">
 		select * from gongji where id=#{param1}
+	</select>
+	
+	<select id="nextcontent" resultType="kr.co.team.vo.NextVO">
+		select * from 
+		(select id, lead(id) over(order by id) as nextid,
+		lag(id) over(order by id) as preid,
+		lead(title) over(order by id) as nexttitle,
+		lag(title) over(order by id) as pretitle from gongji) 
+		gongji where id=#{param1}
 	</select>
 	
 	<update id="update_ok" parameterType="kr.co.team.vo.AdminVO">

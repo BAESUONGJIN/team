@@ -9,6 +9,7 @@ import kr.co.team.vo.DaeVO;
 import kr.co.team.vo.FaqVO;
 import kr.co.team.vo.InquiryVO;
 import kr.co.team.vo.MemberVO;
+import kr.co.team.vo.NextVO;
 import kr.co.team.vo.ProductVO;
 
 public interface AdminMapper {
@@ -16,9 +17,12 @@ public interface AdminMapper {
 	//gongji
 	public void write_ok(AdminVO avo);
 	public ArrayList<AdminVO> list(int start);
+	public ArrayList<AdminVO> import_list();
+	public int gongji_getCount();
 	public int gongji_getChong();
 	public void readnum(String id);
 	public AdminVO content(String id);
+	public NextVO nextcontent(String id);
 	public void update_ok(AdminVO avo);
 	public void delete(String id);
 	

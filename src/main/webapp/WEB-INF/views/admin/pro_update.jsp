@@ -12,8 +12,71 @@
 		height: auto;
 		margin: auto;
 		margin-bottom: 40px;
-		padding-top: 120px;
+		padding-top: 150px;
 	}
+	
+	h2 #title{
+		margin-bottom: 30px;
+		padding-bottom: 8px;
+		display: inline-block;
+		width: 180px;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+	}
+	
+	table {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		width: 100%;
+		border-top: 2px solid black;
+		border-collapse: collapse;
+	}
+	
+	th {
+		text-align: center;
+		border-bottom: 1px solid gray;
+		border-right: 1px solid gray;
+		padding: 10px;
+		background: #f6eae9;
+	}
+	
+	td {
+		border-bottom: 1px solid gray;
+		border-right: 1px solid gray;
+		padding: 10px;
+	}
+	
+	input[type=text] {
+		width: 190px;
+		height: 50px;
+		border: none;
+	}
+	
+	#pro_title {
+		width: 800px;
+		height: 50px;
+		border: none;
+	}
+	
+	input[type=button] {
+      	width:50px;
+      	height:35px;
+      	border:1px solid gray;
+      	border-radius: 10px;
+      	background:gray;
+      	color:white;
+      	float: left;
+    }
+    
+	input[type=submit] {
+      	width:100px;
+      	height:35px;
+      	border:1px solid gray;
+      	border-radius: 10px;
+      	background:gray;
+      	color:white;
+      	margin-left: 400px;
+    }
+	
 </style>
 <script>
 
@@ -35,6 +98,10 @@ function chong_pay()
    document.getElementById("chong").innerText=chong+"원";
 }
 
+function back()
+{
+	history.back(-1);
+}
 </script>
 
 </head>
@@ -43,15 +110,15 @@ function chong_pay()
 <section>
 	<form name="write_form" method="post" action="pro_update_ok" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="${pvo.id}">
-		<h1 align="center"><b>상 품 수 정</b></h1>
+		<h2 align="center"> <span id="title"> 상 품 수 정 </span> </h2>
 		<table width="700" align="center">
 		
 			<tr>
-				<td>대표이미지</td> 
-				<td><input id="file" type="file" name="pimg"></td>
+				<th>대표이미지</th> 
+				<td colspan="5"><input id="file" type="file" name="pimg"></td>
 			</tr>
 			<tr>
-				<td>카테고리</td>
+				<th>카테고리</th>
 				<c:if test="${pvo.dcode == 'p01'}">
 					<c:set var="dcode" value="OUTER"/>
 				</c:if>
@@ -67,50 +134,48 @@ function chong_pay()
 				<c:if test="${pvo.dcode == 'p05'}">
 					<c:set var="dcode" value="DRESS"/>
 				</c:if>
-				<td> ${dcode} </td>
-			</tr>
-			<tr>
-			<td>상품 코드</td>
-			   <td> ${pvo.pcode} </td>
+				<td colspan="2"> ${dcode} </td>
+				<th>상품 코드</th>
+				<td colspan="2"> ${pvo.pcode} </td>
 			</tr>
 			
 			<tr>
-				<td>제 목</td>
-				<td><input type="text" name="title" size="50" value="${pvo.title}"></td>
+				<th>상 품 명</th>
+				<td colspan="5"><input type="text" name="title" id="pro_title" value="${pvo.title}"></td>
 			</tr>
 			<tr>
-			<td>옵션</td>
+			<th> 사이즈<br>(옵션)</th>
 				<td id="option_td">		
-				<p class="option">
-				사이즈  <input type="text" name="size" size="5" value="${pvo.size}">
-				색 상<input type="text" name="color" size="5" value="${pvo.color}">
-				재고<input type="text" name="stock" size="5" value="${pvo.stock}">
-				</td>
-				</p>
+				<!-- <p class="option"> -->
+				<input type="text" name="size" size="5" value="${pvo.size}"> </td>
+				<th> 색상<br>(옵션) </th>
+				<td> <input type="text" name="color" size="5" value="${pvo.color}"> </td>
+				<th> 재고(옵션) </th>
+				<td> <input type="text" name="stock" size="5" value="${pvo.stock}"> </td>
+				<!-- </p> -->
+				
+				
 			</tr>
 			<tr>
-				<td>상세페이지</td>
-				<td>
+				<th>상세페이지</th>
+				<td colspan="5">
 				  <input type="file" name="cimg">
 				</td>
 			</tr>
 			<tr>
-				<td>가 격</td>
-				<td><input id="price" type="text" name="price" value="${pvo.price}" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">원</td>
-			</tr>
-			<tr>
-				<td>할 인</td>
-				<td><input id="halin" type="text" name="halin" value="${pvo.halin}" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()">%</td>
-			</tr>
-			<tr>
-				<td>총 결제금액</td>
+				<th width="150">가 격</th>
+				<td width="250"><input id="price" type="text" name="price" value="${pvo.price}" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()"> 원</td>
+				<th width="100">할 인</th>
+				<td width="250"><input id="halin" type="text" name="halin" value="${pvo.halin}" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1');" onkeyup="chong_pay()"> %</td>
+				<th width="150">총 결제금액</th>
 				<td><span id='chong' value="0">0원</span></td>
-			</tr>
-			<tr>
-			 <td colspan="2"><input type="submit" value="수정하기"></td>
 			</tr>
 
 		</table>
+		<div> 
+			<input type="button" value="←" onclick="back()">
+			<input type="submit" value="수정하기"> 
+		</div>
 	</form>
 </section>
 </body>

@@ -35,6 +35,11 @@
 		padding: 15px 10px 15px 10px;
 		text-align: center;
 		border-right: 1px solid gray;
+		border-left: 1px solid gray;
+	}
+	
+	#button {
+		border: none;
 	}
 	
 	#gap {
@@ -109,7 +114,7 @@
 			</tr>
 			
 			<tr>
-				<td colspan="4"> 
+				<td colspan="4" id="button"> 
 					<input type="button" value="목록" onclick="location.href='inquiry_list'">
 					<input type="submit" value="답변수정">
 				</td>
