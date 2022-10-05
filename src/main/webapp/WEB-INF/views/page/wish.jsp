@@ -16,6 +16,8 @@
  </c:if>
 
  <style>
+ @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
+ 
    section {
      width:1200px;
      height:${he}px;
@@ -144,7 +146,7 @@
    
      
      <table width="1200" align="center">
-     <caption style="caption-side:top"> <h3>Wish</h3> </caption>
+     <caption style="caption-side:top"> <h3 style="font-family: 'Lora', serif;">Wish List</h3> </caption>
        <tr align="center">
          <td> <input type="checkbox" onclick="maincheck(this.checked)" style="width:15px;height:15px;" id="mainchk"> </td>
          <td> 상품이미지 </td>

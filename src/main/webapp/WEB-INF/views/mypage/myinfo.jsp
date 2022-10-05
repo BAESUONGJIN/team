@@ -3,12 +3,15 @@
  
 <head>
   <style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
+  
     section {
      width:600px;
      height:600px;
      margin:auto;
      text-align:center;
-     padding-top:120px; /* 폼 자체 조정 */
+     padding-top:200px; /* 폼 자체 조정 */
+     padding-bottom:50px;
      position:relative;
     }
     section h2 {
@@ -35,12 +38,17 @@
     section #pwdform {
       position:absolute;
       right:150px;
-      width:200px;
+      width:1000px;
       height:250px;
       background:white;
       text-align:center;
       display:none;
     }
+    
+    h3 {
+		display: inline-block;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+	}
     
 
   </style>
@@ -94,7 +102,8 @@
 <body> 
   <section>
 <form method="post" name="info_change1" id="info_change1">
-   <h2 align="center"> 회 원 정 보 </h2>
+   <h3 align="center" style="font-family: 'Lora', serif;"> My Information </h3> 
+   <br>
    <div> <span id="aa">아이디</span>  ${mvo.userid}</div>
    <div> <span id="aa">이 름</span>   ${mvo.name}</div>
    <div> <span id="aa">우편번호</span>   ${mvo.zip}</div>
@@ -109,12 +118,12 @@
 
    <div id="pwdform"> <!-- 비밀번호 변경  폼 -->
     <form name="pchg" method="post" action="change_pwd" onsubmit="return check(this)">
-     <h3> 비밀 번호 변경</h3>
+     <h3 style="font-family: 'Lora', serif;">  Change Password </h3>
      <div> <input type="password" name="prepwd" placeholder="현재 비밀번호"> </div>
      <div> <input type="password" name="pwd" placeholder="새 비밀번호"> </div>
      <div> <input type="password" name="pwd2" placeholder="비밀번호 확인" onkeyup="check_pwd(this.value)"> </div>
      <div id="pmsg" style="font-size:15px;"></div>
-     <div> <input type="submit" value="비밀번호 변경"> </div>
+     <div> <input type="submit" value="확인"> </div>
     </form>
    </div>
   </section>
