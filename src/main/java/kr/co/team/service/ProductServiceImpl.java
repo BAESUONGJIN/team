@@ -170,7 +170,7 @@ public class ProductServiceImpl implements ProductService {
 		model.addAttribute("rlist",rlist);
 		
 		//inquiry list  상품문의
-		ArrayList<InquiryVO> ilist = mapper.pro_inquiry_list(pcode);
+		ArrayList<InquiryVO> ilist = mapper.pro_inquiry_list(pcode,userid);
 		model.addAttribute("ilist",ilist);
 		
 		//wish존재 여부확인

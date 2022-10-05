@@ -173,7 +173,38 @@ function check()
    
 }  
 
+// 상품평 내용을 작성 했는지 유효성 검사
 
+function review_chk(re)
+{
+	if(re.content.value.trim().length==0)
+		{
+		alert("내용을 작성해주세요");
+		return false;
+		}
+	else
+		return true;
+}
+
+//상품문의 제목 및 타이틀 유효성 검사
+
+function inquiry_chk(iq)
+{
+	if(iq.title.value.trim().length==0)
+		{
+		alert("제목을 입력해주세요");
+		return false;
+		}
+	else if(iq.content.value.trim().length==0)
+		{
+		alert("내용을 입력해주세요");
+		return false;
+		}
+	else
+		return true;
+	}
+
+//수량 관련
    $(function()
    {
       $("#spinner").spinner(
@@ -417,7 +448,7 @@ function check()
             </c:forEach>
               </table>
             <p>
-              <form method="post" action="pro_review_write_ok">
+              <form method="post" action="pro_review_write_ok" onsubmit="return review_chk(this)">
                 <input type="hidden" name="pcode" value="${pvo.pcode}">
                   <table width="950" align="center">
                <tr>
@@ -448,13 +479,13 @@ function check()
             <c:forEach items="${ilist}" var="ivo">
                   <tr>
                   <td>${ivo.userid}</td>
-                  <td>비밀글 입니다.</td>
+                  <td>${ivo.title }</td>
                   <td>${ivo.writeday}</td>
                   </tr>
             </c:forEach>
             </table>
             <br>
-          <form  id="inquiry_content" method="post" action="pro_inquiry_write_ok">
+          <form  id="inquiry_content" method="post" action="pro_inquiry_write_ok" onsubmit="return inquiry_chk(this)">
             <input type="hidden" name="pcode" value="${pvo.pcode}">
             <table width="900" align="center" id="inquiry_write">
                <tr>
