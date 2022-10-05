@@ -11,7 +11,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import kr.co.team.mapper.MypageMapper;
+import kr.co.team.vo.AnswerVO;
+import kr.co.team.vo.FaqVO;
+import kr.co.team.vo.InquiryVO;
 import kr.co.team.vo.MemberVO;
+import kr.co.team.vo.ProductVO;
 import kr.co.team.vo.ReviewVO;
 
 @Service
@@ -74,14 +78,6 @@ public class MypageServiceImpl implements MypageService {
 		
 	}
 
-	@Override
-	public String myreview(HttpSession session, Model model) {
-		String userid=session.getAttribute("userid").toString();
-		ArrayList<ReviewVO> rlist=mapper.myreview(userid);
-		model.addAttribute("rlist",rlist);
-		
-		return "/mypage/myreview";
-	}
 
 	@Override
 	public String myreview_update(HttpServletRequest request, Model model) {
@@ -103,5 +99,53 @@ public class MypageServiceImpl implements MypageService {
 		mapper.myreview_del(id);
 		return "redirect:/mypage/myreview";
 	}
+	
+	@Override
+	public String myreview(HttpSession session, Model model,HttpServletRequest request) {
+
+		//페이징 처리
+		int page, start;
+		
+		//원하는 페이지의 시작 인덱스값을 구하기
+		if(request.getParameter("page") == null)
+			page = 1;
+		else
+			page = Integer.parseInt(request.getParameter("page"));
+		start = (page - 1) * 10;
+		
+		//사용자가 페이지를 이동하기 위해 출력하는 범위
+		//pstart, pend
+		int pstart, pend;
+		pstart = page/10;
+		if(page%10 == 0)
+			pstart--;
+		pstart = pstart*10+1;
+		pend = pstart + 9;
+		
+		//총페이지 구하기
+		int chong = mapper.mymun_getChong();
+		
+		if(chong < pend)
+			pend = chong;
+		
+		model.addAttribute("page", page);
+		model.addAttribute("pstart", pstart);
+		model.addAttribute("pend", pend);
+		model.addAttribute("chong", chong);
+		
+		
+		//상품평, 상품문의 처리
+		String userid=session.getAttribute("userid").toString();
+		ArrayList<ReviewVO> rlist=mapper.myreview(userid);
+	
+		ArrayList<InquiryVO> ilist=mapper.mymun(userid, start);
+		model.addAttribute("rlist",rlist);   //상품평
+		model.addAttribute("ilist",ilist);	//상품문의
+		return "/mypage/myreview";
+	}
+
+
+	
+	
 
 }

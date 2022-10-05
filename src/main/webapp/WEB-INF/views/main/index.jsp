@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -32,6 +33,7 @@
        width:1400px;
        height:100%;
        margin:auto;
+       text-align: center;
        
     }
     section #ar2 { /* 사분할 BEST ITEM | NEW ITEM | ACC | REVIEW EVENT */
@@ -50,17 +52,37 @@
     }
     
     section #ar3 { /* 사진 3장씩 */
-       width:100%;
-       height:1650px;
-       background:white;
+       height: 1000px;
+       background: white;
        margin-top: 200px;
        text-align: center;
+       margin-left: 60px;
+       }
+       
+    section #ar3 a {
+    text-decoration: none;
+    color:#555555;
+    text-align: center;
     }
     
-    .col{ /* 부트스트랩 */
-      width: 430px;
-      height: 660px;
+    
+      section #ar4 { /* 사진 3장씩 */
+       height: 1200px;
+       background: white;
+       margin-top: 200px;
+       text-align: center;
+       margin-left: 60px;
     }
+    
+      section #ar4 a {
+    text-decoration: none;
+    color:#555555;
+    text-align: center;
+    }
+    
+div{
+margin-left: 30px;
+}
        
     
     h1 {  /* 글자 hover */
@@ -79,22 +101,6 @@
 }
 
    h1:hover:after { transform: scaleX(1); }
-
-    
-    
-    section #ar4 {
-       width:100%;
-       height:1650px;
-       background:white;
-       margin:auto;
-       text-align: center;
-    }
-/*     section #ar5 { /* 특가처리 주석 */
-       width:100%;
-       height:800px;
-       background:#BDBDBD;
-       margin:auto;
-    } */
     
 
     /* 퀵 메뉴 */
@@ -113,8 +119,15 @@
 .quickmenu ul li:last-child {border-bottom:0;}
 
 .content {position:relative;min-height:1000px;}
-    
 
+  /* 이미지 hover */
+ .my_img {
+   filter: brightness(1);
+   } 
+ .my_img:hover {
+   filter: brightness(0.5);
+   }
+   
 </style>
 <script>
   $(function()
@@ -197,136 +210,61 @@
       
       <article id="ar3"> 
       
-      <h1 class="fromcenter"> BEST ITEM </h1> <p>
-      
-      
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="https://nimage.g-enews.com/phpwas/restmb_allidxmake.php?idx=5&simg=2020011314253409585aca1a8c21a210178107185.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">[MD추천] 데일리 자수 가디건</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src=https://cdn.speconomy.com/news/photo/201904/20190405_1_bodyimg_201400.jpg class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">[MD추천] 데일리 원피스</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src= https://m.w-girlz.co.kr/web/product/big/202106/d6fc858227931b4ec2823f41853f5575.jpg class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">데일리 자수 가디건</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src=http://openimage.interpark.com/goods_image_big/6/5/1/6/8627706516_l.jpg class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">데일리 자수 가디건</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-    <div class="col">
-    <div class="card">
-      <img src= https://m.gababa.co.kr/web/product/big/202201/8fc0bdc50eb52816b988511b640f7a47.jpg class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">데일리 자수 가디건</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-    <div class="col">
-    <div class="card">
-      <img src= https://static.coupangcdn.com/image/vendor_inventory/7ca2/fc14c6b512fca257ef54f58fd21df51bc390d0da65efa5320255b2148f28.jpg class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">데일리 자수 가디건</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-   
-</div>
-      
-     
-     
+      <h1 class="fromcenter" style="font-size: 20px; font-weight: bolder; margin-bottom: 50px;cursor: pointer; "> BEST ITEM </h1> <p>
+  <table align="center">
+     		<tr>
+			<c:forEach items="${list}" var="pvo">
+				<td><a href="pro_content?pcode=${pvo.pcode}">
+				<div id="pimg"><img src="../resources/img/${pvo.pimg}" width="350" height="400" class="my_img"></div>
+				<div id="title">${pvo.title }</div>
+				<div id="price">
+				 <c:if test="${pvo.halin ==0 }">   <!-- 할인 0인 경우 -->
+				  <fmt:formatNumber value="${pvo.price}"/> 원
+				 </c:if>
+				 <c:if test="${pvo.halin != 0 }">   <!-- 할인 0이 아닌 경우 -->
+				  <s><fmt:formatNumber value="${pvo.price}"/>원<br></s>
+				  <b><fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)+pvo.baesong}"/>원</b>
+				 </c:if>
+				</div></a>
+				</td>
+				<c:set var="i" value="${i+1 }"/>
+				<c:if test="${i%3==0 }">  <!-- 3칸 후 다음줄로 이동 -->
+				</tr>
+				<tr>
+				</c:if>
+			</c:forEach>
+		</tr> 
+	</table>
+	
       </article> <!-- 인기 상품 -->
       
       <article id="ar4"> 
-      <h1 class="fromcenter"> NEW ITEM </h1> <p>
-     
-           <div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="https://nimage.g-enews.com/phpwas/restmb_allidxmake.php?idx=5&simg=2020011314253409585aca1a8c21a210178107185.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">[MD추천] 데일리 자수 가디건</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src=https://cdn.speconomy.com/news/photo/201904/20190405_1_bodyimg_201400.jpg class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">[MD추천] 데일리 원피스</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src= https://m.w-girlz.co.kr/web/product/big/202106/d6fc858227931b4ec2823f41853f5575.jpg class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src=http://openimage.interpark.com/goods_image_big/6/5/1/6/8627706516_l.jpg class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">데일리 자수 가디건</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-    <div class="col">
-    <div class="card">
-      <img src= https://m.gababa.co.kr/web/product/big/202201/8fc0bdc50eb52816b988511b640f7a47.jpg class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">데일리 자수 가디건</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-    <div class="col">
-    <div class="card">
-      <img src= https://static.coupangcdn.com/image/vendor_inventory/7ca2/fc14c6b512fca257ef54f58fd21df51bc390d0da65efa5320255b2148f28.jpg class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">데일리 자수 가디건</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-   
-</div>
-<!--       </article> 특가 상품
-      
-      <article id="ar5"> 이벤트 상품 5개 
-      </article> 이벤트상품 -->
-      
+      <h1 class="fromcenter" style="font-size: 20px; font-weight: bolder; margin-bottom: 50px;cursor: pointer;"> NEW ITEM </h1> <p>
+  <table align="center">
+     		<tr>
+			<c:forEach items="${list2}" var="pvo">
+				<td><a href="pro_content?pcode=${pvo.pcode}">
+				<div id="pimg"><img src="../resources/img/${pvo.pimg}" width="350" height="400" class="my_img"></div>
+				<div id="title">${pvo.title }</div>
+				<div id="price">
+				 <c:if test="${pvo.halin ==0 }">   <!-- 할인 0인 경우 -->
+				  <fmt:formatNumber value="${pvo.price}"/> 원
+				 </c:if>
+				 <c:if test="${pvo.halin != 0 }">   <!-- 할인 0이 아닌 경우 -->
+				  <s><fmt:formatNumber value="${pvo.price}"/>원<br></s>
+				  <b><fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)+pvo.baesong}"/>원</b>
+				 </c:if>
+				</div></a>
+				</td>
+				<c:set var="i" value="${i+1 }"/>
+				<c:if test="${i%3==0 }">  <!-- 3칸 후 다음줄로 이동 -->
+				</tr>
+				<tr>
+				</c:if>
+			</c:forEach>
+		</tr> 
+	</table>
+</article>
     </section>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
