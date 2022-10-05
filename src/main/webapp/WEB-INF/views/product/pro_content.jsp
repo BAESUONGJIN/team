@@ -459,7 +459,7 @@ function check()
             <table width="900" align="center" id="inquiry_write">
                <tr>
            		<td>상품명</td>
-                <td> <input type="text" name="title" size="98" value="${pvo.title}" readonly></td>
+                <td> <input type="text" name="title1" size="98" value="${pvo.title}" readonly></td>
           	   </tr>
 			
                <tr>
