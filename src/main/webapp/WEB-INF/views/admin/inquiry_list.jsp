@@ -72,7 +72,7 @@
 		
 		<c:forEach items="${ilist}" var="ivo">
 		<tr>
-			<td> ${ivo.title}<br>(${ivo.pcode}) </td>
+			<td> ${ivo.pro_title}<br>(${ivo.pcode}) </td>
 			<td> ${ivo.content} </td>
 			<td> ${ivo.userid} </td>
 			<c:if test="${ivo.cnt == 0 }">

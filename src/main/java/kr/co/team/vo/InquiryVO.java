@@ -4,7 +4,14 @@ public class InquiryVO {
 	private int id,cnt;
 	
 	private String userid,content,writeday,pcode,title,answer_content;
+	private String pro_title;
 
+	public String getPro_title() {
+		return pro_title;
+	}
+	public void setPro_title(String pro_title) {
+		this.pro_title = pro_title;
+	}
 	//answer cid
 	private int cid;
 	private String content1;

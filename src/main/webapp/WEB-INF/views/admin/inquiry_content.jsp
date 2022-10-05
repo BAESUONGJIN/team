@@ -73,7 +73,7 @@
 	<table align="center">
 		<tr>
 			<td width="250"> 상품명(코드번호)</td>
-			<td id="gap"> ${ivo.title} (${ivo.pcode}) </td>
+			<td id="gap"> ${ivo.pro_title} (${ivo.pcode}) </td>
 			<td> 작성자 </td>
 			<td id="gap"> ${ivo.userid} </td>
 		</tr>
