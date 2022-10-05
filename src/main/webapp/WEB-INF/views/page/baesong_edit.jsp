@@ -5,38 +5,99 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+   tr:first-child td {
+     border-top:2px solid #cccccc;
+     border-bottom:1px solid #cccccc;
+     height:35px;
+   }
+   
+   tr td {
+     height:35px;
+     border-bottom:1px solid #cccccc;
+   }
+   
+   tr:last-child td {
+     border-bottom:2px solid #cccccc;
+   }
+   
+      #btn1 {
+     width:70px;
+     height:22px;
+     border:1px solid rgba(164, 48, 35, 0.1);
+     text-align:center;
+     background:rgba(164, 48, 35, 0.1);
+     color:black;
+     cursor:pointer;
+     margin-left:20px;
+   }
+   
+   #chk {
+    width:70px;
+     height:22px;
+     border:1px solid rgba(164, 48, 35, 0.1);
+     text-align:center;
+     background:rgba(164, 48, 35, 0.1);
+     color:black;
+     cursor:pointer;
+   }
+   
+</style>
+
+
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
-  function juso_search()  // 우편번호 버튼 클릭시 호출 함수명
+  function juso_search()  
   {
     new daum.Postcode({
         oncomplete: function(data) {
-          if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+          if (data.userSelectedType === 'R') { 
               addr = data.roadAddress;
-          } else { // 사용자가 지번 주소를 선택했을 경우(J)
+          } else { 
               addr = data.jibunAddress;
           }
 
-          // 우편번호와 주소 정보를 해당 필드에 넣는다.
-          document.pkc.zip.value = data.zonecode; // 우편번호
-          document.pkc.juso.value = addr;  // 주소
-          // 커서를 상세주소 필드로 이동한다.
-          document.pkc.juso_etc.focus();
+          
+          document.edit.zip.value = data.zonecode;
+          document.edit.juso.value = addr;
+          document.edit.juso_etc.focus();
       }
     }).open();
   }
  </script>
 </head>
 <body>
-  <form name="pkc" method="post" action="baesong_edit_ok">
+  <form name="edit" method="post" action="baesong_edit_ok">
    <input type="hidden" name="id" value="${bvo.id}">
-    <h2> 배송지 수정 </h2>
-    <div> <input type="text" name="name" placeholder="이 름" value="${bvo.name}"> </div>
-    <div> <input type="text" name="zip" id="zip" readonly  value="${bvo.zip}"  placeholder="우편번호"> <input  id="btn1" type="button" onclick="juso_search()" value="주소검색"> </div>
-    <div> <input type="text" name="juso" placeholder="주 소" readonly value="${bvo.juso}"> </div>
-    <div> <input type="text" name="juso_etc" placeholder="상세주소" value="${bvo.juso_etc}"> </div>
-    <div> <input type="text" name="phone" placeholder="전화번호" value="${bvo.phone}"> </div>
-    <div> <input type="submit" value="수정하기"> </div>
+   <table align="center">
+    <caption style="caption-side:top"> <h3>배송지수정</h3> </caption>
+      <tr>
+        <td align="center"> 이름 </td>
+        <td> <input type="text" name="name" placeholder="이 름" value="${bvo.name}"> </td> 
+      </tr>   
+      <tr>
+        <td> 우편번호 </td>
+        <td> <input style="width:70px" type="text" name="zip" id="zip" readonly  value="${bvo.zip}"  placeholder="우편번호"> <input  id="btn1" type="button" onclick="juso_search()" value="주소검색"> </td>
+      </tr>
+      <tr>  
+        <td align="center"> 주소 </td>
+        <td> <input type="text" name="juso" placeholder="주 소" readonly value="${bvo.juso}"> </td> 
+      </tr>
+      <tr>
+         <td> 상세주소 </td>
+         <td> <input type="text" name="juso_etc" placeholder="상세주소" value="${bvo.juso_etc}"></td> 
+      </tr>
+      
+      <tr>
+         <td> 전화번호 </td>
+         <td> <input type="text" name="phone" placeholder="전화번호" value="${bvo.phone}"> </td> 
+      </tr>
+	 </table>
+	 <p>
+	   <div style="margin-left:490px"><input id="chk" type="submit" value="수정하기"></div>
+ 
+      
+
   </form>
 </body>
 </html>

@@ -13,6 +13,7 @@ import kr.co.team.vo.FaqVO;
 import kr.co.team.vo.ProductVO;
 
 public interface AdminService {
+	
 	//gongji
 	public String write_ok(AdminVO avo, HttpSession session);
 	public String list(HttpServletRequest request, Model model);

@@ -3,10 +3,31 @@ package kr.co.team.vo;
 public class WishVO {
 
 	private int id;
-	private String userid,pcode,writeday;
+	private String userid,pcode,writeday,size,color;
 	
-	private int price;
+	private int price,su;
 	private String title,pimg;
+	
+	
+	
+	public int getSu() {
+		return su;
+	}
+	public void setSu(int su) {
+		this.su = su;
+	}
+	public String getSize() {
+		return size;
+	}
+	public void setSize(String size) {
+		this.size = size;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
 	public int getId() {
 		return id;
 	}

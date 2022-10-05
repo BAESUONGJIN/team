@@ -1,7 +1,6 @@
 package kr.co.team.vo;
 
 public class NextVO {
-
 	
 	private String nextid, preid, pretitle, nexttitle;
 	private int state;	

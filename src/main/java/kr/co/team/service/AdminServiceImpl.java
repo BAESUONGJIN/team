@@ -28,6 +28,7 @@ import kr.co.team.vo.ProductVO;
 @Service
 @Qualifier("as")
 public class AdminServiceImpl implements AdminService {
+	
 	@Autowired
 	private AdminMapper mapper;
 	

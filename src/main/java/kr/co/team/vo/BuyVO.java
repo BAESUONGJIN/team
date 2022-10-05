@@ -4,17 +4,42 @@ public class BuyVO {
 	private int id,su,bae_id,chong,sudan,bank,card,gigan,phone,state;
 	private String pcode,userid,writeday,size,color;
 	
-	private String jumuncode;
+	private String jumunc;
 	
-    private String su_imsi,chong_imsi;
+    private String su_imsi,chong_imsi,color_imsi,size_imsi;
 	   
     private int gchk;
 	   
     private String pimg,title;
     
+    private String hugi;
     
 
 	   
+	public String getHugi() {
+		return hugi;
+	}
+	public void setHugi(String hugi) {
+		this.hugi = hugi;
+	}
+	public String getJumunc() {
+		return jumunc;
+	}
+	public void setJumunc(String jumunc) {
+		this.jumunc = jumunc;
+	}
+	public String getColor_imsi() {
+		return color_imsi;
+	}
+	public void setColor_imsi(String color_imsi) {
+		this.color_imsi = color_imsi;
+	}
+	public String getSize_imsi() {
+		return size_imsi;
+	}
+	public void setSize_imsi(String size_imsi) {
+		this.size_imsi = size_imsi;
+	}
 	public String getSize() {
 		return size;
 	}
@@ -27,12 +52,7 @@ public class BuyVO {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	public String getJumuncode() {
-		return jumuncode;
-	}
-	public void setJumuncode(String jumuncode) {
-		this.jumuncode = jumuncode;
-	}
+
 	public String getSu_imsi() {
 		return su_imsi;
 	}

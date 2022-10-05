@@ -14,6 +14,7 @@ import kr.co.team.vo.ProductVO;
 
 public interface AdminMapper {
 	
+	
 	//gongji
 	public void write_ok(AdminVO avo);
 	public ArrayList<AdminVO> list(int start);

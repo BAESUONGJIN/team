@@ -5,8 +5,8 @@
 <mapper namespace="kr.co.team.mapper.PageMapper">
 
  <insert id="wish_add">
-  insert into wish(userid,pcode,writeday)
-  values(#{param1},#{param2},now())
+  insert into wish(userid,pcode,su,color,size,writeday)
+  values(#{param1},#{param2},#{param3},#{param4},#{param5},now())
  </insert>
  
   <insert id="cart_add">
@@ -15,7 +15,7 @@
   </insert>
 
  <select id="wish" resultType="kr.co.team.vo.WishVO">
-   select p.title,p.pimg,p.price,w.writeday,w.id,w.pcode
+   select p.title,p.pimg,p.price,w.writeday,w.id,w.pcode,w.su,w.size,w.color
    from product as p , wish as w 
    where w.pcode=p.pcode and userid=#{param1};
  </select>
@@ -25,8 +25,8 @@
  </delete>
  
  <insert id="move_cart">
-  insert into cart(userid,pcode,su,writeday)
-  values(#{param1},#{param2},1,now())
+  insert into cart(userid,pcode,su,size,color,writeday)
+  values(#{param1},#{param2},#{param3},#{param4},#{param5},now())
  </insert>
  
  <delete id="wish_del2">
@@ -78,14 +78,30 @@
   </update>
   
   <insert id="buy_ok" parameterType="kr.co.team.vo.BuyVO">
-     insert into buy(pcode,size,color,su,userid,bae_id,chong,sudan,bank,card,gigan,phone,writeday,state)
-     values(#{pcode},#{size},#{color},#{su},#{userid},#{bae_id},#{chong},#{sudan},
+     insert into buy(pcode,size,color,su,jumunc,userid,bae_id,chong,sudan,bank,card,gigan,phone,writeday,state)
+     values(#{pcode},#{size},#{color},#{su},#{jumunc},#{userid},#{bae_id},#{chong},#{sudan},
      #{bank},#{card},#{gigan},#{phone},now(),0)
   </insert>
   
   <select id="getjumun" resultType="Integer">
-    select ifnull(max(right(jumuncode,4)),0) from gumae where userid=#{param1}
+    select ifnull(max(right(jumunc,4)),0) from buy where userid=#{param1}
   </select>
+  
+  <select id="buy_view" resultType="kr.co.team.vo.ViewVO">
+   select b.* , p.pimg, p.title,p.price,p.halin,p.juk,
+   ba.name,ba.phone as hphone,ba.juso,ba.juso_etc,ba.chuga  
+   from product as p, baesong as ba, buy as b
+   where b.pcode=p.pcode and b.bae_id=ba.id and jumunc=#{param1}
+  </select>
+  
+  <select id="myorder" resultType="kr.co.team.vo.BuyVO">
+   select b.* , p.pimg,p.title from buy as b, product as p 
+   where userid=#{param1} and b.pcode=p.pcode order by jumunc desc; 
+  </select>
+  
+  <update id="change_state">
+   update buy set state=#{param2} where id=#{param1}
+  </update>
 
   
 </mapper>

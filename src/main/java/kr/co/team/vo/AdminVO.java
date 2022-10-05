@@ -1,7 +1,6 @@
 package kr.co.team.vo;
 
 public class AdminVO {
-	
 	private int id, readnum, state;
 	public int getState() {
 		return state;

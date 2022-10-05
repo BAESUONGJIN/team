@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.team.service.PageService;
@@ -118,6 +119,22 @@ public class PageController {
 	{
 		return service.buy_ok(bvo,session);
 	}
-
 	
+	@RequestMapping("/page/buy_view")
+	public String buy_view(Model model,HttpSession session,HttpServletRequest request)
+	{
+		return service.buy_view(model,session,request);
+	}
+	
+	@RequestMapping("/page/myorder")
+	public String myorder(HttpSession session,Model model)
+	{
+		return service.myorder(session,model);
+	}
+
+	@RequestMapping("/page/change_state")
+	public String change_state(HttpServletRequest request)
+	{
+		return service.change_state(request);
+	}
 }

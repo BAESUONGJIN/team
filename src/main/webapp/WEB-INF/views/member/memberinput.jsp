@@ -42,6 +42,14 @@
       
     }
     
+         h3 {
+		margin-bottom: 30px;
+		display: inline-block;
+		width: 200px;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+		
+	}
+    
   </style>
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
