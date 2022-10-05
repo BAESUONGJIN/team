@@ -15,7 +15,7 @@
 		padding-top: 120px;
 	}
 	
-	h2 #list{
+	h2 #title{
 		margin-bottom: 30px;
 		display: inline-block;
 		width: 200px;
@@ -36,9 +36,14 @@
 	
 	th {
 		border-bottom: 1px solid gray;
+		border-right: 1px solid gray;
 		padding: 10px;
 		text-align: center;
 		background: #f6eae9;
+	}
+	
+	th:last-child {
+		border-right: none;
 	}
 	
 	td {
@@ -50,7 +55,7 @@
 </head>
 <body>
 <section>
-	<h2 align="center"> <span id="list"> 회 원 정 보 </span> </h2>
+	<h2 align="center"> <span id="title"> 회 원 정 보 </span> </h2>
 	<table width="600" align="center">
 		<tr>
 			<th width="130"> 아이디 </th>

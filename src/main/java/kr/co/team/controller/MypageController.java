@@ -51,9 +51,9 @@ public class MypageController {
 	}
 	
 	@RequestMapping("/mypage/myreview")
-	public String myreview(HttpSession session, Model model)
+	public String myreview(HttpSession session, Model model, HttpServletRequest request)
 	{
-		return service.myreview(session,model);
+		return service.myreview(session,model,request);
 	}
 	
 	@RequestMapping("/mypage/myreview_update")

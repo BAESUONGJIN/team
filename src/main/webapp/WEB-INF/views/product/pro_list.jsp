@@ -51,8 +51,15 @@ border: 1px solid red;
 .quickmenu ul li:last-child {border-bottom:0;}
 
 .content {position:relative;min-height:1000px;}
-    
-
+ 
+ /* img hover */
+  .my_img {
+   filter: brightness(1);
+   } 
+ .my_img:hover {
+   filter: grayscale(100%);
+   }
+ 
 </style>
 <script>
 /* 퀵메뉴 */
@@ -87,7 +94,7 @@ $(document).ready(function(){
 		<tr>
 			<c:forEach items="${list}" var="pvo">
 				<td><a href="pro_content?pcode=${pvo.pcode }">
-				<div id="pimg"><img src="../resources/img/${pvo.pimg}" width="300" height="350" onmouseover="content()"></div>
+				<div id="pimg"><img src="../resources/img/${pvo.pimg}" width="300" height="350" onmouseover="content()" class="my_img"></div>
 				<div id="title">${pvo.title }</div>
 				<div id="price">
 				 <c:if test="${pvo.halin ==0 }">   <!-- 할인 0인 경우 -->
@@ -108,6 +115,7 @@ $(document).ready(function(){
 			</c:forEach>
 		</tr>
 		<tr>   <!--페이징 처리  -->
+		
 		 <td colspan="3" align="center">
 		  <!-- 10페이지 이전으로 이동 -->
 		 <c:if test="${startpage !=1 }"> <!--첫번째 그룹이 아닐때  -->

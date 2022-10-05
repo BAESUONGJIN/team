@@ -27,16 +27,33 @@
 		margin-bottom: 20px;
 		border-top: 2px solid black;
 		border-collapse: collapse;
+		width: 100%;
 	}
 	
 	td {
 		border-bottom: 1px solid gray;
-		padding: 10px;
+		padding: 20px 10px 20px 10px;
 	}
 	
 	#no {
 		text-align: center;
+		font-weight: bold;
+		font-size: 20px;
 	}
+	
+	input[type=text] {
+		width: 850px;
+		height: 50px;
+		border: none;
+		font-size: 20px;
+	}
+	
+	textarea {
+		width: 850px;
+		height: 450px;
+		border: none;
+	}
+	
 	input[type=button] {
       	width:50px;
       	height:35px;
@@ -45,7 +62,6 @@
       	background:gray;
       	color:white;
       	float: left;
-      	margin-left: 200px;
     }
     
 	input[type=submit] {
@@ -55,7 +71,7 @@
       	border-radius: 10px;
       	background:gray;
       	color:white;
-      	margin-left: 205px;
+      	margin-left: 400px;
     }
 </style>
 <script>
@@ -69,7 +85,7 @@
 <section>
 	<h2 align="center"> <span id="faq"> FAQ 작성 </span> </h2>
 	<form method="post" action="faq_write_ok">
-		<table width="600" align="center">
+		<table align="center">
 			<tr>
 				<td width="150" id="no"> 분류 </td>
 				<td>
@@ -91,7 +107,7 @@
 			
 			<tr>
 				<td id="no"> 답 변 </td>
-				<td> <textarea rows="8" cols="60" name="ask"></textarea> </td>
+				<td> <textarea name="ask"></textarea> </td>
 			</tr>
 			
 		</table>

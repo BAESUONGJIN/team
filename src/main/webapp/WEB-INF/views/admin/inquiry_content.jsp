@@ -11,29 +11,76 @@
 		width: 1000px;
 		height: auto;
 		margin: auto;
+		margin-top: 40px;
 		margin-bottom: 40px;
 		padding-top: 120px;
 	}
+	
+	h2 #title {
+		margin-bottom: 30px;
+		display: inline-block;
+		width: 180px;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+	}
+	
+	table {
+		margin-top: 20px;
+		width: 100%;
+		border-top: 2px solid black;
+		border-collapse: collapse;
+	}
+	
+	td {
+		border-bottom: 1px solid gray;
+		padding: 15px 10px 15px 10px;
+		text-align: center;
+		border-right: 1px solid gray;
+	}
+	
+	#gap {
+		text-align: left;
+	}
+	
+	textarea {
+		width: 800px;
+		height: 400px;
+		border: none;
+	}
+	input[type=button] {
+      	width:100px;
+      	height:35px;
+      	border:1px solid gray;
+      	border-radius: 10px;
+      	background:gray;
+      	color:white;
+      	float: left;
+    }
+    
+    input[type=submit] {
+      	width:100px;
+      	height:35px;
+      	border:1px solid gray;
+      	border-radius: 10px;
+      	background:gray;
+      	color:white;
+      	margin-left: -100px;
+    }
 </style>
 </head>
 <body>
 <section>
-	<table width="900" align="center">
+	<h2 align="center"> <span id="title"> 상 품 문 의 </span> </h2>
+	<table align="center">
 		<tr>
-			<td> 상품명 </td>
-			<td colspan="3"> ${ivo.title} </td>
-		</tr>
-		
-		<tr>
-			<td> 상품코드 </td>
-			<td> ${ivo.pcode} </td>
+			<td width="250"> 상품명(코드번호)</td>
+			<td id="gap"> ${ivo.pro_title} (${ivo.pcode}) </td>
 			<td> 작성자 </td>
-			<td> ${ivo.userid} </td>
+			<td id="gap"> ${ivo.userid} </td>
 		</tr>
 		
 		<tr>
 			<td> 상품문의 </td>
-			<td colspan="3"> ${ivo.content} </td>
+			<td colspan="3" id="gap"> ${ivo.content} </td>
 		</tr>
 		
 		<c:if test="${empty answer_content}">
@@ -41,7 +88,7 @@
 		<input type="hidden" name="cid" value="${ivo.id}">
 			<tr id="answer">
 				<td> 답변 </td>
-				<td colspan="3"> <textarea rows="6" cols="40" name="content"> </textarea> </td> 
+				<td colspan="3"> <textarea rows="6" cols="40" name="content"></textarea> </td> 
 			</tr>
 			
 			<tr>
@@ -58,7 +105,7 @@
 		<input type="hidden" name="cid" value="${ivo.id}">
 			<tr id="answer">
 				<td> 답변 </td>
-				<td colspan="3"> <textarea rows="6" cols="40" name="content">${ivo.answer_content} </textarea> </td> 
+				<td colspan="3"> <textarea rows="6" cols="40" name="content">${ivo.answer_content}</textarea> </td> 
 			</tr>
 			
 			<tr>

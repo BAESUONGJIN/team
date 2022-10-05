@@ -9,8 +9,30 @@ public class InquiryVO {
 	private int cid;
 	private String content1;
 	
+	//product에서 가져온 값
+	private String pimg,ptitle;
 	
+	private String pro_title;
+		
 	
+	public String getPro_title() {
+		return pro_title;
+	}
+	public void setPro_title(String pro_title) {
+		this.pro_title = pro_title;
+	}
+	public String getPtitle() {
+		return ptitle;
+	}
+	public void setPtitle(String ptitle) {
+		this.ptitle = ptitle;
+	}
+	public String getPimg() {
+		return pimg;
+	}
+	public void setPimg(String pimg) {
+		this.pimg = pimg;
+	}
 	public String getContent1() {
 		return content1;
 	}
