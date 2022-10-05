@@ -58,6 +58,11 @@
 	order by writeday desc limit 10
 	</select>
 	
+	 <select id="answer_content" resultType="kr.co.team.vo.InquiryVO">
+	select i.id, a.content as content1, a.writeday as writeday1, a.cid 
+	from inquiry as i, answer as a where i.id=a.cid;
+	</select> 
+	
 	<insert id="pro_inquiry_write_ok" parameterType="kr.co.team.vo.InquiryVO">
 	insert into inquiry(userid,title,pcode,content,writeday)
 	values(#{userid},#{title},#{pcode},#{content},now())

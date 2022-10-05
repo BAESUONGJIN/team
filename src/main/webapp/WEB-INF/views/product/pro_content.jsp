@@ -104,7 +104,11 @@ display: none;
 {
 display: none;
 }
-
+.ask
+{
+	display: none;
+	background: #f6eae9;
+}
 
 
 
@@ -218,6 +222,19 @@ function inquiry_chk(iq)
             document.getElementById("gumae_chong").innerText=chong+"원";
          }
       });
+      $(".ititle").click(function()
+    	{
+    	  var index = $(".ititle").index(this);
+    	  $(".ask").eq(index).show();
+    	  $(".ask2").eq(index).show();
+      });
+      
+      $(".ask").click(function()
+    	{
+    		var index = $(".ask").index(this);
+    		$(".ask").eq(index).hide();
+    		$(".ask2").eq(index).hide();
+    	});	
    });
    
 
@@ -479,9 +496,15 @@ function inquiry_chk(iq)
             <c:forEach items="${ilist}" var="ivo">
                   <tr>
                   <td>${ivo.userid}</td>
-                  <td>${ivo.title }</td>
+                  <td id ="ititle" class="ititle">${ivo.title}</td>
                   <td>${ivo.writeday}</td>
                   </tr>
+                  <c:forEach items="${ ilist1}" var="ivo1">
+               	<tr id="ask" class="ask">
+					<td>답 변</td>               	
+					<td>${ivo1.content}</td>               	
+               	</tr>
+               	</c:forEach>
             </c:forEach>
             </table>
             <br>
@@ -495,9 +518,8 @@ function inquiry_chk(iq)
 			
                <tr>
                  <td>제 목</td>
-                 <td> <input type="text" name="title" size="98"></td>
+                 <td><input type="text" name="title" size="98"></td>
                </tr>
-
                <tr>
             	<td>내 용</td>
                 <td> <textarea class="cont" rows="6" cols="100" name="content"></textarea></td><p>
@@ -508,7 +530,6 @@ function inquiry_chk(iq)
             </table>
           </form>
 </article>
-
 
 <article id="#ar5">
             <div class="mt"><h2><b>배송/교환/반품 안내</b></h2></div>
