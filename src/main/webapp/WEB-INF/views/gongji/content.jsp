@@ -9,45 +9,83 @@
 <style>
 	section {
 		width: 1000px;
-		height: 1500PX;
+		height: auto;
 		margin: auto;
-		/* margin-top: 40px;
-		margin-bottom: 40px; */
+		margin-top: 40px;
+		margin-bottom: 40px;
 		padding-top: 120px;
 	}
+	
+	h2 #gongji {
+		margin-bottom: 30px;
+		display: inline-block;
+		width: 180px;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+	}
+	
+	table {
+		margin-top: 20px;
+		width: 100%;
+		border-top: 2px solid black;
+		border-collapse: collapse;
+	}
+	
+	td {
+		border-bottom: 1px solid gray;
+		padding: 10px;
+		padding-left: 20px;
+	}
+	
+	#last_td {
+		border: none;
+	}
+	
+	#list_btn {
+		float: left;
+	}
+	
+	#btn {
+		float: right;
+		display: inline-block;
+		padding-right: 10px;
+	}
+	
+	input[type=button] {
+      	width:100px;
+      	height:35px;
+      	border:1px solid gray;
+      	border-radius: 10px;
+      	background:gray;
+      	color:white;
+    }
+    
 </style>
 </head>
 <body>
 <section>
-	<table width="600" align="center">
-	<caption> <h2> ${av }</h2></caption>
+	<h2 align="center"> <span id="gongji"> 공 지 사 항 </span> </h2>
+	<table align="center">
 		<tr>
-			<td> 제 목 </td>
-			<td colspan="5"> ${avo.title} </td>
+			<td> <b> ${avo.title} </b> </td>
 		</tr>
 		
 		<tr>
-			<td> 작성자 </td>
-			<td> ${avo.name} </td>
-			<td> 작성일 </td>
-			<td> ${avo.writeday} </td>
-			<td> 조회수 </td>
-			<td> ${avo.readnum} </td>
+			<td> ${avo.name} &nbsp | &nbsp ${avo.writeday} &nbsp | &nbsp ${avo.readnum} </td>
 		</tr>
 		
 		<tr>
-			<td> 내 용 </td>
-			<td colspan="5"> ${avo.content} </td>
+			<td align="center"> ${avo.content} </td>
 		</tr>
-		
 		<tr>
-			<td colspan="4"> <input type="button" value="목록" onclick="location='list'"> </td>
+			<td id="last_td"> 
+				<span id="list_btn"> <input type="button" value="목록" onclick="location='list'"> </span>
+			<span id="btn">
 			<c:if test="${userid == 'admin123'}">
-			<td colspan="2" align="right">
-				<input type="button" value="수정" onclick="location='update?id=${avo.id}'"> 
+				<input type="button" value="수정" onclick="location='update?id=${avo.id}'">
 				<input type="button" value="삭제" onclick="location='delete?id=${avo.id}'">
-			</td> 
 			</c:if>
+			</span>
+			</td> 
 		</tr>
 	</table>
 </section>

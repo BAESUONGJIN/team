@@ -18,6 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="readnum" parameterType="kr.co.team.vo.AdminVO">
+	
 		update gongji set readnum = readnum + 1 where id=#{param1}
 	</update>
 	

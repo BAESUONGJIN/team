@@ -28,6 +28,9 @@ section #ar2{ /* 상세페이지 */
   width:1200px;
   height: 100px;
 }
+.incontent{
+display: none;
+}
 
 #gumae_content
 {
@@ -37,7 +40,6 @@ display: none;
 #inquiry_content{
 display: none;
 }
-
 
     /* 퀵 메뉴 */
     div, ul, li {
@@ -101,7 +103,7 @@ function check()
       //document.getElementById("color").value=0;
    }
    
-}   
+}  
 
 
 function pro_inquiry_write()
@@ -341,17 +343,16 @@ function pro_inquiry_write()
                   <span>${ivo.userid}</span>
                   <span>${ivo.title}</span>
                   <span>${ivo.writeday}</span>
-                  <span>${ivo.content1}</span>
                   <p>
-                 </c:if>
+                 </c:if> 
                  
+                 <c:if test="${ivo.content1 == null }">
                   <span>답변 준비중</span>
                   <span>${ivo.userid}</span>
                   <span>${ivo.title}</span>
                   <span>${ivo.writeday}</span>
-                  <span>${ivo.content1}</span>
-                  <p>
-               </div>
+                 <p>
+                 </c:if>
             </c:forEach>
             
             <form  id="inquiry_content" method="post" action="pro_inquiry_write_ok">

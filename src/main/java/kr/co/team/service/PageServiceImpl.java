@@ -199,7 +199,6 @@ public class PageServiceImpl implements PageService {
 		mapper.baesong_edit_ok(bvo);
 		
 		
-		
 		return "redirect:/page/baesong_list";
    }
 

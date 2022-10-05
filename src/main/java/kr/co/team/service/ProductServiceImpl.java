@@ -163,6 +163,8 @@ public class ProductServiceImpl implements ProductService {
 		
 		model.addAttribute("pvo", pvo);
 		
+		
+		
 		// review list   상품평
 		ArrayList<ReviewVO> rlist = mapper.pro_review_list(pcode);
 		model.addAttribute("rlist",rlist);
@@ -179,7 +181,7 @@ public class ProductServiceImpl implements ProductService {
 				
 				rvo.setUserid(session.getAttribute("userid").toString());
 				rvo.setPcode(request.getParameter("pcode"));
-				rvo.setContent(request.getParameter("content"));
+				rvo.setContent(request.getParameter("content").replace("\r\n", "<br>"));
 				
 				
 				mapper.pro_review_write_ok(rvo);
@@ -196,12 +198,9 @@ public class ProductServiceImpl implements ProductService {
 		ivo.setCid(avo.getCid());
 		ivo.setContent1(avo.getContent());
 		
-		
 		mapper.pro_inquiry_write_ok(ivo);
 		
 		return "redirect:/product/pro_content?pcode="+ivo.getPcode();
 	}
-	
-	
 
 }

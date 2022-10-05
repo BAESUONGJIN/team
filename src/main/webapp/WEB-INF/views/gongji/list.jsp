@@ -16,39 +16,79 @@
 		padding-top: 120px;
 	}
 	
+	h2 #gongji {
+		margin-bottom: 30px;
+		display: inline-block;
+		width: 180px;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+	}
+	
 	a {
 		text-decoration: none;
 		color: black;
 	}
 	
-	a:hover {
-		text-decoration: underline;
+	table {
+		margin-top: 20px;
+		width: 100%;
+		border-top: 2px solid black;
+		border-collapse: collapse;
 	}
 	
+	th {
+		text-align: center;
+		border-bottom: 1px solid gray;
+		padding: 10px;
+		background: #f6eae9;
+	}
+	
+	td {
+		border-bottom: 1px solid gray;
+		padding: 10px;
+		text-align: center;
+	}
+	
+	#paging {
+		border: none;
+		padding-top: 20px;
+	}
+	
+	#btn {
+		float: right;
+	}
+	
+	#btn input[type=button] {
+      	width:100px;
+      	height:35px;
+      	border:1px solid gray;
+      	border-radius: 10px;
+      	background:gray;
+      	color:white;
+    }
 </style>
 </head>
 <body>
 <section>
-	<h2 align="center" style="margin-bottom:50px;"> 공 지 사 항 </h2>
-	<table width="600" align="center" border="1">
+	<h2 align="center"> <span id="gongji"> 공 지 사 항 </span> </h2>
+	<table align="center">
 	<tr>
-		<td> 제 목 </td>
-		<td> 작성자 </td>
-		<td> 작성일 </td>
-		<td> 조회수 </td>
+		<th> 제 목 </th>
+		<th> 작성자 </th>
+		<th> 작성일 </th>
+		<th> 조회수 </th>
 	</tr>
 	
 	<c:forEach items="${list}" var="avo">
 	<tr>
-		<td> <a href="readnum?id=${avo.id}"> ${avo.title} </a> </td>
-		<td> ${avo.name} </td>
+		<td width="700" onclick="location='readnum?id=${avo.id}'"> ${avo.title} </td>
+		<td width="100"> ${avo.name} </td>
 		<td> ${avo.writeday} </td>
 		<td> ${avo.readnum} </td>
 	</tr>
 	</c:forEach>
 	
 	<tr> <!-- 페이징 처리 -->
-		<td colspan="4" align="center">
+		<td colspan="4" align="center" id="paging">
 		<c:if test="${pstart != 1}">
 			<a href="list?page=${pstart-1}"> ◁◁ </a>
 		</c:if>
@@ -88,13 +128,12 @@
 			▷▷
 		</c:if>
 		
+		<c:if test="${userid == 'admin123'}">
+			<span id="btn"> <input type="button" value="글작성" onclick="location='write'"> </span>
+		</c:if>
 		</td>
 		
-	<c:if test="${userid == 'admin123'}">
-	<tr>
-		<td colspan="4"> <input type="button" value="글작성" onclick="location='write'"> </td>
-	</tr>
-	</c:if>
+	
 	
 	</table>
 </section>

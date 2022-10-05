@@ -28,6 +28,7 @@
 		margin-bottom: 20px;
 		border-top: 2px solid black;
 		border-collapse: collapse;
+		width: 100%;
 	}
 	
 	td {
@@ -37,6 +38,21 @@
 	
 	#no {
 		text-align: center;
+		font-weight: bold;
+		font-size: 20px;
+	}
+	
+	input[type=text] {
+		width: 850px;
+		height: 50px;
+		border: none;
+		font-size: 20px;
+	}
+	
+	textarea {
+		width: 850px;
+		height: 450px;
+		border: none;
 	}
 	
 	input[type=button] {
@@ -47,7 +63,6 @@
       	background:gray;
       	color:white;
       	float: left;
-      	margin-left: 200px;
     }
     
 	input[type=submit] {
@@ -57,7 +72,7 @@
       	border-radius: 10px;
       	background:gray;
       	color:white;
-      	margin-left: 205px;
+      	margin-left: 400px;
     }
 </style>
 
@@ -105,7 +120,7 @@
 			
 			<tr>
 				<td id="no"> 답 변 </td>
-				<td> <textarea rows="8" cols="60" name="ask">${fvo.ask }</textarea> </td>
+				<td> <textarea name="ask">${fvo.ask }</textarea> </td>
 			</tr>
 			
 		</table>
