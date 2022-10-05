@@ -16,6 +16,7 @@
    
    tr td {
      border-bottom:1px solid #cccccc;
+     text-align:center;
    }
    
    tr:last-child td {
@@ -94,15 +95,15 @@
 </head>
 <body>
 
- <table align="center">
+ <table width="850" align="center">
        <caption style="caption-side:top"> <h3>배송지목록</h3> </caption>
        <tr align="center">
-         <td> 배송지 </td>
+         <td> 이름 </td>
          <td> 주소 </td>
          <td> 연락처 </td>
          <td> 수령방법 </td>
-         <td> 선택  </td>
          <td> 수정 </td>
+         <td> 선택  </td>
        </tr>
 
  <c:set var="i" value="0"/>
@@ -125,8 +126,8 @@
          </c:if>
          <div class="chuga"> ${chuga}</div>
     </td>
-    <td><div id="right" class="sel"> 선택 </div> </td>
-    <td><div id="left" onclick="edit(${bvo.id})"> 수정 </div></td>
+    <td> <div id="left" onclick="edit(${bvo.id})"> 수정 </div></td>
+    <td> <div id="right" class="sel" align="center"> 선택 </div> </td>
     </tr>
   </c:forEach>
   </table>

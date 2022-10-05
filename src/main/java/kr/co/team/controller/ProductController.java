@@ -66,5 +66,11 @@ public class ProductController {
 		
 	}
 	
+	@RequestMapping("/product/wish_cancel")
+	public String wish_cancel(HttpSession session,HttpServletRequest request)
+	{
+		return service.wish_cancel(session,request);
+	}
+	
 	
 }

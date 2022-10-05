@@ -127,48 +127,78 @@ function pro_inquiry_write()
    });
    
 
-     function wish_add() //찜목록 저장
-       {
-          if(confirm("찜목록에 상품을 추가할까요?"))
-          {
-             var chk=new XMLHttpRequest();
-              chk.onload=function()
-              {
-                 
-                 if(chk.responseText=="0")
-                    alert("찜목록 추가");
-                 else
-                    alert("오류");
-              }
-              chk.open("get","wish_add?pcode=${pvo.pcode}");
-              chk.send();
-          }   
-          
-          
-       }
+   function wish_add() //찜목록 저장
+   {
+   	if(confirm("찜목록에 상품을 추가할까요?"))
+   	{
+   		var su=document.buy.su.value;
+   		var color=document.buy.color.value;
+   		var size=document.buy.size.value;
+   		var chk=new XMLHttpRequest();
+       	
+   			if(document.buy.color.value !=0 && document.buy.size.value != 0)
+   				{
+   		
+   				chk.onload=function()
+       			{
+       		
+       				if(chk.responseText=="0")
+       					alert("찜목록 추가");
+       				else
+       					alert("오류");
+     			  	 }	
+   				
+   			 	chk.open("get","wish_add?pcode=${pvo.pcode}&su="+su+"&color="+color+"&size="+size);
+   	        	chk.send();
+       	         }
+   			
+   			 
+   			else 
+   				{
+   				alert("사이즈 및 색상을 선택해주세요.");
+   				return false;
+   				}
+   		}
+   	
+   	
+   }
        
        
-     function cart_add() //장바구니목록 저장
-       {
-          if(confirm("장바구니목록에 상품을 추가할까요?"))
-          {
-             var su=document.buy.su.value;
-             var color=document.buy.color.value;
-             var size=document.buy.size.value;
-             var chk=new XMLHttpRequest();
-              chk.onload=function()
-              {
-                 
-                 if(chk.responseText=="0")
-                    alert("장바구니목록 추가");
-                 else
-                    alert("오류");
-              }
-              chk.open("get","cart_add?pcode=${pvo.pcode}&su="+su+"&color="+color+"&size="+size);
-              chk.send();
-          }   
-       
-       }
+   function cart_add() //장바구니목록 저장
+   {
+   	if(confirm("장바구니목록에 상품을 추가할까요?"))
+   	{
+   		var su=document.buy.su.value;
+   		var color=document.buy.color.value;
+   		var size=document.buy.size.value;
+   		var chk=new XMLHttpRequest();
+       	
+   			if(document.buy.color.value !=0 && document.buy.size.value != 0)
+   				{
+   		
+   				chk.onload=function()
+       			{
+       		
+       				if(chk.responseText=="0")
+       					alert("장바구니목록 추가");
+       				else
+       					alert("오류");
+     			  	 }	
+   				
+   			 	chk.open("get","cart_add?pcode=${pvo.pcode}&su="+su+"&color="+color+"&size="+size);
+   	        	chk.send();
+       	         }
+   			
+   			 
+   			else 
+   				{
+   				alert("사이즈 및 색상을 선택해주세요.");
+   				return false;
+   				}
+   		}
+   	
+   	
+   	}
    
      
      /* 퀵메뉴 */
@@ -261,28 +291,33 @@ function pro_inquiry_write()
                                                 <!-- 찜 -->
 
       <div>
-       <c:if test="${userid != null}"> 
-          <span class="btn" onclick="wish_add()"> 찜 </span>
+	    <c:if test="${userid != null}"> 
+	     <c:if test="${wishcnt == 0}">
+          <span class="btn" onclick="wish_add()"> 찜목록 추가 </span>
+         </c:if>
+         <c:if test="${wishcnt == 1}">
+          <span class="btn" onclick="location='wish_cancel?pcode=${pvo.pcode}'"> 찜목록 취소 </span>
+         </c:if>
         </c:if>
-         
+                
         <c:if test="${userid == null}"> 
-          <span class="btn" onclick="alert('로그인 하세요')"> 찜 </span> 
+          <span class="btn" onclick="alert('로그인 하세요')"> 찜목록 추가 </span> 
         </c:if>  
         
         <a href="../page/wish"> 찜목록 이미지 클릭시 이동</a>
-      </div> 
+		</div>
       
       <!-- 찜 -->
       
       <!-- 장바구니 -->
      <div>
-      <c:if test="${userid != null}">
+		<c:if test="${userid != null}">
           <span class="btn" onclick="cart_add()"> 장바구니 </span>
-         </c:if>
-         <c:if test="${userid == null}"> 
+        </c:if>
+        <c:if test="${userid == null}"> 
           <span class="btn" onclick="alert('로그인을 하세요')"> 장바구니 </span> 
-         </c:if>  
-         <a href="../page/cart"> 장바구니 이미지 클릭시 이동</a>
+        </c:if>  
+        <a href="../page/cart"> 장바구니 이미지 클릭시 이동</a>
      </div> 
       <!-- 장바구니 -->
 

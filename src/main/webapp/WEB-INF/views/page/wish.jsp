@@ -17,7 +17,7 @@
 
  <style>
    section {
-     width:1000px;
+     width:1200px;
      height:${he}px;
      margin-top:200px;
      margin-bottom:50px;
@@ -100,7 +100,7 @@
 		   document.getElementById("mainchk").checked=false;
 	   }	   
    }
-   //
+   
    
    //선택삭제 함수!!
    function select_del()
@@ -120,36 +120,22 @@
    //장바구니로 옮기기
    function move_cart()
    {
-	   var pcode=""; 
+	   var pcode="";
+	   var color="";
+	   var size="";
+	   var su="";
 	   var len=document.getElementsByClassName("subchk").length;
 	   for(i=0;i<len;i++)
 	   {
 		   if(document.getElementsByClassName("subchk")[i].checked)
-			   pcode=pcode+document.getElementsByClassName("pcode")[i].value+",";
+			  pcode=pcode+document.getElementsByClassName("pcode")[i].value+",";
+		      size=size+document.getElementsByClassName("size")[i].value+",";
+		      color=color+document.getElementsByClassName("color")[i].value+",";
+		      su=su+document.getElementsByClassName("su")[i].value+",";
 	   }	    
-	   location="move_cart?pcode="+pcode;
+	   location="move_cart?pcode="+pcode+"&su="+su+"&size="+size+"&color="+color;
    }
    
-   //구매
-   function buy()
-   {
-	   var pcode="";
-	   var su="";
-	   
-	   var subchk=document.getElementsByClassName("subchk");  
-	   var len=subchk.length; 
-	  
-	   for(i=0;i<len;i++)
-	   {
-		   if(subchk[i].checked)
-		   {
-			   pcode=pcode+document.getElementsByClassName("pcode")[i].value+",";
-			   su=su+"1,";
-		   }	   
-	   }
-	
-	   location="../product/pro_gumae?gchk=1&pcode="+pcode+"&su="+su;
-   }
  </script>
 </head>
 <body> <!-- wish.jsp -->
@@ -157,7 +143,7 @@
    <section>
    
      
-     <table width="1000" align="center">
+     <table width="1200" align="center">
      <caption style="caption-side:top"> <h3>Wish</h3> </caption>
        <tr align="center">
          <td> <input type="checkbox" onclick="maincheck(this.checked)" style="width:15px;height:15px;" id="mainchk"> </td>
@@ -170,6 +156,9 @@
        
      <c:forEach items="${list}" var="wvo">
        <input type="hidden" class="pcode" value="${wvo.pcode}">
+       <input type="hidden" class="size" value="${wvo.size}">
+       <input type="hidden" class="color" value="${wvo.color}">
+       <input type="hidden" class="su" value="${wvo.su}">
        <tr align="center">
          <td> <input type="checkbox" class="subchk" onclick="subcheck()" value="${wvo.id}"> </td>
          <td> <img src="../resources/img/${wvo.pimg}"  width="70" height="70" style="border:1px solid #cccccc;padding:5px;"> </td>

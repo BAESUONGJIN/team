@@ -332,7 +332,7 @@
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 주문 조회 </a> </li>
       </c:if>
       <c:if test="${userid !=null }">
-          <li> <a href="../"> 주문 조회 </a></li>
+          <li> <a href="../page/myorder"> 주문 조회 </a></li>
       </c:if>
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 나의 글 확인  </a> </li>
       </c:if>
@@ -346,9 +346,6 @@
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 관심 상품  </a> </li>
       </c:if>
       <c:if test="${userid !=null }"> <li> <a href="../page/wish"> 관심 상품 </a></li>
-      </c:if>
-      <c:if test="${userid !=null }">
-          <li> <a href="../"> 주문 조회 </a></li>
       </c:if>
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 마이 페이지  </a> </li>
       </c:if>

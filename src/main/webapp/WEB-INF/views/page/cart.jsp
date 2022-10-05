@@ -17,7 +17,7 @@
 
  <style>
    section {
-     width:1000px;
+     width:1200px;
      height:${he}px;
      margin-top:200px;
      margin-bottom:50px;
@@ -62,29 +62,6 @@
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script>
-    $(function()
-    {
-    	var exprice=[${str}];  
-    	var $imsi=$(".spinner");
-    	$(".spinner").spinner(
-        {
-        	min:1,
-        	max:10,
-        	spin:function(e,ui)  
-        	{
-     		    var n=$imsi.index(this); 
-     		    var total=exprice[n]*s;
-     		  
-     		    total=new Intl.NumberFormat().format(total);
-     		    total=total+"원";
-     		     
-     		   $(".price").eq(n).text(total);
-        	     
-        	}
-        });
-    });
-  </script>
   
  <script>
    function maincheck(ck) //체크박스 선택부분
@@ -157,7 +134,7 @@
 		   if(subchk[i].checked)
 		   {
 			   pcode=pcode+document.getElementsByClassName("pcode")[i].value+",";
-			   su=su+document.getElementsByClassName("spinner")[i].value+",";
+			   su=su+document.getElementsByClassName("su")[i].value+",";
 			   color=color+document.getElementsByClassName("color")[i].value+",";
 			   size=size+document.getElementsByClassName("size")[i].value+",";
 			   
@@ -170,12 +147,14 @@
 <body> <!-- cart.jsp -->
    <section>
      
-     <table width="1000" align="center">
+     <table width="1200" align="center">
        <caption style="caption-side:top"> <h3>Cart</h3> </caption>
        <tr align="center">
          <td> <input type="checkbox" onclick="maincheck(this.checked)" style="width:px;height:20px;" id="mainchk"> </td>
          <td> 상품이미지 </td>
          <td> 상품명 </td>
+         <td> 색상 </td>
+         <td> 사이즈 </td>
          <td> 상품가격 </td>
          <td> 수량 </td>
          <td> 날짜 </td>
@@ -185,22 +164,29 @@
        <input type="hidden" class="pcode" value="${cvo.pcode}">
        <input type="hidden" class="size" value="${cvo.size}">
        <input type="hidden" class="color" value="${cvo.color}">
+       <input type="hidden" class="su" value="${cvo.su}">
+       
        <tr align="center">
          <td> <input type="checkbox" class="subchk" onclick="subcheck()" value="${cvo.id}"> </td>
          <td> <img src="../resources/img/${cvo.pimg}" width="70" height="70" style="border:1px solid #cccccc;padding:5px;"> </td>
-         <td> ${cvo.title} <p>${cvo.color} ${cvo.size} </td>
+         <td> ${cvo.title}</td>
+         <td> ${cvo.color}</td>
+         <td> ${cvo.size}</td>
          <td class="price"> <fmt:formatNumber value="${cvo.price*cvo.su}"/>원 </td>
-         <td> <input type="text" class="spinner" value="${cvo.su}" readonly> </td>
+         <td> ${cvo.su}</td>
          <td> ${cvo.writeday} </td>
          <td> <input type="button" id="del1" value="X" onclick="location='cart_del?delid=${cvo.id},'"> </td>
        </tr>
      </c:forEach>
+     
+     
        <tr height="80">
-         <td colspan="7" align="center">
+         <td colspan="9" align="center">
           <input type="button" id="del2" value="선택삭제" onclick="cart_del()"> 
           <input type="button" id="buy" value="선택구매" onclick="buy()">
          </td>
        </tr>
+       
      </table>
    </section>
 </body>

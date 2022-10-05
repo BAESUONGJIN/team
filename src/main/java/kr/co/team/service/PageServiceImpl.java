@@ -18,6 +18,7 @@ import kr.co.team.vo.BuyVO;
 import kr.co.team.vo.CartVO;
 import kr.co.team.vo.MemberVO;
 import kr.co.team.vo.ProductVO;
+import kr.co.team.vo.ViewVO;
 import kr.co.team.vo.WishVO;
 
 @Service
@@ -31,8 +32,11 @@ public class PageServiceImpl implements PageService {
 	public void wish_add(HttpSession session, HttpServletRequest request, PrintWriter out){ 
 		String userid=session.getAttribute("userid").toString();
 		String pcode=request.getParameter("pcode");
+		String su=request.getParameter("su");
+		String color=request.getParameter("color");
+		String size=request.getParameter("size");
 		
-		mapper.wish_add(userid,pcode);
+		mapper.wish_add(userid,pcode,Integer.parseInt(su),color,size);
 
 		out.print("0");	
 	}
@@ -82,12 +86,16 @@ public class PageServiceImpl implements PageService {
 	@Override
 	public String move_cart(HttpServletRequest request,HttpSession session) {
 		String[] pcode=request.getParameter("pcode").split(",");
+		String[] su=request.getParameter("su").split(",");
+		String[] size=request.getParameter("size").split(",");
+		String[] color=request.getParameter("color").split(",");
 		String userid=session.getAttribute("userid").toString();
+		
 		for(int i=0;i<pcode.length;i++)
 		{
-			mapper.move_cart(userid,pcode[i]);
+			mapper.move_cart(userid,pcode[i],su[i],size[i],color[i]);
 			
-			mapper.wish_del2(userid,pcode[i]);
+			mapper.wish_del2(userid,pcode[i],su[i],size[i],color[i]);
 		}
 		return "redirect:/page/cart";
 	}
@@ -123,8 +131,8 @@ public class PageServiceImpl implements PageService {
 		{
 			ProductVO pvo=mapper.buy(pcode[i]);
 			pvo.setSu(Integer.parseInt(su[i]));
-			pvo.setSize((size[i]));
-			pvo.setColor((color[i]));
+			pvo.setSize(size[i]);
+			pvo.setColor(color[i]);
 
 			list.add(pvo);
 		}
@@ -147,9 +155,41 @@ public class PageServiceImpl implements PageService {
 	public String buy_ok(BuyVO bvo,HttpSession session) {
 		String userid=session.getAttribute("userid").toString();
 		bvo.setUserid(userid);
-		mapper.buy_ok(bvo);
 		
-		return "redirect:/page/buy_view?jumuncode=";		
+		Integer number=mapper.getjumun(userid);
+		number++;
+		
+		String num=number.toString();
+		
+		if(num.length()==1)
+			num="000"+num;
+		else if(num.length()==2)
+		        num="00"+num;
+			 else if(num.length()==3)
+		             num="0"+num;
+		
+		String jumunc=userid+num;
+		
+		bvo.setJumunc(jumunc);
+				
+		String[] pcode=bvo.getPcode().split(",");
+		String[] su=bvo.getSu_imsi().split(",");
+		String[] chong=bvo.getChong_imsi().split(",");
+		String[] color=bvo.getColor_imsi().split(",");
+		String[] size=bvo.getSize_imsi().split(",");
+		
+
+		for(int i=0;i<pcode.length;i++)
+		{	
+			bvo.setPcode(pcode[i]);
+			bvo.setSu(Integer.parseInt(su[i]));
+			bvo.setChong(Integer.parseInt(chong[i]));
+			bvo.setSize(size[i]);
+			bvo.setColor(color[i]);
+		    mapper.buy_ok(bvo);
+		}
+		
+		return "redirect:/page/buy_view?jumunc="+jumunc;		
 	}
 
 	
@@ -197,10 +237,40 @@ public class PageServiceImpl implements PageService {
 	@Override
 	public String baesong_edit_ok(BaesongVO bvo) {
 		mapper.baesong_edit_ok(bvo);
-		
+				
 		
 		return "redirect:/page/baesong_list";
    }
+
+	@Override
+	public String buy_view(Model model,HttpSession session,HttpServletRequest request) {
+		
+		String userid=session.getAttribute("userid").toString();
+		String jumunc=request.getParameter("jumunc");
+		
+		ArrayList<ViewVO> list=mapper.buy_view(jumunc);
+		model.addAttribute("list",list);
+		return "/page/buy_view";
+	}
+
+	@Override
+	public String myorder(HttpSession session, Model model) {
+		
+		String userid=session.getAttribute("userid").toString();
+		ArrayList<BuyVO> list=mapper.myorder(userid);
+		model.addAttribute("list",list);
+		return "/page/myorder";
+	}
+
+	@Override
+	public String change_state(HttpServletRequest request) {
+		String id=request.getParameter("id");
+		String state=request.getParameter("state");
+		
+		mapper.change_state(id,state);
+		
+		return "redirect:/page/myorder";
+	}
 
 	
 	

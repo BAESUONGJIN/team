@@ -173,6 +173,27 @@ public class ProductServiceImpl implements ProductService {
 		ArrayList<InquiryVO> ilist = mapper.pro_inquiry_list(pcode);
 		model.addAttribute("ilist",ilist);
 		
+		//wish존재 여부확인
+		int wishcnt;
+		if(session.getAttribute("userid")==null)
+		{
+			wishcnt=0;
+		}
+		 else 
+			{
+				session.getAttribute("userid").toString();
+				int num=mapper.checkwish(userid,pcode);
+				if(num==0)
+					{
+						wishcnt=0;
+					}
+					else
+					{
+						wishcnt=1;
+					}
+				}
+				model.addAttribute("wishcnt",wishcnt);
+		
 		return "/product/pro_content";
 	}
 
@@ -201,6 +222,15 @@ public class ProductServiceImpl implements ProductService {
 		mapper.pro_inquiry_write_ok(ivo);
 		
 		return "redirect:/product/pro_content?pcode="+ivo.getPcode();
+	}
+	
+	@Override
+	public String wish_cancel(HttpSession session,HttpServletRequest request) {
+		String pcode=request.getParameter("pcode");
+		String userid=session.getAttribute("userid").toString();
+		
+		mapper.wish_cancel(pcode,userid);
+		return "redirect:/product/pro_content?pcode="+pcode;
 	}
 
 }

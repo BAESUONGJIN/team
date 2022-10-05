@@ -7,10 +7,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <c:set var="size" value="${list.size()}"/>
+ <c:if test="${size <=1}">
+   <c:set var="he" value="1000"/>
+ </c:if>
+ <c:if test="${size > 2}">
+   <c:set var="he" value="${(size-2)*100+1000}"/>
+ </c:if>
  <style>
+ 
  section {
-     width:1000px;
-     height:1000px;
+     width:1200px;
+     height:${he}px;
      margin-top:200px;
      margin-bottom:50px;
      margin-right:auto;
@@ -43,6 +51,16 @@
 	 color:#008080;
      padding-top:2px;
      text-align:center;
+     cursor:pointer;
+   }
+   
+   #btn2{
+     width:100px;
+     height:35px;
+     border:1px solid rgba(164, 48, 35, 0.1);
+     text-align:center;
+     color:black;
+     background:rgba(164, 48, 35, 0.1);
      cursor:pointer;
    }
    
@@ -101,19 +119,15 @@
   }
  </script>
 <title>Insert title here</title>
+
 </head>
 <body> 
  <section>
  
   <form method="post" action="buy_ok">
-  <c:forEach items="${list}" var="pvo">
-   <input type="hidden" name="pcode" value="${pvo.pcode}">
-   <input type="hidden" name="su" value="${pvo.su}">
-   <input type="hidden" name="size" value="${pvo.size}">
-   <input type="hidden" name="color" value="${pvo.color}">
-   <input type="hidden" name="chong" value="<fmt:formatNumber value='${(pvo.price*pvo.su)-(pvo.price*(pvo.halin/100)*pvo.su)+pvo.baesong}' pattern='###'/>">
-   </c:forEach>
-   <input type="hidden" name="bae_id" value="${bvo.id}">
+  
+  
+   
    <div align="center"> <h2>주문/결제</h2> </div>
    
    <!-- 구매자 -->
@@ -184,12 +198,16 @@
       <tr align="center">
        <td> 상품 </td>
        <td> 상품명 </td>
+       <td> 색상 </td>
+       <td> 사이즈 </td>
        <td> 금액 </td>
        <td> 구매수량 </td>
-       <td> 적립금 </td>
+       <!--  <td> 적립금 </td>  적립금 -->
        <td> 할인액 </td>
        <td> 결제금액 </td>
      </tr>
+    
+    
      <c:set var="chongprice" value="0"/>
      <c:set var="chonghalin" value="0"/>
      <c:set var="chongbaesong" value="0"/>
@@ -197,29 +215,50 @@
      <c:set var="cpcode" value=""/>
      <c:set var="csu" value=""/>
      <c:set var="cchong" value=""/>
+     <c:set var="color" value=""/>
+     <c:set var="size" value=""/>
      
     <c:forEach items="${list}" var="pvo">
      <tr align="center">
        <td> <img src="../resources/img/${pvo.pimg}" width="70" height="70"></td> <!-- 상품그림 -->
-       <td> ${pvo.title} <br> size=${pvo.size} , color=${pvo.color} </td> 
+       <td> ${pvo.title}</td>
+       <td> ${pvo.color} </td>
+       <td> ${pvo.size} </td>
        <td> <fmt:formatNumber value="${pvo.price}"/>원 </td>
        <td> ${pvo.su} </td>
-       <td> <fmt:formatNumber value="${pvo.juk*pvo.su}"/>원 </td>
+       <!-- <td> <fmt:formatNumber value="${pvo.juk*pvo.su}"/>원 </td> 적립금-->
        <td> <fmt:formatNumber value="${pvo.price*(pvo.halin/100)*pvo.su}" pattern="#,###"/>원 </td>
        <td> <fmt:formatNumber value="${(pvo.price*pvo.su)-(pvo.price*(pvo.halin/100)*pvo.su)}" pattern="#,###"/>원 </td>
      </tr>
      <c:set var="chongprice" value="${chongprice+(pvo.price*pvo.su)}"/>
      <c:set var="chonghalin" value="${chonghalin+(pvo.price*(pvo.halin/100)*pvo.su)}"/>
-     <c:set var="chongbaesong" value="${chongbaesong+pvo.baesong}"/>
+     
+     <c:if test="${chongprice<50000}">
+      <c:set var="chongbaesong" value="2500"/>
+     </c:if>
+     
+     <c:if test="${chongprice>=500000 }">
+      <c:set var="chongbaesong" value="0"/>
+     </c:if>
+     
      <c:set var="chongjuk" value="${chongjuk+(pvo.juk*su)}"/>
      
      <c:set var="cimsi" value="${Integer((pvo.price*pvo.su)-(pvo.price*(pvo.halin/100)*pvo.su)+pvo.baesong)}"/>
-     
      <c:set var="cpcode" value="${cpcode+=pvo.pcode+=','}"/>  
      <c:set var="csu" value="${csu+=pvo.su+=','}"/>
      <c:set var="cchong" value="${cchong+=cimsi+=','}"/>
+     <c:set var="ccolor" value="${ccolor+=pvo.color+=','}"/>
+     <c:set var="csize" value="${csize+=pvo.size+=','}"/>
      
     </c:forEach>
+   <input type="hidden" name="pcode" value="${cpcode}">
+   <input type="hidden" name="su_imsi" value="${csu}">
+   <input type="hidden" name="bae_id" value="${bvo.id}">
+   <input type="hidden" name="chong_imsi" value="${cchong}">
+   <input type="hidden" name="color_imsi" value="${ccolor}">
+   <input type="hidden" name="size_imsi" value="${csize}">
+  
+   
      <c:set var="chongpay" value="${chongprice-chonghalin+chongbaesong}"/>
    </table>
   <p>
@@ -241,10 +280,11 @@
       <td> 배송비 </td>
       <td> <fmt:formatNumber value="${chongbaesong}"/>원 </td>
     </tr>
-    <tr>
+   <!--  <tr>
       <td> 적립금 </td>
       <td> <fmt:formatNumber value="${chongjuk}"/>원 </td>
     </tr>
+    -->
     <tr>
       <td> 총 결제금액 </td>
       <td> <fmt:formatNumber value="${chongpay}" pattern="#,###"/>원 </td>
@@ -315,8 +355,8 @@
     
   </table>
   <p>
-  
-  <div align="right"> <input type="submit" value="구매"> </div>
+  <p>
+  <div style="margin-left:1000px;"> <input id="btn2" type="submit" value="구매"> </div>
   
  
 

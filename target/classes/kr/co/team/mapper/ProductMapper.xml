@@ -63,6 +63,14 @@
 	values(#{userid},#{title},#{pcode},#{content},now())
 	</insert>
 	
+	<!-- 찜 중복 및 해제 -->
+	<select id="checkwish" resultType="Integer">
+     select count(*) from wish where userid=#{param1} and pcode=#{param2};
+  	</select>
+  
+  	<delete id="wish_cancel">
+     delete from wish where pcode=#{param1} and userid=#{param2}
+  	</delete>
 	
 	
 </mapper>

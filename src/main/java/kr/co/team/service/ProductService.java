@@ -27,4 +27,6 @@ public interface ProductService {
 	//상품 문의 Inquiry 작성
 	public String pro_inquiry_write_ok(InquiryVO ivo,HttpSession session, HttpServletRequest request);
 	
+	//찜 삭제
+		public String wish_cancel(HttpSession session,HttpServletRequest request);
 }

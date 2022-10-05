@@ -28,6 +28,8 @@ public interface ProductMapper {
 	public ArrayList<InquiryVO> pro_inquiry_list(String pcode);
 	public void pro_inquiry_write_ok(InquiryVO ivo);
 	
-	
+	//wish 관한
+	public int checkwish(String userid,String pcode);
+	public void wish_cancel(String pcode, String userid);
 	
 }
