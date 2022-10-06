@@ -47,6 +47,7 @@ public interface AdminService {
 	public String inquiry_content(HttpServletRequest request, Model model);
 	public String inquiry_answer(AnswerVO avo);
 	public String inquiry_update(AnswerVO avo);
+	public String answer_delete(HttpServletRequest request);
 	
 	//주문(구매)관련
 	public String buy_list(Model model);

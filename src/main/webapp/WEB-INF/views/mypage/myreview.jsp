@@ -4,15 +4,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="https://kit.fontawesome.com/c96178233f.js" crossorigin="anonymous"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
  <style>
    section {
      width:1000px;
      margin:auto;
+     height:100%;
      text-align: center;
      padding-top: 200px;/* 폼 자체 조정 */
-     flex: 1;
    }
    
    a {
@@ -26,13 +27,14 @@
    }
    
    section #ar2{
-     margin-top: 50px;
+     margin-top: 60px;
+     margin-bottom: 30px;
    }
    
    	table {
 		margin-top: 20px;
 		width: 100%;
-		border-top: 1px solid black;
+		border-top: 1px solid gray;
 		border-collapse: collapse;
 		border-collapse:separate;
 	}
@@ -49,11 +51,10 @@
 		
 	}
 	
-/*      h5 {
+/*     h5 {
 		display: inline-block;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
-		
-	} */
+	}  */
 	
 	
  </style>
@@ -63,7 +64,7 @@
   <section>
   
    <article id="ar1">
-        <caption> <h5 align="left" style="font-weight: bolder;"> 내가 작성한 리뷰 </h5> </caption>
+        <caption> <h5 align="left" style="font-weight: bolder; background: linear-gradient(to top, #f6eae9 30%, transparent 80%);"> 내가 작성한 리뷰 </h5> </caption>
     <table align="center" cellspacing="0">
         <tr>
           <th> 상품 </th>
@@ -73,7 +74,7 @@
         </tr>
      <c:forEach items="${rlist}" var="rvo">
        <tr align="center" height="70">
-          <td><a href="../product/pro_content?pcode=${rvo.pcode}" style="font-size: 13px">${rvo.ptitle}</a> <br>
+          <td><a href="../product/pro_content?pcode=${rvo.pcode}" style="font-size: 13px ">${rvo.ptitle}</a> <br>
            <img src="../resources/img/${rvo.pimg}" width="50" height="50">
           </td> 
           <td height="70"> ${rvo.content} </td>
@@ -88,7 +89,7 @@
     </article>
     
   <article id="ar2">  
-        <caption> <h5 align="left" style="font-weight: bolder;"> 상품 Q＆A </h5> </caption>
+        <caption> <h5 align="left" style="font-weight: bolder; background: linear-gradient(to top, #f6eae9 30%, transparent 80%);"> 상품 Q＆A </h5> </caption>
     <!-- 구분하기  -->
 	<table align="center" cellspacing="0">
 		<tr>
@@ -103,16 +104,18 @@
           <td><a href="../product/pro_content?pcode=${ivo.pcode}" style="font-size: 13px">${ivo.ptitle}</a> <br>
            <img src="../resources/img/${ivo.pimg}" width="50" height="50">
           </td> 
-			<td> ${ivo.title} </td>
+			<td> <a href="../product/pro_content?pcode=${ivo.pcode}"> ${ivo.title} </a> </td>
 			<td> ${ivo.userid} </td>
 			<c:if test="${ivo.cnt == 0 }">
 				<td> 답변 대기  </td>
 			</c:if>
 			<c:if test="${ivo.cnt == 1}">
-				<td> 답변 완료 </td>
+				<td style="color: red;"> 답변 완료 </td>
 			</c:if>
 		</tr>
 		</c:forEach>
+				</table>
+  </article>
 		
 		<tr> <!-- 페이징 처리 -->
 			<td colspan="5" align="center" id="paging" style="border: none;">
@@ -120,14 +123,14 @@
 				<a href="myreview?page=${pstart-1}"> ◁◁ </a>
 			</c:if>
 			<c:if test="${pstart == 1}">
-				◁◁
+				<!-- ◁◁ -->
 			</c:if>
 			
 			<c:if test="${page != 1}">
-				<a href="myreview?page=${page-1}"> ◁ </a>
+				<a href="myreview?page=${page-1}"> <i class="fa-solid fa-caret-left"></i> &nbsp </a>
 			</c:if>
 			<c:if test="${page == 1}">
-				◁
+				<i class="fa-solid fa-caret-left"></i> &nbsp
 			</c:if>
 			
 			
@@ -143,22 +146,21 @@
 			</c:forEach>
 			
 			<c:if test="${page != chong}">
-				<a href="myreview?page=${page+1}"> ▷  </a>
+				<a href="myreview?page=${page+1}"> &nbsp <i class="fa-solid fa-caret-right"></i>  </a>
 			</c:if>
 			<c:if test="${page == chong}">
-				▷
+				&nbsp <i class="fa-solid fa-caret-right"></i>
 			</c:if>
 			
 			<c:if test="${chong != pend}">
-				<a href="myreview?page=${pend+1}"> ▷▷  </a>
+				<a href="myreview?page=${pend+1}"> <!-- ▷▷ -->  </a>
 			</c:if>
 			<c:if test="${chong == pend}">
-				▷▷
+				<!-- ▷▷ -->
 			</c:if>
 			</td>
 		</tr>
-		</table>
-  </article>
+
   </section>
 </body>
 </html>

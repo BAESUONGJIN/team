@@ -20,7 +20,7 @@
 	h2 #title {
 		margin-bottom: 30px;
 		display: inline-block;
-		width: 180px;
+		width: auto;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 	}
 	

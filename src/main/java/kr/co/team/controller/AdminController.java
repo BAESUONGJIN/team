@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -188,6 +189,12 @@ public class AdminController {
 	public String inquiry_update(AnswerVO avo)
 	{
 		return service.inquiry_update(avo);
+	}
+	
+	@RequestMapping("/admin/answer_delete")
+	public String answer_delete(HttpServletRequest request)
+	{
+		return service.answer_delete(request);
 	}
 	
 	

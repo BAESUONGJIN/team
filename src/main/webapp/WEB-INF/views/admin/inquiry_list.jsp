@@ -20,7 +20,7 @@
 	h2 #title {
 		margin-bottom: 30px;
 		display: inline-block;
-		width: 180px;
+		width: auto;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 	}
 	
@@ -49,13 +49,24 @@
 		text-align: center;
 	}
 	
-	input[type=button] {
+	#write input[type=button] {
       	width:100px;
       	height:35px;
       	border:1px solid gray;
       	border-radius: 10px;
       	background:gray;
       	color:white;
+      	margin-top: 7px;
+    }
+    
+    #delete input[type=button] {
+    	width:100px;
+      	height:35px;
+      	border:1px solid gray;
+      	border-radius: 10px;
+      	background:gray;
+      	color:white;
+      	margin-top: 30px;
     }
 </style>
 </head>
@@ -65,7 +76,7 @@
 	<table align="center">
 		<tr>
 			<th width="300"> 상품명(코드번호) </th>
-			<th width="300"> 상품문의 </th>
+			<th width="300"> 상품문의제목 </th>
 			<th width="150"> 작성자  </th>
 			<th width="100"> 답변여부 </th>
 			<th width="100"> 작성/수정</th>
@@ -74,16 +85,17 @@
 		<c:forEach items="${ilist}" var="ivo">
 		<tr>
 			<td> ${ivo.pro_title}<br>(${ivo.pcode}) </td>
-			<td> ${ivo.content} </td>
+			<td> ${ivo.title} </td>
 			<td> ${ivo.userid} </td>
 			<c:if test="${ivo.cnt == 0 }">
-				<td> 미작성  </td>
-				<td> <input type="button" onclick="location='inquiry_content?id=${ivo.id}'" value="작성하기"> </td>
+				<td id="write"> 미작성  <br> <input type="button" onclick="location='inquiry_content?id=${ivo.id}'" value="작성하기"> </td>
+				<td> </td>
 			</c:if>
 			<c:if test="${ivo.cnt ==1}">
-				<td> 작성 </td>
-				<td> <input type="button" onclick="location='inquiry_content?id=${ivo.id}'" value="수정하기"> </td>
+				<td id="write"> 작성완료 <br> <input type="button" onclick="location='inquiry_content?id=${ivo.id}'" value="수정하기"> </td>
+				<td id="delete"> <input type="button" onclick="location='answer_delete?cid=${ivo.id}'" value="답변삭제"> </td>
 			</c:if>
+			
 		</tr>
 		</c:forEach>
 	</table>

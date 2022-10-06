@@ -173,6 +173,9 @@ public class ProductServiceImpl implements ProductService {
 		ArrayList<InquiryVO> ilist = mapper.pro_inquiry_list(pcode,userid);
 		model.addAttribute("ilist",ilist);
 		
+		//answer_content 상품문의 답글
+		ArrayList<InquiryVO> ilist1 = mapper.answer_content();
+		model.addAttribute("ilist1", ilist1);
 		//wish존재 여부확인
 		int wishcnt;
 		if(session.getAttribute("userid")==null)

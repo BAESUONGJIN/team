@@ -61,6 +61,7 @@ public interface AdminMapper {
 	public String getAnswer(String id);
 	public void inquiry_answer(AnswerVO avo);
 	public void inquiry_update(AnswerVO avo);
+	public void answer_delete(int cid);
 	
 	//주문(구매)관련
 	public ArrayList<BuyVO> buy_list();

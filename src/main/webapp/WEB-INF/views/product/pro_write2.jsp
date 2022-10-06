@@ -12,35 +12,25 @@
 <style>
 section {
 		width: 1000px;
-		height: 100%;
+		height: auto;
 		margin: auto;
 		margin-top: 40px;
 		margin-bottom: 40px;
 		padding-top: 120px;
 	}
-section #product_code{
+#product_code{
 display: none;
 } 
-
+table tr td{
+border:1px solid black;
+}
+table{
+border-collapse: collapse;
+}
 section #title
 {
-width:200px;
 text-align: center;
-margin-bottom: 20px;
-margin-left: 400px;
 }
-section table{
-height: 600px;
-
-}
-section table tr
-{
-border: 1px solid black;
-border-left: none;
-border-right: none;
-border-bottom: none;
-}
-
 </style>
 
 <script>
@@ -92,12 +82,13 @@ function chong_pay()
 
 <body>
 <section>
-	<div id="title" style="background: linear-gradient(to top, #f6eae9 30%, transparent 80%);"><h2><b>상 품 등 록</b></h2></div>
+	<div id="title"><h2><b>상 품 등 록</b></h2></div>
 	<form name="write_form" method="post" action="pro_write_ok" enctype="multipart/form-data">
 		<table width="700" align="center">
+		
 			<tr>
 				<td>대표이미지</td>
-				<td><input type="file" name="pimg" ></td>
+				<td><input type="file" name="pimg"></td>
 			</tr>
 			<tr>
 				<td>카테고리</td>
@@ -127,13 +118,14 @@ function chong_pay()
 			<td>옵션</td>
 				<td id="option_td">		
 				<p class="option">
-				사이즈 : <input type="text" name="size" size="20" ><p>
+				사이즈 : <input type="text" name="size" size="20"><p>
 				색&nbsp;&nbsp;상 : <input class="option_d" type="text" name="color" size="20"><p>
 				재&nbsp;&nbsp;고 : <input class="option_d" type="text" name="stock" size="20">
 			<!--<input type="button" value="+" onclick="option_add()">
 				<input type="button" value="-" onclick="option_del()">
 				<input type="button" value="등록" onclick="scs()"> -->
 				</td>
+				</p>
 			</tr>
 			<tr>
 				<td>상세페이지</td>
@@ -155,10 +147,10 @@ function chong_pay()
 			</tr>
 			<tr>
 				<td>총 결제금액</td>
-				<td><b><span id='chong' value="0">0원</span></b></td>
+				<td><span id='chong' value="0">0원</span></td>
 			</tr>
 			<tr>
-			 <td colspan="2" align="center"><input type="submit" value="등록하기" style="width:400px;height:46px;background: #CCA39B;color:white;border: none;">
+			 <td colspan="2"><input type="submit" value="등록하기">
 			 </td>
 			</tr>
 		</table>

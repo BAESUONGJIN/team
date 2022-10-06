@@ -19,7 +19,7 @@
 	h2 #gongji_update {
 		margin-bottom: 30px;
 		display: inline-block;
-		width: 230px;
+		width: auto;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 	}
 	

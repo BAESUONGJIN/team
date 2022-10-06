@@ -350,7 +350,7 @@
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 마이 페이지  </a> </li>
       </c:if>
       <c:if test="${userid !=null }">
-          <li> <a href="../mypage/"> 마이 페이지 </a></li>
+          <li> <a href="../mypage/myinfo"> 마이 페이지 </a></li>
       </c:if>
       </c:if>
        
