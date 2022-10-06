@@ -10,7 +10,7 @@
  <style>
    section {
      width:1000px;
-     height:500px;
+     height:800;
      margin:auto;
      text-align: center;
      padding-top: 150px;/* 폼 자체 조정 */
@@ -20,32 +20,38 @@
    section table caption {
      text-align:left;
    }
-   section table th {
-     border-top:2px solid #cccccc;
-     border-bottom:1px solid #cccccc;
+   section table tr {
+     border-top:1px solid #cccccc;
    }
    section table td {
      border-bottom:1px solid #cccccc;
    }
    section table tr:last-child td {
      border-bottom:2px solid #cccccc;
-   }
+   } 
+   
+   	h3 {
+		margin-bottom: 30px;
+		display: inline-block;
+		width: auto;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+	}
+   
  </style>
 </head>
 <body>
   <section>
-        <caption><h2> 상품평 수정 </h2></caption>
+        <caption> <h3 style="font-weight: bolder; background: linear-gradient(to top, #f6eae9 30%, transparent 80%);"> 상품리뷰 수정 </h3></caption>
     <form method="post" name="review" action="myreview_update_ok">
       <input type="hidden" name="id" value="${rvo.id }">
-    <table width="800" align="center" cellspacing="0">
-  <hr>
+    <table width="600" align="center" cellspacing="0">
         <tr> 
-          <td> 나의 후기 </td>
-          <td> <textarea name="content" cols="30" rows="4">${rvo.content } </textarea></td>
+          <td> 나의 글 </td>
+          <td> <textarea name="content" cols="60" rows="4">${rvo.content} </textarea></td>
         </tr>
         <tr>
           <td colspan="3" align="center">
-            <input type="submit" value="수정">
+            <input type="submit" value="수정" style="width:100px;height:46px; background: #CCA39B; color:white; border: none;margin-top: 20px; border-radius: 10px;">
           </td>
         </tr>
     </table>
