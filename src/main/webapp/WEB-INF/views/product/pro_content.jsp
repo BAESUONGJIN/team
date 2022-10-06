@@ -106,7 +106,7 @@ display: none;
 }
 .ask
 {
-	display: none;
+	/* display: none; */
 	background: #f6eae9;
 }
 .icontent
@@ -500,7 +500,10 @@ function inquiry_chk(iq)
           	<td>제 목</td>
           	<td>작성일</td>
            </tr>
+           
+           
             <c:forEach items="${ilist}" var="ivo">
+            <c:if test="${ivo.cnt == 1}">
                   <tr>
                   <td>${ivo.userid}</td>
                   <td id ="ititle" class="ititle">${ivo.title}</td>
@@ -513,11 +516,34 @@ function inquiry_chk(iq)
                   </tr>
                   
                	<tr id="ask" class="ask">
-					<td>답 변</td>               	
+					<td>답 변 </td>               	
 					<td>답변 내용</td>       
 					<td>답변 날짜</td>        	
                	</tr>
+               	
+               	<tr>
+               		<td> ${ivo.content1} </td>
+               	</tr>
+               	</c:if>
             </c:forEach>
+            
+            
+            
+             <c:forEach items="${ilist}" var="ivo">
+             <c:if test="${ivo.cnt ==0 }">
+                  <tr>
+                  <td>${ivo.userid}</td>
+                  <td id ="ititle" class="ititle">${ivo.title}</td>
+                  <td>${ivo.writeday}</td>
+                  </tr>
+                  
+                  <tr id="icontent" class="icontent">
+                  	<td>문의 내용</td>
+                  	<td>${ivo.content}</td>
+                  </tr>
+                  </c:if>
+                  </c:forEach>
+            
             </table>
             <br>
           <form  id="inquiry_content" method="post" action="pro_inquiry_write_ok" onsubmit="return inquiry_chk(this)">

@@ -30,7 +30,6 @@ public interface ProductMapper {
 	public void pro_inquiry_write_ok(InquiryVO ivo);
 	
 	//inquiry 답글 출력
-	
 	//wish 관한
 	public int checkwish(String userid,String pcode);
 	public void wish_cancel(String pcode, String userid);
