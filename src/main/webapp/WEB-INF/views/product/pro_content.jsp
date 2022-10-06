@@ -13,18 +13,41 @@ section {
    width: 1200px;
    height: 100%;
    margin:auto;
-   /* border: 1px solid black; */
    text-align: center;
    padding-top: 200px;/* 폼 자체 조정 */
 }
-
 section #ar1 { /* 이미지 및 상품 설명 */
   width:1200px;
   height:700px;
   margin:auto;
   z-index: 3;
 }
+section #ar1 #gumae
+{
+display: inline-block;
+width:400px;
+margin-top: 10px;
+}
+section #ar1 .gumae_m
+{
+margin-left: 30px;
 
+}
+section #ar1 .gumae_m:first-child
+{
+margin-left: 0px;
+}
+
+section #ar1 #gumae_content
+{
+ display: none; 
+width:400px;
+
+}
+section #ar1 #gumae_content_r
+{
+line-height: 45px;
+}
 section #ar2{ /* 상세페이지 */
   width:1200px;
   height: 100px;
@@ -100,10 +123,7 @@ border-bottom-color:#CCA39B
 display: none;
 }
 
-#gumae_content
-{
-display: none;
-}
+
 .ask
 {
 	/* display: none; */
@@ -120,6 +140,13 @@ display: none;
  transition: 0.5s;
 }
 .answer_chk:hover { text-shadow: 0 0 .2em, 0 0 .3em; }
+}
+.answer_nchk{
+ color: red;
+ text-decoration: none;
+ transition: 0.5s;
+}
+.answer_nchk:hover { text-shadow: 0 0 .2em, 0 0 .3em; }
 }
 
 
@@ -361,9 +388,9 @@ function inquiry_chk(iq)
 </div>
 
 <!-- 우측  -->
-   <div id="content" style="width:500px; height:700px; float:right; margin-left:15px; text-align:left;">
+   <div id="content" style="width:500px; height:500px; float:right; margin-left:15px; text-align:left;">
       <div id="title" style="font-weight: bold;">${pvo.title}</div> <br>
-      
+      <div id="gumae_content_r">
       <c:if test="${pvo.halin == 0 }"> <!-- 할인 안하는 상품 -->
         
          <div>
@@ -371,8 +398,8 @@ function inquiry_chk(iq)
       </c:if>
 
       <c:if test="${pvo.halin !=0 }"> <!--할인 하는 상품 -->
-         <div><s><fmt:formatNumber value="${pvo.price}"/></s><span>${pvo.halin}</span>%</div>
-         <div><fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)}" />원</div>
+         <div>PRICE:&nbsp;&nbsp;&nbsp;&nbsp;<s><fmt:formatNumber value="${pvo.price}"/></s><b><span style="color:#C72F7A;margin-left:10px;">${pvo.halin}%</span></b></div>
+         <div>HALIN:&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)}" />원</div>
       </c:if>
   <span> SIZE &nbsp;&nbsp;&nbsp;</span>
       <select id="size" name="size" onchange="check()">
@@ -389,28 +416,31 @@ function inquiry_chk(iq)
             <option value="${j}">${j}</option>
          </c:forEach>
       </select>
+      <br>
                <div id="gumae">
-                  <span>사이즈</<span>
-                  <span>색 상</<span>
-                  <span>판매가 </<span>
+                  <span class="gumae_m" style="text-align:left">SIZE</span>
+                  <span class="gumae_m">COLOR</span>
+                  <span class="gumae_m">PRICE </span>
                   <c:if test="${pvo.halin != 0}">   <!-- 할인 있는 경우 추가 -->
-                  <span>할 인</<span>
+                  <span class="gumae_m">HALIN</span>
                   </c:if>
+                   <span class="gumae_m">QUANTITY</span>
                </div>
                   
                <div id="gumae_content">
-                  <span id="gumae_size"></span>
-                  <span id="gumae_color"></span>
-                  <span id="gumae_price"></span>
+                  <span id="gumae_size" class="gumae_m"></span>
+                  <span id="gumae_color" class="gumae_m"></span>
+                  <span id="gumae_price" class="gumae_m"></span>
                   <c:if test="${pvo.halin != 0}"><!-- 할인 있을 경우 추가 -->
-                  <span id="gumae_halin"></span>
+                  <span id="gumae_halin" class="gumae_m"></span>
                   </c:if>
-                  <span id="gumae_su"> <input type="text" name="su" id="spinner" value="1" readonly></span>
+                  <span id="gumae_su" class="gumae_m"> <input type="text" name="su" id="spinner" value="1" readonly size="1"></span>
                </div>
-               <div>최종 금액</div>
-               <div id="gumae_chong"></div>
                <hr>
-            
+                <div>최종 금액
+               <span id="gumae_chong"></span>
+            </div>
+            </div>
                                                 <!-- 찜 -->
 
       <div>
@@ -450,6 +480,7 @@ function inquiry_chk(iq)
    </div>
             
 </article>
+
 <article id="ar2"> <!-- 상세페이지 -->
 				
                   <div><a href="#cimg" style="color:black;">상세이미지</a></div>              
