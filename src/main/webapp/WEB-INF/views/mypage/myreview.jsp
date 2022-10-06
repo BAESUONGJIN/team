@@ -114,7 +114,6 @@
                             <th> 작성자 </th>
                             <th> 답변여부 </th>
                         </tr>
-
                         <c:forEach items="${ilist}" var="ivo">
                             <tr align="center" height="70">
                                 <td><a href="../product/pro_content?pcode=${ivo.pcode}"
