@@ -87,15 +87,15 @@
 			<td align="center"> ${avo.content} </td>
 		</tr>
 		
-		<c:if test="${nvo.preid != null }">
+		<c:if test="${nvo.nextid != null }">
 		<tr>
-			<td> 이전글 △  <a href="content?id=${nvo.preid}"> ${nvo.pretitle} </a> </td>
+			<td> 이전글 △  <a href="content?id=${nvo.nextid}"> ${nvo.nexttitle} </a> </td>
 		</tr>
 		</c:if>
 		
-		<c:if test="${nvo.nextid != null }">
+		<c:if test="${nvo.preid != null }">
 		<tr>
-			<td> 다음글 ▽  <a href="content?id=${nvo.nextid}"> ${nvo.nexttitle} </a>  </td>
+			<td> 다음글 ▽  <a href="content?id=${nvo.preid}"> ${nvo.pretitle} </a>  </td>
 		</tr>
 		</c:if>
 		

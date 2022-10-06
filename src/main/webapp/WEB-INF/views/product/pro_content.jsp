@@ -559,7 +559,7 @@ function inquiry_chk(iq)
                	</tr>
                	  </c:if>
             </c:forEach>
-          
+           
             
              
              <c:forEach items="${ilist}" var="ivo">
