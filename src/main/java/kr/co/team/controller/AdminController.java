@@ -210,4 +210,11 @@ public class AdminController {
 	{
 		return service.change_state(request);
 	}
+	
+	
+	@RequestMapping("/admin/test")
+	public String test()
+	{
+		return "/admin/test";
+	}
 }

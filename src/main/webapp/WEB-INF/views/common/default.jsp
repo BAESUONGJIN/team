@@ -216,6 +216,11 @@
        
     }
 
+	.second2 {
+		position: fixed;
+		top: 0px;
+		background: #fbebea;
+	}
   </style>
   
   <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -272,20 +277,37 @@
          });
    
        /* 스크롤  */  /* fixed 추가 */
-       $(document).ready(function(){
+      /*  $(document).ready(function(){
       $(window).scroll(function(){
         var scroll = $(window).scrollTop();
         if (scroll > 1) {
           $(".second").css("background" , "#fbebea");
+   		  $(".second").css("margin-top", "-50px");
           $(".second").addClass("fixed");
         }
         else{
           $(".second").css("background" , "white");  
+   		  $(".second").css("margin-top", "0px");
           $(".second").removeClass("fixed");
         }
-      })
-    })
-   
+      });
+    }); */
+     
+    /* 스크롤 방법2 */
+     $(document).ready(function(){
+    	 var x = $(".second").offset();
+    	 
+    	 $(window).scroll(function(){
+    		 if ( $( document ).scrollTop() > x.top)
+    		{
+    			 $(".second").addClass("second2");
+    		}
+    		 else
+    		{
+    			 $(".second").removeClass("second2");
+    		}
+    	 });
+       });
   </script>
      
   <decorator:head/>
