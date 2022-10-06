@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+
 	section {
 		width: 1000px;
 		height: auto;
@@ -38,7 +39,7 @@
 	h2 #faq{
 		margin-bottom: 30px;
 		display: inline-block;
-		width: 80px;
+		width: auto;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 	}
 	
@@ -49,7 +50,7 @@
 	
 	#menu a:hover {
 		border: 2px groove gray;
-		color: gray;
+		color: black;
 	}
 	
 	#sub {

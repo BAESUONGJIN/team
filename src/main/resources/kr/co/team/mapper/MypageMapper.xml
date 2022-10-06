@@ -33,7 +33,7 @@ where userid=#{param1} and r.pcode=p.pcode;
 
 
 <select resultType="kr.co.team.vo.InquiryVO" id="mymun">
-select *, (select p.pimg from product as p where pcode = inquiry.pcode) as pimg,
+select *, (select p.pimg from product as p where pcode = inquiry.pcode) as pimg, (select p.title from product as p where pcode=inquiry.pcode) as ptitle,
 (select count(*) from answer where cid=inquiry.id)as cnt from inquiry where userid=#{param1} limit 5 
 </select>
 

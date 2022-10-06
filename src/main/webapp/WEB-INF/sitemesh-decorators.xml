@@ -7,7 +7,7 @@
     <pattern> /page/baesong_list</pattern>
   <pattern> /page/baesong_edit</pattern>
   <pattern> /page/juso_add</pattern>
-  <pattern> </pattern>
+  <pattern> /admin/test </pattern>
  </excludes>
  <!-- 기본 패턴 -->
  <decorator name="default" page="default.jsp">

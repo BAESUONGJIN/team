@@ -104,9 +104,23 @@ display: none;
 {
 display: none;
 }
+.ask
+{
+	/* display: none; */
+	background: #f6eae9;
+}
+.icontent, .ask
+{
+display: none;
+}
 
-
-
+.answer_chk{
+ color: blue;
+ text-decoration: none;
+ transition: 0.5s;
+}
+.answer_chk:hover { text-shadow: 0 0 .2em, 0 0 .3em; }
+}
 
 
     /* 퀵 메뉴 */
@@ -173,7 +187,38 @@ function check()
    
 }  
 
+// 상품평 내용을 작성 했는지 유효성 검사
 
+function review_chk(re)
+{
+	if(re.content.value.trim().length==0)
+		{
+		alert("내용을 작성해주세요");
+		return false;
+		}
+	else
+		return true;
+}
+
+//상품문의 제목 및 타이틀 유효성 검사
+
+function inquiry_chk(iq)
+{
+	if(iq.title.value.trim().length==0)
+		{
+		alert("제목을 입력해주세요");
+		return false;
+		}
+	else if(iq.content.value.trim().length==0)
+		{
+		alert("내용을 입력해주세요");
+		return false;
+		}
+	else
+		return true;
+	}
+
+//수량 관련
    $(function()
    {
       $("#spinner").spinner(
@@ -187,6 +232,21 @@ function check()
             document.getElementById("gumae_chong").innerText=chong+"원";
          }
       });
+      $(".ititle").click(function()
+    	{
+    	  var index = $(".ititle").index(this);
+    	  $(".icontent").eq(index).show();
+    	  $(".ask").eq(index).show();
+    	  $(".ask2").eq(index).show();
+      });
+      
+      $(".ask").click(function()
+    	{
+    		var index = $(".ask").index(this);
+    		$(".icontent").eq(index).hide();
+    		$(".ask").eq(index).hide();
+    		$(".ask2").eq(index).hide();
+    	});	
    });
    
 
@@ -417,7 +477,7 @@ function check()
             </c:forEach>
               </table>
             <p>
-              <form method="post" action="pro_review_write_ok">
+              <form method="post" action="pro_review_write_ok" onsubmit="return review_chk(this)">
                 <input type="hidden" name="pcode" value="${pvo.pcode}">
                   <table width="950" align="center">
                <tr>
@@ -441,32 +501,72 @@ function check()
              <div class="mt"><h2><b>상품문의</b></h2></div> 
             <table id="inquiry_tb" width="950" align="center">
            <tr style="background:rgba(164, 48, 35, 0.1);color:black;">
+     	    <td>답변 여부</td>
      	    <td>아이디</td>
           	<td>제 목</td>
           	<td>작성일</td>
            </tr>
+           
             <c:forEach items="${ilist}" var="ivo">
+            <c:if test="${ivo.cnt == 1}">
                   <tr>
-                  <td>${ivo.userid}</td>
-                  <td>비밀글 입니다.</td>
-                  <td>${ivo.writeday}</td>
+                   <td class="answer_chk">답변완료</td>
+                   <td>${ivo.userid}</td>
+                   <td id ="ititle" class="ititle">${ivo.title}</td>
+                   <td>${ivo.writeday}</td>
                   </tr>
+                  
+                  <tr id="icontent" class="icontent">
+                  	<td>문의 내용</td>
+                  	<td colspan="3">${ivo.content}</td>
+                  </tr>
+                 
+               	<tr id="ask" class="ask">
+					<td>답 변 </td>               	
+					<td>관리자</td>       
+					<td colspan="2">${ivo.content1} </td>       
+               	</tr>
+               	  </c:if>
             </c:forEach>
+          
+            
+             
+             <c:forEach items="${ilist}" var="ivo">
+              <c:if test="${ivo.cnt ==0 }">
+                 <tr>
+                   <td class="answer_nchk">문의 확인중</td>
+                   <td>${ivo.userid}</td>
+                   <td id ="ititle" class="ititle">${ivo.title}</td>
+                   <td>${ivo.writeday}</td>
+                  </tr>
+                  
+                  <tr id="icontent" class="icontent">
+                  	<td>문의 내용</td>
+                  	<td colspan="3">${ivo.content}</td>
+                  </tr>
+                 
+               	<tr id="ask" class="ask">
+					<td>답 변 </td>               	
+					<td>관리자</td>       
+					<td colspan="2">문의 확인중입니다.</td>       
+               	</tr>
+              </c:if>    
+              </c:forEach>
+            
             </table>
             <br>
-          <form  id="inquiry_content" method="post" action="pro_inquiry_write_ok">
+          <form  id="inquiry_content" method="post" action="pro_inquiry_write_ok" onsubmit="return inquiry_chk(this)">
             <input type="hidden" name="pcode" value="${pvo.pcode}">
             <table width="900" align="center" id="inquiry_write">
                <tr>
            		<td>상품명</td>
-                <td> <input type="text" name="title" size="98" value="${pvo.title}" readonly></td>
+                <td> <input type="text" name="title1" size="98" value="${pvo.title}" readonly></td>
           	   </tr>
 			
                <tr>
                  <td>제 목</td>
-                 <td> <input type="text" name="title" size="98"></td>
+                 <td><input type="text" name="title" size="98"></td>
                </tr>
-
                <tr>
             	<td>내 용</td>
                 <td> <textarea class="cont" rows="6" cols="100" name="content"></textarea></td><p>
@@ -477,7 +577,6 @@ function check()
             </table>
           </form>
 </article>
-
 
 <article id="#ar5">
             <div class="mt"><h2><b>배송/교환/반품 안내</b></h2></div>

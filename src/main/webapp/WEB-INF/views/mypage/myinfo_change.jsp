@@ -2,12 +2,15 @@
     pageEncoding="UTF-8"%>
 <head>
   <style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
+  
     section {
      width:1000px;
      height:600px;
      margin:auto;
      text-align:center;
      padding-top: 160px;/* 폼 자체 조정 */
+     padding-bottom:50px;
      flex: 1;
      
     }
@@ -111,7 +114,8 @@
 <body> 
  <section>
   <form name="pkc" method="post" action="myinfo_change_ok">
-   <h3 style="font-weight:bolder;"> 회원 정보 수정 </h3> </caption> <br>
+   <caption> <h3 style="font-size: 25px; font-family: 'Lora', serif;"> Modify Profile </h3> </caption> <br>
+  
     <div> <input type="text" readonly value= ${mvo.userid}> </div>
     <div> <input type="text" name="name" placeholder="이 름" value="${mvo.name}"> </div>
     <div> <input type="text" name="zip" id="zip" readonly  placeholder="우편번호" value="${mvo.zip}"> <input  id="btn1" type="button" onclick="juso_search()" value="주소검색"> </div>

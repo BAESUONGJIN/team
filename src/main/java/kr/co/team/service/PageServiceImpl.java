@@ -18,6 +18,7 @@ import kr.co.team.vo.BuyVO;
 import kr.co.team.vo.CartVO;
 import kr.co.team.vo.MemberVO;
 import kr.co.team.vo.ProductVO;
+import kr.co.team.vo.ReviewVO;
 import kr.co.team.vo.ViewVO;
 import kr.co.team.vo.WishVO;
 
@@ -270,6 +271,59 @@ public class PageServiceImpl implements PageService {
 		mapper.change_state(id,state);
 		
 		return "redirect:/page/myorder";
+	}
+	
+	//review 관련
+	
+	@Override
+	public String review(HttpServletRequest request, Model model) {
+		String pcode=request.getParameter("pcode");
+		String bid=request.getParameter("bid");
+		BuyVO bvo=mapper.review(bid);
+		model.addAttribute("bvo",bvo);
+		model.addAttribute("bid",bid);
+		return "/page/review";
+	}
+
+	@Override
+	public String review_ok(ReviewVO rvo,HttpSession session) {
+		rvo.setUserid(session.getAttribute("userid").toString());
+		mapper.review_ok(rvo);
+		mapper.hugi(rvo.getBid());
+		return "redirect:/page/myreview";
+
+	}
+
+	@Override
+	public String myreview(HttpSession session, Model model) {
+		String userid=session.getAttribute("userid").toString();
+		ArrayList<ReviewVO> rlist=mapper.myreview(userid);
+		model.addAttribute("rlist",rlist);
+		return "/page/myreview";
+	}
+
+	@Override
+	public String review_del(HttpServletRequest request) {
+		String id=request.getParameter("id");
+		String gid=request.getParameter("gid");
+		mapper.review_del(id);
+		mapper.change_hugi(gid);
+		
+		return "redirect:/page/myreview";
+	}
+
+	@Override
+	public String review_update(HttpServletRequest request, Model model) {
+		String id=request.getParameter("id");
+		ReviewVO rvo=mapper.review_update(id);
+		model.addAttribute("rvo",rvo);
+		return "/page/review_update";
+	}
+
+	@Override
+	public String review_update_ok(ReviewVO rvo) {
+		mapper.review_update_ok(rvo);
+		return "redirect:/page/myreview";
 	}
 
 	

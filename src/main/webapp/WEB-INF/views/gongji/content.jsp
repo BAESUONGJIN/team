@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+
 	section {
 		width: 1000px;
 		height: auto;
@@ -19,7 +20,7 @@
 	h2 #gongji {
 		margin-bottom: 30px;
 		display: inline-block;
-		width: 180px;
+		width: auto;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 	}
 	
@@ -59,6 +60,14 @@
       	color:white;
     }
     
+    a {
+    	color: black;
+    	text-decoration: none;
+    }
+    
+    a:hover {
+    	color: red;
+    }
 </style>
 </head>
 <body>
@@ -76,6 +85,19 @@
 		<tr>
 			<td align="center"> ${avo.content} </td>
 		</tr>
+		
+		<c:if test="${nvo.preid != null }">
+		<tr>
+			<td> 이전글 △  <a href="content?id=${nvo.preid}"> ${nvo.pretitle} </a> </td>
+		</tr>
+		</c:if>
+		
+		<c:if test="${nvo.nextid != null }">
+		<tr>
+			<td> 다음글 ▽  <a href="content?id=${nvo.nextid}"> ${nvo.nexttitle} </a>  </td>
+		</tr>
+		</c:if>
+		
 		<tr>
 			<td id="last_td"> 
 				<span id="list_btn"> <input type="button" value="목록" onclick="location='list'"> </span>

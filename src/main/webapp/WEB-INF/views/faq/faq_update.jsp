@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+
 	section {
 		width: 1000px;
 		height: auto;
@@ -19,7 +20,7 @@
 	h2 #faq{
 		margin-bottom: 30px;
 		display: inline-block;
-		width: 150px;
+		width: auto;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 	}
 	
@@ -126,7 +127,7 @@
 		</table>
 		<div> 
 			<input type="button" value="←" onclick="back()">
-			<input type="submit" value="수정하기"> 
+			<input type="submit" value="수정하기">
 		</div>
 	</form>
 </section>

@@ -6,35 +6,56 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style>
-	section {
-		width: 1000px;
-		height: auto;
-		margin: auto;
-		margin-bottom: 40px;
-		padding-top: 120px;
-	}
-</style>
-<script type="text/javascript">
-	function search() {
-		var tb = document.getElementById("TB_CORP_CD");
-		var tbIndex = document.getElementById("TB_CORP_CD").options.selectedIndex;
-		
-		console.log("tb value : " + tb.options[tbIndex].value);
-	}
-</script>
-</head>
-<body>
-<section>
-	<form>
-		<div>
-			<select id="TB_CORP_CD">
-				<option value="CJ">CJ대한통운</option>
-				<option value="Lottee">롯데택배</option>
-			</select>
-			<input type="button" value="검색" onclick="search();">
-		</div>
-	</form>
-</section>
-</body>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      .jbTitle {
+        text-align: center;
+      }
+      .jbMenu {
+        text-align: center;
+        background-color: yellow;
+        padding: 10px 0px;
+        width: 100%;
+      }
+      .jbContent {
+        height: 2000px;
+      }
+      .jbFixed {
+        position: fixed;
+        top: 0px;
+      }
+    </style>
+    <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      $( document ).ready( function() {
+        var jbOffset = $( '.jbMenu' ).offset();
+        $( window ).scroll( function() {
+          if ( $( document ).scrollTop() > jbOffset.top ) {
+            $( '.jbMenu' ).addClass( 'jbFixed' );
+          }
+          else {
+            $( '.jbMenu' ).removeClass( 'jbFixed' );
+          }
+        });
+      } );
+    </script>
+  </head>
+  <body>
+    <div class="jbTitle">
+      <h1>Site Title</h1>
+    </div>
+    <div class="jbMenu">
+      <p>
+        First Menu
+        Second Menu
+        Third Menu
+        Fourth Menu
+      </p>
+    </div>
+    <div class="jbContent">
+    </div>
+  </body>
 </html>

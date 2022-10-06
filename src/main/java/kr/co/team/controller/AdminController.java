@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +18,7 @@ import kr.co.team.vo.AdminVO;
 import kr.co.team.vo.AnswerVO;
 import kr.co.team.vo.FaqVO;
 import kr.co.team.vo.ProductVO;
+
 
 @Controller
 public class AdminController {
@@ -189,6 +191,12 @@ public class AdminController {
 		return service.inquiry_update(avo);
 	}
 	
+	@RequestMapping("/admin/answer_delete")
+	public String answer_delete(HttpServletRequest request)
+	{
+		return service.answer_delete(request);
+	}
+	
 	
 	//주문(구매)관련
 	@RequestMapping("/admin/buy_list")
@@ -201,5 +209,12 @@ public class AdminController {
 	public String change_state(HttpServletRequest request)
 	{
 		return service.change_state(request);
+	}
+	
+	
+	@RequestMapping("/admin/test")
+	public String test()
+	{
+		return "/admin/test";
 	}
 }

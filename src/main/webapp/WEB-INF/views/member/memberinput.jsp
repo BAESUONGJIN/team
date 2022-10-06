@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <head>
   <style>
-   section {
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap');   
+section {
      width:1000px;
      height:500px;
      margin:auto;
@@ -42,10 +43,12 @@
       
     }
     
-         h3 {
+        #h3 {
 		margin-bottom: 30px;
 		display: inline-block;
 		width: 200px;
+		font-size: 25px;
+        font-family: 'Lora', serif;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 		
 	}
@@ -180,7 +183,7 @@
 <body> 
  <section>
   <form name="pkc" method="post" action="memberinput_ok" onsubmit="return check(this)">
-    <caption> <h3> MEMBERSHIP </h3> </caption>
+    <caption> <div id="h3"> MEMBERSHIP </div> </caption>
     <p>  
     <div> <input type="text" name="userid" placeholder="아이디" onblur="check_userid(this.value)"> 
           <br> <span id="msg" style="font-size:12px;">(영문소문자/숫자, 4~16자)</span>

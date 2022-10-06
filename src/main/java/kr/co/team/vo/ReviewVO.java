@@ -1,12 +1,19 @@
 package kr.co.team.vo;
 
 public class ReviewVO {
-	private int id;
-	private String userid,content,writeday, pcode;
+	private int id,bid;
+	private String userid,content,writeday,pcode;
 	
 	//productVO에서 가져온 값
 	private String pimg, ptitle;
 	
+	
+	public int getBid() {
+		return bid;
+	}
+	public void setBid(int bid) {
+		this.bid = bid;
+	}
 	public String getPimg() {
 		return pimg;
 	}

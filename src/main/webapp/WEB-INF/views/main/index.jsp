@@ -80,9 +80,9 @@
     text-align: center;
     }
     
-div{
-margin-left: 30px;
-}
+    section div{
+    margin-left: 30px; 
+    }
        
     
     h1 {  /* 글자 hover */
@@ -200,19 +200,17 @@ margin-left: 30px;
     <a href="../mypage/myreview"><img src="../resources/main/best7.png" width="300" height="300" style="margin-right: 20px;"></a>&nbsp;
     <a href="../gongji/list"><img src="../resources/main/best4.png" width="300" height="300" style="margin-right: 20px;"></a>&nbsp;
   </div>
-
-      </article> <!-- 최신 상품 -->
+      </article>
       
       
       <article id="ar3"> 
-      
       <h1 class="fromcenter" style="font-size: 20px; font-weight: bolder; margin-bottom: 50px;cursor: pointer; "> BEST ITEM </h1> <p>
   <table align="center">
      		<tr>
 			<c:forEach items="${list}" var="pvo">
-				<td><a href="pro_content?pcode=${pvo.pcode}">
+				<td><a href="../product/pro_content?pcode=${pvo.pcode}">
 				<div id="pimg"><img src="../resources/img/${pvo.pimg}" width="350" height="400" class="my_img"></div>
-				<div id="title">${pvo.title }</div>
+				<div id="title" style="font-weight: bold; ">${pvo.title }</div>
 				<div id="price">
 				 <c:if test="${pvo.halin ==0 }">   <!-- 할인 0인 경우 -->
 				  <fmt:formatNumber value="${pvo.price}"/> 원
@@ -231,7 +229,6 @@ margin-left: 30px;
 			</c:forEach>
 		</tr> 
 	</table>
-	
       </article> <!-- 인기 상품 -->
       
       <article id="ar4"> 
@@ -239,8 +236,8 @@ margin-left: 30px;
   <table align="center">
      		<tr>
 			<c:forEach items="${list2}" var="pvo">
-				<td><a href="pro_content?pcode=${pvo.pcode}">
-				<div id="pimg"><img src="../resources/img/${pvo.pimg}" width="350" height="400" class="my_img"></div>
+				<td><a href="../product/pro_content?pcode=${pvo.pcode}">
+				<div id="pimg"><img src="../resources/img/${pvo.pimg}" width="350" height="400" class="my_img" style="text-align: center;"></div>
 				<div id="title">${pvo.title }</div>
 				<div id="price">
 				 <c:if test="${pvo.halin ==0 }">   <!-- 할인 0인 경우 -->
@@ -254,13 +251,13 @@ margin-left: 30px;
 				</td>
 				<c:set var="i" value="${i+1 }"/>
 				<c:if test="${i%3==0 }">  <!-- 3칸 후 다음줄로 이동 -->
-				</tr>
 				<tr>
 				</c:if>
 			</c:forEach>
 		</tr> 
 	</table>
 </article>
+
     </section>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>

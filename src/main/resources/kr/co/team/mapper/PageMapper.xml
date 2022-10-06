@@ -103,5 +103,39 @@
    update buy set state=#{param2} where id=#{param1}
   </update>
 
+  <select id="review" resultType="kr.co.team.vo.BuyVO">
+   select * from buy where id=#{param1}
+  </select> 
+
+  <insert id="review_ok" parameterType="kr.co.team.vo.ReviewVO">
+    insert into review(pcode,content,title,userid,bid,writeday)
+    values(#{pcode},#{content},#{title},#{userid},bid,now())
+  </insert>
+  
+  <update id="hugi">
+    update buy set hugi=1 where id=#{param1}
+  </update>
+  
+  <select id="myreview" resultType="kr.co.team.vo.ReviewVO">
+    select r.*,p.pimg,p.title as ptitle from review as r, product as p 
+    where userid=#{param1} and r.pcode=p.pcode;
+  </select>
+  
+  <delete id="review_del">
+    delete from review where id=#{param1}
+  </delete>
+  
+  <update id="change_hugi">
+    update buy set hugi=0 where id=#{param1}
+  </update>
+  
+  <select id="review_update" resultType="kr.co.team.vo.ReviewVO">
+    select * from review where id=#{param1}
+  </select>
+  
+  <update id="review_update_ok" parameterType="kr.co.team.vo.ReviewVO">
+    update review set title=#{title}, content=#{content}
+    where id=#{id}
+  </update>
   
 </mapper>

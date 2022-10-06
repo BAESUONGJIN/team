@@ -12,7 +12,7 @@
      text-align:center;
      padding-top: 120px;/* 폼 자체 조정 */
    }
-       body { /* footer  */
+   body { /* footer  */
   display: flex; 
   flex-direction: column;
 }
@@ -71,5 +71,19 @@
      <div> <input type="submit" value="기존 회원 로그인" style="font-weight: bold;"> </div>
      <div> <span> <a href="../login/search_id" style="text-decoration: none; color: black"> 아이디 찾기</a> | </span> <span> <a href="../login/search_pwd"style="text-decoration: none; color: black"> 비밀번호 찾기</a> </span> <a href="../member/memberinput" style="text-decoration: none; color: black"> 가입하기 </a></div>
  </form>
+ 
+<!-- 카카오톡 API -->
+ <hr>
+ <form>
+    <div class="modal_foot" style="text-align: right;">
+      <div> sns 로그인 &nbsp
+      <a id="btn-kakao-login" href="kakao/login">
+		 <img src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="200" alt="카카오 로그인 버튼"/>
+	  </a>
+   </div>
+  </div>
+  </form>
+  
+  
   </section>
   </body>    

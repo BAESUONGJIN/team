@@ -220,7 +220,7 @@
      
     <c:forEach items="${list}" var="pvo">
      <tr align="center">
-       <td> <img src="../resources/img/${pvo.pimg}" width="70" height="70"></td> <!-- 상품그림 -->
+       <td> <img src="../resources/img/${pvo.pimg}" width="70" height="70"></td>
        <td> ${pvo.title}</td>
        <td> ${pvo.color} </td>
        <td> ${pvo.size} </td>

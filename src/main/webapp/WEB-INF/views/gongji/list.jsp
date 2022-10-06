@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+
 	section {
 		width: 1000px;
 		height: auto;
@@ -19,7 +20,7 @@
 	h2 #gongji {
 		margin-bottom: 30px;
 		display: inline-block;
-		width: 180px;
+		width: auto;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 	}
 	
@@ -48,13 +49,19 @@
 		text-align: center;
 	}
 	
+	#import_list {
+		background: #fcf3f2;
+	}
+	
 	#paging {
 		border: none;
 		padding-top: 20px;
+		float: left;
 	}
 	
 	#btn {
 		float: right;
+		padding-top: 20px;
 	}
 	
 	#btn input[type=button] {
@@ -78,6 +85,16 @@
 		<th> 조회수 </th>
 	</tr>
 	
+	
+	<c:forEach items="${import_list}" var="avo">
+	<tr id="import_list">
+		<td onclick="location='readnum?id=${avo.id}'"> ★ ${avo.title} ★ </td>
+		<td> ${avo.name} </td>
+		<td> ${avo.writeday} </td>
+		<td> ${avo.readnum} </td>
+	</tr>
+	</c:forEach>
+	
 	<c:forEach items="${list}" var="avo">
 	<tr>
 		<td width="700" onclick="location='readnum?id=${avo.id}'"> ${avo.title} </td>
@@ -88,7 +105,8 @@
 	</c:forEach>
 	
 	<tr> <!-- 페이징 처리 -->
-		<td colspan="4" align="center" id="paging">
+		<td colspan="5" align="center" style="border-bottom:none;">
+		<span id="paging">
 		<c:if test="${pstart != 1}">
 			<a href="list?page=${pstart-1}"> ◁◁ </a>
 		</c:if>
@@ -127,14 +145,12 @@
 		<c:if test="${chong == pend}">
 			▷▷
 		</c:if>
-		
+		</span>
 		<c:if test="${userid == 'admin123'}">
 			<span id="btn"> <input type="button" value="글작성" onclick="location='write'"> </span>
 		</c:if>
 		</td>
 		
-	
-	
 	</table>
 </section>
 </body>

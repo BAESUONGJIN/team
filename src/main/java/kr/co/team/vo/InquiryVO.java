@@ -7,12 +7,13 @@ public class InquiryVO {
 
 	//answer cid
 	private int cid;
-	private String content1;
+	private String content1,writeday1;
 	
 	//product에서 가져온 값
 	private String pimg,ptitle;
 	
 	private String pro_title;
+	
 		
 	
 	public String getPro_title() {

@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+
 	section {
 		width: 1000px;
 		height: auto;
@@ -19,7 +20,7 @@
 	h2 #title {
 		margin-bottom: 30px;
 		display: inline-block;
-		width: 180px;
+		width: auto;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 	}
 	
@@ -35,6 +36,11 @@
 		padding: 15px 10px 15px 10px;
 		text-align: center;
 		border-right: 1px solid gray;
+		border-left: 1px solid gray;
+	}
+	
+	#button {
+		border: none;
 	}
 	
 	#gap {
@@ -66,6 +72,20 @@
       	margin-left: -100px;
     }
 </style>
+<script>
+	function write_ok()
+	{
+		if(document.getElementById("answer_content").value != "")
+			alert("답변이 작성되었습니다");	
+		else
+			alert("1자 이상 작성해야합니다");
+	}
+	
+	function update_ok()
+	{
+		alert("답변이 수정되었습니다");
+	}
+</script>
 </head>
 <body>
 <section>
@@ -88,13 +108,13 @@
 		<input type="hidden" name="cid" value="${ivo.id}">
 			<tr id="answer">
 				<td> 답변 </td>
-				<td colspan="3"> <textarea rows="6" cols="40" name="content"></textarea> </td> 
+				<td colspan="3"> <textarea rows="6" cols="40" id="answer_content" name="content"></textarea> </td> 
 			</tr>
 			
 			<tr>
 				<td colspan="4"> 
 					<input type="button" value="목록" onclick="location.href='inquiry_list'">
-					<input type="submit" value="답변쓰기">
+					<input type="submit" value="답변쓰기" onclick="write_ok()">
 				</td>
 			</tr>
 		</form>
@@ -109,9 +129,9 @@
 			</tr>
 			
 			<tr>
-				<td colspan="4"> 
+				<td colspan="4" id="button"> 
 					<input type="button" value="목록" onclick="location.href='inquiry_list'">
-					<input type="submit" value="답변수정">
+					<input type="submit" value="답변수정" onclick="update_ok()">
 				</td>
 			</tr>
 		</form>
