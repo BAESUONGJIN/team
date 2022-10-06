@@ -88,6 +88,8 @@ window.onload = function()
 	var chong = Number(price*(1-halin/100)).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	document.getElementById("chong").innerText=chong+"원";
 	
+	/* document.getElemetnById("file").files(); */
+	
 };
 
 function chong_pay()
@@ -116,7 +118,7 @@ function back()
 		
 			<tr>
 				<th>대표이미지</th> 
-				<td colspan="5"><input id="file" type="file" name="pimg"></td>
+				<td colspan="5"><input id="file" type="file" name="pimg" value="aa"></td>
 			</tr>
 			<tr>
 				<th>카테고리</th>
