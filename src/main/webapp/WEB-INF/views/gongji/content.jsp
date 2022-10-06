@@ -93,7 +93,6 @@
 		</tr>
 		</c:if>
 		
-		
 		<c:if test="${nvo.preid != null }">
 		<tr>
 			<td> 다음글 ▽  <a href="content?id=${nvo.preid}"> ${nvo.pretitle} </a>  </td>
