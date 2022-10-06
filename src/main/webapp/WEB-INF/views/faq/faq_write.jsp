@@ -91,12 +91,12 @@
 				<td width="150" id="no"> 분류 </td>
 				<td>
 				<select name="gubun">
-					<option value="0"> 회원정보 </option>
-					<option value="1"> 상품확인 </option>
-					<option value="2"> 주문/결제 </option>
-					<option value="3"> 배송 </option>
-					<option value="4"> 교환/취소(반품) </option>
-					<option value="5"> 서비스 </option>
+					<option value="0"> 입금/결제 </option>
+					<option value="1"> 배송 </option>
+					<option value="2"> 반품/교환 </option>
+					<option value="3"> 주문 </option>
+					<option value="4"> 사이트이용 </option>
+					<option value="5"> 기타 </option>
 				</select>
 				</td>
 			</tr>

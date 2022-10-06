@@ -166,12 +166,12 @@
 			<c:set var="st5" value="style='color:white; background: gray;'"/>
 		</c:if>
 		<a href="faq_list" id="sub"> 전 체 </a>
-		<a href="faq_list_etc?gubun=0" id="sub" ${st}> 회원정보 </a>
-		<a href="faq_list_etc?gubun=1" id="sub" ${st1}> 상품확인 </a>
-		<a href="faq_list_etc?gubun=2" id="sub" ${st2}> 주문/결제 </a>
-		<a href="faq_list_etc?gubun=3" id="sub" ${st3}> 배송 </a>
-		<a href="faq_list_etc?gubun=4" id="sub" ${st4}> 교환/취소(반품) </a>
-		<a href="faq_list_etc?gubun=5" id="sub" ${st5}> 서비스 </a>
+		<a href="faq_list_etc?gubun=0" id="sub" ${st}> 입금/결제 </a>
+		<a href="faq_list_etc?gubun=1" id="sub" ${st1}> 배송 </a>
+		<a href="faq_list_etc?gubun=2" id="sub" ${st2}> 반품/교환 </a>
+		<a href="faq_list_etc?gubun=3" id="sub" ${st3}> 주문 </a>
+		<a href="faq_list_etc?gubun=4" id="sub" ${st4}> 사이트이용 </a>
+		<a href="faq_list_etc?gubun=5" id="sub" ${st5}> 기타 </a>
 	</span>
 	<table width="900" align="center">
 		<tr>
@@ -183,22 +183,22 @@
 		
 		<tr class="question" id="question">
 			<c:if test="${fvo.gubun == 0}">
-				<c:set var="gubun" value="회원정보"/>
+				<c:set var="gubun" value="입금/결제"/>
 			</c:if>
 			<c:if test="${fvo.gubun == 1 }">
-				<c:set var="gubun" value="상품확인"/>
-			</c:if>
-			<c:if test="${fvo.gubun == 2 }">
-				<c:set var="gubun" value="주문/결제"/>
-			</c:if>
-			<c:if test="${fvo.gubun == 3 }">
 				<c:set var="gubun" value="배송"/>
 			</c:if>
+			<c:if test="${fvo.gubun == 2 }">
+				<c:set var="gubun" value="반품/교환"/>
+			</c:if>
+			<c:if test="${fvo.gubun == 3 }">
+				<c:set var="gubun" value="주문"/>
+			</c:if>
 			<c:if test="${fvo.gubun == 4 }">
-				<c:set var="gubun" value="교환/취소(반품)"/>
+				<c:set var="gubun" value="사이트이용"/>
 			</c:if>
 			<c:if test="${fvo.gubun == 5 }">
-				<c:set var="gubun" value="서비스"/>
+				<c:set var="gubun" value="기타"/>
 			</c:if>
 			
 			<td id="gubun"> ${gubun} </td>

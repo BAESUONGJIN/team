@@ -6,56 +6,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-    <style>
-      body {
-        margin: 0px;
-        padding: 0px;
-      }
-      .jbTitle {
-        text-align: center;
-      }
-      .jbMenu {
-        text-align: center;
-        background-color: yellow;
-        padding: 10px 0px;
-        width: 100%;
-      }
-      .jbContent {
-        height: 2000px;
-      }
-      .jbFixed {
-        position: fixed;
-        top: 0px;
-      }
-    </style>
-    <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script>
-      $( document ).ready( function() {
-        var jbOffset = $( '.jbMenu' ).offset();
-        $( window ).scroll( function() {
-          if ( $( document ).scrollTop() > jbOffset.top ) {
-            $( '.jbMenu' ).addClass( 'jbFixed' );
-          }
-          else {
-            $( '.jbMenu' ).removeClass( 'jbFixed' );
-          }
-        });
-      } );
-    </script>
+    <script language='javascript'>  
+function   show(){  
+var   p=document.getElementById("file1").value;
+document.getElementById("s").innerHTML="<input id=pic type=image height=96 width=128 /> ";  
+document.getElementById("pic").src=p;
+alert(p);   
+}  
+</script>
   </head>
   <body>
-    <div class="jbTitle">
-      <h1>Site Title</h1>
-    </div>
-    <div class="jbMenu">
-      <p>
-        First Menu
-        Second Menu
-        Third Menu
-        Fourth Menu
-      </p>
-    </div>
-    <div class="jbContent">
-    </div>
-  </body>
+<input type="file" name="file1" id="file1" onpropertychange="show();" />
+<span id="s"></span>
+
+
+</body>
 </html>
