@@ -32,8 +32,12 @@
     
    }
    
-   section tr:last-child td {
+   /* section tr:last-child td {
      border-bottom:2px solid #cccccc;
+   } */
+   
+   .sub td {
+   	border-bottom: 2px solid #cccccc;
    }
    
    section #gumae_chk {
@@ -319,7 +323,7 @@
          </select>
       </td>
     </tr>
-    <tr class="sub">
+    <tr class="sub" style="display:none;">
       <td> 
         * 카드선택 
         <select name="card">
@@ -338,7 +342,7 @@
         </select>
       </td>
     </tr>
-    <tr class="sub">
+    <tr class="sub" style="display:none;">
       <td> 
        * 통신사 종류
          <select name="phone">

@@ -137,7 +137,6 @@
      <input type="button" id="btn4" value="비밀번호변경" style="font-size: 16px;" onclick="change_pwd()">
    </div>
 </form>
-
   <form name="pchg" method="post" action="change_pwd" onsubmit="return check(this)">
    <div id="pwdform"> <!-- 비밀번호 변경  폼 -->
     <h3 style="font-family: 'Lora', serif;">  Change Password </h3> <br>
