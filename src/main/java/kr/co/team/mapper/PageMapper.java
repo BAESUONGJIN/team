@@ -7,6 +7,7 @@ import kr.co.team.vo.BuyVO;
 import kr.co.team.vo.CartVO;
 import kr.co.team.vo.MemberVO;
 import kr.co.team.vo.ProductVO;
+import kr.co.team.vo.ReviewVO;
 import kr.co.team.vo.ViewVO;
 import kr.co.team.vo.WishVO;
 
@@ -39,5 +40,14 @@ public interface PageMapper {
     
     public ArrayList<BuyVO> myorder(String userid);
     public void change_state(String id,String state);
+    
+    public BuyVO review(String bid);
+    public void review_ok(ReviewVO rvo);
+    public void hugi(int id);
+    public ArrayList<ReviewVO> myreview(String userid);
+    public void review_del(String id);
+    public void change_hugi(String gid);
+    public ReviewVO review_update(String id);
+    public void review_update_ok(ReviewVO rvo);
     
 }

@@ -53,6 +53,17 @@
      text-align:center;
      cursor:pointer;
    }
+   section #chk1 {
+     width:120px;
+     height:40px;
+	 border:1px;
+	 background-color: rgba(164, 48, 35, 0.1);
+	 color:#008080;
+     font-weight:900;
+     margin-left:880px;
+     margin-top:45px;
+     cursor:pointer;
+   }
    
  
  </style>
@@ -153,6 +164,7 @@
     </tr>
   </table>
   <p>
+  <input type="button" id="chk1" value="주문내역 확인" onclick="location='../page/myorder'">
   
  </section>
 </body>

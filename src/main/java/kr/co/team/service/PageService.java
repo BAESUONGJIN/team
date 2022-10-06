@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 
 import kr.co.team.vo.BaesongVO;
 import kr.co.team.vo.BuyVO;
+import kr.co.team.vo.ReviewVO;
 
 public interface PageService {
 
@@ -33,4 +34,11 @@ public interface PageService {
 	
 	public String myorder(HttpSession session,Model model);
 	public String change_state(HttpServletRequest request);
+	
+	public String review(HttpServletRequest request,Model model);
+	public String review_ok(ReviewVO rvo,HttpSession session);
+	public String myreview(HttpSession session,Model model);
+	public String review_del(HttpServletRequest request);
+	public String review_update(HttpServletRequest request,Model model);
+	public String review_update_ok(ReviewVO rvo);
 }

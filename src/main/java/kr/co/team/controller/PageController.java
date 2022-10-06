@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import kr.co.team.service.PageService;
 import kr.co.team.vo.BaesongVO;
 import kr.co.team.vo.BuyVO;
+import kr.co.team.vo.ReviewVO;
 
 @Controller
 public class PageController {
@@ -137,4 +138,41 @@ public class PageController {
 	{
 		return service.change_state(request);
 	}
+	
+	@RequestMapping("/page/review")
+	public String review(HttpServletRequest request, Model model)
+	{
+		return service.review(request,model);
+	}
+	
+	@RequestMapping("/page/review_ok")
+	public String review_ok(ReviewVO rvo,HttpSession session)
+	{
+		return service.review_ok(rvo,session);
+	}
+	
+	@RequestMapping("/page/myreview")
+	public String myreview(HttpSession session, Model model)
+	{
+	    return service.myreview(session,model);	
+	}
+	
+	@RequestMapping("/page/review_del")
+	public String review_del(HttpServletRequest request)
+	{
+		return service.review_del(request);
+	}
+	
+	@RequestMapping("/page/review_update")
+	public String review_update(HttpServletRequest request, Model model)
+	{
+		return service.review_update(request,model);
+	}
+	
+	@RequestMapping("/page/review_update_ok")
+	public String review_update_ok(ReviewVO rvo)
+	{
+		return service.review_update_ok(rvo);
+	}
+	
 }
