@@ -65,7 +65,8 @@
 	
 	<select id="pro_inquiry_list" resultType="kr.co.team.vo.InquiryVO">
 		select *, (select content from answer where cid=i.id) as content1,
-		(select count(*) from answer where cid=i.id) as cnt from inquiry as i where pcode=#{param1} and userid=#{param2}
+		(select count(*) from answer where cid=i.id) as cnt from inquiry as i 
+		where pcode=#{param1} and userid=#{param2}
 	</select>
 	
 	 <select id="answer_content" resultType="kr.co.team.vo.InquiryVO">

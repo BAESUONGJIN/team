@@ -109,13 +109,18 @@ display: none;
 	/* display: none; */
 	background: #f6eae9;
 }
-.icontent
+.icontent, .ask
 {
 display: none;
-background: red;
 }
 
-
+.answer_chk{
+ color: blue;
+ text-decoration: none;
+ transition: 0.5s;
+}
+.answer_chk:hover { text-shadow: 0 0 .2em, 0 0 .3em; }
+}
 
 
     /* 퀵 메뉴 */
@@ -496,53 +501,57 @@ function inquiry_chk(iq)
              <div class="mt"><h2><b>상품문의</b></h2></div> 
             <table id="inquiry_tb" width="950" align="center">
            <tr style="background:rgba(164, 48, 35, 0.1);color:black;">
+     	    <td>답변 여부</td>
      	    <td>아이디</td>
           	<td>제 목</td>
           	<td>작성일</td>
            </tr>
            
-           
             <c:forEach items="${ilist}" var="ivo">
             <c:if test="${ivo.cnt == 1}">
                   <tr>
-                  <td>${ivo.userid}</td>
-                  <td id ="ititle" class="ititle">${ivo.title}</td>
-                  <td>${ivo.writeday}</td>
+                   <td class="answer_chk">답변완료</td>
+                   <td>${ivo.userid}</td>
+                   <td id ="ititle" class="ititle">${ivo.title}</td>
+                   <td>${ivo.writeday}</td>
                   </tr>
                   
                   <tr id="icontent" class="icontent">
                   	<td>문의 내용</td>
-                  	<td>${ivo.content}</td>
+                  	<td colspan="3">${ivo.content}</td>
                   </tr>
-                  
+                 
                	<tr id="ask" class="ask">
 					<td>답 변 </td>               	
-					<td>답변 내용</td>       
-					<td>답변 날짜</td>        	
+					<td>관리자</td>       
+					<td colspan="2">${ivo.content1} </td>       
                	</tr>
-               	
-               	<tr>
-               		<td> ${ivo.content1} </td>
-               	</tr>
-               	</c:if>
+               	  </c:if>
             </c:forEach>
+          
             
-            
-            
+             
              <c:forEach items="${ilist}" var="ivo">
-             <c:if test="${ivo.cnt ==0 }">
-                  <tr>
-                  <td>${ivo.userid}</td>
-                  <td id ="ititle" class="ititle">${ivo.title}</td>
-                  <td>${ivo.writeday}</td>
+              <c:if test="${ivo.cnt ==0 }">
+                 <tr>
+                   <td class="answer_nchk">문의 확인중</td>
+                   <td>${ivo.userid}</td>
+                   <td id ="ititle" class="ititle">${ivo.title}</td>
+                   <td>${ivo.writeday}</td>
                   </tr>
                   
                   <tr id="icontent" class="icontent">
                   	<td>문의 내용</td>
-                  	<td>${ivo.content}</td>
+                  	<td colspan="3">${ivo.content}</td>
                   </tr>
-                  </c:if>
-                  </c:forEach>
+                 
+               	<tr id="ask" class="ask">
+					<td>답 변 </td>               	
+					<td>관리자</td>       
+					<td colspan="2">문의 확인중입니다.</td>       
+               	</tr>
+              </c:if>    
+              </c:forEach>
             
             </table>
             <br>
