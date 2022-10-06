@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
 
 	section {
 		width: 1000px;
@@ -143,7 +143,7 @@
 </head>
 <body>
 <section>
-	<h2 align="center"> <span id="faq"> FAQ </span> </h2> 
+	<h2 align="center" style="font-family: 'Lora', serif;"> <span id="faq"> FAQ </span> </h2> 
 	<span id="menu">
 		<c:set var="st" value="style='color:white; background: gray;'"/>
 		<a href="faq_list" id="sub" ${st}> 전 체 </a>
