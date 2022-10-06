@@ -4,40 +4,54 @@
   "http://mybatis.org/dtd/mybats-3-mapper.dtd">
   
   <mapper namespace="kr.co.team.mapper.MypageMapper">
-
-<select resultType="kr.co.team.vo.MemberVO" id="myinfo">select * from member where userid=#{param1} </select>
-
-<update id="myinfo_change_ok" parameterType="kr.co.team.vo.MemberVO"> update member set name=#{name}, zip=#{zip},juso=#{juso},juso_etc=#{juso_etc}, phone=#{phone},email=#{email}where userid=#{userid} </update>
-
-<delete id="mem_del">delete from member where userid=#{param1} </delete>
-
-<select resultType="String" id="getPwd">select pwd from member where userid=#{param1} </select>
-
-<update id="change_pwd">update member set pwd=#{param1} where userid=#{param2} </update>
-
-<!-- 상품평 -->
-
-
-<select resultType="kr.co.team.vo.ReviewVO" id="myreview">
-select r.*, p.pimg, p.title as ptitle from review as r, product as p
-where userid=#{param1} and r.pcode=p.pcode; 
-</select>
-
-<select resultType="kr.co.team.vo.ReviewVO" id="myreview_update">select * from review where id=#{param1} </select>
-
-<update id="myreview_update_ok" parameterType="kr.co.team.vo.ReviewVO">update review set content=#{content} where id=#{id} </update>
-
-<delete id="myreview_del" parameterType="kr.co.team.vo.ReviewVO">delete from review where id=#{param1} </delete>
-
-<!-- 상품문의 -->
-
-
-<select resultType="kr.co.team.vo.InquiryVO" id="mymun">
-select *, (select p.pimg from product as p where pcode = inquiry.pcode) as pimg, (select p.title from product as p where pcode=inquiry.pcode) as ptitle,
-(select count(*) from answer where cid=inquiry.id)as cnt from inquiry where userid=#{param1} limit 5 
-</select>
-
-<!-- 페이지 처리 -->
-<select resultType="Integer" id="mymun_getChong">select ceil(count(*)/10) from inquiry </select>
-
-</mapper>
+    
+    <select id="myinfo" resultType="kr.co.team.vo.MemberVO">
+      select * from member where userid=#{param1}
+    </select>
+    
+    <update id="myinfo_change_ok" parameterType="kr.co.team.vo.MemberVO">
+      update member set name=#{name}, zip=#{zip}, juso=#{juso}, juso_etc=#{juso_etc}, 
+      phone=#{phone},email=#{email}where userid=#{userid}
+    </update>
+    
+    <delete id="mem_del">
+      delete from member where userid=#{param1}
+    </delete>
+    
+    <select id="getPwd" resultType="String">
+      select pwd from member where userid=#{param1}
+    </select>
+    
+    <update id="change_pwd">
+      update member set pwd=#{param1} where userid=#{param2}
+    </update>
+    
+    <select id="myreview" resultType="kr.co.team.vo.ReviewVO">
+      select r.*,p.pimg, p.title as ptitle from review as r,
+      product as p where userid=#{param1} and r.pcode=p.pcode;
+    </select>
+    
+    <select id="myreview_update" resultType="kr.co.team.vo.ReviewVO">
+      select * from review where id=#{param1}
+    </select>
+    
+    <update id="myreview_update_ok" parameterType="kr.co.team.vo.ReviewVO">
+      update review set content=#{content} where id=#{id}
+    </update>
+    
+    <delete id="myreview_del" parameterType="kr.co.team.vo.ReviewVO">
+      delete from review where id=#{param1}
+    </delete>
+    
+    <select id="mymun" resultType="kr.co.team.vo.InquiryVO">
+      select *, (select p.pimg from product as p where pcode = inquiry.pcode) as pimg, 
+      (select p.title from product as p where pcode=inquiry.pcode) as ptitle,
+      (select count(*) from answer where cid=inquiry.id)as cnt from inquiry 
+      where userid=#{param1} limit 5 
+    </select>
+    
+    <select id="mymun_getChong" resultType="Integer">
+      select ceil(count(*)/10) from inquiry
+    </select>
+    
+  </mapper>

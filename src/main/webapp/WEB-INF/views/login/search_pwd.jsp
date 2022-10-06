@@ -103,7 +103,6 @@ input {
  </script>
 </head>
 <body>
-   
   <section>
  <form method="post" name="userpwd_search" id="userpwd_search" action="search_id_ok">
  <div class="find_id" style="border: 1px solid rgb(180, 180, 180);

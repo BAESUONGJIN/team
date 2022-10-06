@@ -113,8 +113,8 @@
 <body> 
  <section>
   <form name="pkc" method="post" action="myinfo_change_ok">
-   <caption> <h3 style="font-size: 25px; font-family: 'Lora', serif; display: inline-block;
-		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);"> Modify Profile </h3> </caption> <br>
+   <caption> 
+     <h3 style="font-size: 25px; font-family: 'Lora', serif; display: inline-block; background: linear-gradient(to top, #f6eae9 30%, transparent 80%);"> Modify Profile </h3> </caption> <br>
   <br>
     <div> <input type="text" readonly value= ${mvo.userid}> </div>
     <div> <input type="text" name="name" placeholder="이 름" value="${mvo.name}"> </div>
@@ -126,6 +126,5 @@
     <div> <input type="submit" value="회원정보 수정" id="btn2"> </div>
    </form> 
     <div> <input type="submit" value="회원 탈퇴 " id="btntt"> </div> <!-- 회원탈퇴  -->
- 
  </section>
 </body>

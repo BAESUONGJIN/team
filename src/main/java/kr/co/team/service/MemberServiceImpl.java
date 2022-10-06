@@ -21,7 +21,6 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public String memberinput_ok(MemberVO mvo) {
 		mapper.memberinput_ok(mvo);
-		
 		return "redirect:/login/login";
 	}
 
@@ -31,6 +30,5 @@ public class MemberServiceImpl implements MemberService{
 		int chk=mapper.check_userid(userid);
 		out.print(chk);
 	}
-	
 	
 }

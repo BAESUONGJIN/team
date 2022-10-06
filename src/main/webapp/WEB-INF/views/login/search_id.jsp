@@ -80,11 +80,9 @@
  			     if(us.responseText=="0")
 			     {
 			    	 alert("이름 혹은 이메일이 틀립니다.");
-			    	 
 			     }	 
 			     else
 			     {   
-			    	 
 			    	 var imsi=us.responseText.trim();
 			    	 //alert(imsi);
 			    	 document.getElementById("userid_search").style.display="none";
@@ -98,11 +96,9 @@
 		  
 	  }
     
-    
  </script>
 </head>
 <body>
-   
   <section>
  <form method="post" name="userid_search" id="userid_search" action="search_id_ok">
  <div class="find_id" style="border: 1px solid rgb(180, 180, 180);
