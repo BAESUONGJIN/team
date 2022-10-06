@@ -13,24 +13,7 @@
       margin:auto;
       margin-top:60px;
     }
-    section input[type=text] {
-      width:500px;
-      height:30px;
-    }
-    section textarea {
-      width:500px;
-      height:200px;
-    }
-    section input[type=submit] {
-      width:200px;
-      height:30px;
-      border:1px solid #D941C5;
-      background:white;
-      color:#D941C5;
-    }
-    section table {
-      border-spacing:17px;
-    }
+    
   </style>
 
 </head>
