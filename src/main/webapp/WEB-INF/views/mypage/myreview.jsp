@@ -5,20 +5,20 @@
         <head>
             <script src="https://kit.fontawesome.com/c96178233f.js" crossorigin="anonymous"></script>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Insert title here</title>
-            <style>
-                section {
-                    width: 1000px;
-                    margin: auto;
-                    height: 100%;
-                    text-align: center;
-                    padding-top: 200px;
+          <style>
+               section {
+		          width: 1000px;
+		          height: auto;
+		          margin: auto;
+		          margin-top: 40px;
+		          margin-bottom: 40px;
+		          padding-top: 120px;
                     /* 폼 자체 조정 */
                 }
 
                 a {
-                    color: black;
-                    text-decoration: none;
+                  color: black;
+                  text-decoration: none;
                 }
                 section #ar1 {}
 
@@ -88,7 +88,7 @@
                                         style="font-size: 13px ">${rvo.ptitle}</a> <br>
                                     <img src="../resources/img/${rvo.pimg}" width="50" height="50">
                                 </td>
-                                <td height="70"> ${rvo.content} </td>
+                                <td height="100"> ${rvo.content} </td>
                                 <td> ${rvo.writeday} </td>
                                 <td>
                                     <input type="button" id="btn4" value="수정"
@@ -104,7 +104,7 @@
                 <article id="ar2">
                     <caption>
                         <h5 align="left"
-                            style="font-weight: bolder; background: linear-gradient(to top, #f6eae9 30%, transparent 80%);">
+                            style="font-weight: bolder; background: linear-gradient(to top, #f6eae9 30%, transparent 80%);" >
                             상품 Q＆A </h5>
                     </caption>
                     <!-- 구분하기  -->
@@ -117,7 +117,7 @@
                         </tr>
 
                         <c:forEach items="${ilist}" var="ivo">
-                            <tr align="center" height="70">
+                            <tr align="center" height="100">
                                 <td><a href="../product/pro_content?pcode=${ivo.pcode}"
                                         style="font-size: 13px">${ivo.ptitle}</a> <br>
                                     <img src="../resources/img/${ivo.pimg}" width="50" height="50">
