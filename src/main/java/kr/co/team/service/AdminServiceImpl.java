@@ -389,7 +389,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public String pro_update_ok(HttpServletRequest request) {
 		//라이브러리를 이용하여 폼태그에 값을 가져오기
-		String path="C:\\Users\\Administrator\\git\\team\\src\\main\\webapp\\resources\\img";
+		String path="C:\\Users\\jjs20\\git\\team\\src\\main\\webapp\\resources\\img";
 		int size=1024*1024*30;
 		ProductVO pvo= new ProductVO();
 		try

@@ -96,7 +96,7 @@ margin-top: 20px;
 section #ar3 .mt
 {
 text-align: left;
-margin-left:120px;
+margin-left:130px;
 width:110px;
 background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 }
@@ -107,7 +107,7 @@ margin-top: 20px;
 section #ar4 .mt
 {
 text-align: left;
-margin-left:120px;
+margin-left:130px;
 width:150px;
 background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 }
@@ -119,25 +119,37 @@ margin-top: 20px;
 section  #ar5 .mt
 {
 text-align: left;
-margin-left: 120px;
+margin-left: 130px;
 width:300px;
 background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+}
+
+section #ar5 .mt2
+{
+width:100px;
+ text-align:left;
+ margin-left:130px;
+ background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 }
 
 section #ar5 table tr{
 border: 1px solid black;
 font-size: 13px;
 }
-
-section #ar5 table tr td{
-}
 section #ar5 .ar5_c1
 {
-float: left;
+text-align: center;
+width: 120px;
+border: 1px solid black;
+border-top: none;
+border-left: none;
+border-bottom: none;
+background: #F3F3F3;
 }
 section #ar5 .ar5_c2
 {
-float: left;
+text-align: left;
+margin-left: 10px;
 }
 
 
@@ -162,7 +174,11 @@ border-bottom-color:#CCA39B
 .incontent{
 display: none;
 }
-
+#gumae_chong{
+     margin-left: 180px;
+     font-size: 17px;
+     color: #C72F7A;
+     }
 
 .ask
 {
@@ -491,14 +507,6 @@ function inquiry_chk(iq)
               <b><span id="gumae_chong"></span></b> 
             </div>
             </div>
-<<<<<<< HEAD
-            <style>
-            #gumae_chong{
-            margin-left: 180px;
-           	font-size: 17px;
-           	color: #C72F7A;
-            }
-            </style>
         <div>
          <!-- 즉구 -->
         <input type="submit" value="BUY IT NOW" style="width:350px;height:46px;background: #CCA39B;color:white;border: none;">
@@ -649,16 +657,16 @@ function inquiry_chk(iq)
 
 <article id="ar5">
             <div class="mt"><h2><b>배송/교환/반품 안내</b></h2></div>
-           	<div>배송정책</div> 
+           <div class="mt2"><h5>배송정책</h5></div>
             <table width="950" align="center">
-           	 <tr >
+           	 <tr>
          	  	<td class="ar5_c1">배송방법</td>
         	    <td class="ar5_c2">우체국 택배 1588-1300</td>
-          	 </tr><p>
+          	 </tr>
            	 <tr>
          	  	<td class="ar5_c1">배송지역</td>
         	    <td class="ar5_c2">전국지역</td>
-          	 </tr><p>
+          	 </tr>
            	 <tr>
          	  	<td class="ar5_c1">배송기간</td>
         	    <td class="ar5_c2">결제일로부터 1일-7일 (당사 출고일 기준 / 예약 하신 제품은 입고시 순차적으로 출고 됩니다.)<br>
@@ -667,11 +675,11 @@ function inquiry_chk(iq)
 					-결제하신 후 각종 변경사항은 고객센터 1661-2811로 연락주시기 바랍니다.<br>
 					-주문하신 상품이 배송 준비 중이거나 이미 배송이 완료된 경우 주문취소가 불가합니다.<br>
 					-주소가 정확하지 않거나 연락이 되지 않아 반송되어 오는 제품의 택배 이용은 고객님의 부담이니 꼭 정확한 주소와 연락처를 남겨 주세요.</td>
-          	 </tr><p>
+          	 </tr>
            	 <tr>
          	  	<td class="ar5_c1">고객센터</td>
         	    <td class="ar5_c2">1661-2811 (월~금 : 10:00 - 17:00 / 점심시간 : 12:30~13:30)</td>
-          	 </tr><p>
+          	 </tr>
            	 <tr>
          	  	<td class="ar5_c1">결제방법</td>
         	    <td class="ar5_c2">-무통장 입금의 경우 주문시 입력한 입금자명과 실제 입금자가 반드시 일치하여야 하며, 입금금액을 필히 확인해 주세요.<br>
@@ -680,8 +688,8 @@ function inquiry_chk(iq)
 					-카드결제의 경우 상품 대금결제 후 부분취소를 원하실 경우 고객센터로 연	락을 해 주셔야 처리를 할 수 있습니다.</td>
           	 </tr>
             </table>
-            <p>
-           	<div>교환/반품</div> 
+            <br>
+           	 <div class="mt2"><h5>교환/반품</h5></div>
             <table width="950" align="center">
             <tr>
             	<td class="ar5_c1">교환 및 반품이 가능한 경우</td>
@@ -696,7 +704,7 @@ function inquiry_chk(iq)
 					-택배비를 동봉시 분실된 경우 당사에서 책임을 지지않습니다. 가급적 계좌입금을 권장드립니다.<br>
 					-클라우드 매트는 일양 택배로 별도 배송되며, 왕복 택배비 10,000원을 고객님께서 부담해 주셔야 합니다.<br>
 					-미성년자가 물품을 구매하는 경우, 법정대리인이 동의하지 않으면 미성년자 본인 또는 법정대리인이 구매를 취소 할 수 있습니다.</td>
-            </tr><p>
+            </tr>
             <tr>
             	<td class="ar5_c1">교환 및 반품 접수방법</td>
             	<td class="ar5_c2">-고객센터 1661-2811 및 교환/반품 게시판으로 반품 접수 해주세요.<br>
@@ -705,7 +713,7 @@ function inquiry_chk(iq)
 					-우체국 택배 1588-1300로 수거요청을 하시고 받으셨던 상품 그대로 포장하여 착불로 보내주시면 됩니다.<br>
 					타택배로 보내주실땐 선불로 보내주셔야 하며, 착불로 발송시 추가 배송비가 발생됩니다.<br>
 					타택배 접수시 교환 및 반품주소 : 경기도 의정부시 산단로98번길 65 3층 젝시믹스<br></td>
-            </tr><p>
+            </tr>
             <tr>
             	<td class="ar5_c1">교환 및 반품이 불가한 경우</td>
             	<td class="ar5_c2">-교환/반품(환불) 기간이 경과된 경우
@@ -714,13 +722,13 @@ function inquiry_chk(iq)
 					-시간의 경과로 인하여 다시 판매하기 곤란할 정도로 상품의 가치가 현저히 감소한 경우<br>
 					-코스메틱(화장품)의 경우 제품 특성상 개봉 후 교환, 반품이 불가합니다.<br>
 					-이너웨어(속옷) 제품의 경우 착용시 이염 되거나 제품의 변형이 발생할 수 있으며, 이 경우 교환, 반품이 불가합니다.</td>
-            </tr><p>
+            </tr>
             <tr>
             	<td class="ar5_c1">환불 및 환불 지연에 따른 배상</td>
             	<td class="ar5_c2">-[대금 환불 방법] 마이페이지 내 주문내역을 통하여 환불 신청 및 확인이 가능하며, 결제 수단에 따라 환불이 진행됩니다.<br>
 					-[환불 지연에 따른 배상금 지급] 환불을 지연한 때에는 그 지연기간에 대하여 「전자상거래 등에서의 소비자보호에 관한 법률 시행령」 제21조의 3에서 <br>
 					정하는 지연이자율을 곱하여 산정한 지연이자를 지급합니다. 이에 대한 신청은 고객센터를 통해서 가능합니다.</td>
-            </tr><p>
+            </tr>
             <tr>
             	<td class="ar5_c1">기타사항</td>
             	<td class="ar5_c2">-거래에 관한 약관의 내용은 사이트 하단의 약관을 참고해주세요.<br>
