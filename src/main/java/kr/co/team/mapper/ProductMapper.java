@@ -36,4 +36,8 @@ public interface ProductMapper {
 	public void wish_cancel(String pcode, String userid);
 	public ArrayList<InquiryVO> answer_content();
 	
+	//new상품
+	public ArrayList<ProductVO> pro_newlist(int start, int pcnt);
+	public int newlist_getchong(int pcnt);
+	
 }

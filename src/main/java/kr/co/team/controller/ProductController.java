@@ -78,4 +78,13 @@ public class ProductController {
 	}
 	
 	
+	
+	//new 상품 리스트 100개
+	@RequestMapping("/product/pro_newlist")
+	public String pro_newlist(HttpServletRequest request, Model model)
+	{
+		return service.pro_newlist(request, model);
+	}
+	
+	
 }

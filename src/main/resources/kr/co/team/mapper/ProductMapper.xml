@@ -93,4 +93,13 @@
   	</delete>
 	
 	
+	<!-- new상품 -->
+	<select id="pro_newlist" resultType="kr.co.team.vo.ProductVO">
+		select * from product order by id desc limit #{param1}, #{param2}
+	</select>
+	
+	<select id="newlist_getchong" resultType="Integer"> <!--총 페이지수 구하기 -->
+		select ceil(count(*)/#{param1}) from product
+	</select>
+	
 </mapper>

@@ -31,4 +31,7 @@ public interface ProductService {
 	//찜 삭제
 	public String wish_cancel(HttpSession session,HttpServletRequest request);
 	
+	//new 상품
+	public String pro_newlist(HttpServletRequest request, Model model);
+	
 }
