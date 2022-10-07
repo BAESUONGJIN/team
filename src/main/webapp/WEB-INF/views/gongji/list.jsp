@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap');
 
 	section {
 		width: 1000px;
@@ -22,6 +23,7 @@
 		display: inline-block;
 		width: auto;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+		font-family: 'Lora', serif;
 	}
 	
 	a {
@@ -76,7 +78,7 @@
 </head>
 <body>
 <section>
-	<h2 align="center"> <span id="gongji"> 공 지 사 항 </span> </h2>
+	<h2 align="center"> <span id="gongji"> NOTICE </span> </h2>
 	<table align="center">
 	<tr>
 		<th> 제 목 </th>

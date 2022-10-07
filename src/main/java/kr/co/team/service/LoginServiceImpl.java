@@ -27,7 +27,9 @@ public class LoginServiceImpl implements LoginService {
 			session.setAttribute("name", mvo2.getName());
 			return "redirect:/main/index";
 		}
+		
 		else
+			
 		{
 			return "redirect:/login/login?err=1";
 		}
@@ -45,8 +47,6 @@ public class LoginServiceImpl implements LoginService {
 		if(userid==null)
 			userid="0";
 		out.print(userid);
-		//System.out.println(userid);
-		
 	}
 
 	@Override
@@ -57,8 +57,5 @@ public class LoginServiceImpl implements LoginService {
 		out.print(pwd);
 		
 	}
-
 	
 }
-
-

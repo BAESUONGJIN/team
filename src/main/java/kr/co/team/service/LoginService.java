@@ -12,5 +12,4 @@ public interface LoginService {
 	public String logout(HttpSession session);
 	public void search_id2(MemberVO mvo, PrintWriter out);
 	public void search_pwd2(MemberVO mvo, PrintWriter out);
-
 }

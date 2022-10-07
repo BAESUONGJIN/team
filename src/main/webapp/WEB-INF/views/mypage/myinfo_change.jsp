@@ -3,7 +3,6 @@
 <head>
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
-  
     section {
      width:1000px;
      height:600px;
@@ -15,9 +14,9 @@
      
     }
     body {
-  display: flex;
-  flex-direction: column;
-}
+    display: flex;
+    flex-direction: column;
+    }
     
     section input[type=text] {
       width:300px;
@@ -67,7 +66,7 @@
       border: none;
     }
     
-  </style>
+ </style>
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
   function juso_search()  // 우편번호 버튼 클릭시 호출 함수명
@@ -114,8 +113,9 @@
 <body> 
  <section>
   <form name="pkc" method="post" action="myinfo_change_ok">
-   <caption> <h3 style="font-size: 25px; font-family: 'Lora', serif;"> Modify Profile </h3> </caption> <br>
-  
+   <caption> 
+     <h3 style="font-size: 25px; font-family: 'Lora', serif; display: inline-block; background: linear-gradient(to top, #f6eae9 30%, transparent 80%);"> Modify Profile </h3> </caption> <br>
+  <br>
     <div> <input type="text" readonly value= ${mvo.userid}> </div>
     <div> <input type="text" name="name" placeholder="이 름" value="${mvo.name}"> </div>
     <div> <input type="text" name="zip" id="zip" readonly  placeholder="우편번호" value="${mvo.zip}"> <input  id="btn1" type="button" onclick="juso_search()" value="주소검색"> </div>
@@ -126,6 +126,5 @@
     <div> <input type="submit" value="회원정보 수정" id="btn2"> </div>
    </form> 
     <div> <input type="submit" value="회원 탈퇴 " id="btntt"> </div> <!-- 회원탈퇴  -->
- 
  </section>
 </body>

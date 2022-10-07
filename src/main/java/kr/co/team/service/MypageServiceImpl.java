@@ -78,7 +78,6 @@ public class MypageServiceImpl implements MypageService {
 		
 	}
 
-
 	@Override
 	public String myreview_update(HttpServletRequest request, Model model) {
 		String id=request.getParameter("id");
@@ -132,8 +131,7 @@ public class MypageServiceImpl implements MypageService {
 		model.addAttribute("pstart", pstart);
 		model.addAttribute("pend", pend);
 		model.addAttribute("chong", chong);
-		
-		
+				
 		//상품평, 상품문의 처리
 		String userid=session.getAttribute("userid").toString();
 		ArrayList<ReviewVO> rlist=mapper.myreview(userid);
@@ -143,9 +141,5 @@ public class MypageServiceImpl implements MypageService {
 		model.addAttribute("ilist",ilist);	//상품문의
 		return "/mypage/myreview";
 	}
-
-
-	
-	
 
 }

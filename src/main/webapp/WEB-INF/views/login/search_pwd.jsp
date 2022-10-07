@@ -4,7 +4,6 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <style>
@@ -104,7 +103,6 @@ input {
  </script>
 </head>
 <body>
-   
   <section>
  <form method="post" name="userpwd_search" id="userpwd_search" action="search_id_ok">
  <div class="find_id" style="border: 1px solid rgb(180, 180, 180);
@@ -152,6 +150,5 @@ input {
  </form> 
  </div>           
   </section>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

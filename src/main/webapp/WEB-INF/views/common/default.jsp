@@ -155,7 +155,7 @@
     
      .second #outer { /* 검색창 */
       display:inline-block;
-      width:170px;
+      width:180px;
       height:30px;
       border:1px solid #cccccc;
       padding:5px;
@@ -188,8 +188,8 @@
     /* 말풍선 */
     .wrap {
     position:absolute;
-    left:79%;
-    top:37px;
+    left:82%;
+    top:40px;
     margin-top: 0px;
     z-index: 5;
     }
@@ -336,9 +336,7 @@
         </c:if>
         <c:if test="${userid !=null }">
         <a href="../login/logout"> LOGOUT </a>&nbsp;
-        </c:if>
-        
-        <a href="../page/wish"> WISH &nbsp;</a>
+        </c:if>        
         <a href="../page/cart"> CART &nbsp;</a>
         <a href="../gongji/list"> NOTICE &nbsp;</a>
         
@@ -375,7 +373,6 @@
           <li> <a href="../mypage/myinfo"> 마이 페이지 </a></li>
       </c:if>
       </c:if>
-       
           <!-- 관리자 전용  -->
         <c:if test="${userid == 'admin123'}">
           <li style="font-weight: bold;"> 관리자 전용 </li>
@@ -387,8 +384,7 @@
         </c:if> 
         </ul>
        </span>
-    </div>
-        
+    </div> 
          <!-- 말풍선 -->
    <c:if test="${userid ==null }">
        <div class="wrap"> 
@@ -398,14 +394,12 @@
    <c:if test="${userid !=null }">
           &nbsp;
    </c:if>
-    </header>  <!-- 1층 마감 -->
-       
+    </header>  <!-- 1층 마감 -->     
     <nav>
     <div class="second"> <!-- 2층 -->
       <div id="logo">
       <a href="../main/index"> <img src="../resources/simg/logo4.png" width="230" style="margin-top: 15px;"> </a>
-      </div>
-      
+    </div>
    <span id="navi"> 
     <a style="color: red;"> BEST ITEM </a> &nbsp;
     <a style="font-weight: bolder;"> NEW5% </a> &nbsp;
@@ -417,18 +411,16 @@
    <span id="my2" style="display:inline-block; "> 
      <a href="../" style="text-decoration: none; color: black; font-weight: bolder"> COMMUNITY ∨ </a>&nbsp;
         <ul id="myinfo2">
-          <li> <a href="../" style="text-decoration: none; color: black;"> REVIEW</a></li>
+          <li> <a href="../gongji/list" style="text-decoration: none; color: black;"> NOTICE</a></li>
           <li> <a href="../faq/faq_list" style="text-decoration: none; color: black;"> FAQ </a></li>
           <li> <a href="../" style="text-decoration: none; color: black;"> EVENT </a></li>
         </ul>
      </span>
     </span>
-                 
           <div id="outer">  <!-- 검색창 -->
             <input type="text" id="search" name="search">
-            <img src="../resources/simg/ss.png" width="15px" valign="middle" style="float: right;">          
+            <img src="../resources/simg/ss.png" width="16px" valign="middle" style="float: right;">          
           </div>
-          
           </div>
           </nav>
   <decorator:body/>
@@ -462,10 +454,12 @@ SAT, SUN, <span style="color: red;"> HOLIDAY CLOSED </span> <p>
 
 <div id="foot3" style="float: right; width: 33%; padding:10px; margin-top: 15px; text-align: right: ;"> <!-- 2 -->
 <div style="font-size: 12px;">
-<span style="font-weight: bold;font-size: 12px; color: black;">HOME</span> 상호명 EZEN 대표자 김효정 대표전화 010-4406-7777 <p>
-<span style="font-weight: bold;font-size: 12px; color: black;">COMPANY</span> 개인정보관리책임자 김효정(clwm16@naver.com) <p>
-<span style="font-weight: bold;font-size: 12px; color: black;">AGREEMENT</span> 통신판매업신고 2018-경기도청-7770 <p>
-<u><span style="font-weight: bold;font-size: 12px; color: black;">PRIVACY</span></u> 사업자등록번호722-00-7777 [사업자정보확인] <p>
+<span style="font-weight: bold; font-size: 12px; color: black;">HOME</span> 상호명 EZEN 대표자 김효정 대표전화 010-4406-7777 <p>
+<span style="font-weight: bold; font-size: 12px; color: black;">COMPANY</span> 개인정보관리책임자 김효정(clwm16@naver.com) <p>
+<span style="font-weight: bold; font-size: 12px; color: black;">AGREEMENT</span> 통신판매업신고 2018-경기도청-7770 <p>
+<u>
+<span style="font-weight: bold; font-size: 12px; color: black;">PRIVACY</span></u>
+ 사업자등록번호722-00-7777 [사업자정보확인] <p>
 </div>  
 </div>
  </footer>

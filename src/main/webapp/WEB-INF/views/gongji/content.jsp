@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
 	section {
 		width: 1000px;
 		height: auto;
@@ -22,6 +22,7 @@
 		display: inline-block;
 		width: auto;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+		font-family: 'Lora', serif;
 	}
 	
 	table {
@@ -72,7 +73,7 @@
 </head>
 <body>
 <section>
-	<h2 align="center"> <span id="gongji"> 공 지 사 항 </span> </h2>
+	<h2 align="center"> <span id="gongji"> NOTICE </span> </h2>
 	<table align="center">
 		<tr>
 			<td> <b> ${avo.title} </b> </td>
@@ -86,15 +87,15 @@
 			<td align="center"> ${avo.content} </td>
 		</tr>
 		
-		<c:if test="${nvo.preid != null }">
+		<c:if test="${nvo.nextid != null }">
 		<tr>
-			<td> 이전글 △  <a href="content?id=${nvo.preid}"> ${nvo.pretitle} </a> </td>
+			<td> 이전글 △  <a href="content?id=${nvo.nextid}"> ${nvo.nexttitle} </a> </td>
 		</tr>
 		</c:if>
 		
-		<c:if test="${nvo.nextid != null }">
+		<c:if test="${nvo.preid != null }">
 		<tr>
-			<td> 다음글 ▽  <a href="content?id=${nvo.nextid}"> ${nvo.nexttitle} </a>  </td>
+			<td> 다음글 ▽  <a href="content?id=${nvo.preid}"> ${nvo.pretitle} </a>  </td>
 		</tr>
 		</c:if>
 		

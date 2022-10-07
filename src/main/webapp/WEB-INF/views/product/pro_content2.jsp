@@ -16,6 +16,7 @@ section {
    text-align: center;
    padding-top: 200px;/* 폼 자체 조정 */
 }
+
 section #ar1 { /* 이미지 및 상품 설명 */
   width:1200px;
   height:700px;
@@ -43,10 +44,6 @@ section #ar1 #gumae_content
  display: none; 
 width:400px;
 
-}
-section #ar1 #gumae_content_r
-{
-line-height: 45px;
 }
 section #ar2{ /* 상세페이지 */
   width:1200px;
@@ -390,7 +387,7 @@ function inquiry_chk(iq)
 <!-- 우측  -->
    <div id="content" style="width:500px; height:500px; float:right; margin-left:15px; text-align:left;">
       <div id="title" style="font-weight: bold;">${pvo.title}</div> <br>
-      <div id="gumae_content_r">
+      
       <c:if test="${pvo.halin == 0 }"> <!-- 할인 안하는 상품 -->
         
          <div>
@@ -398,8 +395,8 @@ function inquiry_chk(iq)
       </c:if>
 
       <c:if test="${pvo.halin !=0 }"> <!--할인 하는 상품 -->
-         <div>PRICE:&nbsp;&nbsp;&nbsp;&nbsp;<s><fmt:formatNumber value="${pvo.price}"/></s><b><span style="color:#C72F7A;margin-left:10px;">${pvo.halin}%</span></b></div>
-         <div>HALIN:&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)}" />원</div>
+         <div>판매가:&nbsp;&nbsp;&nbsp;&nbsp;<s><fmt:formatNumber value="${pvo.price}"/></s><span>${pvo.halin}</span>%</div>
+         <div>할인가:&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)}" />원</div>
       </c:if>
   <span> SIZE &nbsp;&nbsp;&nbsp;</span>
       <select id="size" name="size" onchange="check()">
@@ -418,13 +415,13 @@ function inquiry_chk(iq)
       </select>
       <br>
                <div id="gumae">
-                  <span class="gumae_m" style="text-align:left">SIZE</span>
-                  <span class="gumae_m">COLOR</span>
-                  <span class="gumae_m">PRICE </span>
+                  <span class="gumae_m" style="text-align:left">사이즈</span>
+                  <span class="gumae_m">색 상</span>
+                  <span class="gumae_m">판매가 </span>
                   <c:if test="${pvo.halin != 0}">   <!-- 할인 있는 경우 추가 -->
-                  <span class="gumae_m">HALIN</span>
+                  <span class="gumae_m">할 인</span>
                   </c:if>
-                   <span class="gumae_m">QUANTITY</span>
+                   <span class="gumae_m">수 량</span>
                </div>
                   
                <div id="gumae_content">
@@ -439,7 +436,6 @@ function inquiry_chk(iq)
                <hr>
                 <div>최종 금액
                <span id="gumae_chong"></span>
-            </div>
             </div>
                                                 <!-- 찜 -->
 
@@ -496,7 +492,7 @@ function inquiry_chk(iq)
                <table id="review_tb" width="950" align="center">
                 <tr style="background:rgba(164, 48, 35, 0.1);color:black;">
                  <td>아이디</td>
-                 <td>한줄평</td>
+                 <td>내 용</td>
                  <td>작성일</td>
                 </tr>
             <c:forEach items="${rlist}" var="rvo">
@@ -507,7 +503,24 @@ function inquiry_chk(iq)
                </tr>
             </c:forEach>
               </table>
+            <p>
+              <form method="post" action="pro_review_write_ok" onsubmit="return review_chk(this)">
+                <input type="hidden" name="pcode" value="${pvo.pcode}">
+                  <table width="950" align="center">
+               <tr>
+               	  <td>상품명</td>
+                  <td><input type="text" name="title" size="98" value="${pvo.title}" readonly></td>
+               </tr>
+               <tr>
+               	  <td>상품평</td>
+                  <td><textarea class="cont" rows="6" cols="100" name="content"></textarea></td>
+               </tr>
+                <tr>
+              		 <td colspan="2"><input type="submit" value="등록하기" style="width:200px;height:46px;background: #CCA39B;color:white;border: none;margin-top: 20px;"></td>
+            	</tr>
+            	</table>
 
+              </form>
 </article>
 
 <article id="ar4">
@@ -542,7 +555,7 @@ function inquiry_chk(iq)
                	</tr>
                	  </c:if>
             </c:forEach>
-           
+          
             
              
              <c:forEach items="${ilist}" var="ivo">
