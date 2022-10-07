@@ -115,13 +115,11 @@ $(document).ready(function(){
 				<td><a href="pro_readnum?pcode=${pvo.pcode }">
 				<div id="pimg"><img src="../resources/img/${pvo.pimg}" width="300" height="350" onmouseover="content()" class="my_img"></div>
 				<div id="title">${pvo.title }</div>
+				
 				<div id="price">
 				 <c:if test="${pvo.halin ==0 }">   <!-- 할인 0인 경우 -->
-<<<<<<< HEAD
-				 PRICE:<fmt:formatNumber value="${pvo.price}"/><br><br>
-=======
-				  <fmt:formatNumber value="${pvo.price}"/>원
->>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
+			
+				 PRICE:<fmt:formatNumber value="${pvo.price}"/>원<br><br>
 				 </c:if>
 				 <c:if test="${pvo.halin != 0 }">   <!-- 할인 0이 아닌 경우 -->
 				 PRICE:<s><fmt:formatNumber value="${pvo.price}"/>원</s><b><span style="color:#C72F7A;margin-left:3px;">${pvo.halin}%</span>
