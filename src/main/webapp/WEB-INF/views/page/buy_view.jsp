@@ -15,21 +15,28 @@
    <c:set var="he" value="${(size-3)*100+800}"/>
  </c:if>
  <style>
- 
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
+  
  section {
-     width:1200px;
-     height:${he}px;
-     margin-top:200px;
-     margin-bottom:50px;
-     margin-right:auto;
-     margin-left:auto;
+	width: 1000px;
+	height: auto;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding-top: 120px;
    }
-   
-   	section tr:first-child td {
+
+	section tr:first-child td {
      border-top:2px solid #cccccc;
      border-bottom:1px solid #cccccc;
      height:35px;
+     background: rgba(164, 48, 35, 0.1);
+     font-weight: bolder;
     
+   }
+   section tr td {
+     border-bottom:1px solid #cccccc;
+     padding: 10px;
    }
    
    section tr:last-child td {
