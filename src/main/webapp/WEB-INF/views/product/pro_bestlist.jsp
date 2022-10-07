@@ -10,7 +10,7 @@
 <style>
 	section {
 		width: 1200px;
-		height: 100%;
+		height: auto;
 	  	margin:auto;
 	   	text-align: center;
 	   	padding-top:150px;/* 폼 자체 조정 */
