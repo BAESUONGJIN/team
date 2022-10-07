@@ -2,7 +2,6 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybats-3-mapper.dtd">
-  
   <mapper namespace="kr.co.team.mapper.MypageMapper">
     
     <select id="myinfo" resultType="kr.co.team.vo.MemberVO">
