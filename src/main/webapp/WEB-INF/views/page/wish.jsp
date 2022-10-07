@@ -54,6 +54,7 @@
       font-size: 15px;
    }
    
+<<<<<<< HEAD
     section #buy {
       width:180px;
       height:35px;
@@ -73,6 +74,23 @@
    }    
    
    
+=======
+         /* 퀵 메뉴 */
+    div, ul, li {
+    -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0
+    }
+    a {
+    text-decoration:none;
+    color:black;
+    }
+
+	.quickmenu {position:absolute;width:100px; height:300px;  top:50%;margin-top:-20px;right:10px; }
+	.quickmenu ul {position:relative;float:left;width:100%; /* display:block; display:none; */ /* border:1px solid #ddd; */}
+	.quickmenu ul li {float:left;width:100%;/* border-bottom:1px solid #ddd; */text-align:center;display:inline-block;}
+	.quickmenu ul li a {position:relative;float:left;width:100%;height:20px;line-height:20px;/* text-align:center; */color:#999;font-size:7pt;}
+	.quickmenu ul li a:hover {color:#BDBDBD;}
+	.quickmenu ul li:last-child {border-bottom:0;}
+>>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
    
  </style>
  <script>
@@ -154,13 +172,35 @@
 	   location="move_cart?pcode="+pcode+"&su="+su+"&size="+size+"&color="+color;
    }
    
+   /* 퀵메뉴 */
+   $(document).ready(function(){
+ 	  var currentPosition = parseInt($(".quickmenu").css("top"));
+ 	  $(window).scroll(function() {
+ 	    var position = $(window).scrollTop(); 
+ 	    $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
+ 	  });
+ 	}); 
  </script>
 </head>
-<body> <!-- wish.jsp -->
-   
+<body> 
+    <!-- 퀵 메뉴  -->
+ <div class="quickmenu">
+  <ul>
+    <li> <i class="fa-solid fa-angles-up" style="cursor: pointer; color: #616161;" onclick="window.scrollTo(0,0);"> </i></li><br> <br>
+    <li> <a href="../page/cart"> <i class="fa-solid fa-cart-shopping fa-3x" style="color: #616161;"></i></a></li> <br> <br>
+    <li> <a href="../page/wish"> <i class="fa-regular fa-heart fa-3x" style="color: #616161;"></i> </a></li> <br> <br>
+    <li> <a href="../faq/faq_list"><i class="fa-regular fa-face-smile fa-3x" style="color: #616161;"></i></a> </li> <br> <br>
+
+  </ul>
+ </div>
    <section>
+<<<<<<< HEAD
      <table width="1000" align="center">
      <caption style="caption-side:top"> <h2 align="center"> <span id="hh2"> WISH LIST </span> </h2> </caption>
+=======
+      <table width="1200" align="center">
+     <caption style="caption-side:top"> <h3 style="font-family: 'Lora', serif;">Wish List</h3> </caption>
+>>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
        <tr align="center">
          <td> <input type="checkbox" onclick="maincheck(this.checked)" style="width:15px;height:15px;" id="mainchk"> </td>
          <td> 상품이미지 </td>
@@ -177,8 +217,8 @@
        <input type="hidden" class="su" value="${wvo.su}">
        <tr align="center">
          <td> <input type="checkbox" class="subchk" onclick="subcheck()" value="${wvo.id}"> </td>
-         <td> <img src="../resources/img/${wvo.pimg}"  width="70" height="70" style="border:1px solid #cccccc;padding:5px;"> </td>
-         <td> ${wvo.title} </td>
+         <td> <a href="../product/pro_content?pcode=${wvo.pcode}"> <img src="../resources/img/${wvo.pimg}"  width="70" height="70" style="border:1px solid #cccccc;padding:5px;"></a> </td>
+         <td> <a href="../product/pro_content?pcode=${wvo.pcode}">${wvo.title}</a> </td>
          <td> <fmt:formatNumber value="${wvo.price}"/>원 </td>
          <td> ${wvo.writeday} </td>
          <td> <input type="button" id="del1" value="X" onclick="location='wish_del?id=${wvo.id}'"> </td>

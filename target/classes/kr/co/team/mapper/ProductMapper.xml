@@ -94,12 +94,36 @@
 	
 	
 	<!-- new상품 -->
-	<select id="pro_newlist" resultType="kr.co.team.vo.ProductVO">
-		select * from product order by id desc limit 100
+	<delete id="pro_new_del">
+		delete from pro_new
+	</delete>
+	
+	<insert id="pro_new_ok" parameterType="kr.co.team.vo.PronewVO">
+		insert into pro_new select * from product order by id desc limit 100
+	</insert>
+	
+	<select id="pro_newlist" resultType="kr.co.team.vo.PronewVO">
+		select * from pro_new order by id desc, title asc limit #{param1}, #{param2}
 	</select>
 	
 	<select id="newlist_getchong" resultType="Integer"> <!--총 페이지수 구하기 -->
-		select ceil(count(*)/#{param1}) from product
+		select ceil(count(*)/#{param1}) from pro_new
 	</select>
 	
+	<!-- best상품 -->
+	<delete id="pro_best_del">
+		delete from pro_best
+	</delete>
+	
+	<insert id="pro_best_ok" parameterType="kr.co.team.vo.ProbestVO">
+		insert into pro_best select * from product order by readnum desc limit 100
+	</insert>
+	
+	<select id="pro_bestlist" resultType="kr.co.team.vo.ProbestVO">
+		select * from pro_best order by readnum desc, title asc limit #{param1}, #{param2}
+	</select>
+	
+	<select id="bestlist_getchong" resultType="Integer"> <!--총 페이지수 구하기 -->
+		select ceil(count(*)/#{param1}) from pro_best
+	</select>
 </mapper>

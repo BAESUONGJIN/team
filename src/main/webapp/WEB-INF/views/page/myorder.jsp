@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <style>
+<<<<<<< HEAD
  @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
  section {
 	width: 1000px;
@@ -15,6 +16,15 @@
 	margin-top: 40px;
 	margin-bottom: 40px;
 	padding-top: 120px;
+=======
+   section {
+     width:1200px;
+     height:auto;
+     margin-top:200px;
+     margin-bottom:50px;
+     margin-right:auto;
+     margin-left:auto;
+>>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
    }
 
 	section tr:first-child td {
@@ -62,10 +72,49 @@
 		color: black;
 	}
  
+       /* 퀵 메뉴 */
+    div, ul, li {
+    -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0
+    }
+    a {
+    text-decoration:none;
+    color:black;
+    }
+
+	.quickmenu {position:absolute;width:100px; height:300px;  top:50%;margin-top:-20px;right:10px; }
+	.quickmenu ul {position:relative;float:left;width:100%; /* display:block; display:none; */ /* border:1px solid #ddd; */}
+	.quickmenu ul li {float:left;width:100%;/* border-bottom:1px solid #ddd; */text-align:center;display:inline-block;}
+	.quickmenu ul li a {position:relative;float:left;width:100%;height:20px;line-height:20px;/* text-align:center; */color:#999;font-size:7pt;}
+	.quickmenu ul li a:hover {color:#BDBDBD;}
+	.quickmenu ul li:last-child {border-bottom:0;}
+ 
  
  </style>
+ 
+ <script>
+ /* 퀵메뉴 */
+ $(document).ready(function(){
+	  var currentPosition = parseInt($(".quickmenu").css("top"));
+	  $(window).scroll(function() {
+	    var position = $(window).scrollTop(); 
+	    $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
+	  });
+	}); 
+ 
+ </script>
 </head>
-<body> <!-- myjumun.jsp -->
+<body> 
+ <!-- 퀵 메뉴  -->
+ <div class="quickmenu">
+  <ul>
+    <li> <i class="fa-solid fa-angles-up" style="cursor: pointer; color: #616161;" onclick="window.scrollTo(0,0);"> </i></li><br> <br>
+    <li> <a href="../page/cart"> <i class="fa-solid fa-cart-shopping fa-3x" style="color: #616161;"></i></a></li> <br> <br>
+    <li> <a href="../page/wish"> <i class="fa-regular fa-heart fa-3x" style="color: #616161;"></i> </a></li> <br> <br>
+    <li> <a href="../faq/faq_list"><i class="fa-regular fa-face-smile fa-3x" style="color: #616161;"></i></a> </li> <br> <br>
+
+  </ul>
+ </div>
+
   <section>
     <table width="1000" align="center" cellspacing="0">
      <caption style="caption-side:top"> 
@@ -87,8 +136,8 @@
      <c:forEach items="${list}" var="bvo">
       <tr align="center">
         <td> ${bvo.writeday} </td>
-        <td> <img src="../resources/img/${bvo.pimg}" width="70" height="70"> </td>
-        <td> ${bvo.title} </td>
+        <td> <a href="../product/pro_content?pcode=${bvo.pcode}"> <img src="../resources/img/${bvo.pimg}" width="70" height="70"></a> </td>
+        <td> <a href="../product/pro_content?pcode=${cvo.pcode}"> ${bvo.title}</a> </td>
         <td> ${bvo.color} </td>
         <td> ${bvo.size } </td>
         <td> ${bvo.su}개 </td>

@@ -30,6 +30,7 @@
      height:40px;
      margin-top:10px;
      margin-left:55px;
+     margin-bottom: 20px;
      position:absolute;
      bottom:94%; /* 위치 지정 */
      overflow:hidden; 
@@ -53,6 +54,7 @@
     
     header #right { /* 우측  */
        position:relative;
+       margin-bottom: 20px;
        font-size: 12px;
        display: inline;
        position: absolute;
@@ -78,14 +80,22 @@
        padding-left:0px;
        border:1px hsla(0, 0%, 84%, 0.3);
        background: white;
-       padding:5px;
+       padding:0px;
        display:none;
     }
+    
     header #myinfo li {
        list-style-type:none;
        width:110px;
        height:25px;
        text-align:center;
+    }
+    
+    #lix {
+    	
+    	background-color: rgba(164, 48, 35, 0.1);
+    	padding: 0px;
+    	margin:0px 0px 7px 0px;
     }
     
      #myinfo a {
@@ -334,7 +344,7 @@
         <span id="my" style="display:inline-block"> <a href="../"> MY PAGE ∨</a>
         <ul id="myinfo">
       <c:if test="${userid != 'admin123'}">
-      
+      <li id="lix" style="height:15px;"> </li>
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 회원정보 수정</a> </li>
       </c:if>
       <c:if test="${userid !=null }">
@@ -366,6 +376,7 @@
       </c:if>
           <!-- 관리자 전용  -->
         <c:if test="${userid == 'admin123'}">
+        	<li id="lix" style="height:15px;"> </li>
           <li style="font-weight: bold;"> 관리자 전용 </li>
           <li> <a href="../admin/buy_list"> 주문관련 </a> </li>
           <li> <a href="../product/pro_write"> 상품등록 </a> </li>
@@ -392,8 +403,8 @@
       <a href="../main/index"> <img src="../resources/simg/logo4.png" width="230" style="margin-top: 15px;"> </a>
     </div>
    <span id="navi"> 
-    <a style="color: red;"> BEST ITEM </a> &nbsp;
-    <a style="font-weight: bolder;"> NEW5% </a> &nbsp;
+    <a href="../product/pro_bestlist" style="color: red;"> BEST ITEM </a> &nbsp;
+    <a href="../product/pro_newlist" style="font-weight: bolder;"> NEW5% </a> &nbsp;
     <a href="../product/pro_list?dcode=p01"> OUTER </a> &nbsp;
     <a href="../product/pro_list?dcode=p02"> TOP </a> &nbsp;
     <a href="../product/pro_list?dcode=p03"> BOTTOM </a> &nbsp;

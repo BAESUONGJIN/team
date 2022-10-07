@@ -42,8 +42,8 @@
 	}
 	
 	   section tr td {
-     border-bottom:1px solid #cccccc;
-     padding: 10px;
+       border-bottom:1px solid #cccccc;
+       padding: 10px;
    }
                 
                 section #btn4 {

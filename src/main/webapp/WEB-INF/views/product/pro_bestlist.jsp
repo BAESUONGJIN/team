@@ -10,18 +10,12 @@
 <style>
 	section {
 		width: 1200px;
-		height: 100%;
+		height: auto;
 	  	margin:auto;
 	   	text-align: center;
 	   	padding-top:150px;/* 폼 자체 조정 */
 	}
 	
-	#title {
-		width: 350px;
-		height: 50px;
-		padding-left: 50px;
-		margin-top: 10px;
-	}
 	div{
 		margin-left: 20px;
 	}
@@ -82,13 +76,14 @@ $(document).ready(function(){
 				<div id="title">${pvo.title }</div>
 				<div id="price">
 				 <c:if test="${pvo.halin ==0 }">   <!-- 할인 0인 경우 -->
-				  <fmt:formatNumber value="${pvo.price}"/>원<br><br>
+				  <fmt:formatNumber value="${pvo.price}"/>원
 				 </c:if>
 				 <c:if test="${pvo.halin != 0 }">   <!-- 할인 0이 아닌 경우 -->
 				  <s><fmt:formatNumber value="${pvo.price}"/>원<br></s>
 				  <b><fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)+pvo.baesong}"/>원</b>
 				 </c:if>
 				</div></a>
+				<div><a>찜</a></div>
 				</td>
 				<c:set var="i" value="${i+1 }"/>
 				<c:if test="${i%3==0 }">  <!-- 3칸 후 다음줄로 이동 -->
@@ -103,7 +98,7 @@ $(document).ready(function(){
 		 <td colspan="3" align="center">
 		  <!-- 10페이지 이전으로 이동 -->
 		 <c:if test="${startpage !=1 }"> <!--첫번째 그룹이 아닐때  -->
-		   <a href="pro_newlist?page=${startpage-1}&pcnt=${pcnt}">◁◁</a>
+		   <a href="pro_bestlist?page=${startpage-1}&pcnt=${pcnt}">◁◁</a>
 		 </c:if>
 		 <c:if test="${startpage ==1 }"> <!-- 첫번째 그룹일때 (1~10)는 이전 10페이지 이동 불가  -->
 		   ◁◁
@@ -111,7 +106,7 @@ $(document).ready(function(){
 		 
 		 <!-- 1페이지 단위로 이전으로 가기 -->
 		 <c:if test="${page != 1 }"> <!-- 현재페이지가 1이 아닌경우 -->
-		   <a href="pro_newlist?page=${page-1}&pcnt=${pcnt}">◁</a>
+		   <a href="pro_bestlist?page=${page-1}&pcnt=${pcnt}">◁</a>
 		 </c:if>
 		 <c:if test="${page == 1 }">  <!-- 현재페이지가 1인경우 -->
 		  ◁
@@ -119,13 +114,13 @@ $(document).ready(function(){
 		 
 		  <!--페이지 출력-->
 		 <c:forEach begin="${startpage}" end="${endpage }" var="i">
-		 <a href="pro_newlist?page=${i}&pcnt=${pcnt}">${i}</a>
+		 <a href="pro_bestlist?page=${i}&pcnt=${pcnt}">${i}</a>
 		 </c:forEach>
 		
 		
 		<!-- 1페이지씩 다음으로 이동하기 -->
 		<c:if test="${page != chongpage }"> <!-- 현재페이지가 마지막이 아니라면-->		
-		  <a href="pro_newlist?page=${page+1}&pcnt=${pcnt}">▷</a>
+		  <a href="pro_bestlist?page=${page+1}&pcnt=${pcnt}">▷</a>
 		</c:if>
 		<c:if test="${page == chongpage }"> <!-- 현재페이지가 마지막이라면  -->
 		▷
@@ -133,7 +128,7 @@ $(document).ready(function(){
 		
 		<!-- 10페이지씩 다음으로 이동하기  -->
 		<c:if test="${chongpage != endpage }">   <!-- 출력되는 페이지가 마지막 그룹이 아니라면 -->
-		  <a href="pro_newlist?page=${endpage+1}&pcnt=${pcnt}">▷▷</a>
+		  <a href="pro_bestlist?page=${endpage+1}&pcnt=${pcnt}">▷▷</a>
 		</c:if>
 		<c:if test="${chongpage == endpage }"> <!-- 출력되는 페이지가 마지막 그룹이라면 -->
 		▷▷
