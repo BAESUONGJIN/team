@@ -7,7 +7,7 @@
 
    section {
      width:1000px;
-     height:600px;
+     height:700px;
      margin:auto;
      text-align:center;
      padding-top: 120px;/* 폼 자체 조정 */
@@ -66,9 +66,8 @@
      </div>
      <div> <input type="submit" value="기존 회원 로그인" style="font-weight: bold;"> </div>
      <div> <span> <a href="../login/search_id" style="text-decoration: none; color: black"> 아이디 찾기</a> | </span> <span> <a href="../login/search_pwd"style="text-decoration: none; color: black"> 비밀번호 찾기</a> </span> <a href="../member/memberinput" style="text-decoration: none; color: black"> 가입하기 </a></div>
- </form>
- 
-<!-- 카카오톡 API -->
+ </form> 
+<!-- 
  <hr>
  <form>
     <div class="modal_foot" style="text-align: right;">
@@ -80,6 +79,6 @@
   </div>
   </form>
   
-  
+   -->
   </section>
   </body>    

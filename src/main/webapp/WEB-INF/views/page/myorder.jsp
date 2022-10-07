@@ -6,16 +6,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
- <c:set var="size" value="${list.size()}"/>
- <c:if test="${size <=1}">
-   <c:set var="he" value="400"/>
- </c:if>
- <c:if test="${size > 1}">
-   <c:set var="he" value="${(size-1)*100+400}"/>
- </c:if>
-
  <style>
+<<<<<<< HEAD
+ @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
+ section {
+	width: 1000px;
+	height: auto;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding-top: 120px;
+=======
    section {
      width:1200px;
      height:auto;
@@ -23,16 +24,20 @@
      margin-bottom:50px;
      margin-right:auto;
      margin-left:auto;
+>>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
    }
 
 	section tr:first-child td {
      border-top:2px solid #cccccc;
      border-bottom:1px solid #cccccc;
      height:35px;
+     background: rgba(164, 48, 35, 0.1);
+     font-weight: bolder;
     
    }
    section tr td {
      border-bottom:1px solid #cccccc;
+     padding: 10px;
    }
    
    section tr:last-child td {
@@ -58,6 +63,14 @@
      background:rgba(164, 48, 35, 0.1);
      cursor:pointer;
    }
+   
+	h2 #hh2 {
+		margin-bottom: 30px;
+		display: inline-block;
+		font-family: 'Lora', serif;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+		color: black;
+	}
  
        /* 퀵 메뉴 */
     div, ul, li {
@@ -103,8 +116,10 @@
  </div>
 
   <section>
-    <table width="1200" align="center" cellspacing="0">
-      <caption style="caption-side:top"> <h3> 주 문 내 역</h3> </caption>
+    <table width="1000" align="center" cellspacing="0">
+     <caption style="caption-side:top"> 
+        <h2 align="center"> <span id="hh2"> My Order </span> </h2> 
+     </caption>
       <tr align="center">
         <td> 주문 일자 </td>
         <td> 상품 </td>

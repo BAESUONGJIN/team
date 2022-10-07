@@ -73,7 +73,7 @@
 		where pcode=#{param1} and userid=#{param2}
 	</select>
 	
-	 <select id="answer_content" resultType="kr.co.team.vo.InquiryVO">
+	<select id="answer_content" resultType="kr.co.team.vo.InquiryVO">
 	select i.id, a.content as content1, a.writeday as writeday1, a.cid 
 	from inquiry as i, answer as a where i.id=a.cid;
 	</select> 
