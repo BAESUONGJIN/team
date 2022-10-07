@@ -54,7 +54,6 @@
       font-size: 15px;
    }
    
-<<<<<<< HEAD
     section #buy {
       width:180px;
       height:35px;
@@ -73,8 +72,6 @@
 	 color: black;
    }    
    
-   
-=======
          /* 퀵 메뉴 */
     div, ul, li {
     -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0
@@ -90,7 +87,6 @@
 	.quickmenu ul li a {position:relative;float:left;width:100%;height:20px;line-height:20px;/* text-align:center; */color:#999;font-size:7pt;}
 	.quickmenu ul li a:hover {color:#BDBDBD;}
 	.quickmenu ul li:last-child {border-bottom:0;}
->>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
    
  </style>
  <script>
@@ -194,13 +190,8 @@
   </ul>
  </div>
    <section>
-<<<<<<< HEAD
      <table width="1000" align="center">
      <caption style="caption-side:top"> <h2 align="center"> <span id="hh2"> WISH LIST </span> </h2> </caption>
-=======
-      <table width="1200" align="center">
-     <caption style="caption-side:top"> <h3 style="font-family: 'Lora', serif;">Wish List</h3> </caption>
->>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
        <tr align="center">
          <td> <input type="checkbox" onclick="maincheck(this.checked)" style="width:15px;height:15px;" id="mainchk"> </td>
          <td> 상품이미지 </td>

@@ -62,7 +62,6 @@
       font-size: 15px;
    }
    
-<<<<<<< HEAD
     section #buy {
       width:180px;
       height:35px;
@@ -84,7 +83,6 @@
    
    
    }
-=======
       /* 퀵 메뉴 */
     div, ul, li {
     -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0
@@ -101,7 +99,6 @@
 	.quickmenu ul li a:hover {color:#BDBDBD;}
 	.quickmenu ul li:last-child {border-bottom:0;}
 
->>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
  </style>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> 

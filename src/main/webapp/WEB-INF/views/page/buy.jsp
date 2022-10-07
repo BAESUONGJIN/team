@@ -63,7 +63,6 @@
      border-radius: 8px;
    }
    
-<<<<<<< HEAD
    	h2 #hh2{
 		margin-bottom: 30px;
 		display: inline-block;
@@ -72,8 +71,6 @@
 		font-family: 'Lora', serif;
 		color: black;
 	}
- 
-=======
       
      /* 퀵 메뉴 */
     div, ul, li {
@@ -90,7 +87,6 @@
 	.quickmenu ul li a {position:relative;float:left;width:100%;height:20px;line-height:20px;/* text-align:center; */color:#999;font-size:7pt;}
 	.quickmenu ul li a:hover {color:#BDBDBD;}
 	.quickmenu ul li:last-child {border-bottom:0;}
->>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
  </style>
 <script>
   function bae_add() //배송지 추가!!@
@@ -155,7 +151,6 @@
 	  });
 	}); 
  </script>
-<title>Insert title here</title>
 
 </head>
 <body> 
@@ -178,13 +173,8 @@
    <div align="center"> <h2> <span id="hh2"> ORDER </span> </h2> </div>
    
    <!-- 구매자 -->
-<<<<<<< HEAD
    <table width="1000" align="center">
     <caption style="caption-side:top"> <h4> 주문정보  </h4> </caption>
-=======
-   <table width="1100" align="center">
-    <caption style="caption-side:top"> <h4> 구매자 </h4> </caption>
->>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
     <tr>
       <td width="150"> 이름 </td>
       <td> ${mvo.name} </td>
@@ -201,7 +191,7 @@
     <p>
   
   <!-- 배송지 -->
-  <table width="1100" align="center" id="baesong_t">
+  <table width="1000" align="center" id="baesong_t">
    <caption style="caption-side:top"> <h4> 배송지  
      <c:if test="${empty bvo}">
       <span class="bb" onclick="bae_add()" id="user"> 기본배송지 </span>
@@ -245,7 +235,7 @@
   <p>
   
   <!-- 상품 -->
-   <table width="1100" align="center">
+   <table width="1000" align="center">
     <caption style="caption-side:top"> <h4> 상품내역 </h4></caption>
       <tr align="center">
        <td> 상품 </td>
@@ -318,7 +308,7 @@
 
   
   <!-- 결제 -->
-  <table width="1100" align="center">
+  <table width="1000" align="center">
     <caption style="caption-side:top"> <h4> 구매금액 </h4> </caption>
     <tr>
       <td width="150"> 구매금액 </td>
@@ -346,7 +336,7 @@
    <p>
    
     
-   <table width="1100" align="center" id=gumae_chk>
+   <table width="1000" align="center" id=gumae_chk>
      <caption style="caption-side:top"> <h4> 결제방법 </h4> </caption>
     <tr>
       

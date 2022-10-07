@@ -7,7 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <style>
-<<<<<<< HEAD
  @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
  section {
 	width: 1000px;
@@ -16,16 +15,7 @@
 	margin-top: 40px;
 	margin-bottom: 40px;
 	padding-top: 120px;
-=======
-   section {
-     width:1200px;
-     height:auto;
-     margin-top:200px;
-     margin-bottom:50px;
-     margin-right:auto;
-     margin-left:auto;
->>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
-   }
+}
 
 	section tr:first-child td {
      border-top:2px solid #cccccc;
