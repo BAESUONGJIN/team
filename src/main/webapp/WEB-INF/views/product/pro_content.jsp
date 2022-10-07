@@ -296,7 +296,7 @@ function inquiry_chk(iq)
        				if(chk.responseText=="0")
        				{	
        					alert("찜목록 추가");
-       					document.getElementById("sss").src = "../resources/simg/heart2.png";
+       					
        				}
        					
        				else
@@ -306,7 +306,7 @@ function inquiry_chk(iq)
    			 	chk.open("get","wish_add?pcode=${pvo.pcode}&su="+su+"&color="+color+"&size="+size);
    	        	chk.send();
    	        	
-   	        	
+   	        	window.location.reload();
    	        	
        	         }
    			
@@ -347,7 +347,7 @@ function inquiry_chk(iq)
    	        	chk.send();
    	        	
    	        	
-       	         }
+       	        }
    			
    			 
    			else 
