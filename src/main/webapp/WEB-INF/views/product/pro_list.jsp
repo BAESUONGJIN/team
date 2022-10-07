@@ -32,6 +32,11 @@ from{top:0px;}
 to {top 0px; color:red;}
 }
 
+section #price
+{
+text-align: left;
+margin-left: 100px;
+}
 
 div{
 margin-left: 20px;
