@@ -125,6 +125,6 @@
     <div> <input type="text" name="email" placeholder="이메일" value="${mvo.email}"> </div><p>
     <div> <input type="submit" value="회원정보 수정" id="btn2"> </div>
    </form> 
-    <div> <input type="submit" value="회원 탈퇴 " id="btntt"> </div> <!-- 회원탈퇴  -->
+    <div> <input type="button" value="회원 탈퇴 " id="btntt" onclick="location='mem_del?userid=${mvo.userid}'"> </div> <!-- 회원탈퇴  -->
  </section>
 </body>
