@@ -11,24 +11,25 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
 /* 검색창 만들기 끝 */
-#image {
-    width: 100%;
-    height: 500px;
-    background: white;
-    margin-top: 105px;
-}
-
-#image #outer {
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    z-index: 8;
-}
-
-#image #inner {
-    width: 100%;
-    height: 500px;
-}
+#main2 {
+		width: 2000px;
+		height: 600px;
+		margin-left: 0px;
+		overflow: hidden;
+	}
+	
+	#main2 #sub {
+		width: 10050px;
+		height: 600px;
+		padding-left: 0px;
+		margin-top: 0px;
+		
+	}
+		
+	#main2 #sub li {
+		list-style-type: none;
+		display: inline-block;
+	}
 
 section {
     /* section 기본  */
@@ -181,35 +182,35 @@ a {
 </style>
 
 <script>
-  $(function()
-  {
-	  // 슬라이드 그림 움직이기
-	  function mainmove()
-	  {
-	    ss=setInterval(function()
-	    {
-	    	$("#image #inner").animate(
- 		    {
- 		    	marginLeft:"-1600px"
- 		    },2000,function()
- 		           {
- 		    	       $("#image #inner").css("margin-left","0px");
- 		    	       $("#image #inner img").eq(0).insertAfter($("#image #inner img").eq(4));
- 		           });
-	    },2000);
-	  }
-	  mainmove();
-	  
-	  $("#image #outer").mouseover(function()
-	  {
-		  clearInterval(ss);
-	  });
-	  $("#image #outer").mouseout(function()
-	  {
-		  mainmove();
-	  });
-  });
-  
+$(function()
+		  {
+			  // 슬라이드 그림 움직이기
+			  function mainmove()
+			  {
+			    ss=setInterval(function()
+			    {
+			    	$("#main2 #sub").animate(
+		 		    {
+		 		    	marginLeft:"-2000px"
+		 		    },4000,function()
+		 		           {
+		 		    	      
+		 		    	       $("#main2 #sub li").eq(0).insertAfter($("#main2 #sub li").eq(4));
+		 		    	      $("#main2 #sub").css("margin-left","0px");
+		 		           });
+			    },4000);
+			  }
+			  mainmove();
+			  
+			  $("#main2 #outer").mouseover(function()
+			  {
+				  clearInterval(ss);
+			  });
+			  $("#main2 #outer").mouseout(function()
+			  {
+				  mainmove();
+			  });
+		  });
   /* 퀵메뉴 */
   $(document).ready(function(){
 	  var currentPosition = parseInt($(".quickmenu").css("top"));
@@ -221,13 +222,16 @@ a {
   
 </script>  
 </head> 
-    <div id="image"><!-- 그림슬라이드홈 -->
-      <div id="outer">
-        <div id="inner">
-          <img src="../resources/main/pic6.png" width="100%" height="500"><img src="../resources/main/pic5.png" width="100%" height="500"><img src="../resources/main/pic4.png" width="100%" height="500"><img src="../resources/main/pic3.png" width="100%" height="500"><img src="../resources/main/pic2.png" width="100%" height="500">
-        </div>
-      </div>
-    </div> 
+    <div id="main2">
+		<ul id="sub">
+			<li><img src="../resources/main/pic6.png" width="2000px" height="600"></li>
+         	<li><img src="../resources/main/pic5.png" width="2000px" height="600"></li>
+          	<li><img src="../resources/main/pic4.png" width="2000px" height="600"></li>
+          	<li><img src="../resources/main/pic3.png" width="2000px" height="600"></li>
+          	<li><img src="../resources/main/pic2.png" width="2000px" height="600"></li>
+        
+		</ul>
+	</div>
  
     <section>           <!-- 현재페이지의 필요한 내용 -->  <!-- article는 section내의 하나의 항목 -->
     
@@ -259,7 +263,7 @@ a {
   <table align="center">
      		<tr>
 			<c:forEach items="${list}" var="pvo">
-				<td><a href="../product/pro_content?pcode=${pvo.pcode}">
+				<td><a href="../product/pro_readnum?pcode=${pvo.pcode}">
 				<div id="pimg"><img src="../resources/img/${pvo.pimg}" width="350" height="400" class="my_img"></div>
 				<div id="title" style="font-weight: bold; ">${pvo.title }</div>
 				<div id="price">
@@ -287,7 +291,7 @@ a {
   <table align="center">
      		<tr>
 			<c:forEach items="${list2}" var="pvo">
-				<td><a href="../product/pro_content?pcode=${pvo.pcode}">
+				<td><a href="../product/pro_readnum?pcode=${pvo.pcode}">
 				<div id="pimg"><img src="../resources/img/${pvo.pimg}" width="350" height="400" class="my_img" style="text-align: center;"></div>
 				<div id="title">${pvo.title }</div>
 				<div id="price">

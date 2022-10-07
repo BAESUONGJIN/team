@@ -30,7 +30,7 @@
      height:40px;
      margin-top:0px;
      margin-left:55px;
-     margin-bottom: 20px;
+     margin-bottom: 15px;
      position:absolute;
      bottom:94%; /* 위치 지정 */
      overflow:hidden; 
@@ -54,7 +54,7 @@
     
     header #right { /* 우측  */
        position:relative;
-       margin-bottom: 20px;
+       margin-bottom: 15px;
        font-size: 12px;
        display: inline;
        position: absolute;
@@ -353,7 +353,7 @@
         <span id="my" style="display:inline-block"> <a href="../"> MY PAGE ∨</a>
         <ul id="myinfo">
       <c:if test="${userid != 'admin123'}">
-      <li id="lix" style="height:15px;"> </li>
+      <li id="lix" style="height:16px;"> </li>
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 회원정보 수정</a> </li>
       </c:if>
       <c:if test="${userid !=null }">
@@ -385,7 +385,7 @@
       </c:if>
           <!-- 관리자 전용  -->
         <c:if test="${userid == 'admin123'}">
-        	<li id="lix" style="height:15px;"> </li>
+        	<li id="lix" style="height:16px;"> </li>
           <li style="font-weight: bold;"> 관리자 전용 </li>
           <li> <a href="../admin/buy_list"> 주문관련 </a> </li>
           <li> <a href="../product/pro_write"> 상품등록 </a> </li>
