@@ -405,11 +405,23 @@ function inquiry_chk(iq)
    				alert("사이즈 및 색상을 선택해주세요.");
    				return false;
    				}
-   		}
-   	
-   	
+ 	  	}
    	}
    
+   function buyit()
+   {
+	    var su=document.buy.su.value;
+  		var color=document.buy.color.value;
+  		var size=document.buy.size.value;
+  		
+  		if(document.buy.color.value ==0 && document.buy.size.value == 0)
+			{
+  			alert("사이즈 및 색상을 선택해주세요.");
+			return false;
+	        }
+
+	   
+   }
      
      /* 퀵메뉴 */
      $(document).ready(function(){
@@ -425,7 +437,7 @@ function inquiry_chk(iq)
 
 <body>
    <section>
-   <form name="buy" method="post" action="../page/buy">
+   <form name="buy" method="post" action="../page/buy" onsubmit="return buyit()">
     <input type="hidden" name="pcode" value="${pvo.pcode}">
    <input type="hidden" name="gchk" value="0"> <!-- 콘텐츠에서 구매로가는지 카트에서 구매로가는지 -->
  <!-- 퀵 메뉴  -->
@@ -507,21 +519,25 @@ function inquiry_chk(iq)
               <b><span id="gumae_chong"></span></b> 
             </div>
             </div>
+        
+        
+         <!-- 즉시구매 -->
         <div>
-         <!-- 즉구 -->
         <input type="submit" value="BUY IT NOW" style="width:350px;height:46px;background: #CCA39B;color:white;border: none;">
+        
+        
                                                 <!-- 찜 -->
 	    <c:if test="${userid != null}"> 
 	     <c:if test="${wishcnt == 0}">
           <span class="btn" onclick="wish_add()" style="margin-left:15px;"><img src="../resources/simg/heart.png" width="30" height="30" id="sss"> </span>
          </c:if>
          <c:if test="${wishcnt == 1}">
-          <span class="btn" onclick="location='wish_cancel?pcode=${pvo.pcode}'"> <img src="../resources/simg/heart2.png" width="30" height="30"> </span>
+          <span class="btn" onclick="location='wish_cancel?pcode=${pvo.pcode}'" style="margin-left:15px;"> <img src="../resources/simg/heart2.png" width="30" height="30"> </span>
          </c:if>
         </c:if>
                 
         <c:if test="${userid == null}"> 
-          <span class="btn" onclick="alert('로그인 하세요')"> <img src="../resources/simg/heart.png" width="30" height="30"> </span> 
+          <span class="btn" onclick="alert('로그인 하세요')" style="margin-left:15px;"> <img src="../resources/simg/heart.png" width="30" height="30"> </span> 
         </c:if>  
 
       <!-- 찜 -->
