@@ -28,7 +28,7 @@
    header #main {
      width:200px;
      height:40px;
-     margin-top:0px;
+     margin-top:10px;
      margin-left:55px;
      position:absolute;
      bottom:94%; /* 위치 지정 */
@@ -123,6 +123,7 @@
        top:50px;
        color: black;
        font-size: 13px;
+       word-spacing: 1px;
        /*position: fixed;  고정 */
     }
     
@@ -173,17 +174,6 @@
     outline:none;
     background: #f0f0f0;
     }
-      
-   
-    /*footer {
-       width:100%;
-       height:200px;
-       background:#D941C5;
-       margin:auto;
-       position : relative;
-       transform : translateY(-100%);
-    }*/
-    
    
     /* 말풍선 */
     .wrap {
@@ -196,31 +186,32 @@
     .chatbox {animation: motion 0.3s linear 0s infinite alternate; margin-top: 0;
    -webkit-animation: motion 0.3s linear 0s infinite alternate; margin-top: 0;
 
-}
+    }
         
     @keyframes motion {
    0% {margin-top: 0px;}
    100% {margin-top: 10px;}
-}
+   }
 
    -webkit-@keyframes motion {
    0% {margin-top: 0px;}
    100% {margin-top: 10px;}
-}
-    footer {
+   }
+   
+   footer {
        width:100%;
        height: 200px;
        border: 1px solid rgb(240, 240, 240);
        background: rgba(164, 48, 35, 0.1);
        margin-top: 20px;
-       
     }
-
+    
 	.second2 {
 		position: fixed;
 		top: 0px;
 		background: #fbebea;
 	}
+	
   </style>
   
   <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -320,7 +311,7 @@
     <div id="main"> <!-- 좌측 쿼리 -->
      <ul id="inner">
        <li> <span style="font-weight: bolder; font-size:13px; color: rgba(182, 83, 48, 0.5);"> 01.&nbsp;  </span> 데님진 OPEN </li>
-       <li> <span style="font-weight: bolder; font-size:13px; color: rgba(182, 83, 48, 0.5);"> 02.&nbsp;  </span> 트랜치 코트 </li>
+       <li> <span style="font-weight: bolder; font-size:13px; color: rgba(182, 83, 48, 0.5);"> 02.&nbsp;  </span> 프릴 원피스 </li>
        <li> <span style="font-weight: bolder; font-size:13px; color: rgba(182, 83, 48, 0.5);"> 03.&nbsp;  </span> 가을 남방 </li>
      </ul>
    </div>
