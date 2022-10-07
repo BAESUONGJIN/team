@@ -80,7 +80,7 @@
 		</tr>
 		
 		<tr>
-			<td> ${avo.name} &nbsp | &nbsp ${avo.writeday} &nbsp | &nbsp ${avo.readnum} </td>
+			<td> ${avo.name} &nbsp; | &nbsp; ${avo.writeday} &nbsp; | &nbsp; ${avo.readnum} </td>
 		</tr>
 		
 		<tr>

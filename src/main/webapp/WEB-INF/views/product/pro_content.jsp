@@ -48,24 +48,47 @@ section #ar1 #gumae_content_r
 {
 line-height: 45px;
 }
+
+section #ar1 #hla
+{
+font-size:7px;
+display: inline-block;
+color:white;
+-webkit-animation:hh 1s infinite;
+margin-left: 10px;
+}
+
+@-webkit-keyframes hh
+{
+from{top:0px;}
+to {top 0px; color:red;}
+}
+
+
 section #ar2{ /* 상세페이지 */
   width:1200px;
   height: 100px;
-
-  
 }
+
+
 section #ar2 div
 {
-border: 1px solid black;
- background: rgba(164, 48, 35, 0.1);
+border-radius: 20px;
 display: inline-block;
 width:250px;
 height: 70px;
 text-align: center;
 padding-top: 20px;
 font-size: 20px;
-
+/*  background: linear-gradient(to top, #f6eae9 30%, transparent 80%);  */
+-webkit-animation:cc 1s	infinite;
 }
+
+@-webkit-keyframes cc {
+  from {top: 0px;}
+  to {top: 200px; background:linear-gradient(to top, #f6eae9 30%, transparent 80%);}
+}
+
 
 section #ar3{ /* 상품평 */
 margin-top: 20px;
@@ -140,13 +163,6 @@ display: none;
  transition: 0.5s;
 }
 .answer_chk:hover { text-shadow: 0 0 .2em, 0 0 .3em; }
-}
-.answer_nchk{
- color: red;
- text-decoration: none;
- transition: 0.5s;
-}
-.answer_nchk:hover { text-shadow: 0 0 .2em, 0 0 .3em; }
 }
 
 
@@ -389,7 +405,13 @@ function inquiry_chk(iq)
 
 <!-- 우측  -->
    <div id="content" style="width:500px; height:500px; float:right; margin-left:15px; text-align:left;">
-      <div id="title" style="font-weight: bold;">${pvo.title}</div> <br>
+      <c:if test="${pvo.halin != 0 }">
+      <div id="title" style="font-weight: bold;">${pvo.title}<span id="hla">세일행사</span></div> 
+      </c:if>
+      <c:if test="${pvo.halin ==0 }">
+       <div id="title" style="font-weight: bold;">${pvo.title}</div> 
+      </c:if>
+      <br>
       <div id="gumae_content_r">
       <c:if test="${pvo.halin == 0 }"> <!-- 할인 안하는 상품 -->
         
@@ -437,10 +459,17 @@ function inquiry_chk(iq)
                   <span id="gumae_su" class="gumae_m"> <input type="text" name="su" id="spinner" value="1" readonly size="1"></span>
                </div>
                <hr>
-                <div>최종 금액
-               <span id="gumae_chong"></span>
+                <div>총 상품금액
+              <b><span id="gumae_chong"></span></b> 
             </div>
             </div>
+            <style>
+            #gumae_chong{
+            margin-left: 180px;
+           	font-size: 17px;
+           	color: #C72F7A;
+            }
+            </style>
                                                 <!-- 찜 -->
 
       <div>
@@ -488,7 +517,6 @@ function inquiry_chk(iq)
                   <div><a href="#ar4" style="color:black;">상품문의</a></div>               
                   <div><a href="#ar5" style="color:black;">배송/교환/반품 안내</a></div>      
 </article>
-
             <div id="cimg"><img src="../resources/img/${pvo.cimg}" width="1000" height="1200"></div>  <!-- 상세페이지 이미지 -->
 <article id="ar3">       
           

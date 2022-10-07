@@ -16,6 +16,23 @@ section {
    padding-top:150px;/* 폼 자체 조정 */
 }
 
+section #hla
+{
+font-size:7px;
+font:bold;
+display: inline-block;
+color:white;
+-webkit-animation:hh 1s infinite;
+margin-left: 10px;
+}
+
+@-webkit-keyframes hh
+{
+from{top:0px;}
+to {top 0px; color:red;}
+}
+
+
 div{
 margin-left: 20px;
 }
@@ -73,9 +90,11 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+
+
 <section>
 <form method="post" action="pro_list">
-	<table width="1200" height="1300" align="center">
+	<table width="1200" height="1300">
 
 	 <!-- 퀵 메뉴  -->
  <div class="quickmenu">
@@ -98,14 +117,14 @@ $(document).ready(function(){
 				<div id="title">${pvo.title }</div>
 				<div id="price">
 				 <c:if test="${pvo.halin ==0 }">   <!-- 할인 0인 경우 -->
-				  <fmt:formatNumber value="${pvo.price}"/>
+				 PRICE:<fmt:formatNumber value="${pvo.price}"/><br><br>
 				 </c:if>
 				 <c:if test="${pvo.halin != 0 }">   <!-- 할인 0이 아닌 경우 -->
-				  <s><fmt:formatNumber value="${pvo.price}"/>원<br></s>
-				  <b><fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)+pvo.baesong}"/>원</b>
+				 PRICE:<s><fmt:formatNumber value="${pvo.price}"/>원</s><b><span style="color:#C72F7A;margin-left:3px;">${pvo.halin}%</span>
+				 </b><br>
+				 HALIN:<b><fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)+pvo.baesong}"/>원</b> <span id="hla">세일행사</span>
 				 </c:if>
 				</div></a>
-				<div><a>찜</a></div>
 				</td>
 				<c:set var="i" value="${i+1 }"/>
 				<c:if test="${i%3==0 }">  <!-- 3칸 후 다음줄로 이동 -->
