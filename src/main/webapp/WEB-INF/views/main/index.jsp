@@ -246,7 +246,7 @@ a {
  
  <!-- 움직이는 이미지  -->           
    <div class="scroll-image">
-    <img src="../resources/main/best5.png" width="300" height="300" style="margin-right: 20px;">&nbsp;
+    <a href="../product/pro_bestlist"> <img src="../resources/main/best5.png" width="300" height="300" style="margin-right: 20px;"> </a>&nbsp;
     <a href="../product/pro_newlist"><img src="../resources/main/best2.png" width="300" height="300" style="margin-right: 20px;"></a>&nbsp;
     <a href="../mypage/myreview"><img src="../resources/main/best7.png" width="300" height="300" style="margin-right: 20px;"></a>&nbsp;
     <a href="../gongji/list"><img src="../resources/main/best4.png" width="300" height="300" style="margin-right: 20px;"></a>&nbsp;
@@ -264,7 +264,7 @@ a {
 				<div id="title" style="font-weight: bold; ">${pvo.title }</div>
 				<div id="price">
 				 <c:if test="${pvo.halin ==0 }">   <!-- 할인 0인 경우 -->
-				  <fmt:formatNumber value="${pvo.price}"/> 원
+				  <fmt:formatNumber value="${pvo.price}"/> 원<br><br>
 				 </c:if>
 				 <c:if test="${pvo.halin != 0 }">   <!-- 할인 0이 아닌 경우 -->
 				  <s><fmt:formatNumber value="${pvo.price}"/>원<br></s>
@@ -292,7 +292,7 @@ a {
 				<div id="title">${pvo.title }</div>
 				<div id="price">
 				 <c:if test="${pvo.halin ==0 }">   <!-- 할인 0인 경우 -->
-				  <fmt:formatNumber value="${pvo.price}"/> 원
+				  <fmt:formatNumber value="${pvo.price}"/> 원<br><br>
 				 </c:if>
 				 <c:if test="${pvo.halin != 0 }">   <!-- 할인 0이 아닌 경우 -->
 				  <s><fmt:formatNumber value="${pvo.price}"/>원<br></s>

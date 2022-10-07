@@ -86,5 +86,12 @@ public class ProductController {
 		return service.pro_newlist(request, model);
 	}
 	
+	//best상품
+	@RequestMapping("/product/pro_bestlist")
+	public String pro_bestlist(HttpServletRequest request, Model model)
+	{
+		return service.pro_bestlist(request,model);
+	}
+	
 	
 }

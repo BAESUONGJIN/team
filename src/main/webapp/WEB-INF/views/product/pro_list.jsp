@@ -16,6 +16,32 @@ section {
    padding-top:150px;/* 폼 자체 조정 */
 }
 
+section #hla
+{
+font-size:7px;
+font:bold;
+display: inline-block;
+color:white;
+-webkit-animation:hh 1s infinite;
+margin-left: 10px;
+}
+
+@-webkit-keyframes hh
+{
+from{top:0px;}
+to {top 0px; color:red;}
+}
+section #title
+{
+text-align: left;
+margin-left: 60px;
+}
+section #price
+{
+text-align: left;
+margin-left: 60px;
+}
+
 div{
 margin-left: 20px;
 }
@@ -73,9 +99,11 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+
+
 <section>
 <form method="post" action="pro_list">
-	<table width="1200" height="1300" align="center">
+	<table width="1200" height="1300">
 
 	 <!-- 퀵 메뉴  -->
  <div class="quickmenu">
@@ -96,13 +124,16 @@ $(document).ready(function(){
 				<td><a href="pro_readnum?pcode=${pvo.pcode }">
 				<div id="pimg"><img src="../resources/img/${pvo.pimg}" width="300" height="350" onmouseover="content()" class="my_img"></div>
 				<div id="title">${pvo.title }</div>
+				
 				<div id="price">
 				 <c:if test="${pvo.halin ==0 }">   <!-- 할인 0인 경우 -->
-				  <fmt:formatNumber value="${pvo.price}"/>원
+			
+				 <fmt:formatNumber value="${pvo.price}"/>원<br><br>
 				 </c:if>
 				 <c:if test="${pvo.halin != 0 }">   <!-- 할인 0이 아닌 경우 -->
-				  <s><fmt:formatNumber value="${pvo.price}"/>원<br></s>
-				  <b><fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)+pvo.baesong}"/>원</b>
+				 <s><fmt:formatNumber value="${pvo.price}"/>원</s><b><span style="color:#C72F7A;margin-left:3px;">${pvo.halin}%</span>
+				 </b><br>
+				 <b><fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)+pvo.baesong}"/>원</b> <span id="hla">세일행사</span>
 				 </c:if>
 				</div></a>
 				</td>
@@ -145,7 +176,6 @@ $(document).ready(function(){
 		<c:if test="${page == chongpage }"> <!-- 현재페이지가 마지막이라면  -->
 		▷
 		</c:if>
-		
 		<!-- 10페이지씩 다음으로 이동하기  -->
 		<c:if test="${chongpage != endpage }">   <!-- 출력되는 페이지가 마지막 그룹이 아니라면 -->
 		  <a href="pro_list?dcode=${dcode}&page=${endpage+1}&pcnt=${pcnt}">▷▷</a>

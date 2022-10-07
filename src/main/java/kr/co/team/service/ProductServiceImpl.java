@@ -20,7 +20,9 @@ import kr.co.team.vo.AnswerVO;
 import kr.co.team.vo.DaeVO;
 import kr.co.team.vo.InquiryVO;
 import kr.co.team.vo.MemberVO;
+import kr.co.team.vo.ProbestVO;
 import kr.co.team.vo.ProductVO;
+import kr.co.team.vo.PronewVO;
 import kr.co.team.vo.ReviewVO;
 
 @Service
@@ -70,7 +72,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public String pro_write_ok(HttpServletRequest request) {
 		//라이브러리를 이용하여 폼태그에 값을 가져오기
-		String path="c:\\project\\team\\src\\main\\webapp\\resources\\img";
+<<<<<<< HEAD
+		String path="C:\\Users\\Administrator\\git\\team\\src\\main\\webapp\\resources\\img";
+=======
+		String path="C:\\Users\\jjs20\\git\\team\\src\\main\\webapp\\resources\\img";
+>>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
 		int size=1024*1024*30;
 		ProductVO pvo= new ProductVO();
 		
@@ -247,6 +253,8 @@ public class ProductServiceImpl implements ProductService {
 	//new상품
 	@Override
 	public String pro_newlist(HttpServletRequest request, Model model) {
+		mapper.pro_new_del();
+		mapper.pro_new_ok();
 		int page; //현재페이지
 		int start;
 		int pcnt; //페이지당 레코드 갯수 구하기
@@ -282,7 +290,7 @@ public class ProductServiceImpl implements ProductService {
 		if(chongpage < endpage)
 			endpage=chongpage;
 		
-		ArrayList<ProductVO> plist = mapper.pro_newlist(start,pcnt);
+		ArrayList<PronewVO> plist = mapper.pro_newlist(start,pcnt);
 		model.addAttribute("plist", plist);
 		model.addAttribute("page", page); //현재페이지
 		model.addAttribute("startpage", startpage); //시작페이지
@@ -292,4 +300,54 @@ public class ProductServiceImpl implements ProductService {
 		return "/product/pro_newlist";
 	}
 
+	
+	//best상품
+		@Override
+		public String pro_bestlist(HttpServletRequest request, Model model) {
+			mapper.pro_best_del();
+			mapper.pro_best_ok();
+			int page; //현재페이지
+			int start;
+			int pcnt; //페이지당 레코드 갯수 구하기
+			
+		
+			if(request.getParameter("pcnt")==null)
+				pcnt=9;
+			else
+				pcnt=Integer.parseInt(request.getParameter("pcnt"));
+			
+			//원하는 페이지의 시작 인덱스값 구하기
+			if(request.getParameter("page")==null)
+				page=1;
+			else
+				page=Integer.parseInt(request.getParameter("page"));
+			
+			start=(page-1)*pcnt;
+			
+			//페이지 이동 범위
+			//startpage(시작 페이지),endpage (끝페이지)
+			
+			int startpage,endpage;
+			
+			startpage=page/10;
+			if(page%10 == 0)
+				startpage--;
+			
+			startpage=startpage*10+1;
+			endpage=startpage+9;
+			
+			int chongpage=mapper.bestlist_getchong(pcnt);
+			
+			if(chongpage < endpage)
+				endpage=chongpage;
+			
+			ArrayList<ProbestVO> plist = mapper.pro_bestlist(start,pcnt);
+			model.addAttribute("plist", plist);
+			model.addAttribute("page", page); //현재페이지
+			model.addAttribute("startpage", startpage); //시작페이지
+			model.addAttribute("endpage", endpage); //끝페이지
+			model.addAttribute("pcnt", pcnt); //페이지당 레코드 갯수
+			model.addAttribute("chongpage", chongpage); //총페이지수
+			return "/product/pro_newlist";
+		}
 }
