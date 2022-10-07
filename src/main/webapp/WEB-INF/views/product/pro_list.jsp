@@ -31,11 +31,15 @@ margin-left: 10px;
 from{top:0px;}
 to {top 0px; color:red;}
 }
-
+section #title
+{
+text-align: left;
+margin-left: 60px;
+}
 section #price
 {
 text-align: left;
-margin-left: 100px;
+margin-left: 60px;
 }
 
 div{
@@ -124,12 +128,12 @@ $(document).ready(function(){
 				<div id="price">
 				 <c:if test="${pvo.halin ==0 }">   <!-- 할인 0인 경우 -->
 			
-				 PRICE:<fmt:formatNumber value="${pvo.price}"/>원<br><br>
+				 <fmt:formatNumber value="${pvo.price}"/>원<br><br>
 				 </c:if>
 				 <c:if test="${pvo.halin != 0 }">   <!-- 할인 0이 아닌 경우 -->
-				 PRICE:<s><fmt:formatNumber value="${pvo.price}"/>원</s><b><span style="color:#C72F7A;margin-left:3px;">${pvo.halin}%</span>
+				 <s><fmt:formatNumber value="${pvo.price}"/>원</s><b><span style="color:#C72F7A;margin-left:3px;">${pvo.halin}%</span>
 				 </b><br>
-				 HALIN:<b><fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)+pvo.baesong}"/>원</b> <span id="hla">세일행사</span>
+				 <b><fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)+pvo.baesong}"/>원</b> <span id="hla">세일행사</span>
 				 </c:if>
 				</div></a>
 				</td>
@@ -172,7 +176,6 @@ $(document).ready(function(){
 		<c:if test="${page == chongpage }"> <!-- 현재페이지가 마지막이라면  -->
 		▷
 		</c:if>
-		
 		<!-- 10페이지씩 다음으로 이동하기  -->
 		<c:if test="${chongpage != endpage }">   <!-- 출력되는 페이지가 마지막 그룹이 아니라면 -->
 		  <a href="pro_list?dcode=${dcode}&page=${endpage+1}&pcnt=${pcnt}">▷▷</a>

@@ -174,7 +174,11 @@ border-bottom-color:#CCA39B
 .incontent{
 display: none;
 }
-
+#gumae_chong{
+     margin-left: 180px;
+     font-size: 17px;
+     color: #C72F7A;
+     }
 
 .ask
 {
@@ -503,13 +507,6 @@ function inquiry_chk(iq)
               <b><span id="gumae_chong"></span></b> 
             </div>
             </div>
-            <style>
-            #gumae_chong{
-            margin-left: 180px;
-           	font-size: 17px;
-           	color: #C72F7A;
-            }
-            </style>
         <div>
          <!-- 즉구 -->
         <input type="submit" value="BUY IT NOW" style="width:350px;height:46px;background: #CCA39B;color:white;border: none;">
