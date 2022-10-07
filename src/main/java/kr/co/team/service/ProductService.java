@@ -34,4 +34,6 @@ public interface ProductService {
 	//new 상품
 	public String pro_newlist(HttpServletRequest request, Model model);
 	
+	//best상품
+	public String pro_bestlist(HttpServletRequest request, Model model);
 }

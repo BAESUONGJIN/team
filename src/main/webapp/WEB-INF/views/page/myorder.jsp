@@ -18,7 +18,7 @@
  <style>
    section {
      width:1200px;
-     height:${he}px;
+     height:auto;
      margin-top:200px;
      margin-bottom:50px;
      margin-right:auto;

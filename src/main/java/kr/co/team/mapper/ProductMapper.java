@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import kr.co.team.vo.AnswerVO;
 import kr.co.team.vo.DaeVO;
 import kr.co.team.vo.InquiryVO;
+import kr.co.team.vo.ProbestVO;
 import kr.co.team.vo.ProductVO;
+import kr.co.team.vo.PronewVO;
 import kr.co.team.vo.ReviewVO;
 
 public interface ProductMapper {
@@ -37,7 +39,15 @@ public interface ProductMapper {
 	public ArrayList<InquiryVO> answer_content();
 	
 	//new상품
-	public ArrayList<ProductVO> pro_newlist(int start, int pcnt);
+	public void pro_new_del();
+	public void pro_new_ok();
+	public ArrayList<PronewVO> pro_newlist(int start, int pcnt);
 	public int newlist_getchong(int pcnt);
+	
+	//best상품
+	public void pro_best_del();
+	public void pro_best_ok();
+	public ArrayList<ProbestVO> pro_bestlist(int start, int pcnt);
+	public int bestlist_getchong(int pcnt);
 	
 }

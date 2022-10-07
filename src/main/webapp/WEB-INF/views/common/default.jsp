@@ -401,8 +401,8 @@
       <a href="../main/index"> <img src="../resources/simg/logo4.png" width="230" style="margin-top: 15px;"> </a>
     </div>
    <span id="navi"> 
-    <a style="color: red;"> BEST ITEM </a> &nbsp;
-    <a style="font-weight: bolder;"> NEW5% </a> &nbsp;
+    <a href="../product/pro_bestlist" style="color: red;"> BEST ITEM </a> &nbsp;
+    <a href="../product/pro_newlist" style="font-weight: bolder;"> NEW5% </a> &nbsp;
     <a href="../product/pro_list?dcode=p01"> OUTER </a> &nbsp;
     <a href="../product/pro_list?dcode=p02"> TOP </a> &nbsp;
     <a href="../product/pro_list?dcode=p03"> BOTTOM </a> &nbsp;
