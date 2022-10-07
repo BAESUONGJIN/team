@@ -52,6 +52,7 @@ section #ar2 {
     justify-content: center;
     padding: 20px;
     margin-left: 10px;
+    
 }
 
 section #ar3 {

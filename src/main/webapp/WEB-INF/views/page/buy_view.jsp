@@ -17,7 +17,7 @@
  <style>
  
  section {
-     width:1000px;
+     width:1200px;
      height:${he}px;
      margin-top:200px;
      margin-bottom:50px;
@@ -36,9 +36,6 @@
      border-bottom:2px solid #cccccc;
    }
    
-   section #gumae_chk {
-   
-   }
    
    section #baesong_t .bb {
      font-size:12px;
@@ -60,21 +57,54 @@
 	 background-color: rgba(164, 48, 35, 0.1);
 	 color:#008080;
      font-weight:900;
-     margin-left:880px;
+     margin-left:1000px;
      margin-top:45px;
      cursor:pointer;
    }
    
+         /* 퀵 메뉴 */
+    div, ul, li {
+    -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0
+    }
+    a {
+    text-decoration:none;
+    color:black;
+    }
+
+	.quickmenu {position:absolute;width:100px; height:300px;  top:50%;margin-top:-20px;right:10px; }
+	.quickmenu ul {position:relative;float:left;width:100%; /* display:block; display:none; */ /* border:1px solid #ddd; */}
+	.quickmenu ul li {float:left;width:100%;/* border-bottom:1px solid #ddd; */text-align:center;display:inline-block;}
+	.quickmenu ul li a {position:relative;float:left;width:100%;height:20px;line-height:20px;/* text-align:center; */color:#999;font-size:7pt;}
+	.quickmenu ul li a:hover {color:#BDBDBD;}
+	.quickmenu ul li:last-child {border-bottom:0;}
+   
  
  </style>
 <script>
- 
+
+$(document).ready(function(){
+	  var currentPosition = parseInt($(".quickmenu").css("top"));
+	  $(window).scroll(function() {
+	    var position = $(window).scrollTop(); 
+	    $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
+	  });
+	}); 
  
  </script>
 <title>Insert title here</title>
 
 </head>
 <body> 
+ <!-- 퀵 메뉴  -->
+ <div class="quickmenu">
+  <ul>
+    <li> <i class="fa-solid fa-angles-up" style="cursor: pointer; color: #616161;" onclick="window.scrollTo(0,0);"> </i></li><br> <br>
+    <li> <a href="../page/cart"> <i class="fa-solid fa-cart-shopping fa-3x" style="color: #616161;"></i></a></li> <br> <br>
+    <li> <a href="../page/wish"> <i class="fa-regular fa-heart fa-3x" style="color: #616161;"></i> </a></li> <br> <br>
+    <li> <a href="../faq/faq_list"><i class="fa-regular fa-face-smile fa-3x" style="color: #616161;"></i></a> </li> <br> <br>
+
+  </ul>
+ </div>
  <section>
    
    <div align="center"> <h2>주문확인</h2> </div>
@@ -82,7 +112,7 @@
 
   
   <!-- 배송지 -->
-  <table width="1000" align="center" id="baesong_t">
+  <table width="1100" align="center" id="baesong_t">
    <caption style="caption-side:top"> <h4> 받는사람 정보  </h4></caption>
         
     <tr>
@@ -117,7 +147,7 @@
   <p>
   
   <!-- 상품 -->
-   <table width="1000" align="center">
+   <table width="1100" align="center">
     <caption style="caption-side:top"> <h4> 상품내역 </h4></caption>
       <tr align="center">
        <td> 상품 </td>
@@ -130,8 +160,8 @@
     <c:set var="chong" value="0"/>
     <c:forEach items="${list}" var="pvo">     
       <tr align="center"> 
-       <td> <img src="../resources/img/${pvo.pimg}" width="80"> </td>
-       <td> ${pvo.title}</td>
+       <td> <a href="../product/pro_content?pcode=${pvo.pcode}"> <img src="../resources/img/${pvo.pimg}" width="80"> </a> </td>
+       <td> <a href="../product/pro_content?pcode=${cvo.pcode}"> ${pvo.title} </a></td>
        <td> ${pvo.color}</td>
        <td> ${pvo.size}</td>
        <td> ${pvo.su}개 </td>
@@ -143,7 +173,7 @@
   
   <!-- 결제정보 -->
    <c:set var="pvo" value="${list.get(0)}"/> 
-   <table width="1000" align="center" id="baesong_t">
+   <table width="1100" align="center" id="baesong_t">
    <caption style="caption-side:top"> <h4> 결제정보 </h4> </caption>
      <c:if test="${pvo.sudan==0}">
       <c:set var="sudan" value="계좌이체"/>

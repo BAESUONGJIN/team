@@ -105,7 +105,6 @@ $(document).ready(function(){
 				  <b><fmt:formatNumber value="${pvo.price*(1-pvo.halin/100)+pvo.baesong}"/>원</b>
 				 </c:if>
 				</div></a>
-				<div><a>찜</a></div>
 				</td>
 				<c:set var="i" value="${i+1 }"/>
 				<c:if test="${i%3==0 }">  <!-- 3칸 후 다음줄로 이동 -->

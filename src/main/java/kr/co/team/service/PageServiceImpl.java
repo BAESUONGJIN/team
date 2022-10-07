@@ -137,7 +137,6 @@ public class PageServiceImpl implements PageService {
 			pvo.setColor(color[i]);
 
 			list.add(pvo);
-			mapper.cart_del2(userid,pcode[i],size[i],color[i]);
 		}
 	    
 		model.addAttribute("list",list);
@@ -188,6 +187,7 @@ public class PageServiceImpl implements PageService {
 			bvo.setSize(size[i]);
 			bvo.setColor(color[i]);
 		    mapper.buy_ok(bvo);
+		    mapper.cart_del2(userid,pcode[i],size[i],color[i]);
 		}
 		
 		return "redirect:/page/buy_view?jumunc="+jumunc;		

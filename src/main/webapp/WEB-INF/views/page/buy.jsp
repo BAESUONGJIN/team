@@ -68,7 +68,22 @@
      cursor:pointer;
    }
    
- 
+      
+     /* 퀵 메뉴 */
+    div, ul, li {
+    -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0
+    }
+    a {
+    text-decoration:none;
+    color:black;
+    }
+
+	.quickmenu {position:absolute;width:100px; height:300px;  top:50%;margin-top:-20px;right:10px; }
+	.quickmenu ul {position:relative;float:left;width:100%; /* display:block; display:none; */ /* border:1px solid #ddd; */}
+	.quickmenu ul li {float:left;width:100%;/* border-bottom:1px solid #ddd; */text-align:center;display:inline-block;}
+	.quickmenu ul li a {position:relative;float:left;width:100%;height:20px;line-height:20px;/* text-align:center; */color:#999;font-size:7pt;}
+	.quickmenu ul li a:hover {color:#BDBDBD;}
+	.quickmenu ul li:last-child {border-bottom:0;}
  </style>
 <script>
   function bae_add() //배송지 추가!!@
@@ -89,6 +104,8 @@
 	  }
 	  chk.open("get","bae_add");
 	  chk.send();
+	  
+	  window.location.reload();
   }
   
   
@@ -121,11 +138,30 @@
 	  
 	  sub[n].style.display="table-row";
   }
+  
+  /* 퀵메뉴 */
+  $(document).ready(function(){
+	  var currentPosition = parseInt($(".quickmenu").css("top"));
+	  $(window).scroll(function() {
+	    var position = $(window).scrollTop(); 
+	    $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
+	  });
+	}); 
  </script>
 <title>Insert title here</title>
 
 </head>
 <body> 
+ <!-- 퀵 메뉴  -->
+ <div class="quickmenu">
+  <ul>
+    <li> <i class="fa-solid fa-angles-up" style="cursor: pointer; color: #616161;" onclick="window.scrollTo(0,0);"> </i></li><br> <br>
+    <li> <a href="../page/cart"> <i class="fa-solid fa-cart-shopping fa-3x" style="color: #616161;"></i></a></li> <br> <br>
+    <li> <a href="../page/wish"> <i class="fa-regular fa-heart fa-3x" style="color: #616161;"></i> </a></li> <br> <br>
+    <li> <a href="../faq/faq_list"><i class="fa-regular fa-face-smile fa-3x" style="color: #616161;"></i></a> </li> <br> <br>
+
+  </ul>
+ </div>
  <section>
  
   <form method="post" action="buy_ok">
@@ -135,7 +171,7 @@
    <div align="center"> <h2>주문/결제</h2> </div>
    
    <!-- 구매자 -->
-   <table width="1000" align="center">
+   <table width="1100" align="center">
     <caption style="caption-side:top"> <h4> 구매자 </h4> </caption>
     <tr>
       <td width="150"> 이름 </td>
@@ -153,7 +189,7 @@
     <p>
   
   <!-- 배송지 -->
-  <table width="1000" align="center" id="baesong_t">
+  <table width="1100" align="center" id="baesong_t">
    <caption style="caption-side:top"> <h4> 배송지  
      <c:if test="${empty bvo}">
       <span class="bb" onclick="bae_add()" id="user"> 기본배송지 </span>
@@ -197,7 +233,7 @@
   <p>
   
   <!-- 상품 -->
-   <table width="1000" align="center">
+   <table width="1100" align="center">
     <caption style="caption-side:top"> <h4> 상품내역 </h4></caption>
       <tr align="center">
        <td> 상품 </td>
@@ -224,8 +260,8 @@
      
     <c:forEach items="${list}" var="pvo">
      <tr align="center">
-       <td> <img src="../resources/img/${pvo.pimg}" width="70" height="70"></td>
-       <td> ${pvo.title}</td>
+       <td> <a href="../product/pro_content?pcode=${pvo.pcode}"><img src="../resources/img/${pvo.pimg}" width="70" height="70"></a></td>
+       <td> <a href="../product/pro_content?pcode=${pvo.pcode}">${pvo.title}</a></td>
        <td> ${pvo.color} </td>
        <td> ${pvo.size} </td>
        <td> <fmt:formatNumber value="${pvo.price}"/>원 </td>
@@ -270,7 +306,7 @@
 
   
   <!-- 결제 -->
-  <table width="1000" align="center">
+  <table width="1100" align="center">
     <caption style="caption-side:top"> <h4> 구매금액 </h4> </caption>
     <tr>
       <td width="150"> 구매금액 </td>
@@ -298,7 +334,7 @@
    <p>
    
     
-   <table width="1000" align="center" id=gumae_chk>
+   <table width="1100" align="center" id=gumae_chk>
      <caption style="caption-side:top"> <h4> 결제방법 </h4> </caption>
     <tr>
       
