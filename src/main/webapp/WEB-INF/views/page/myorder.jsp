@@ -141,7 +141,7 @@
                <input id="btn2" type="button" value="상품평 작성" onclick="location='review?pcode=${bvo.pcode}&bid=${bvo.id}'">
              </c:if>
              <c:if test="${bvo.hugi==1}">
-               <input id="btn2" type="button" value="상품평 확인">
+               <input id="btn2" type="button" value="상품평 확인" onclick="location='myreview'">
              </c:if>
           </c:if> 
           <c:if test="${bvo.state!=4}"> 

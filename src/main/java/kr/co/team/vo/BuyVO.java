@@ -8,7 +8,7 @@ public class BuyVO {
 	
     private String su_imsi,chong_imsi,color_imsi,size_imsi;
 	   
-    private int gchk;
+    private int gchk,bid;
 	   
     private String pimg,title;
     
@@ -16,6 +16,12 @@ public class BuyVO {
     
 
 	   
+	public int getBid() {
+		return bid;
+	}
+	public void setBid(int bid) {
+		this.bid = bid;
+	}
 	public String getHugi() {
 		return hugi;
 	}

@@ -42,6 +42,10 @@
   delete from cart where id=#{param1}
  </delete>
  
+ <delete id="cart_del2">
+  delete from cart where userid=#{param1} and pcode=#{param2} and size=#{param3} and color=#{param4} 
+ </delete>
+ 
  <select id="buy" resultType="kr.co.team.vo.ProductVO">
   select * from product where pcode=#{param1}
  </select>
@@ -78,9 +82,9 @@
   </update>
   
   <insert id="buy_ok" parameterType="kr.co.team.vo.BuyVO">
-     insert into buy(pcode,size,color,su,jumunc,userid,bae_id,chong,sudan,bank,card,gigan,phone,writeday,state)
+     insert into buy(pcode,size,color,su,jumunc,userid,bae_id,chong,sudan,bank,card,gigan,phone,writeday,state,hugi)
      values(#{pcode},#{size},#{color},#{su},#{jumunc},#{userid},#{bae_id},#{chong},#{sudan},
-     #{bank},#{card},#{gigan},#{phone},now(),0)
+     #{bank},#{card},#{gigan},#{phone},now(),#{hugi},0)
   </insert>
   
   <select id="getjumun" resultType="Integer">
@@ -104,12 +108,12 @@
   </update>
 
   <select id="review" resultType="kr.co.team.vo.BuyVO">
-   select * from buy where id=#{param1}
+    select *,(select title from product where pcode=buy.pcode) as title ,(select pimg from product where pcode=buy.pcode) as pimg from buy where id=#{param1} 
   </select> 
 
   <insert id="review_ok" parameterType="kr.co.team.vo.ReviewVO">
     insert into review(pcode,content,title,userid,bid,writeday)
-    values(#{pcode},#{content},#{title},#{userid},bid,now())
+    values(#{pcode},#{content},#{title},#{userid},#{bid},now())
   </insert>
   
   <update id="hugi">
@@ -125,7 +129,7 @@
     delete from review where id=#{param1}
   </delete>
   
-  <update id="change_hugi">
+  <update id="del_hugi">
     update buy set hugi=0 where id=#{param1}
   </update>
   

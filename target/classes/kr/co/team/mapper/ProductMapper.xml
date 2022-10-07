@@ -36,6 +36,10 @@
 		select ceil(count(*)/${param1}) from product where dcode=#{param2};
 	</select>
 
+	<update id="pro_readnum" parameterType="kr.co.team.vo.ProductVO">
+		update product set readnum = readnum + 1 where pcode=#{param1}
+	</update>
+	
 	<select id="pro_content" resultType="kr.co.team.vo.ProductVO">
 		select * from product where pcode=#{param1}
 	</select>

@@ -5,11 +5,10 @@
 <mapper namespace="kr.co.team.IndexMapper">
 
   <select id="index" resultType="kr.co.team.vo.ProductVO"> 
-    select * from product order by readnum limit 6
-  </select>
-  
+    select * from product order by readnum desc limit 6
+  </select> 
   <select id="index2" resultType="kr.co.team.vo.ProductVO">
-    select * from product order by writeday, title limit 6
+    select * from product order by id desc, title limit 6
   </select>
-  
+ 
 </mapper>
