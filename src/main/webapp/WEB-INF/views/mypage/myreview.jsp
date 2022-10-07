@@ -5,45 +5,46 @@
   <head>
     <script src="https://kit.fontawesome.com/c96178233f.js" crossorigin="anonymous"></script>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <style>
-                section {
-                    width: 1000px;
-                    margin: auto;
-                    height: 100%;
-                    text-align: center;
-                    padding-top: 200px;
-                    /* 폼 자체 조정 */
-                }
+ <style>
+ @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
+ section {
+	width: 1000px;
+	height: auto;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding-top: 120px;
+   }
 
-                a {
-                    color: black;
-                    text-decoration: none;
-                }
-                section #ar1 {}
-
-                section #ar2 {
-                    margin-top: 60px;
-                    margin-bottom: 30px;
-                }
-
-                table {
-                    margin-top: 20px;
-                    width: 100%;
-                    border-top: 1px solid gray;
-                    border-collapse: collapse;
-                    border-collapse: separate;
-                }
-
-                th {
-                    text-align: center;
-                    border-bottom: 1px solid gray;
-                    padding: 10px;
-                    background: rgba(164, 48, 35, 0.1);
-                }
-
-                td {
-                    border-bottom: 1px solid gray;
-                }
+	a {
+		text-decoration: none;
+		color: black;
+	}
+	
+	table {
+		margin-top: 20px;
+		width: 100%;
+		border-top: 2px solid #cccccc;
+		border-collapse: collapse;
+	}
+	
+	th {
+		text-align: center;
+		border-bottom: 1px solid #cccccc;
+		padding: 10px;
+		background: #f6eae9;
+	}
+	
+	td {
+		border-bottom: 1px solid #cccccc;
+		padding: 10px;
+		text-align: center;
+	}
+	
+	   section tr td {
+     border-bottom:1px solid #cccccc;
+     padding: 10px;
+   }
                 
                 section #btn4 {
                     width: 50px;
@@ -64,16 +65,21 @@
                     border: none;
                     font-size: 13px;
                 }
+                
+                   h2 #hh2 {
+		           margin-bottom: 30px;
+		           font-family: 'Lora', serif;
+		           display: inline-block;
+		           background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+		      
+		           } 
+		           
             </style>
         </head>
         <body>
             <section>
-                <article id="ar1">
-                    <caption>
-                        <h5 align="left" style="font-weight: bolder; background: linear-gradient(to top, #f6eae9 30%, transparent 80%);">
-                            내가 작성한 리뷰 </h5>
-                    </caption>
-                    <table align="center" cellspacing="0">
+                        <h2 align="center"> <span id="hh2"> My Review </span> </h2>
+                    <table align="center">
                         <tr>
                             <th> 상품 </th>
                             <th> 나의 후기 </th>
@@ -97,14 +103,12 @@
                             </tr>
                         </c:forEach>
                     </table>
-                </article>
-                <article id="ar2">
-                    <caption>
-                        <h5 align="left" style="font-weight: bolder; background: linear-gradient(to top, #f6eae9 30%, transparent 80%);">
-                            상품 Q＆A </h5>
-                    </caption>
+                    
+          
+                        
                     <!-- 구분하기  -->
                     <table align="center" cellspacing="0">
+                      <h2 align="center"> <span id="hh2"> QNA </span> </h2>
                         <tr>
                             <th> 상품 </th>
                             <th> 상품문의 </th>
@@ -127,8 +131,6 @@
                                 </c:if>
                             </tr>
                         </c:forEach>
-                    </table>
-                </article>
                 <tr>
                     <!-- 페이징 처리 -->
                     <td colspan="5" align="center" id="paging" style="border: none;">
@@ -172,6 +174,7 @@
                         </c:if>
                     </td>
                 </tr>
+                </table>
             </section>
         </body>
         </html>

@@ -7,67 +7,70 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <c:set var="size" value="${list.size()}"/>
- <c:if test="${size <=1}">
-   <c:set var="he" value="1000"/>
- </c:if>
- <c:if test="${size > 2}">
-   <c:set var="he" value="${(size-2)*100+1000}"/>
- </c:if>
  <style>
+ @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
  
  section {
-     width:1200px;
-     height:${he}px;
-     margin-top:200px;
-     margin-bottom:50px;
-     margin-right:auto;
-     margin-left:auto;
+	width: 1000px;
+	height: auto;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding-top: 120px;
+   }
+
+   caption {
+    color: black;
+    font-weight: bolder;
    }
    
    	section tr:first-child td {
      border-top:2px solid #cccccc;
      border-bottom:1px solid #cccccc;
      height:35px;
+     background: rgba(164, 48, 35, 0.1);
+     font-weight: bolder;
     
    }
-   
-   /* section tr:last-child td {
-     border-bottom:2px solid #cccccc;
-   } */
    
    .sub td {
    	border-bottom: 2px solid #cccccc;
    }
    
-   section #gumae_chk {
-   
-   }
    
    section #baesong_t .bb {
      font-size:12px;
      font-weight:100;
      display:inline-block;
-     width:80px;
+     width:90px;
      height:20px;
 	 border:1px;
-	 background-color: rgba(164, 48, 35, 0.1);
-	 color:#008080;
+	 background-color: #D1A69D;
+	 color:white;
      padding-top:2px;
      text-align:center;
      cursor:pointer;
    }
    
    #btn2{
-     width:100px;
-     height:35px;
-     border:1px solid rgba(164, 48, 35, 0.1);
+     width:180px;
+     height:39px;
+     border:none;
      text-align:center;
-     color:black;
-     background:rgba(164, 48, 35, 0.1);
+     color:white;
+     background: #606060;
      cursor:pointer;
+     border-radius: 8px;
    }
    
+   	h2 #hh2{
+		margin-bottom: 30px;
+		display: inline-block;
+		width: auto;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+		font-family: 'Lora', serif;
+		color: black;
+	}
  
  </style>
 <script>
@@ -132,11 +135,11 @@
   
   
    
-   <div align="center"> <h2>주문/결제</h2> </div>
+   <div align="center"> <h2> <span id="hh2"> ORDER </span> </h2> </div>
    
    <!-- 구매자 -->
    <table width="1000" align="center">
-    <caption style="caption-side:top"> <h4> 구매자 </h4> </caption>
+    <caption style="caption-side:top"> <h4> 주문정보  </h4> </caption>
     <tr>
       <td width="150"> 이름 </td>
       <td> ${mvo.name} </td>
@@ -146,7 +149,7 @@
       <td> ${mvo.email}</td>
     </tr>
     <tr>
-      <td> 전화번호 </td>
+      <td> 휴대전화 </td>
       <td> ${mvo.phone} </td>
     </tr>
    </table>
@@ -360,7 +363,8 @@
   </table>
   <p>
   <p>
-  <div style="margin-left:1000px;"> <input id="btn2" type="submit" value="구매"> </div>
+  <div align="center"> 
+  <input id="btn2" type="submit" value="결제하기"> </div>
   
  
 

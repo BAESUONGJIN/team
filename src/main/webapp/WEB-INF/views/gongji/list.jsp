@@ -34,19 +34,19 @@
 	table {
 		margin-top: 20px;
 		width: 100%;
-		border-top: 2px solid black;
+		border-top: 2px solid #cccccc;
 		border-collapse: collapse;
 	}
 	
 	th {
 		text-align: center;
-		border-bottom: 1px solid gray;
+		border-bottom: 1px solid #cccccc;
 		padding: 10px;
 		background: #f6eae9;
 	}
 	
 	td {
-		border-bottom: 1px solid gray;
+		border-bottom: 1px solid #cccccc;
 		padding: 10px;
 		text-align: center;
 	}
@@ -69,7 +69,7 @@
 	#btn input[type=button] {
       	width:100px;
       	height:35px;
-      	border:1px solid gray;
+      	border:1px rgb(180, 180, 180);
       	border-radius: 10px;
       	background:gray;
       	color:white;
