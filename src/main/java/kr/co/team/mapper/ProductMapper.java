@@ -17,6 +17,7 @@ public interface ProductMapper {
 	public void pro_write_ok(ProductVO pvo);
 	public int getchong(int pcnt,String dcode);
 	public ArrayList<ProductVO> pro_list(String dcode, int start, int pcnt);
+	public void pro_readnum(String pcode);
 	public ProductVO pro_content(String pcode);
 
 	

@@ -152,6 +152,13 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	public String pro_readnum(HttpServletRequest request) {
+		String pcode = request.getParameter("pcode");
+		mapper.pro_readnum(pcode);
+		return "redirect:/product/pro_content?pcode="+pcode;
+	}
+	
+	@Override
 	public String pro_content(HttpServletRequest request, Model model,HttpSession session) {
 		String userid = session.getAttribute("userid").toString();
 		String pcode = request.getParameter("pcode");

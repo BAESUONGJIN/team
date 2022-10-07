@@ -93,7 +93,7 @@ $(document).ready(function(){
 		</select></div> -->
 		<tr>
 			<c:forEach items="${list}" var="pvo">
-				<td><a href="pro_content?pcode=${pvo.pcode }">
+				<td><a href="pro_readnum?pcode=${pvo.pcode }">
 				<div id="pimg"><img src="../resources/img/${pvo.pimg}" width="300" height="350" onmouseover="content()" class="my_img"></div>
 				<div id="title">${pvo.title }</div>
 				<div id="price">
