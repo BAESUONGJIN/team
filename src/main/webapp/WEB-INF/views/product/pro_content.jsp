@@ -293,13 +293,20 @@ function inquiry_chk(iq)
        			{
        		
        				if(chk.responseText=="0")
+       				{	
        					alert("찜목록 추가");
+       					document.getElementById("sss").src = "../resources/simg/heart2.png";
+       				}
+       					
        				else
        					alert("오류");
      			  	 }	
    				
    			 	chk.open("get","wish_add?pcode=${pvo.pcode}&su="+su+"&color="+color+"&size="+size);
    	        	chk.send();
+   	        	
+   	        	
+   	        	
        	         }
    			
    			 
@@ -337,6 +344,8 @@ function inquiry_chk(iq)
    				
    			 	chk.open("get","cart_add?pcode=${pvo.pcode}&su="+su+"&color="+color+"&size="+size);
    	        	chk.send();
+   	        	
+   	        	
        	         }
    			
    			 
@@ -441,43 +450,45 @@ function inquiry_chk(iq)
                <span id="gumae_chong"></span>
             </div>
             </div>
+            
+           
+        <div>
+          					<!-- 즉구 -->
+        <input type="submit" value="BUY IT NOW" style="width:350px;height:46px;background: #CCA39B;color:white;border: none;">
                                                 <!-- 찜 -->
 
-      <div>
+      
 	    <c:if test="${userid != null}"> 
 	     <c:if test="${wishcnt == 0}">
-          <span class="btn" onclick="wish_add()"> 찜목록 추가 </span>
+          <span class="btn" onclick="wish_add()" style="margin-left:15px;"><img src="../resources/simg/heart.png" width="30" height="30" id="sss"> </span>
          </c:if>
          <c:if test="${wishcnt == 1}">
-          <span class="btn" onclick="location='wish_cancel?pcode=${pvo.pcode}'"> 찜목록 취소 </span>
+          <span class="btn" onclick="location='wish_cancel?pcode=${pvo.pcode}'"> <img src="../resources/simg/heart2.png" width="30" height="30"> </span>
          </c:if>
         </c:if>
                 
         <c:if test="${userid == null}"> 
-          <span class="btn" onclick="alert('로그인 하세요')"> 찜목록 추가 </span> 
+          <span class="btn" onclick="alert('로그인 하세요')"> <img src="../resources/simg/heart.png" width="30" height="30"> </span> 
         </c:if>  
-        
-        <a href="../page/wish"> 찜목록 이미지 클릭시 이동</a>
-		</div>
-      
+
       <!-- 찜 -->
       
       <!-- 장바구니 -->
-     <div>
+
 		<c:if test="${userid != null}">
-          <span class="btn" onclick="cart_add()"> 장바구니 </span>
+          <span class="btn" onclick="cart_add()"> <img src="../resources/simg/cart.png" width="30" height="30"> </span>
         </c:if>
         <c:if test="${userid == null}"> 
-          <span class="btn" onclick="alert('로그인을 하세요')"> 장바구니 </span> 
-        </c:if>  
-        <a href="../page/cart"> 장바구니 이미지 클릭시 이동</a>
+          <span class="btn" onclick="alert('로그인을 하세요')"> <img src="../resources/simg/cart.png" width="30" height="30"> </span> 
+        </c:if> 
      </div> 
+	
       <!-- 장바구니 -->
 
       <!-- 즉시구매 -->
-   <input type="submit" value="BUY IT NOW" style="width:400px;height:46px;background: #CCA39B;color:white;border: none;">
+     
+   
    </form>      
-   </div>
             
 </article>
 
