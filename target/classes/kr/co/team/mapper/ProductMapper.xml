@@ -36,6 +36,10 @@
 		select ceil(count(*)/${param1}) from product where dcode=#{param2};
 	</select>
 
+	<update id="pro_readnum" parameterType="kr.co.team.vo.ProductVO">
+		update product set readnum = readnum + 1 where pcode=#{param1}
+	</update>
+	
 	<select id="pro_content" resultType="kr.co.team.vo.ProductVO">
 		select * from product where pcode=#{param1}
 	</select>
@@ -88,5 +92,14 @@
      delete from wish where pcode=#{param1} and userid=#{param2}
   	</delete>
 	
+	
+	<!-- new상품 -->
+	<select id="pro_newlist" resultType="kr.co.team.vo.ProductVO">
+		select * from product order by id desc limit 100
+	</select>
+	
+	<select id="newlist_getchong" resultType="Integer"> <!--총 페이지수 구하기 -->
+		select ceil(count(*)/#{param1}) from product
+	</select>
 	
 </mapper>

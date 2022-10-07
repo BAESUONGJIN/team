@@ -10,125 +10,175 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
- /* 검색창 만들기 끝 */
-    #image {
-       width:100%;
-       height:500px;
-       background:white;
-       margin-top: 105px;
-    }
-    
-    #image #outer {
-       width:100%;
-       height:500px;
-       overflow:hidden; 
-       z-index: 8; /* 상위 속성 */
-    }
-    #image #inner {
-       width:100%;
-       height:500px;
-    }
-    
-    section { /* section 기본  */
-       width:1400px;
-       height:100%;
-       margin:auto;
-       text-align: center;
-       
-    }
-    section #ar2 { /* 사분할 BEST ITEM | NEW ITEM | ACC | REVIEW EVENT */
-       width:100%;
-       height:300px;
-       margin-top:30px;
-       background:white;
-    }
-    
-    .scroll-image{
-    margin-top:30px;
-    display: inline-block;  
+/* 검색창 만들기 끝 */
+#image {
+    width: 100%;
+    height: 500px;
+    background: white;
+    margin-top: 105px;
+}
+
+#image #outer {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    z-index: 8;
+}
+
+#image #inner {
+    width: 100%;
+    height: 500px;
+}
+
+section {
+    /* section 기본  */
+    width: 1400px;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+section #ar2 {
+    /* 사분할 BEST ITEM | NEW ITEM | ACC | REVIEW EVENT */
+    width: 100%;
+    height: 300px;
+    margin-top: 30px;
+    background: white;
+}
+
+.scroll-image {
+    margin-top: 30px;
+    display: inline-block;
     justify-content: center;
     padding: 20px;
     margin-left: 10px;
-    }
-    
-    section #ar3 { /* 사진 3장씩 */
-       height: 1000px;
-       background: white;
-       margin-top: 200px;
-       text-align: center;
-       margin-left: 60px;
-       }
-       
-    section #ar3 a {
-    text-decoration: none;
-    color:#555555;
-    text-align: center;
-    }
-    
-    
-      section #ar4 { /* 사진 3장씩 */
-       height: 1200px;
-       background: white;
-       margin-top: 200px;
-       text-align: center;
-       margin-left: 60px;
-    }
-    
-      section #ar4 a {
-    text-decoration: none;
-    color:#555555;
-    text-align: center;
-    }
-    
-    section div{
-    margin-left: 30px; 
-    }
-       
-    
-    h1 {  /* 글자 hover */
-  color: #000;
-  display:inline-block; 
-  font-size:15px;
-  margin:0;
-  text-transform:uppercase; }
-  
-   h1:after {
-  display:block;
-  content: '';
-  border-bottom: solid 3px #ea2129;  
-  transform: scaleX(0);  
-  transition: transform 250ms ease-in-out;
 }
 
-   h1:hover:after { transform: scaleX(1); }
-    
+section #ar3 {
+    /* 사진 3장씩 */
+    height: 1000px;
+    background: white;
+    margin-top: 200px;
+    text-align: center;
+    margin-left: 60px;
+}
 
-    /* 퀵 메뉴 */
-    div, ul, li {
-    -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0
-    }
-    a {
-    text-decoration:none;
-    }
+section #ar3 a {
+    text-decoration: none;
+    color: #555555;
+    text-align: center;
+}
 
-.quickmenu {position:absolute;width:100px; height:300px;  top:50%;margin-top:-20px;right:10px; }
-.quickmenu ul {position:relative;float:left;width:100%; /* display:block; display:none; */ /* border:1px solid #ddd; */}
-.quickmenu ul li {float:left;width:100%;/* border-bottom:1px solid #ddd; */text-align:center;display:inline-block;}
-.quickmenu ul li a {position:relative;float:left;width:100%;height:20px;line-height:20px;/* text-align:center; */color:#999;font-size:7pt;}
-.quickmenu ul li a:hover {color:#BDBDBD;}
-.quickmenu ul li:last-child {border-bottom:0;}
 
-.content {position:relative;min-height:1000px;}
+section #ar4 {
+    /* 사진 3장씩 */
+    height: 1200px;
+    background: white;
+    margin-top: 200px;
+    text-align: center;
+    margin-left: 60px;
+}
 
-  /* 이미지 hover */
- .my_img {
-   filter: brightness(1);
-   } 
- .my_img:hover {
-   filter: brightness(0.5);
-   }
-   
+section #ar4 a {
+    text-decoration: none;
+    color: #555555;
+    text-align: center;
+}
+
+section div {
+    margin-left: 30px;
+}
+
+h1 {
+    /* 글자 hover */
+    color: #000;
+    display: inline-block;
+    font-size: 15px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+h1:after {
+    display: block;
+    content: '';
+    border-bottom: solid 3px #ea2129;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+h1:hover:after {
+    transform: scaleX(1);
+}
+
+
+/* 퀵 메뉴 */
+div, ul, li {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0
+}
+
+a {
+    text-decoration: none;
+}
+
+.quickmenu {
+    position: absolute;
+    width: 100px;
+    height: 300px;
+    top: 50%;
+    margin-top: -20px;
+    right: 10px;
+}
+
+.quickmenu ul {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.quickmenu ul li {
+    float: left;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+
+.quickmenu ul li a {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    color: #999;
+    font-size: 7pt;
+}
+
+.quickmenu ul li a:hover {
+    color: #BDBDBD;
+}
+
+.quickmenu ul li:last-child {
+    border-bottom: 0;
+}
+
+.content {
+    position: relative;
+    min-height: 1000px;
+}
+
+/* 이미지 hover */
+.my_img {
+    filter: brightness(1);
+}
+
+.my_img:hover {
+    filter: brightness(0.5);
+}
 </style>
+
 <script>
   $(function()
   {
@@ -196,7 +246,7 @@
  <!-- 움직이는 이미지  -->           
    <div class="scroll-image">
     <img src="../resources/main/best5.png" width="300" height="300" style="margin-right: 20px;">&nbsp;
-    <img src="../resources/main/best2.png" width="300" height="300" style="margin-right: 20px;">&nbsp;
+    <a href="../product/pro_newlist"><img src="../resources/main/best2.png" width="300" height="300" style="margin-right: 20px;"></a>&nbsp;
     <a href="../mypage/myreview"><img src="../resources/main/best7.png" width="300" height="300" style="margin-right: 20px;"></a>&nbsp;
     <a href="../gongji/list"><img src="../resources/main/best4.png" width="300" height="300" style="margin-right: 20px;"></a>&nbsp;
   </div>

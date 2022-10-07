@@ -17,6 +17,7 @@ public interface ProductMapper {
 	public void pro_write_ok(ProductVO pvo);
 	public int getchong(int pcnt,String dcode);
 	public ArrayList<ProductVO> pro_list(String dcode, int start, int pcnt);
+	public void pro_readnum(String pcode);
 	public ProductVO pro_content(String pcode);
 
 	
@@ -34,5 +35,9 @@ public interface ProductMapper {
 	public int checkwish(String userid,String pcode);
 	public void wish_cancel(String pcode, String userid);
 	public ArrayList<InquiryVO> answer_content();
+	
+	//new상품
+	public ArrayList<ProductVO> pro_newlist(int start, int pcnt);
+	public int newlist_getchong(int pcnt);
 	
 }

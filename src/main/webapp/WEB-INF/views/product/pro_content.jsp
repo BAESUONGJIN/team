@@ -302,6 +302,7 @@ function inquiry_chk(iq)
    		var size=document.buy.size.value;
    		var chk=new XMLHttpRequest();
        	
+   		
    			if(document.buy.color.value !=0 && document.buy.size.value != 0)
    				{
    		
@@ -309,13 +310,20 @@ function inquiry_chk(iq)
        			{
        		
        				if(chk.responseText=="0")
+       				{	
        					alert("찜목록 추가");
+       					
+       				}
+       					
        				else
        					alert("오류");
      			  	 }	
    				
    			 	chk.open("get","wish_add?pcode=${pvo.pcode}&su="+su+"&color="+color+"&size="+size);
    	        	chk.send();
+   	        	
+   	        	window.location.reload();
+   	        	
        	         }
    			
    			 
@@ -353,7 +361,9 @@ function inquiry_chk(iq)
    				
    			 	chk.open("get","cart_add?pcode=${pvo.pcode}&su="+su+"&color="+color+"&size="+size);
    	        	chk.send();
-       	         }
+   	        	
+   	        	
+       	        }
    			
    			 
    			else 
@@ -463,6 +473,7 @@ function inquiry_chk(iq)
               <b><span id="gumae_chong"></span></b> 
             </div>
             </div>
+<<<<<<< HEAD
             <style>
             #gumae_chong{
             margin-left: 180px;
@@ -470,43 +481,47 @@ function inquiry_chk(iq)
            	color: #C72F7A;
             }
             </style>
+=======
+            
+           
+        <div>
+          					<!-- 즉구 -->
+        <input type="submit" value="BUY IT NOW" style="width:350px;height:46px;background: #CCA39B;color:white;border: none;">
+>>>>>>> branch 'master' of https://github.com/BAESUONGJIN/team.git
                                                 <!-- 찜 -->
 
-      <div>
+      
 	    <c:if test="${userid != null}"> 
 	     <c:if test="${wishcnt == 0}">
-          <span class="btn" onclick="wish_add()"> 찜목록 추가 </span>
+          <span class="btn" onclick="wish_add()" style="margin-left:15px;"><img src="../resources/simg/heart.png" width="30" height="30" id="sss"> </span>
          </c:if>
          <c:if test="${wishcnt == 1}">
-          <span class="btn" onclick="location='wish_cancel?pcode=${pvo.pcode}'"> 찜목록 취소 </span>
+          <span class="btn" onclick="location='wish_cancel?pcode=${pvo.pcode}'"> <img src="../resources/simg/heart2.png" width="30" height="30"> </span>
          </c:if>
         </c:if>
                 
         <c:if test="${userid == null}"> 
-          <span class="btn" onclick="alert('로그인 하세요')"> 찜목록 추가 </span> 
+          <span class="btn" onclick="alert('로그인 하세요')"> <img src="../resources/simg/heart.png" width="30" height="30"> </span> 
         </c:if>  
-        
-        <a href="../page/wish"> 찜목록 이미지 클릭시 이동</a>
-		</div>
-      
+
       <!-- 찜 -->
       
       <!-- 장바구니 -->
-     <div>
+
 		<c:if test="${userid != null}">
-          <span class="btn" onclick="cart_add()"> 장바구니 </span>
+          <span class="btn" onclick="cart_add()"> <img src="../resources/simg/cart.png" width="30" height="30"> </span>
         </c:if>
         <c:if test="${userid == null}"> 
-          <span class="btn" onclick="alert('로그인을 하세요')"> 장바구니 </span> 
-        </c:if>  
-        <a href="../page/cart"> 장바구니 이미지 클릭시 이동</a>
+          <span class="btn" onclick="alert('로그인을 하세요')"> <img src="../resources/simg/cart.png" width="30" height="30"> </span> 
+        </c:if> 
      </div> 
+	
       <!-- 장바구니 -->
 
       <!-- 즉시구매 -->
-   <input type="submit" value="BUY IT NOW" style="width:400px;height:46px;background: #CCA39B;color:white;border: none;">
+     
+   
    </form>      
-   </div>
             
 </article>
 
@@ -524,7 +539,7 @@ function inquiry_chk(iq)
                <table id="review_tb" width="950" align="center">
                 <tr style="background:rgba(164, 48, 35, 0.1);color:black;">
                  <td>아이디</td>
-                 <td>내 용</td>
+                 <td>한줄평</td>
                  <td>작성일</td>
                 </tr>
             <c:forEach items="${rlist}" var="rvo">
@@ -535,24 +550,7 @@ function inquiry_chk(iq)
                </tr>
             </c:forEach>
               </table>
-            <p>
-              <form method="post" action="pro_review_write_ok" onsubmit="return review_chk(this)">
-                <input type="hidden" name="pcode" value="${pvo.pcode}">
-                  <table width="950" align="center">
-               <tr>
-               	  <td>상품명</td>
-                  <td><input type="text" name="title" size="98" value="${pvo.title}" readonly></td>
-               </tr>
-               <tr>
-               	  <td>상품평</td>
-                  <td><textarea class="cont" rows="6" cols="100" name="content"></textarea></td>
-               </tr>
-                <tr>
-              		 <td colspan="2"><input type="submit" value="등록하기" style="width:200px;height:46px;background: #CCA39B;color:white;border: none;margin-top: 20px;"></td>
-            	</tr>
-            	</table>
 
-              </form>
 </article>
 
 <article id="ar4">

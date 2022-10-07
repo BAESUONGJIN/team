@@ -36,7 +36,7 @@ public interface PageService {
 	public String change_state(HttpServletRequest request);
 	
 	public String review(HttpServletRequest request,Model model);
-	public String review_ok(ReviewVO rvo,HttpSession session);
+	public String review_ok(ReviewVO rvo,HttpSession session,HttpServletRequest request);
 	public String myreview(HttpSession session,Model model);
 	public String review_del(HttpServletRequest request);
 	public String review_update(HttpServletRequest request,Model model);

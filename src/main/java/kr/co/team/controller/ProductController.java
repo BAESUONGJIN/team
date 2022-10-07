@@ -49,6 +49,11 @@ public class ProductController {
 		return service.pro_list(request,model,pvo);
 	}
 
+	@RequestMapping("/product/pro_readnum")
+	public String pro_readnum(HttpServletRequest request)
+	{
+		return service.pro_readnum(request);
+	}
 	
 	@RequestMapping("/product/pro_content")
 	public String pro_content(HttpServletRequest request,Model model,HttpSession session)
@@ -70,6 +75,15 @@ public class ProductController {
 	public String wish_cancel(HttpSession session,HttpServletRequest request)
 	{
 		return service.wish_cancel(session,request);
+	}
+	
+	
+	
+	//new 상품 리스트 100개
+	@RequestMapping("/product/pro_newlist")
+	public String pro_newlist(HttpServletRequest request, Model model)
+	{
+		return service.pro_newlist(request, model);
 	}
 	
 	

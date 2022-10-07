@@ -146,9 +146,9 @@ public class PageController {
 	}
 	
 	@RequestMapping("/page/review_ok")
-	public String review_ok(ReviewVO rvo,HttpSession session)
+	public String review_ok(ReviewVO rvo,HttpSession session,HttpServletRequest request)
 	{
-		return service.review_ok(rvo,session);
+		return service.review_ok(rvo,session,request);
 	}
 	
 	@RequestMapping("/page/myreview")

@@ -152,6 +152,13 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	public String pro_readnum(HttpServletRequest request) {
+		String pcode = request.getParameter("pcode");
+		mapper.pro_readnum(pcode);
+		return "redirect:/product/pro_content?pcode="+pcode;
+	}
+	
+	@Override
 	public String pro_content(HttpServletRequest request, Model model,HttpSession session) {
 		String userid = session.getAttribute("userid").toString();
 		String pcode = request.getParameter("pcode");
@@ -234,6 +241,55 @@ public class ProductServiceImpl implements ProductService {
 		
 		mapper.wish_cancel(pcode,userid);
 		return "redirect:/product/pro_content?pcode="+pcode;
+	}
+	
+	
+	//new상품
+	@Override
+	public String pro_newlist(HttpServletRequest request, Model model) {
+		int page; //현재페이지
+		int start;
+		int pcnt; //페이지당 레코드 갯수 구하기
+		
+	
+		if(request.getParameter("pcnt")==null)
+			pcnt=9;
+		else
+			pcnt=Integer.parseInt(request.getParameter("pcnt"));
+		
+		//원하는 페이지의 시작 인덱스값 구하기
+		if(request.getParameter("page")==null)
+			page=1;
+		else
+			page=Integer.parseInt(request.getParameter("page"));
+		
+		start=(page-1)*pcnt;
+		
+		//페이지 이동 범위
+		//startpage(시작 페이지),endpage (끝페이지)
+		
+		int startpage,endpage;
+		
+		startpage=page/10;
+		if(page%10 == 0)
+			startpage--;
+		
+		startpage=startpage*10+1;
+		endpage=startpage+9;
+		
+		int chongpage=mapper.newlist_getchong(pcnt);
+		
+		if(chongpage < endpage)
+			endpage=chongpage;
+		
+		ArrayList<ProductVO> plist = mapper.pro_newlist(start,pcnt);
+		model.addAttribute("plist", plist);
+		model.addAttribute("page", page); //현재페이지
+		model.addAttribute("startpage", startpage); //시작페이지
+		model.addAttribute("endpage", endpage); //끝페이지
+		model.addAttribute("pcnt", pcnt); //페이지당 레코드 갯수
+		model.addAttribute("chongpage", chongpage); //총페이지수
+		return "/product/pro_newlist";
 	}
 
 }
