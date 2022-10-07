@@ -51,11 +51,7 @@
      #userid_search,#pwd_search {
      display:none;
    }
-
  </style>
- <script>
-
-</script>
  
 </head>
 <body>

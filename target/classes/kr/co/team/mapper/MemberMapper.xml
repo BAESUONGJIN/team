@@ -5,12 +5,12 @@
 <mapper namespace="kr.co.team.mapper.MemberMapper">
 
  <insert id="memberinput_ok" parameterType="kr.co.team.vo.MemberVO">
-   insert into member(userid,name,pwd,zip,juso,juso_etc,phone,email,writeday)
-   values(#{userid},#{name},#{pwd},#{zip},#{juso},#{juso_etc},#{phone},#{email},now())
+  insert into member(userid,name,pwd,zip,juso,juso_etc,phone,email,writeday)
+  values(#{userid},#{name},#{pwd},#{zip},#{juso},#{juso_etc},#{phone},#{email},now())
  </insert>
  
  <select id="check_userid" resultType="Integer">
-   select count(*) from member where userid=#{param1}
+  select count(*) from member where userid=#{param1}
  </select>
 
 </mapper>

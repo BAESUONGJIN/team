@@ -43,13 +43,13 @@ section {
       
     }
     
-        #h3 {
-		margin-bottom: 30px;
-		display: inline-block;
-		width: 200px;
-		font-size: 25px;
-        font-family: 'Lora', serif;
-		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+     #h3 {
+	  margin-bottom: 30px;
+	  display: inline-block;
+	  width: 200px;
+	  font-size: 25px;
+      font-family: 'Lora', serif;
+   	  background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 		
 	}
     
@@ -187,7 +187,6 @@ section {
     <p>  
     <div> <input type="text" name="userid" placeholder="아이디" onblur="check_userid(this.value)"> 
           <br> <span id="msg" style="font-size:12px;">(영문소문자/숫자, 4~16자)</span>
-          
     </div>
     <div> <input type="text" name="name" placeholder="이 름"> </div>
     <div> <input type="password" name="pwd" placeholder="비밀번호"> </div>

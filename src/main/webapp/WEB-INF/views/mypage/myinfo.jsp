@@ -57,15 +57,15 @@
  </style>
  
  <script>
-   function change_pwd()
-   {
+ function change_pwd()
+ {
 	   document.getElementById("pwdform").style.display="block";
 	   document.getElementById("info_change1").style.display="none";
-   }
-   
-   var pchk=0;
-   function check_pwd(pwd2) 
-   {
+ }
+ 
+ var pchk=0;
+ function check_pwd(pwd2) 
+ {
 	   var pwd=document.pchg.pwd.value;
 	   if(pwd==pwd2)
 	   {
@@ -79,9 +79,9 @@
 		   document.getElementById("pmsg").style.color="red";
 		   pchk=0;
 	   }	   
-   }
-   function check(my)
-   {
+ }
+ function check(my)
+ {
 	   if(my.prepwd.value.trim().length == 0)
 	   {
 		   alert("기존 비밀번호를 입력하세요");
@@ -99,7 +99,7 @@
 	        	 }
 	             else
 	            	return true;
-   }
+ }
   </script>
 </head>
 <body> 
@@ -149,5 +149,4 @@
   </form>
   </section>
 </body>
- 
 </html>
