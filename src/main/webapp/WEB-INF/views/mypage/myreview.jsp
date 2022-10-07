@@ -2,79 +2,79 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
-    <script src="https://kit.fontawesome.com/c96178233f.js" crossorigin="anonymous"></script>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+<script src="https://kit.fontawesome.com/c96178233f.js" crossorigin="anonymous"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <style>
- @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
- section {
-	width: 1000px;
-	height: auto;
-	margin: auto;
-	margin-top: 40px;
-	margin-bottom: 40px;
-	padding-top: 120px;
-   }
+	@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap');
+
+	section {
+		width: 1000px;
+		height: auto;
+		margin: auto;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		padding-top: 120px;
+	}
 
 	a {
 		text-decoration: none;
 		color: black;
 	}
-	
+
 	table {
 		margin-top: 20px;
 		width: 100%;
 		border-top: 2px solid #cccccc;
 		border-collapse: collapse;
 	}
-	
+
 	th {
 		text-align: center;
 		border-bottom: 1px solid #cccccc;
 		padding: 10px;
 		background: #f6eae9;
 	}
-	
+
 	td {
 		border-bottom: 1px solid #cccccc;
 		padding: 10px;
 		text-align: center;
 	}
-	
-	   section tr td {
-       border-bottom:1px solid #cccccc;
-       padding: 10px;
-   }
-                
-                section #btn4 {
-                    width: 50px;
-                    height: 44px;
-                    background-color: #D1A69D;
-                    color: white;
-                    border-radius: 8px;
-                    border: none;
-                    font-size: 13px;
-                }
 
-                section #btn5 {
-                    width: 50px;
-                    height: 44px;
-                    background-color: rgb(180, 180, 180);
-                    color: white;
-                    border-radius: 8px;
-                    border: none;
-                    font-size: 13px;
-                }
-                
-                   h2 #hh2 {
-		           margin-bottom: 30px;
-		           font-family: 'Lora', serif;
-		           display: inline-block;
-		           background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
-		      
-		           } 
-		           
-            </style>
+	section tr td {
+		border-bottom: 1px solid #cccccc;
+		padding: 10px;
+	}
+
+	section #btn4 {
+		width: 50px;
+		height: 44px;
+		background-color: #D1A69D;
+		color: white;
+		border-radius: 8px;
+		border: none;
+		font-size: 13px;
+	}
+
+	section #btn5 {
+		width: 50px;
+		height: 44px;
+		background-color: rgb(180, 180, 180);
+		color: white;
+		border-radius: 8px;
+		border: none;
+		font-size: 13px;
+	}
+
+	h2 #hh2 {
+		margin-bottom: 30px;
+		font-family: 'Lora', serif;
+		display: inline-block;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+
+	}
+</style>
         </head>
         <body>
             <section>
@@ -103,9 +103,6 @@
                             </tr>
                         </c:forEach>
                     </table>
-                    
-          
-                        
                     <!-- 구분하기  -->
                     <table align="center" cellspacing="0">
                       <h2 align="center"> <span id="hh2"> QNA </span> </h2>

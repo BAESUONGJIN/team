@@ -47,19 +47,17 @@
       border: none;
       font-size: 13px;
       }
-    
-    #search11{
-     display: none;
-    }
-    
-input {
-        border-style:none;
-        border-bottom:solid 1px #cacaca;
-        border-collapse:collapse;
-        
+      
+      #search11{
+      display: none;
+    } 
+      input {
+      border-style:none;
+      border-bottom:solid 1px #cacaca;
+      border-collapse:collapse;  
 }
-   *:focus { /*input text focus */
-    outline: 0;
+     *:focus { /*input text focus */
+      outline: 0;
 }
     
   </style>
@@ -93,13 +91,9 @@ input {
 			    	 document.getElementById("search11").style.display="block";
 			     }
 			   
-			  }
-			  
-		  }
-		  
+			  }  
+		  }  
 	  }
-    
-    
  </script>
 </head>
 <body>

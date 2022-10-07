@@ -39,7 +39,7 @@
 </head>
 <body>
  <section>
-   <caption> <h3 style="font-weight: bolder; background: linear-gradient(to top, #f6eae9 30%, transparent 80%);"> 상품리뷰 수정 </h3></caption>
+   <caption> <h3 style="font-weight: bolder; background: linear-gradient(to top, #f6eae9 30%, transparent 80%);"> 상품후기 수정 </h3></caption>
     <form method="post" name="review" action="myreview_update_ok">
       <input type="hidden" name="id" value="${rvo.id }">
        <table width="600" align="center" cellspacing="0">

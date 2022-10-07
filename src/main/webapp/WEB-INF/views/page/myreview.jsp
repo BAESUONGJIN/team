@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
  <style>
    section {
      width:1200px;
@@ -40,7 +39,7 @@
      cursor:pointer;
    }
    
-         /* 퀵 메뉴 */
+    /* 퀵 메뉴 */
     div, ul, li {
     -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0
     }
