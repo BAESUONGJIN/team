@@ -282,7 +282,6 @@ public class ProductServiceImpl implements ProductService {
 		if(chongpage < endpage)
 			endpage=chongpage;
 		
-		
 		ArrayList<ProductVO> plist = mapper.pro_newlist(start,pcnt);
 		model.addAttribute("plist", plist);
 		model.addAttribute("page", page); //현재페이지
