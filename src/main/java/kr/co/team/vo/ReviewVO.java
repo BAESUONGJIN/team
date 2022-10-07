@@ -2,12 +2,19 @@ package kr.co.team.vo;
 
 public class ReviewVO {
 	private int id,bid;
-	private String userid,content,writeday,pcode;
+	private String title,userid,content,writeday,pcode;
 	
 	//productVO에서 가져온 값
 	private String pimg, ptitle;
 	
 	
+	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	public int getBid() {
 		return bid;
 	}

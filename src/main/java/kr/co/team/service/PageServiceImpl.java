@@ -122,6 +122,7 @@ public class PageServiceImpl implements PageService {
 
 	@Override
 	public String buy(HttpServletRequest request, Model model,HttpSession session) {
+		String userid=session.getAttribute("userid").toString();
 		String[] pcode=request.getParameter("pcode").split(",");
 		String[] su=request.getParameter("su").split(",");
 		String[] color=request.getParameter("color").split(",");
@@ -136,12 +137,11 @@ public class PageServiceImpl implements PageService {
 			pvo.setColor(color[i]);
 
 			list.add(pvo);
+			mapper.cart_del2(userid,pcode[i],size[i],color[i]);
 		}
 	    
 		model.addAttribute("list",list);
 		
-				
-		String userid=session.getAttribute("userid").toString();
 		MemberVO mvo=mapper.member(userid);
 		model.addAttribute("mvo",mvo);
 		
@@ -277,7 +277,6 @@ public class PageServiceImpl implements PageService {
 	
 	@Override
 	public String review(HttpServletRequest request, Model model) {
-		String pcode=request.getParameter("pcode");
 		String bid=request.getParameter("bid");
 		BuyVO bvo=mapper.review(bid);
 		model.addAttribute("bvo",bvo);
@@ -286,11 +285,12 @@ public class PageServiceImpl implements PageService {
 	}
 
 	@Override
-	public String review_ok(ReviewVO rvo,HttpSession session) {
+	public String review_ok(ReviewVO rvo,HttpSession session,HttpServletRequest request) {
+		String pcode=request.getParameter("pcode");
 		rvo.setUserid(session.getAttribute("userid").toString());
 		mapper.review_ok(rvo);
 		mapper.hugi(rvo.getBid());
-		return "redirect:/page/myreview";
+		return "redirect:/product/pro_content?pcode="+pcode+"#ar3";
 
 	}
 
@@ -305,15 +305,20 @@ public class PageServiceImpl implements PageService {
 	@Override
 	public String review_del(HttpServletRequest request) {
 		String id=request.getParameter("id");
-		String gid=request.getParameter("gid");
+		String bid=request.getParameter("bid");
 		mapper.review_del(id);
-		mapper.change_hugi(gid);
+		mapper.del_hugi(bid);
 		
 		return "redirect:/page/myreview";
 	}
 
 	@Override
 	public String review_update(HttpServletRequest request, Model model) {
+		String bid=request.getParameter("bid");
+		BuyVO bvo=mapper.review(bid);
+		model.addAttribute("bvo",bvo);
+		model.addAttribute("bid",bid);
+		
 		String id=request.getParameter("id");
 		ReviewVO rvo=mapper.review_update(id);
 		model.addAttribute("rvo",rvo);

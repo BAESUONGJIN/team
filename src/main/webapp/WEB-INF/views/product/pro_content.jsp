@@ -465,7 +465,7 @@ function inquiry_chk(iq)
                <table id="review_tb" width="950" align="center">
                 <tr style="background:rgba(164, 48, 35, 0.1);color:black;">
                  <td>아이디</td>
-                 <td>내 용</td>
+                 <td>한줄평</td>
                  <td>작성일</td>
                 </tr>
             <c:forEach items="${rlist}" var="rvo">
@@ -476,24 +476,7 @@ function inquiry_chk(iq)
                </tr>
             </c:forEach>
               </table>
-            <p>
-              <form method="post" action="pro_review_write_ok" onsubmit="return review_chk(this)">
-                <input type="hidden" name="pcode" value="${pvo.pcode}">
-                  <table width="950" align="center">
-               <tr>
-               	  <td>상품명</td>
-                  <td><input type="text" name="title" size="98" value="${pvo.title}" readonly></td>
-               </tr>
-               <tr>
-               	  <td>상품평</td>
-                  <td><textarea class="cont" rows="6" cols="100" name="content"></textarea></td>
-               </tr>
-                <tr>
-              		 <td colspan="2"><input type="submit" value="등록하기" style="width:200px;height:46px;background: #CCA39B;color:white;border: none;margin-top: 20px;"></td>
-            	</tr>
-            	</table>
 
-              </form>
 </article>
 
 <article id="ar4">

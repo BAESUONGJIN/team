@@ -20,7 +20,7 @@ public interface PageMapper {
 	public void wish_del2(String userid,String pcode,String su,String size,String color);
 	public ArrayList<CartVO> cart(String userid);
 	public void cart_del(String id);
-	
+	public void cart_del2(String userid,String pcode,String size,String color);
 	public ProductVO buy(String pcode);
 	
 	public MemberVO member(String userid);
@@ -46,7 +46,7 @@ public interface PageMapper {
     public void hugi(int id);
     public ArrayList<ReviewVO> myreview(String userid);
     public void review_del(String id);
-    public void change_hugi(String gid);
+    public void del_hugi(String bid);
     public ReviewVO review_update(String id);
     public void review_update_ok(ReviewVO rvo);
     
