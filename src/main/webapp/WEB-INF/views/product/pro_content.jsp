@@ -286,6 +286,7 @@ function inquiry_chk(iq)
    		var size=document.buy.size.value;
    		var chk=new XMLHttpRequest();
        	
+   		
    			if(document.buy.color.value !=0 && document.buy.size.value != 0)
    				{
    		
