@@ -6,7 +6,7 @@
  @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
 
    section {
-     width:600px;
+     width:1000px;
      height:700px;
      margin:auto;
      text-align:center;
@@ -52,37 +52,12 @@
      display:none;
    }
  </style>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script>
-     window.Kakao.init("37605ad5e98501985ec36389463bdd42");
-     function KakaoLogin() {
-    	window.Kakao.Auth.login({
-    	 scope:'profile_nickname, account_email, gender',
-    	 success: function(authObj) {
-          console.log(authObj);
-           window.Kakao.API.request({
-        	  url:'/v2/user/me',
-        	  success: res => {
-        		  const kakao_account = res.kakao_acount;
-        		  console.log(kakao_account);
-        			  
-        		  }
-        	  });
-           
-     }
-    	});
-      }
-     
-    </script>
+ 
 </head>
 <body>
   <section>
     <form method="post" action="login_ok">
      <h2 style="font-family: 'Song Myung', serif;"> Login </h2> 
-     <span > 아이디와 비밀번호 입력하기 귀찮으시죠? <p>
-카카오로 1초 만에 로그인 하세요. <p>
-     </span>
-      <a href="javascript:KakaoLogin();"> <img src="../resources/simg/kakao.png" width="410"> </a>
      <div> <input type="text" name="userid" value="hong123" placeholder="아이디"> </div>
      <div> <input type="password" name="pwd" value="123" placeholder="비밀번호">
        <c:if test="${err == 1}"> 

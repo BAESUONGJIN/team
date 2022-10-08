@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
    section {
      width:1000px;
      height:800;
@@ -24,22 +25,21 @@
    section table td {
      border-bottom:1px solid #cccccc;
    }
-   section table tr:last-child td {
-     border-bottom:2px solid #cccccc;
-   } 
    
-   	h3 {
+   	h2 #hh2{
 		margin-bottom: 30px;
 		display: inline-block;
 		width: auto;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+		font-family: 'Lora', serif;
+		color: black;
 	}
    
  </style>
 </head>
 <body>
  <section>
-   <caption> <h3 style="font-weight: bolder; background: linear-gradient(to top, #f6eae9 30%, transparent 80%);"> 상품후기 수정 </h3></caption>
+   <h2> <span id="hh2"> Review Update </span></h2>
     <form method="post" name="review" action="myreview_update_ok">
       <input type="hidden" name="id" value="${rvo.id }">
        <table width="600" align="center" cellspacing="0">

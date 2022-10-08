@@ -235,8 +235,6 @@ $(function()
 	</div>
  
     <section>           <!-- 현재페이지의 필요한 내용 -->  <!-- article는 section내의 하나의 항목 -->
-    
-    
       <article id="ar2"> 
         
  <!-- 퀵 메뉴  -->

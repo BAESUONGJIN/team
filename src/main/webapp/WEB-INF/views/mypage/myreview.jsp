@@ -79,7 +79,7 @@
         <body>
             <section>
                         <h2 align="center"> <span id="hh2"> My Review </span> </h2>
-                    <table align="center">
+                    <table align="center" style="margin-bottom: 50px;">
                         <tr>
                             <th> 상품 </th>
                             <th> 나의 후기 </th>
