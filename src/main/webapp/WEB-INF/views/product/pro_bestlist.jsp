@@ -40,6 +40,7 @@
     text-decoration:none;
     }
 
+
 .quickmenu {position:absolute;width:100px; height:300px;  top:50%;margin-top:-20px;right:10px; }
 .quickmenu ul {position:relative;float:left;width:100%; /* display:block; display:none; */ /* border:1px solid #ddd; */}
 .quickmenu ul li {float:left;width:100%;/* border-bottom:1px solid #ddd; */text-align:center;display:inline-block;}

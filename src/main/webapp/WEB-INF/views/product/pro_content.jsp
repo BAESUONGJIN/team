@@ -80,15 +80,11 @@ height: 70px;
 text-align: center;
 padding-top: 20px;
 font-size: 20px;
-/*  background: linear-gradient(to top, #f6eae9 30%, transparent 80%);  */
--webkit-animation:cc 1s	infinite;
 }
 
-@-webkit-keyframes cc {
-  from {top: 0px;}
-  to {top: 200px; background:linear-gradient(to top, #f6eae9 30%, transparent 80%);}
+section #ar2 div:hover{
+ background:linear-gradient(to top, #f6eae9 30%, transparent 80%);
 }
-
 
 section #ar3{ /* 상품평 */
 margin-top: 20px;
@@ -225,11 +221,11 @@ display: none;
 function check()
 {
    
-   var size=document.getElementById("size").value;
-   var color=document.getElementById("color").value;
-   var halin=${pvo.halin};
-   var price=Number(${pvo.price}).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-   var chong=Number(${pvo.price*(1-pvo.halin/100)}).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	  var size=document.getElementById("size").value;
+	   var color=document.getElementById("color").value;
+	   var halin=${pvo.halin};
+	   var price=Number(${pvo.price}).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	   var chong=Number(${pvo.price*(1-pvo.halin/100)}).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
    
    if(color !=0)
    {
