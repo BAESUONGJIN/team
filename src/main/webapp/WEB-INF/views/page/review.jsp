@@ -6,11 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
   <style>
    section {
-     width:1200px;
-     height:600px;
+     width:1000px;
+     height:auto;
      margin-top:200px;
      margin-bottom:50px;
      margin-right:auto;
@@ -50,9 +49,8 @@
   <section>
    <form name="review" method="post" action="review_ok"> 
     <input type="hidden" name="pcode" value="${bvo.pcode}">
-    <input type="hidden" name="bid" value="${bid}">
-    
-    <table width="800" align="center" >
+    <input type="hidden" name="bid" value="${bid}"> 
+    <table width="1000" align="center" >
      <caption style="caption-side:top"> <h3> 상품평 쓰기 </h3></caption>
      
      

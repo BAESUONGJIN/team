@@ -18,48 +18,87 @@
  <style>
  @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
  
-   section {
-     width:1200px;
-     height:${he}px;
-     margin-top:200px;
-     margin-bottom:50px;
-     margin-right:auto;
-     margin-left:auto;
-   }
+	section {
+		width: 1000px;
+		height: auto;
+		margin: auto;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		padding-top: 120px;
+	}
 
 	section tr:first-child td {
      border-top:2px solid #cccccc;
      border-bottom:1px solid #cccccc;
      height:35px;
+     background: rgba(164, 48, 35, 0.1);
+     font-weight: bolder;
     
    }
    section tr td {
      border-bottom:1px solid #cccccc;
+     padding: 10px;
    }
    
    section tr:last-child td {
      border-bottom:2px solid #cccccc;
    }
    section #del1 {
-     width:60px;
-     height:30px;
-	 border:1px;
-	 background-color: rgba(164, 48, 35, 0.1);
-	 color:#008080;
-     font-weight:900;
+     width:24px;
+     height:24px;
+	 border:1px solid #b5b5b5;
+	 color: #b5b5b5;
+     font-weight:lighter;
+     border-radius: 2px;
      cursor:pointer;
    }
-   section #del2, #move, section #buy {
-     width:180px;
-     height:30px;
-	 border:1px;
-	 background-color: rgba(164, 48, 35, 0.1);
-	 color:#008080;
-     font-weight:900;
-     cursor:pointer;
+   section #del2 {
+      width:180px;
+      height:35px;
+      background-color:rgb(180, 180, 180);
+      color:white;
+      border-radius: 8px;
+      border: none;
+      font-size: 15px;
    }
    
+    section #buy {
+      width:180px;
+      height:35px;
+      background-color:#D1A69D;
+      color:white;
+      border-radius: 8px;
+      border: none;
+      font-size: 15px;    
+    }
+   
+	h2 #hh2{
+		margin-bottom: 30px;
+		display: inline-block;
+		width: auto;
+		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+		font-family: 'Lora', serif;
+		color: black;
+	}
+   
+   
    }
+      /* 퀵 메뉴 */
+    div, ul, li {
+    -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0
+    }
+    a {
+    text-decoration:none;
+    color:black;
+    }
+
+	.quickmenu {position:absolute;width:100px; height:300px;  top:50%;margin-top:-20px;right:10px; }
+	.quickmenu ul {position:relative;float:left;width:100%; /* display:block; display:none; */ /* border:1px solid #ddd; */}
+	.quickmenu ul li {float:left;width:100%;/* border-bottom:1px solid #ddd; */text-align:center;display:inline-block;}
+	.quickmenu ul li a {position:relative;float:left;width:100%;height:20px;line-height:20px;/* text-align:center; */color:#999;font-size:7pt;}
+	.quickmenu ul li a:hover {color:#BDBDBD;}
+	.quickmenu ul li:last-child {border-bottom:0;}
+
  </style>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> 
@@ -122,7 +161,6 @@
    }
    function buy()
    {
-	   
 	   var pcode="";
 	   var su="";
 	   var size="";
@@ -144,13 +182,33 @@
 	   }
 	   location="../page/buy?gchk=2&pcode="+pcode+"&su="+su+"&size="+size+"&color="+color;
    }
+   
+   /* 퀵메뉴 */
+   $(document).ready(function(){
+ 	  var currentPosition = parseInt($(".quickmenu").css("top"));
+ 	  $(window).scroll(function() {
+ 	    var position = $(window).scrollTop(); 
+ 	    $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
+ 	  });
+ 	}); 
   </script>
 </head>
-<body> <!-- cart.jsp -->
+<body>
+ <!-- 퀵 메뉴  -->
+ <div class="quickmenu">
+  <ul>
+    <li> <i class="fa-solid fa-angles-up" style="cursor: pointer; color: #616161;" onclick="window.scrollTo(0,0);"> </i></li><br> <br>
+    <li> <a href="../page/cart"> <i class="fa-solid fa-cart-shopping fa-3x" style="color: #616161;"></i></a></li> <br> <br>
+    <li> <a href="../page/wish"> <i class="fa-regular fa-heart fa-3x" style="color: #616161;"></i> </a></li> <br> <br>
+    <li> <a href="../faq/faq_list"><i class="fa-regular fa-face-smile fa-3x" style="color: #616161;"></i></a> </li> <br> <br>
+
+  </ul>
+ </div>
+
    <section>
      
-     <table width="1200" align="center">
-       <caption style="caption-side:top"> <h3 style=" font-family: 'Lora', serif;">Cart</h3> </caption>
+     <table width="1000" align="center">
+       <caption style="caption-side:top"> <h2 align="center"> <span id="hh2"> CART </span> </h2> </caption>
        <tr align="center">
          <td> <input type="checkbox" onclick="maincheck(this.checked)" style="width:px;height:20px;" id="mainchk"> </td>
          <td> 상품이미지 </td>
@@ -170,8 +228,8 @@
        
        <tr align="center">
          <td> <input type="checkbox" class="subchk" onclick="subcheck()" value="${cvo.id}"> </td>
-         <td> <img src="../resources/img/${cvo.pimg}" width="70" height="70" style="border:1px solid #cccccc;padding:5px;"> </td>
-         <td> ${cvo.title}</td>
+         <td> <a href="../product/pro_content?pcode=${cvo.pcode}"> <img src="../resources/img/${cvo.pimg}" width="70" height="70" style="border:1px solid #cccccc;padding:5px;"></a> </td>
+         <td> <a href="../product/pro_content?pcode=${cvo.pcode}"> ${cvo.title} </a> </td>
          <td> ${cvo.color}</td>
          <td> ${cvo.size}</td>
          <td class="price"> <fmt:formatNumber value="${cvo.price*cvo.su}"/>원 </td>

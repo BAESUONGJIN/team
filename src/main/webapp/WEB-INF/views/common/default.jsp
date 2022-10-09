@@ -28,8 +28,9 @@
    header #main {
      width:200px;
      height:40px;
-     margin-top:0px;
+     margin-top:10px;
      margin-left:55px;
+     margin-bottom: 15px;
      position:absolute;
      bottom:94%; /* 위치 지정 */
      overflow:hidden; 
@@ -53,6 +54,7 @@
     
     header #right { /* 우측  */
        position:relative;
+       margin-bottom: 15px;
        font-size: 12px;
        display: inline;
        position: absolute;
@@ -78,14 +80,22 @@
        padding-left:0px;
        border:1px hsla(0, 0%, 84%, 0.3);
        background: white;
-       padding:5px;
+       padding:0px;
        display:none;
     }
+    
     header #myinfo li {
        list-style-type:none;
        width:110px;
        height:25px;
        text-align:center;
+    }
+    
+    #lix {
+    	
+    	background-color: rgba(164, 48, 35, 0.1);
+    	padding: 0px;
+    	margin:0px 0px 7px 0px;
     }
     
      #myinfo a {
@@ -99,7 +109,7 @@
         
     .second{ /* 로고 넣기 */
      width:100%;
-     height:110px;
+     height:100px;
      background-color: white;
      margin: auto;
      position: fixed;
@@ -123,6 +133,7 @@
        top:50px;
        color: black;
        font-size: 13px;
+       word-spacing: 1px;
        /*position: fixed;  고정 */
     }
     
@@ -173,17 +184,6 @@
     outline:none;
     background: #f0f0f0;
     }
-      
-   
-    /*footer {
-       width:100%;
-       height:200px;
-       background:#D941C5;
-       margin:auto;
-       position : relative;
-       transform : translateY(-100%);
-    }*/
-    
    
     /* 말풍선 */
     .wrap {
@@ -196,31 +196,32 @@
     .chatbox {animation: motion 0.3s linear 0s infinite alternate; margin-top: 0;
    -webkit-animation: motion 0.3s linear 0s infinite alternate; margin-top: 0;
 
-}
+    }
         
     @keyframes motion {
    0% {margin-top: 0px;}
    100% {margin-top: 10px;}
-}
+   }
 
    -webkit-@keyframes motion {
    0% {margin-top: 0px;}
    100% {margin-top: 10px;}
-}
-    footer {
+   }
+   
+   footer {
        width:100%;
        height: 200px;
        border: 1px solid rgb(240, 240, 240);
        background: rgba(164, 48, 35, 0.1);
        margin-top: 20px;
-       
     }
-
+    
 	.second2 {
 		position: fixed;
 		top: 0px;
 		background: #fbebea;
 	}
+	
   </style>
   
   <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -320,7 +321,7 @@
     <div id="main"> <!-- 좌측 쿼리 -->
      <ul id="inner">
        <li> <span style="font-weight: bolder; font-size:13px; color: rgba(182, 83, 48, 0.5);"> 01.&nbsp;  </span> 데님진 OPEN </li>
-       <li> <span style="font-weight: bolder; font-size:13px; color: rgba(182, 83, 48, 0.5);"> 02.&nbsp;  </span> 트랜치 코트 </li>
+       <li> <span style="font-weight: bolder; font-size:13px; color: rgba(182, 83, 48, 0.5);"> 02.&nbsp;  </span> 프릴 원피스 </li>
        <li> <span style="font-weight: bolder; font-size:13px; color: rgba(182, 83, 48, 0.5);"> 03.&nbsp;  </span> 가을 남방 </li>
      </ul>
    </div>
@@ -343,7 +344,7 @@
         <span id="my" style="display:inline-block"> <a href="../"> MY PAGE ∨</a>
         <ul id="myinfo">
       <c:if test="${userid != 'admin123'}">
-      
+      <li id="lix" style="height:16px;"> </li>
       <c:if test="${userid == null }"> <li> <a href="../login/login"> 회원정보 수정</a> </li>
       </c:if>
       <c:if test="${userid !=null }">
@@ -375,6 +376,7 @@
       </c:if>
           <!-- 관리자 전용  -->
         <c:if test="${userid == 'admin123'}">
+        	<li id="lix" style="height:16px;"> </li>
           <li style="font-weight: bold;"> 관리자 전용 </li>
           <li> <a href="../admin/buy_list"> 주문관련 </a> </li>
           <li> <a href="../product/pro_write"> 상품등록 </a> </li>
@@ -398,7 +400,7 @@
     <nav>
     <div class="second"> <!-- 2층 -->
       <div id="logo">
-      <a href="../main/index"> <img src="../resources/simg/logo4.png" width="230" style="margin-top: 15px;"> </a>
+      <a href="../main/index"> <img src="../resources/simg/main22.png" width="210" style="margin-top: 10px; margin-left: 20px;"> </a>
     </div>
    <span id="navi"> 
     <a href="../product/pro_bestlist" style="color: red;"> BEST ITEM </a> &nbsp;
@@ -447,15 +449,15 @@ SAT, SUN, <span style="color: red;"> HOLIDAY CLOSED </span> <p>
   <div style="font-size: 12px;">   
      농협은행 302-0643-7948-77
 
-      예금주 김효정 [EZEN]
+      예금주 [Amitie]
 </div>
  </span>
 </div>
 
-<div id="foot3" style="float: right; width: 33%; padding:10px; margin-top: 15px; text-align: right: ;"> <!-- 2 -->
+<div id="foot3" style="float: right; width: 33%; padding:10px; margin-top: 15px;"> <!-- 2 -->
 <div style="font-size: 12px;">
-<span style="font-weight: bold; font-size: 12px; color: black;">HOME</span> 상호명 EZEN 대표자 김효정 대표전화 010-4406-7777 <p>
-<span style="font-weight: bold; font-size: 12px; color: black;">COMPANY</span> 개인정보관리책임자 김효정(clwm16@naver.com) <p>
+<span style="font-weight: bold; font-size: 12px; color: black;">HOME</span> 상호명 Amitie 대표전화 010-4406-7777 <p>
+<span style="font-weight: bold; font-size: 12px; color: black;">COMPANY</span> 개인정보관리책임자 Amitie(amitie@naver.com) <p>
 <span style="font-weight: bold; font-size: 12px; color: black;">AGREEMENT</span> 통신판매업신고 2018-경기도청-7770 <p>
 <u>
 <span style="font-weight: bold; font-size: 12px; color: black;">PRIVACY</span></u>

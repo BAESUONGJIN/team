@@ -41,6 +41,7 @@
 		display: inline-block;
 		width: auto;
 		background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
+		font-family: 'Lora', serif;
 	}
 	
 	a {
@@ -64,19 +65,20 @@
 	table {
 		margin-top: 20px;
 		width: 100%;
-		border-top: 2px solid black;
+		border-top: 2px solid #cccccc;
 		border-collapse: collapse;
 	}
 	
 	th {
 		text-align: center;
-		border-bottom: 1px solid gray;
+		border-bottom: 1px solid #cccccc;
 		padding: 10px;
 		background: #f6eae9;
+		
 	}
 	
 	td {
-		border-bottom: 1px solid gray;
+		border-bottom: 1px solid #cccccc;
 		padding: 10px;
 	}
 	
@@ -143,7 +145,7 @@
 </head>
 <body>
 <section>
-	<h2 align="center" style="font-family: 'Lora', serif;"> <span id="faq"> FAQ </span> </h2> 
+	<h2 align="center"> <span id="faq"> FAQ </span> </h2> 
 	<span id="menu">
 		<c:set var="st" value="style='color:white; background: gray;'"/>
 		<a href="faq_list" id="sub" ${st}> 전 체 </a>

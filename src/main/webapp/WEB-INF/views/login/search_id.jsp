@@ -1,66 +1,69 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <style>
-   @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
-  
-    section {
-     width:600px;
-     height:800px;
-     margin:auto;
-     text-align:center;
-     padding-top:160px;/* 폼 자체 조정 */
-     position:relative;
-    }
-    
-      section #btn2 {
-      width:200px;
-      height:44px;
-      background-color:#D1A69D;
-      color:white;
-      border-radius: 10px;
-      border: none;
-      
-    }
-    
-      section #btn3 {
-      width:110px;
-      height:44px;
-      background-color:#D1A69D;
-      color:white;
-      border-radius: 8px;
-      border: none;
-      font-size: 13px;
-      }
-      
-      section #btn4 {
-      width:110px;
-      height:44px;
-      background-color:rgb(180, 180, 180);
-      color:white;
-      border-radius: 8px;
-      border: none;
-      font-size: 13px;
-      }
-    
-    #search11{
-     display: none;
-    }
-        input {
-        border-style:none;
-        border-bottom:solid 1px #cacaca;
-        border-collapse:collapse; 
-        
-}
-   *:focus { /*input text focus */
-    outline: 0;
-}
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+
+	section {
+		width: 600px;
+		height: 800px;
+		margin: auto;
+		text-align: center;
+		padding-top: 160px;
+		/* 폼 자체 조정 */
+		position: relative;
+	}
+
+	section #btn2 {
+		width: 200px;
+		height: 44px;
+		background-color: #D1A69D;
+		color: white;
+		border-radius: 10px;
+		border: none;
+
+	}
+
+	section #btn3 {
+		width: 110px;
+		height: 44px;
+		background-color: #D1A69D;
+		color: white;
+		border-radius: 8px;
+		border: none;
+		font-size: 13px;
+	}
+
+	section #btn4 {
+		width: 110px;
+		height: 44px;
+		background-color: rgb(180, 180, 180);
+		color: white;
+		border-radius: 8px;
+		border: none;
+		font-size: 13px;
+	}
+
+	#search11 {
+		display: none;
+	}
+
+	input {
+		border-style: none;
+		border-bottom: solid 1px #cacaca;
+		border-collapse: collapse;
+
+	}
+
+	*:focus {
+		/*input text focus */
+		outline: 0;
+	}
     
   </style>
  

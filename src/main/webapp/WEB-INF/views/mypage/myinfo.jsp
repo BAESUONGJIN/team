@@ -49,7 +49,7 @@
       font-size: 20px;
       }
       
-      h3 {
+      h2 {
 	  display: inline-block;
 	  background: linear-gradient(to top, #f6eae9 30%, transparent 80%);
 	}
@@ -105,7 +105,7 @@
 <body> 
   <section>
 <form method="post" name="info_change1" id="info_change1">
-  <h3 align="center" style=" font-size: 25px; font-family: 'Lora', serif; margin-bottom: 30px;"> My Information </h3> 
+  <h2 align="center" style=" font-size: 25px; font-family: 'Lora', serif; margin-bottom: 30px;"> My Information </h2> 
    <table align="center">
       <tr height="50">
         <td style="text-align: left; font-weight: bold;"> 아이디 </td>
