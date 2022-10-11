@@ -197,7 +197,7 @@ $(document).ready(function(){
     </tr>
     <tr>
       <td> 구매 총금액 </td>
-      <td align="right"> <fmt:formatNumber value="${pvo.chong}" pattern="#,###"/>원  </td>
+      <td align="right"> <fmt:formatNumber value="${chongpay}" pattern="#,###"/> 원  </td>
     </tr>
   </table>
   <p>

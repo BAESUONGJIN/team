@@ -29,7 +29,7 @@ public interface PageService {
 	public String baesong_edit(HttpServletRequest request,Model model);
 	public String baesong_edit_ok(BaesongVO bvo);
 	
-	public String buy_ok(BuyVO bvo,HttpSession session);
+	public String buy_ok(BuyVO bvo,HttpSession session,HttpServletRequest request);
 	public String buy_view(Model model,HttpSession session,HttpServletRequest request);
 	
 	public String myorder(HttpSession session,Model model);

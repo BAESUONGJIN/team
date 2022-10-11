@@ -116,9 +116,9 @@ public class PageController {
 	}
 	
 	@RequestMapping("/page/buy_ok")
-	public String buy_ok(BuyVO bvo,HttpSession session)
+	public String buy_ok(BuyVO bvo,HttpSession session,HttpServletRequest request)
 	{
-		return service.buy_ok(bvo,session);
+		return service.buy_ok(bvo,session,request);
 	}
 	
 	@RequestMapping("/page/buy_view")

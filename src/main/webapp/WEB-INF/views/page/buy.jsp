@@ -291,6 +291,7 @@
      <c:set var="cchong" value="${cchong+=cimsi+=','}"/>
      <c:set var="ccolor" value="${ccolor+=pvo.color+=','}"/>
      <c:set var="csize" value="${csize+=pvo.size+=','}"/>
+     <c:set var="chalin" value="${chalin+=pvo.halin+=','}"/>
      
     </c:forEach>
    <input type="hidden" name="pcode" value="${cpcode}">
@@ -334,8 +335,7 @@
 
    </table>
    <p>
-   
-    
+    <input type="hidden" name="chongpay" value="${chongpay }">
    <table width="1000" align="center" id=gumae_chk>
      <caption style="caption-side:top"> <h4> 결제방법 </h4> </caption>
     <tr>

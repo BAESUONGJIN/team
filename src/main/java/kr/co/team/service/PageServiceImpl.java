@@ -152,8 +152,9 @@ public class PageServiceImpl implements PageService {
 	}
 	
 	@Override
-	public String buy_ok(BuyVO bvo,HttpSession session) {
+	public String buy_ok(BuyVO bvo,HttpSession session,HttpServletRequest request) {
 		String userid=session.getAttribute("userid").toString();
+		String chongpay = request.getParameter("chongpay");
 		bvo.setUserid(userid);
 		
 		Integer number=mapper.getjumun(userid);
@@ -190,7 +191,7 @@ public class PageServiceImpl implements PageService {
 		    mapper.cart_del2(userid,pcode[i],size[i],color[i]);
 		}
 		
-		return "redirect:/page/buy_view?jumunc="+jumunc;		
+		return "redirect:/page/buy_view?jumunc="+jumunc+"&chongpay="+chongpay;		
 	}
 
 	
@@ -248,6 +249,9 @@ public class PageServiceImpl implements PageService {
 		
 		String userid=session.getAttribute("userid").toString();
 		String jumunc=request.getParameter("jumunc");
+		String chongpay = request.getParameter("chongpay");
+		
+		model.addAttribute("chongpay", chongpay);
 		
 		ArrayList<ViewVO> list=mapper.buy_view(jumunc);
 		model.addAttribute("list",list);

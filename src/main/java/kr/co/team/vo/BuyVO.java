@@ -2,6 +2,7 @@ package kr.co.team.vo;
 
 public class BuyVO {
 	private int id,su,bae_id,chong,sudan,bank,card,gigan,phone,state;
+	
 	private String pcode,userid,writeday,size,color;
 	
 	private String jumunc;
