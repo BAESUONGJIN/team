@@ -7,13 +7,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <c:set var="size" value="${list.size()}"/>
- <c:if test="${size <=1}">
-   <c:set var="he" value="800"/>
- </c:if>
- <c:if test="${size > 3}">
-   <c:set var="he" value="${(size-3)*100+800}"/>
- </c:if>
  <style>
   @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto:wght@700&display=swap'); 
   
@@ -24,6 +17,11 @@
 	margin-top: 40px;
 	margin-bottom: 40px;
 	padding-top: 120px;
+   }
+   
+    caption {
+    color: black;
+    font-weight: bolder;
    }
 
 	section tr:first-child td {
@@ -98,8 +96,6 @@ $(document).ready(function(){
 	}); 
  
  </script>
-<title>Insert title here</title>
-
 </head>
 <body> 
  <!-- 퀵 메뉴  -->
